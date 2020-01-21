@@ -32,7 +32,7 @@ Loged users can see user graphics of their statistics they can choose between di
 
 * Emails sent to the players as a remainder of the game.
 * Login with facebook, twitter or google.
-* API REST from diferent socilal media used to post info and results about the games.
+* API REST from diferent social media used to post info and results about the games.
 
 ### Advanced Algorithmic
 
