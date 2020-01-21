@@ -1,6 +1,7 @@
 # PadelVs
 
-# Team members
+# Fase 0
+### Team members
 
 | Name | Mail | Github user|
 |--------|--------|------------|
@@ -9,4 +10,8 @@
 |José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |
 |Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |
 |Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |
+
+### Entidades
+Usuarios, equipos, torneos, partidos
+
 
