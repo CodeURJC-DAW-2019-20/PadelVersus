@@ -23,3 +23,7 @@ Users, teams, tournament, game
 ### Imagenes
 
 Loged users can upload images to their profile. Loged users and Admin can upload photos of the games.
+
+### Graphics 
+
+Loged users can see user graphics of their statistics they can choose between diferent formats.
