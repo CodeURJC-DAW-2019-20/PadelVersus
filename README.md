@@ -18,7 +18,10 @@ https://trello.com/b/FH0qaXPJ/daw
 ### Sections description
 
 #### Entities
-Users, teams, tournament, game
+Users, teams, tournament, game. Relations:
+* Games are played by teams.
+* Tournament are comosed by teams.
+* Teams are composed by users.
 
 #### Users and permissions
 
