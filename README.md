@@ -20,10 +20,16 @@ Users, teams, tournament, game
 * **Loged user**: All permission of Anonymous user. Write pemission over tournament registration to join them. Write permisions over his  personal and login data and his team information data. 
 * **Admin user**: Read permission over all website data. Write over all website data (not login data).
 
-### Imagenes
+### Images
 
 Loged users can upload images to their profile. Loged users and Admin can upload photos of the games.
 
 ### Graphics 
 
 Loged users can see user graphics of their statistics they can choose between diferent formats.
+
+### Complementary technology
+
+* Emails sent to the players as a remainder of the game.
+* Login with facebook, twitter or google.
+* API REST from diferent socilal media used to post info and results about the games.
