@@ -11,7 +11,13 @@
 |Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |
 |Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |
 
-### Entidades
-Usuarios, equipos, torneos, partidos
+### Entities
+Users, teams, tournament, game
 
+### Users and permissions
 
+* **Anonymous user**:Read permission over rankings, team statistics, game's calendar and other info.
+* **Loged user**: All permission of Anonymous user. Write pemission over tournament registration to join them. Write permisions over his  personal and login data and his team information data. 
+* **Admin user**: Read permission over all website data. Write over all website data (not login data).
+
+### 
