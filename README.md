@@ -1,4 +1,4 @@
-# PadelVs
+# PadelVersus
 
 # Fase 0
 ### Team members
@@ -20,4 +20,6 @@ Users, teams, tournament, game
 * **Loged user**: All permission of Anonymous user. Write pemission over tournament registration to join them. Write permisions over his  personal and login data and his team information data. 
 * **Admin user**: Read permission over all website data. Write over all website data (not login data).
 
-### 
+### Imagenes
+
+Loged users can upload images to their profile. Loged users and Admin can upload photos of the games.
