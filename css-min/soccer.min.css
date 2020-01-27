@@ -19581,7 +19581,8 @@ overflow-scroll.table tr td {
 
     .main-menu {
         text-align: left;
-        padding-left: 10%
+        margin-left: 25%;
+        position: fixed;
     }
 
     .main-menu li {
