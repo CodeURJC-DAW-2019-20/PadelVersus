@@ -20,7 +20,7 @@ https://trello.com/b/FH0qaXPJ/daw
 #### Entities
 Users, teams, tournament, game. Relations:
 * Games are played by teams.
-* Tournament are comosed by teams.
+* Tournament are composed by teams.
 * Teams are composed by users.
 
 #### Users and permissions
