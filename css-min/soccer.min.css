@@ -35690,3 +35690,14 @@ ul.esport-championship-timline-tabs > li > a:before {
         display: none
     }
 }
+
+.center-h4{
+    text-align: center;
+}
+
+ul.tab-filters{
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
+}
