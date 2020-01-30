@@ -22531,10 +22531,6 @@ overflow-scroll.table tr td {
     color: #fff
 }
 
-.match-page-info .latest span.drawn {
-    background: #999;
-    color: #fff
-}
 
 .match-page-info .latest span.lose {
     background: #f44336;
@@ -24312,10 +24308,6 @@ overflow-scroll.table tr td {
     background: #4caf50
 }
 
-.standing-full tr td.form span.drawn {
-    background: #999
-}
-
 .standing-full tr td.form span.lose {
     background: #f44336
 }
@@ -25599,9 +25591,6 @@ table tr:hover td i {
     background: #4caf50
 }
 
-.standing-full tr td.form span.drawn {
-    background: #999
-}
 
 .standing-full tr td.form span.lose {
     background: #f44336
@@ -26557,10 +26546,6 @@ table tr td .organisation-name {
     color: #fff
 }
 
-.upcoming-match-info .latest span.drawn {
-    background: #999;
-    color: #fff
-}
 
 .upcoming-match-info .latest span.lose {
     background: #f44336;
@@ -35713,4 +35698,15 @@ ul.esport-championship-timline-tabs > li > a:before {
 
 .margin-center{
     margin: 0 45%
+}
+
+.center-h4{
+    text-align: center;
+}
+
+ul.tab-filters{
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    display: flex;
 }
