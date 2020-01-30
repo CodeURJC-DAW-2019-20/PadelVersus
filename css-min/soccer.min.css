@@ -20413,9 +20413,8 @@ overflow-scroll.table tr td {
 
 
 }
-.alinearTexto{
-    text-align: center;
-}
+
+
 
 .main-slider-caption .match-role {
     font-size: 64px;
@@ -35710,4 +35709,8 @@ ul.esport-championship-timline-tabs > li > a:before {
     .esport-team-landing-footer-links ul > li > a > span {
         display: none
     }
+}
+
+.margin-center{
+    margin: 0 45%
 }
