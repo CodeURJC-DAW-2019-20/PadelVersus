@@ -1359,6 +1359,7 @@ body {
     background-color: #fff
 }
 
+
 button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
@@ -20277,7 +20278,7 @@ overflow-scroll.table tr td {
 }
 
 .main-slider-section {
-    background: url(../images/soccer/main-slider.jpg) no-repeat;
+    background: url(../images/soccer/1419907_n_INTERIOR_PISTA_1920X1920.jpg) no-repeat;
     background-size: cover
 }
 
@@ -20408,8 +20409,12 @@ overflow-scroll.table tr td {
     color: #fff;
     line-height: 60px;
     border-radius: 10px;
-    background: #141414
+    background: #141415
+
+
 }
+
+
 
 .main-slider-caption .match-role {
     font-size: 64px;
@@ -35689,6 +35694,10 @@ ul.esport-championship-timline-tabs > li > a:before {
     .esport-team-landing-footer-links ul > li > a > span {
         display: none
     }
+}
+
+.margin-center{
+    margin: 0 45%
 }
 
 .center-h4{

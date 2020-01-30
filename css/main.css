@@ -473,4 +473,13 @@ iframe {
     padding-left: 15px;
     padding-right: 15px;
   }
-} 
+}
+
+.calendar {
+  background-color: #fafafa;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  /* IMPORTANTE */
+  text-align: center;
+}
