@@ -28056,11 +28056,11 @@ table tr td .organisation-name {
     bottom: 110px;
     left: 0;
     right: 0;
-    background: url(../images/soccer/error-bg.jpg) 50% 50% no-repeat
+    background: url(../images/padel.jpg) 50% 50% no-repeat
 }
 
 .error-wrap.offline {
-    background: url(../images/soccer/offline-bg.jpg) 50% 50% no-repeat
+    background: url(../images/padel.jpg) 50% 50% no-repeat
 }
 
 .error-wrap .error-logo {
