@@ -21124,14 +21124,8 @@ overflow-scroll.table tr td {
 .main-lates-matches .item .teams-wrap {
     width: 100%;
     display: inline-block;
-    font-size: 0
+    font-size: 0;
 }
-
-.main-lates-matches .item .teams-wrap .teams-list{
-    width:45%;
-    textarea: 100%
-}
-
 
 .main-lates-matches .item .teams-wrap > * {
     vertical-align: middle
@@ -21143,7 +21137,30 @@ overflow-scroll.table tr td {
     font-size: 12px;
     font-family: Montserrat, sans-serif;
     text-transform: uppercase;
+    color: #141414
+}
+
+.main-lates-matches .item .teamwinner {
+    width: 40%;
+    display: inline-block;
+    font-size: 12px;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
     color: #141414;
+    background-color: #ffd966
+}
+
+.main-lates-matches .item .teamwinner img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain
+}
+
+.main-lates-matches .item .teamwinner span {
+    display: inline-block;
+    vertical-align: right;
+    line-height: normal
 }
 
 .main-lates-matches .item .team img {
@@ -21183,9 +21200,10 @@ overflow-scroll.table tr td {
 }
 
 .main-lates-matches .item .score {
-    width: 20%;
+    width: 60%;
     display: inline-block;
-    text-align: center
+    text-align: center;
+    word-spacing: 20pt
 }
 
 .main-lates-matches .item .score span {
