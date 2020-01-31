@@ -21127,6 +21127,12 @@ overflow-scroll.table tr td {
     font-size: 0
 }
 
+.main-lates-matches .item .teams-wrap .teams-list{
+    width:45%;
+    textarea: 100%
+}
+
+
 .main-lates-matches .item .teams-wrap > * {
     vertical-align: middle
 }
@@ -21149,7 +21155,7 @@ overflow-scroll.table tr td {
 
 .main-lates-matches .item .team span {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: right;
     line-height: normal
 }
 
