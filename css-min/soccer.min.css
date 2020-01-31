@@ -15500,7 +15500,6 @@ textarea {
     font-size: 0;
     background: url(../images/soccer/amateurs-main-match-bg.jpg) 50% 50% no-repeat;
     background-size: cover
-    }
 }
 
 .club-top-info {
@@ -21138,7 +21137,7 @@ overflow-scroll.table tr td {
     font-size: 12px;
     font-family: Montserrat, sans-serif;
     text-transform: uppercase;
-    color: #141414
+    color: #141414;
 }
 
 .main-lates-matches .item .team img {
