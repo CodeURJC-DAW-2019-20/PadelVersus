@@ -29963,7 +29963,7 @@ div.fancy-select div.trigger:after {
 }
 
 .landing-sport-standings .buttons-wrapper > a {
-    color: #141414;
+    color:#fb6107;
     margin-right: 18px
 }
 
@@ -32812,18 +32812,18 @@ ul.sport-championship-timline-tabs > li > a:before {
     font-weight: 700;
     color: #e5e5e5;
     line-height: 1;
-    padding-bottom: 28px
+    padding-bottom: 5px
 }
 
 .esport-championship-standings .buttons-wrapper > a {
-    color: #e5e5e5;
+    color: #fb6107
     margin-right: 18px
 }
 
 .esport-championship-standings .buttons-wrapper .league {
     margin-left: 7px;
+    margin-right: 7px;
     color: #fb6107;
-    display: inline-flex;
     width: 50%
 }
 
