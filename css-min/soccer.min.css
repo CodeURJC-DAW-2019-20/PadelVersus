@@ -15496,9 +15496,10 @@ textarea {
 }
 
 .amateurs-main-match {
-    padding: 67px 50px 67px 50px;
+    padding: 10px 10px 10px 10px;
     font-size: 0;
-    background: url(../images/soccer/amateurs-main-match-bg.jpg) 50% 50% no-repeat;
+    background: url(../images/soccer/next-match-background.png) 50% 50% no-repeat;
+    border-bottom: 1px solid #f7f7f7;
     background-size: cover
 }
 
@@ -21124,7 +21125,7 @@ overflow-scroll.table tr td {
 .main-lates-matches .item .teams-wrap {
     width: 100%;
     display: inline-block;
-    font-size: 0
+    font-size: 0;
 }
 
 .main-lates-matches .item .teams-wrap > * {
@@ -21140,6 +21141,29 @@ overflow-scroll.table tr td {
     color: #141414
 }
 
+.main-lates-matches .item .teamwinner {
+    width: 40%;
+    display: inline-block;
+    font-size: 12px;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    color: #141414;
+    background-color: #ffd966
+}
+
+.main-lates-matches .item .teamwinner img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain
+}
+
+.main-lates-matches .item .teamwinner span {
+    display: inline-block;
+    vertical-align: right;
+    line-height: normal
+}
+
 .main-lates-matches .item .team img {
     width: 40px;
     height: 40px;
@@ -21149,7 +21173,7 @@ overflow-scroll.table tr td {
 
 .main-lates-matches .item .team span {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: right;
     line-height: normal
 }
 
@@ -21177,9 +21201,10 @@ overflow-scroll.table tr td {
 }
 
 .main-lates-matches .item .score {
-    width: 20%;
+    width: 60%;
     display: inline-block;
-    text-align: center
+    text-align: center;
+    word-spacing: 20pt
 }
 
 .main-lates-matches .item .score span {
@@ -22122,6 +22147,14 @@ overflow-scroll.table tr td {
 }
 
 .amateurs-main-match .title {
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fb6107;
+    font-family: Montserrat, sans-serif;
+    line-height: normal
+}
+.amateurs-main-match .hour {
     text-align: center;
     font-size: 12px;
     text-transform: uppercase;
@@ -29930,7 +29963,7 @@ div.fancy-select div.trigger:after {
 }
 
 .landing-sport-standings .buttons-wrapper > a {
-    color: #141414;
+    color:#fb6107;
     margin-right: 18px
 }
 
@@ -32779,19 +32812,18 @@ ul.sport-championship-timline-tabs > li > a:before {
     font-weight: 700;
     color: #e5e5e5;
     line-height: 1;
-    padding-top: 40px;
-    padding-bottom: 28px
+    padding-bottom: 5px
 }
 
 .esport-championship-standings .buttons-wrapper > a {
-    color: #e5e5e5;
+    color: #fb6107
     margin-right: 18px
 }
 
 .esport-championship-standings .buttons-wrapper .league {
     margin-left: 7px;
+    margin-right: 7px;
     color: #fb6107;
-    display: inline-flex;
     width: 50%
 }
 
