@@ -15496,7 +15496,7 @@ textarea {
 }
 
 .amateurs-main-match {
-    padding: 67px 50px 67px 50px;
+    padding: 10px 10px 10px 10px;
     font-size: 0;
     background: url(../images/soccer/next-match-background.png) 50% 50% no-repeat;
     background-size: cover
@@ -22150,6 +22150,14 @@ overflow-scroll.table tr td {
     font-size: 12px;
     text-transform: uppercase;
     color: #fb6107;
+    font-family: Montserrat, sans-serif;
+    line-height: normal
+}
+.amateurs-main-match .hour {
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #141414;
     font-family: Montserrat, sans-serif;
     line-height: normal
 }
@@ -32803,7 +32811,6 @@ ul.sport-championship-timline-tabs > li > a:before {
     font-weight: 700;
     color: #e5e5e5;
     line-height: 1;
-    padding-top: 40px;
     padding-bottom: 28px
 }
 
