@@ -15499,6 +15499,7 @@ textarea {
     padding: 10px 10px 10px 10px;
     font-size: 0;
     background: url(../images/soccer/next-match-background.png) 50% 50% no-repeat;
+    border-bottom: 1px solid #f7f7f7;
     background-size: cover
 }
 
