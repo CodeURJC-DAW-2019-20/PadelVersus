@@ -47,3 +47,5 @@ Loged users can see user graphics of their statistics they can choose between di
 
 The webapp will implement ELO ranking system automatically calculated.
 
+# Fase 1
+### Snapshots
