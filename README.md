@@ -56,6 +56,7 @@ The webapp will implement ELO ranking system automatically calculated.
 Contains two list. One for the latest matches and another one for the next matches shown in a slider where you can navigate through next days.
 #### SpecificMatch
 #### Teams
+Contains a slider where you can navigate between tournaments to see which teams are inscribed in them
 #### SpecificTeam
 #### Player/User
 #### Registration Tournament
