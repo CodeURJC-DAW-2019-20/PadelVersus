@@ -51,5 +51,10 @@ The webapp will implement ELO ranking system automatically calculated.
 
 ### Snapshots
 #### Home
+#### Matches
+#### SpecificMatch
 #### Teams
+#### SpecificTeam
+#### Player/User
+#### Registration Tournament
 ### Flow Diagram
