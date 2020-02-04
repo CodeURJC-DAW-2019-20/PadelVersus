@@ -52,6 +52,7 @@ The webapp will implement ELO ranking system automatically calculated.
 
 ### Snapshots
 #### Home
+<<<<<<< HEAD
 This window will show you some matches of the tournament with their dates, and their places. Moreover, will show you the latest matches and the next matches and the main managers.
 ![Home](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/Captura.JPG)
 #### Loggin
@@ -81,3 +82,13 @@ Contains one calendar with the matches of each month.
 ![Calendar](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/Calendar.JPG)
 ### Flow Diagram
 ![Diagram](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/flowDiagram.JPG)
+=======
+#### Matches
+#### SpecificMatch
+#### Teams
+#### SpecificTeam
+#### Player/User
+
+#### Registration Tournament
+### Flow Diagram
+>>>>>>> origin/develop
