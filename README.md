@@ -52,14 +52,18 @@ The webapp will implement ELO ranking system automatically calculated.
 
 ### Snapshots
 #### Home
-![alt text](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/Captura.JPG)
+This window will show you some matches of the tournament with their dates, and their places. Moreover, will show you the latest matches and the next matches and the main managers.
 #### Matches
 Contains two list. One for the latest matches and another one for the next matches shown in a slider where you can navigate through next days.
 #### SpecificMatch
+Contains the score of the match and their  Match Statistics.
 #### Teams
 Contains a slider where you can navigate between tournaments to see which teams are inscribed in them.
 #### SpecificTeam
 A page where the team logo, the team name and its two members are shown. Below this information we find statistics about the team.
 #### Player/User
+This window will show you main features of the players of each team, the last five matches, the club history and the trophies. Moreover, it shows you the minutes played, one summary of the player, detailed player statistics (graphic)and his points per game (graphic).
+
 #### Registration Tournament
+You will can choose tournament, write your team name and upload team logo. Moreover, you will can write the first name (player1) and the second player will be found for join to first player.
 ### Flow Diagram
