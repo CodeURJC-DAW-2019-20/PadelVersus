@@ -52,6 +52,7 @@ The webapp will implement ELO ranking system automatically calculated.
 
 ### Snapshots
 #### Home
+![alt text](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/Captura.JPG)
 #### Matches
 Contains two list. One for the latest matches and another one for the next matches shown in a slider where you can navigate through next days.
 #### SpecificMatch
