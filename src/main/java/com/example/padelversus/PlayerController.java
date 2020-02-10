@@ -27,4 +27,39 @@ public class PlayerController {
                 return "404";
             }
     }
+
+    @GetMapping("/teamxtest")
+    public String teamx(){
+        return "teamx";
+    }
+
+    @GetMapping("/overviewtest")
+    public String overview(){
+        return "overviewMatches";
+    }
+
+    @GetMapping("/s")
+    public String s(){
+        return "standings";
+    }
+    @GetMapping("/teamstest")
+    public String teams(){
+        return "teams";
+    }
+
+    @GetMapping("/cal")
+    public String cal(){
+        return "calendar";
+    }
+
+    @GetMapping("/rf")
+    public String rf(){
+        return "RegistrationForm";
+    }
+
+    @GetMapping("/matches")
+    public String matches(){
+        return "matches";
+    }
+
 }
