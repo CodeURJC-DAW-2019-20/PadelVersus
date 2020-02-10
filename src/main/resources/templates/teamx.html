@@ -3,22 +3,24 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Team HTML</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
+          rel="stylesheet"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css" />
+    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
+    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/>
+
 
     <!--
 
     Enable one styles which the you want
 
-    <link href="css-min/soccer.min.css" rel="stylesheet" type="text/css" />
     <link href="css-min/hockey.min.css" rel="stylesheet" type="text/css" />
     <link href="css-min/basketball.min.css" rel="stylesheet" type="text/css" />
     <link href="css-min/football.min.css" rel="stylesheet" type="text/css" />
@@ -44,16 +46,12 @@
 </div>
 
 
-
-
-
-
-
-    <!--MAIN MENU WRAP BEGIN-->
+<!--MAIN MENU WRAP BEGIN-->
 <div class="main-menu-wrap sticky-menu">
     <div class="container">
-        <a  class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu" aria-expanded="false">
+        <a class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu"
+                aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -250,7 +248,7 @@
                 </a>
             </div>
         </div>
-        </div>
+    </div>
     </div>
     <!--LAST MATCHES END-->
 
@@ -262,44 +260,30 @@
                     <h2>Detailed Team Statistics</h2>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Owen Bargeman Stats </h6>
-                            <div class="canvas-minutes">
-                                <div class="ct-chart" id="diagram" ></div>
-                            </div>
-                            <h6>Points per game</h6>
+                            <h6>Games per match</h6>
                             <div class="canvas-minutes-big">
-                                <div class="ct-chart advancesmill" data-ready id="advancesmill" ></div>
+                                <div class="ct-chart advancesmill" data-ready id="advancesmill"></div>
                             </div>
-                            <h6>Assists per game</h6>
-                            <div class="canvas-assists">
-                                <div class="ct-chart" id="donutchart" ></div>
-                            </div>
+
                         </div>
-
                         <div class="col-md-6">
-                            <h6> Net Rating</h6>
-                            <div class="canvas-minutes">
-                                <div class="ct-chart" id="bipolardiagram" ></div>
-                            </div>
 
-                            <h6>Pace</h6>
+                            <h6>Personal stast (match stats)</h6>
                             <div class="canvas-minutes-big horizontalbar">
-                                <div class="ct-chart" id="horizontalbar" ></div>
-                            </div>
-                            <h6>Usage Percentage</h6>
-                            <div class="canvas-animatedonut">
-                                <div class="ct-chart animatedonut" data-ready id="animatedonut" ></div>
+                                <div class="ct-chart" id="horizontalbar"></div>
                             </div>
 
 
                         </div>
                     </div>
 
-                    <h6>Treshold graph</h6>
+                    <div class="row">
 
-                    <div class="ct-chart" id="threshold"> </div>
-
-
+                            <h6>W/L %</h6>
+                            <div class="canvas-animatedonut">
+                                <div class="ct-chart animatedonut" data-ready id="animatedonut"></div>
+                            </div>
+                    </div>
                 </div>
 
             </div>
@@ -312,77 +296,79 @@
 </section>
 <!--PLAYER SINGLE WRAP END-->
 
-<section >
-
-
+<section>
 
 
     <!--FOOTER BEGIN-->
-<footer class="footer">
-    <div class="wrapper-overfllow">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <div class="footer-left">
-                        <div class="wrap">
-                            <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png" alt="footer-logo"></a>
+    <footer class="footer">
+        <div class="wrapper-overfllow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="footer-left">
+                            <div class="wrap">
+                                <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png"
+                                                                            alt="footer-logo"></a>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-12 col-lg-offset-1">
-                    <div class="foot-news">
-                        <h4>Recent news</h4>
-                        <div class="item">
-                            <a class="image"><img class="img-responsive" src="/images/padel.jpg" alt="news-image"></a>
-                            <a class="date">25 Sep 2016</a>
+                    <div class="col-md-4 col-sm-12 col-lg-offset-1">
+                        <div class="foot-news">
+                            <h4>Recent news</h4>
+                            <div class="item">
+                                <a class="image"><img class="img-responsive" src="/images/padel.jpg"
+                                                      alt="news-image"></a>
+                                <a class="date">25 Sep 2016</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class=" col-lg-3 col-md-4 col-sm-12">
-                    <div class="foot-contact">
-                        <h4>Contact us</h4>
-                        <ul class="contact-list">
-                            <li><i class="fa fa-flag" aria-hidden="true"></i><span>URJC</span></li>
-                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a></li>
-                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+34 583766284</span></li>
-                        </ul>
-                        <ul class="socials">
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
+                    <div class=" col-lg-3 col-md-4 col-sm-12">
+                        <div class="foot-contact">
+                            <h4>Contact us</h4>
+                            <ul class="contact-list">
+                                <li><i class="fa fa-flag" aria-hidden="true"></i><span>URJC</span></li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a>
+                                </li>
+                                <li class="phone"><i class="fa fa-phone"
+                                                     aria-hidden="true"></i><span>+34 583766284</span></li>
+                            </ul>
+                            <ul class="socials">
+                                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-menu-wrap">
-        <div class="container">
-                   <ul class="main-menu nav">
-                        <li class="active">
-                            <a href="index.html"><span>Home</span></a>
-                        </li>
-                        <li>
-                            <a href="matches.html"><span>Matches</span></a>
-                        </li>
-                        <li>
-                            <a href="teams.html"><span>Team</span></a>
-                        </li>
-                        <li><a href="standings.html"><span>Ranking</span></a></li>
-                        <li><a href="calendar.html"><span>Calendar</span></a></li>
-                        <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
-                        <li><a href="logIn.html"><span>LOG IN</span></a></li>
-                    </ul>
+        <div class="footer-menu-wrap">
+            <div class="container">
+                <ul class="main-menu nav">
+                    <li class="active">
+                        <a href="index.html"><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="matches.html"><span>Matches</span></a>
+                    </li>
+                    <li>
+                        <a href="teams.html"><span>Team</span></a>
+                    </li>
+                    <li><a href="standings.html"><span>Ranking</span></a></li>
+                    <li><a href="calendar.html"><span>Calendar</span></a></li>
+                    <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
+                    <li><a href="logIn.html"><span>LOG IN</span></a></li>
+                </ul>
 
 
+            </div>
         </div>
-    </div>
 
-</footer>
-<!--FOOTER END-->
+    </footer>
+    <!--FOOTER END-->
 </section>
 
 <script type="text/javascript" src="/js/library/jquery.js"></script>
@@ -445,7 +431,6 @@
 <script type="text/javascript" src="/js/player_test.js"></script>
 
 <script type="text/javascript" src="/js/main.js"></script>
-
 
 
 <script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
