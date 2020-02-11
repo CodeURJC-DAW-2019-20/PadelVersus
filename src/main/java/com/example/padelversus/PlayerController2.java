@@ -1,25 +1,23 @@
 package com.example.padelversus;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/player")
-public class PlayerController {
+public class PlayerController2 {
 
     @Autowired
-    PlayerRepository playerRepository;
+    PlayerRepository2 playerRepository2;
 
 
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id){
-            Optional<Player> player = playerRepository.findById(id);
+            Optional<Player2> player = playerRepository2.findById(id);
             if (player.isPresent()) {
                 model.addAttribute("name", player.get().getUsername());
                 return "player";

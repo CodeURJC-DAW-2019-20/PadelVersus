@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PadelversusApplication implements ApplicationRunner {
+public class PadelversusApplication /*implements ApplicationRunner*/ {
 
     @Autowired
-    private PlayerRepository playerRepository;
+    private PlayerRepository2 playerRepository2;
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
@@ -19,16 +19,20 @@ public class PadelversusApplication implements ApplicationRunner {
 
     }
 
+    /*
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Player player1 = new Player("Nombre 1", 1);
-        Player player2 = new Player("Nombre 2", 2);
-        Player player3 = new Player("Nombre 3", 3);
-        Player player4 = new Player("Nombre 4", 4);
+        Player2 player21 = new Player2("Nombre 1", 1);
+        Player2 player2 = new Player2("Nombre 2", 2);
+        Player2 player23 = new Player2("Nombre 3", 3);
+        Player2 player24 = new Player2("Nombre 4", 4);
 
-        playerRepository.save(player1);
-        playerRepository.save(player2);
-        playerRepository.save(player3);
-        playerRepository.save(player4);
+        playerRepository2.save(player21);
+        playerRepository2.save(player2);
+        playerRepository2.save(player23);
+        playerRepository2.save(player24);
     }
+    */
+
 }

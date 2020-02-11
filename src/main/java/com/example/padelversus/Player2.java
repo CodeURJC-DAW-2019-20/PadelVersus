@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Player {
+public class Player2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +15,10 @@ public class Player {
     private String username;
     private int fuerza;
 
-    public Player() {
+    public Player2() {
     }
 
-    public Player( String username, int fuerza){
+    public Player2(String username, int fuerza){
         super();
         this.username = username;
         this.fuerza = fuerza;
