@@ -40,16 +40,6 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50);
         MatchStadistics ms3_2 = new MatchStadistics(23,57,50,50);
 
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-        matchStadisticsRepository.save(ms1_1);
-
-
         Match match1 = new Match("patata","20/20/2020",ms1_1,ms1_2);
         Match match2 = new Match("patata","21/20/2020",ms2_1,ms2_2);
         Match match3 = new Match("patata","22/20/2020",ms3_1,ms3_2);
