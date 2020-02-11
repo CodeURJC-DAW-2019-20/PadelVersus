@@ -37,7 +37,6 @@ public class PadelversusApplication implements ApplicationRunner {
         playerRepository.save(player4);
         playerRepository.save(player5);
 
-
     }
 
 
