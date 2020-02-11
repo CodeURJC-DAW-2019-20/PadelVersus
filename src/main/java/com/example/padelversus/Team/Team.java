@@ -16,13 +16,17 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     private Player playerOne;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private TeamStatistics teamStatistics;
+
     public Team(){
     }
 
-    public Team(String name, Player playerOne){
+    public Team(String name, Player playerOne, TeamStatistics teamStatistics){
         super();
         this.name = name;
         this.playerOne = playerOne;
+        this.teamStatistics = teamStatistics;
     }
 
     public Long getId() {
@@ -47,5 +51,13 @@ public class Team {
 
     public void setPlayerOne(Player playerOne) {
         this.playerOne = playerOne;
+    }
+
+    public TeamStatistics getTeamStatistics() {
+        return teamStatistics;
+    }
+
+    public void setTeamStatistics(TeamStatistics teamStatistics) {
+        this.teamStatistics = teamStatistics;
     }
 }
