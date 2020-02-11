@@ -11,7 +11,7 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Player playerOne;
@@ -19,9 +19,9 @@ public class Team {
     public Team(){
     }
 
-    public Team(String nombre, Player playerOne){
+    public Team(String name, Player playerOne){
         super();
-        this.nombre = nombre;
+        this.name = name;
         this.playerOne = playerOne;
     }
 
@@ -33,12 +33,12 @@ public class Team {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Player getPlayerOne() {
