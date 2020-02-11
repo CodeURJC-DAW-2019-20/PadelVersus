@@ -1,5 +1,7 @@
 package com.example.padelversus.Match;
 
+import com.example.padelversus.Match.Stadistics.MatchStadistics;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,18 +17,28 @@ public class Match {
     private String date;
 
     @OneToOne(cascade = CascadeType.ALL)
-
+    @JoinColumn(referencedColumnName = "id")
+    private MatchStadistics stadistics;
     //private Team winner;
 
     public Match() {
     }
-    public Match(String score, String date){
+    public Match(String score, String date, MatchStadistics stadistics){
         super();
         //this.team_1=team_1;
         //this.team_2=team_2;
         this.score=score;
         this.date=date;
+        this.stadistics=stadistics;
         //this.winner=winner;
+    }
+
+    public MatchStadistics getStadistics() {
+        return stadistics;
+    }
+
+    public void setStadistics(MatchStadistics stadistics) {
+        this.stadistics = stadistics;
     }
 
     public Long getId() {
