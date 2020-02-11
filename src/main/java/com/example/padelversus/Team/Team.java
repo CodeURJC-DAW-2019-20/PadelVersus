@@ -13,9 +13,8 @@ public class Team {
 
     private String nombre;
 
-    @OnetoOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Player playerOne;
-
 
     public Team(){
     }

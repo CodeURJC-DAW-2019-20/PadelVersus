@@ -8,6 +8,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Optional;
+
 @SpringBootApplication
 public class PadelversusApplication implements ApplicationRunner {
 
@@ -35,6 +37,13 @@ public class PadelversusApplication implements ApplicationRunner {
         teamRepository.save(team1);
         teamRepository.save(team2);
 
+        player.setUsername("PEPE");
+        playerRepository.save(player);
+
+        Long a = Integer.toUnsignedLong(1);
+        Optional<Team> team = teamRepository.findByid(a);
+        Player p = team.get().getPlayerOne();
+        System.out.println(p.getUsername());
 
     }
 }
