@@ -15,4 +15,7 @@ public class Tournament {
     private String name;
     private String date;
 
+
+    //private List<Match> Matches;
+    //private Team winner;
 }
