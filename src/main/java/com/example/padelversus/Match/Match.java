@@ -1,9 +1,6 @@
 package com.example.padelversus.Match;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Match {
@@ -16,11 +13,14 @@ public class Match {
     //private Team team_2;
     private String score;
     private String date;
+
+    @OneToOne(cascade = CascadeType.ALL)
+
     //private Team winner;
 
     public Match() {
     }
-    public Match(Team team_1,Team team_2,String score, String date, Team winner){
+    public Match(String score, String date){
         super();
         //this.team_1=team_1;
         //this.team_2=team_2;

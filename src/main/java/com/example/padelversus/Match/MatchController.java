@@ -18,13 +18,14 @@ public class MatchController {
     @GetMapping("/{id}")
     public String match(Model model, @PathVariable Long id){
         Optional<Match> match = matchRepository.findById(id);
+        System.out.println(match.toString());
         if (match.isPresent()) {
-            model.addAttribute("team_1", match.get().getTeam_1());
-            model.addAttribute("team_2", match.get().getTeam_2());
+            //model.addAttribute("team_1", match.get().getTeam_1());
+            //model.addAttribute("team_2", match.get().getTeam_2());
             model.addAttribute("score", match.get().getScore());
-            model.addAttribute("winner", match.get().getWinner());
+            //model.addAttribute("winner", match.get().getWinner());
             model.addAttribute("date", match.get().getDate());
-            return "match";
+            return "overviewMatches";
         } else {
             return "404";
         }
