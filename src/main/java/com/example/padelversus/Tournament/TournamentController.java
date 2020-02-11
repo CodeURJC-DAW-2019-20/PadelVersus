@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class TournamentController {
 
-    @Autowired
-    TournamentRepository tournamentRepository;
+    //@Autowired
+    //TournamentRepository tournamentRepository;
 
-    @GetMapping("/Tournament")
+    @GetMapping("/tournaments")
     public String loadTournament(Model model){
-        return "tournaments";
+        return "Tournaments";
     }
 }
