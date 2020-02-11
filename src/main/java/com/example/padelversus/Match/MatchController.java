@@ -18,7 +18,6 @@ public class MatchController {
     @GetMapping("/{id}")
     public String match(Model model, @PathVariable Long id){
         Optional<Match> match = matchRepository.findById(id);
-        System.out.println(match.toString());
         if (match.isPresent()) {
             //model.addAttribute("team_1", match.get().getTeam_1());
             //model.addAttribute("team_2", match.get().getTeam_2());
@@ -29,7 +28,7 @@ public class MatchController {
             model.addAttribute("wins_1",match.get().getStadistics_1().getGames_wins());
             model.addAttribute("wins_2",match.get().getStadistics_2().getGames_wins());
             model.addAttribute("unferrors_1",match.get().getStadistics_1().getUnforcedErrors());
-            model.addAttribute("unferrors_1",match.get().getStadistics_1().getUnforcedErrors());
+            model.addAttribute("unferrors_2",match.get().getStadistics_1().getUnforcedErrors());
             model.addAttribute("score", match.get().getScore());
             //model.addAttribute("winner", match.get().getWinner());
             model.addAttribute("date", match.get().getDate());
