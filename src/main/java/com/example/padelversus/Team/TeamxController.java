@@ -22,8 +22,12 @@ public class TeamxController {
     public String teamx(Model model, @PathVariable Long id){
         Optional<Team> team = teamRepository.findByid(id);
         if(team.isPresent()){
-            model.addAttribute("teamName", "te");
-            model.addAttribute("playerOneName", "Pdro");
+
+            String teamName = team.get().getName();
+            String playerOneName = team.get().getPlayerOne().getUsername();
+
+            model.addAttribute("teamName", teamName);
+            model.addAttribute("playerOneName", playerOneName);
             return "teamx";
         }else{
             return "404";
