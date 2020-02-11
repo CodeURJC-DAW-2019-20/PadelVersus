@@ -1,4 +1,7 @@
 package com.example.padelversus.Tournament;
 
-public class TournamentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TournamentRepository extends JpaRepository<Long, Tournament> {
+
 }

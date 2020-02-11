@@ -38,10 +38,7 @@ public class PlayerController {
         return "overviewMatches";
     }
 
-    @GetMapping("/s")
-    public String s(){
-        return "standings";
-    }
+
     @GetMapping("/teamstest")
     public String teams(){
         return "teams";
