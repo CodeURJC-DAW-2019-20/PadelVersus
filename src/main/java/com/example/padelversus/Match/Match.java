@@ -18,27 +18,40 @@ public class Match {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
-    private MatchStadistics stadistics;
+    private MatchStadistics stadistics_1;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "id")
+    private MatchStadistics stadistics_2;
     //private Team winner;
 
     public Match() {
     }
-    public Match(String score, String date, MatchStadistics stadistics){
+    public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2){
         super();
         //this.team_1=team_1;
         //this.team_2=team_2;
         this.score=score;
         this.date=date;
-        this.stadistics=stadistics;
+        this.stadistics_1=stadistics_1;
+        this.stadistics_2=stadistics_2;
         //this.winner=winner;
     }
 
-    public MatchStadistics getStadistics() {
-        return stadistics;
+    public MatchStadistics getStadistics_1() {
+        return stadistics_1;
     }
 
-    public void setStadistics(MatchStadistics stadistics) {
-        this.stadistics = stadistics;
+    public void setStadistics_1(MatchStadistics stadistics_1) {
+        this.stadistics_1 = stadistics_1;
+    }
+
+    public MatchStadistics getStadistics_2() {
+        return stadistics_2;
+    }
+
+    public void setStadistics_2(MatchStadistics stadistics_2) {
+        this.stadistics_2 = stadistics_2;
     }
 
     public Long getId() {
