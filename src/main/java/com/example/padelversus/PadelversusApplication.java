@@ -40,10 +40,5 @@ public class PadelversusApplication implements ApplicationRunner {
         player.setUsername("PEPE");
         playerRepository.save(player);
 
-        Long a = Integer.toUnsignedLong(1);
-        Optional<Team> team = teamRepository.findByid(a);
-        Player p = team.get().getPlayerOne();
-        System.out.println(p.getUsername());
-
     }
 }
