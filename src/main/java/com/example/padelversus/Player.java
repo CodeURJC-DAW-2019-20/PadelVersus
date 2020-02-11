@@ -15,7 +15,7 @@ public class Player {
     private String username;
     private int fuerza;
 
-    public Player() {
+    public Player() { //Lo usa Spring para la carga desde BBDD
     }
 
     public Player( String username, int fuerza){

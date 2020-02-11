@@ -11,13 +11,13 @@ public class WebController {
         return "index";
     }
 
-    @RequestMapping("/logIn")
-    public String logIn(){
-        return "logIn";
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 
     @RequestMapping("/loginerror")
-    public String logInError(){
+    public String loginerror(){
         return "logIn"; //Ver como manejamos el error en el logIn
     }
 
