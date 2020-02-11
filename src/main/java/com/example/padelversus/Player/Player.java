@@ -25,7 +25,8 @@ public class Player {
     public Player() {
     }
 
-    public Player (String username, String email,int edad,double altura,double peso, String password,String equipo,double velocidad,double fuerza, Byte imagen){
+    //FaltaAñadirImagenContructor
+    public Player (String username, String email,int edad,double altura,double peso, String password,String equipo,double velocidad,double fuerza){
         this.username = username;
         this.email = email;
         this.edad = edad;
@@ -35,7 +36,7 @@ public class Player {
         this.equipo = equipo;
         this.velocidad = velocidad;
         this.fuerza = fuerza;
-        this.imagen = imagen;
+        //this.imagen = imagen;
     }
 
     public Long getId() {
