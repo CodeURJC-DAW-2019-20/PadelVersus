@@ -1,9 +1,6 @@
 package com.example.padelversus.Team;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,20 +13,16 @@ public class TeamStatistics {
     private int wins;
     private int defeats;
 
-    private List<Integer> gamesPerMatch;
-    private List<Integer> matches;
 
     public TeamStatistics(){
 
     }
 
-    public TeamStatistics(int wins, int defeats, List<Integer> gamesPerMatch, List<Integer> matches) {
+    public TeamStatistics(int wins, int defeats) {
         super();
 
         this.wins = wins;
         this.defeats = defeats;
-        this.gamesPerMatch = gamesPerMatch;
-        this.matches = matches;
     }
 
     public Long getId() {
@@ -54,21 +47,5 @@ public class TeamStatistics {
 
     public void setDefeats(int defeats) {
         this.defeats = defeats;
-    }
-
-    public List<Integer> getGamesPerMatch() {
-        return gamesPerMatch;
-    }
-
-    public void setGamesPerMatch(List<Integer> gamesPerMatch) {
-        this.gamesPerMatch = gamesPerMatch;
-    }
-
-    public List<Integer> getMatches() {
-        return matches;
-    }
-
-    public void setMatches(List<Integer> matches) {
-        this.matches = matches;
     }
 }
