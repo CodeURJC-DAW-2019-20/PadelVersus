@@ -31,11 +31,14 @@ public class PlayerController {
         Optional<Player> player = playerRepository.findById(id);
         if (player.isPresent()) {
             model.addAttribute("name",player.get().getUsername());
+            model.addAttribute("country",player.get().getPaisNacimiento());
             return "player";
         } else {
             return "404";
         }
     }
+
+
 
 
 

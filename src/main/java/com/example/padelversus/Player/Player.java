@@ -21,12 +21,13 @@ public class Player {
     private double velocidad;
     private double fuerza;
     private Byte imagen;
+    private String paisNacimiento;
 
     public Player() {
     }
 
     //FaltaAñadirImagenContructor
-    public Player (String username, String email,int edad,double altura,double peso, String password,String equipo,double velocidad,double fuerza){
+    public Player (String username, String email,int edad,double altura,double peso, String password,String equipo,double velocidad,double fuerza,String pais){
         this.username = username;
         this.email = email;
         this.edad = edad;
@@ -36,6 +37,7 @@ public class Player {
         this.equipo = equipo;
         this.velocidad = velocidad;
         this.fuerza = fuerza;
+        this.paisNacimiento = pais;
         //this.imagen = imagen;
     }
 
@@ -125,5 +127,13 @@ public class Player {
 
     public void setImagen(Byte imagen) {
         this.imagen = imagen;
+    }
+
+    public String getPaisNacimiento() {
+        return paisNacimiento;
+    }
+
+    public void setPaisNacimiento(String paisNacimiento) {
+        this.paisNacimiento = paisNacimiento;
     }
 }
