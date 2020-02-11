@@ -1,4 +1,4 @@
-package com.example.padelversus.Tournament;
+package com.example.padelversus.tournament;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +22,7 @@ public class Tournament {
     public Tournament() {
     }
 
-    /*public Tournament(String name, String date, List<Match> matches, Team winner) {
+    /*public tournament(String name, String date, List<Match> matches, Team winner) {
         this.name = name;
         this.date = date;
         Matches = matches;

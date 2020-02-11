@@ -1,4 +1,4 @@
-package com.example.padelversus.Tournament;
+package com.example.padelversus.tournament;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
