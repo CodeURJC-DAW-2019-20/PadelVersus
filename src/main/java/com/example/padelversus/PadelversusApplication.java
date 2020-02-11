@@ -26,10 +26,15 @@ public class PadelversusApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Team team1 = new Team("Nombre 1");
-        Team team2 = new Team("Nombre 2");
+
+        Player player = new Player("Daniel", 50);
+        Player player1 = new Player("Pedro", 50);
+        Team team1 = new Team("Nombre 1", player);
+        Team team2 = new Team("Nombre 2", player1);
 
         teamRepository.save(team1);
         teamRepository.save(team2);
+
+
     }
 }

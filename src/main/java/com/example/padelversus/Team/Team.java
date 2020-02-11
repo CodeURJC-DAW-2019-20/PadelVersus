@@ -1,9 +1,8 @@
 package com.example.padelversus.Team;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.padelversus.Player;
+
+import javax.persistence.*;
 
 @Entity
 public class Team {
@@ -14,12 +13,17 @@ public class Team {
 
     private String nombre;
 
+    @OnetoOne(cascade = CascadeType.ALL)
+    private Player playerOne;
+
+
     public Team(){
     }
 
-    public Team(String nombre){
+    public Team(String nombre, Player playerOne){
         super();
         this.nombre = nombre;
+        this.playerOne = playerOne;
     }
 
     public Long getId() {
@@ -36,5 +40,13 @@ public class Team {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Player getPlayerOne() {
+        return playerOne;
+    }
+
+    public void setPlayerOne(Player playerOne) {
+        this.playerOne = playerOne;
     }
 }
