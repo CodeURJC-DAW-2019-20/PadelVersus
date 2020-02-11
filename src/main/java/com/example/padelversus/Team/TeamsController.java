@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequestMapping("/teams")
 public class TeamsController {
 
-
     @GetMapping("/")
     public String teams(){
         return "teams";
