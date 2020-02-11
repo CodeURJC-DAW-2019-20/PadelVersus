@@ -21,6 +21,7 @@ public class MatchController {
         if (match.isPresent()) {
             //model.addAttribute("team_1", match.get().getTeam_1());
             //model.addAttribute("team_2", match.get().getTeam_2());
+            model.addAttribute("id",id);
             model.addAttribute("accuracy_1",match.get().getStadistics_1().getAcurracy());
             model.addAttribute("accuracy_2",match.get().getStadistics_2().getAcurracy());
             model.addAttribute("effectiveness_1",match.get().getStadistics_1().getEffectiveness());
