@@ -113,38 +113,6 @@
 </section>
 <!--BREADCRUMBS END-->
 
-<!--MATCH INFO BEGIN-->
-<!--
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="captain-bage">Match number X</div>
-            <h4 class="player-name">U1 vs U2</h4>
-        </div>
-        <div class="col-md-2">
-            <div class="player-photo">
-                <img class="img-responsive" src="images/soccer/player-hockey.jpg" alt="player">
-            </div>
-        </div>
-        <div class="col-md-7">
-        <div class="player-hockey-wrap">
-            <div class="row">
-                <div class="col-md-8 col-sm-6">
-                    <div class="stats">
-                        <p class="number">89</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-2">
-            <div class="player-photo">
-                <img class="img-responsive" src="images/soccer/player-hockey.jpg" alt="player">
-            </div>
-        </div>
-    </div>
-</div>-->
-
     <!--// Main Content \\-->
     <div class="sportsmagazine-main-content">
         <!--// Main Section \\-->
@@ -158,20 +126,20 @@
                                 <div class="sportsmagazine-overview-team-one">
                                     <figure><img src="/images/soccer/team-logo2.png" alt=""></figure>
                                     <section>
-                                        <h4><a href="fixture-detail.html">JOSELUIS</a></h4>
+                                        <h4><a href="fixture-detail.html">tybyt</a></h4>
                                         <span>URJC</span>
                                     </section>
                                 </div>
                                 <div class="sportsmagazine-overview-score">
-                                    <h5>Partido numero X</h5>
-                                    <time datetime="2008-02-14 20:00">date</time>
+                                    <h5>Partido numero {{id}}</h5>
+                                    <time datetime="{{date}}">{{date}}</time>
                                     <h5>Score</h5>
                                     <span>1 <small>:</small> 7</span>
                                 </div>
                                 <div class="sportsmagazine-overview-team-two">
                                     <figure><img src="/images/soccer/team-logo3.png" alt=""></figure>
                                     <section>
-                                        <h4><a href="fixture-detail.html">LUKITA</a></h4>
+                                        <h4><a href="fixture-detail.html">hjnyujn</a></h4>
                                         <span>URJC</span>
                                     </section>
                                 </div>
@@ -189,7 +157,7 @@
                                         <li>7th</li>
                                     </ul>
                                     <ul>
-                                        <li><h6>JOSELUIS</h6></li>
+                                        <li><h6>yrby</h6></li>
                                         <li>30</li>
                                         <li>31</li>
                                         <li>22</li>
@@ -199,7 +167,7 @@
                                         <li>24</li>
                                     </ul>
                                     <ul class="border-none">
-                                        <li><h6>LUKITA</h6></li>
+                                        <li><h6>ybybyb</h6></li>
                                         <li>22</li>
                                         <li>34</li>
                                         <li>20</li>
@@ -214,43 +182,43 @@
                             <div class="sportsmagazine-overview-skillbar">
                                 <div class="skillst">
                                     <h6>Shoot Accuracy</h6>
-                                    <span>42%</span>
-                                    <div class="progressbar1" data-width="82" data-target="82"></div>
+                                    <span>{{accuracy_1}}%</span>
+                                    <div class="progressbar1" data-width="{{accuracy_1}}" data-target="{{accuracy_1}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Shoot Accuracy</h6>
-                                    <span>82%</span>
-                                    <div class="progressbar1" data-width="82" data-target="82"></div>
+                                    <span>{{accuracy_2}}%</span>
+                                    <div class="progressbar1" data-width="{{accuracy_2}}" data-target="{{accuracy_2}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Effectiveness</h6>
-                                    <span>63%</span>
-                                    <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    <span>{{effectiveness_1}}%</span>
+                                    <div class="progressbar1" data-width="{{effectiveness_1}}" data-target="{{effectiveness_1}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Effectiveness</h6>
-                                    <span>63%</span>
-                                    <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    <span>{{effectiveness_2}}%</span>
+                                    <div class="progressbar1" data-width="{{effectiveness_2}}" data-target="{{effectiveness_2}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Wins</h6>
-                                    <span>50%</span>
-                                    <div class="progressbar1" data-width="71" data-target="71"></div>
+                                    <span>{{wins_1}}%</span>
+                                    <div class="progressbar1" data-width="{{wins_1}}" data-target="{{wins_1}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Wins</h6>
-                                    <span>71%</span>
-                                    <div class="progressbar1" data-width="71" data-target="71"></div>
+                                    <span>{{wins_2}}%</span>
+                                    <div class="progressbar1" data-width="{{wins_2}}" data-target="{{wins_2}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Unforced Errors</h6>
-                                    <span>71%</span>
-                                    <div class="progressbar1" data-width="71" data-target="71"></div>
+                                    <span>{{unferrors_1}}%</span>
+                                    <div class="progressbar1" data-width="{{unferrors_1}}" data-target="{{unferrors_1}}"></div>
                                 </div>
                                 <div class="skillst">
                                     <h6>Unforced Errors</h6>
-                                    <span>71%</span>
-                                    <div class="progressbar1" data-width="71" data-target="71"></div>
+                                    <span>{{unferrors_2}}%</span>
+                                    <div class="progressbar1" data-width="{{unferrors_2}}" data-target="{{unferrors_2}}"></div>
                                 </div>
                             </div>
                         </div>
