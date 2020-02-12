@@ -1,7 +1,7 @@
 package com.example.padelversus;
 
-import com.example.padelversus.Player.Player;
-import com.example.padelversus.Player.PlayerRepository;
+import com.example.padelversus.player.Player;
+import com.example.padelversus.player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

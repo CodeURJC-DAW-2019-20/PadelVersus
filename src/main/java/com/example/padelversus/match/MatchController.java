@@ -1,4 +1,4 @@
-package com.example.padelversus.Match;
+package com.example.padelversus.match;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
