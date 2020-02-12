@@ -3,18 +3,21 @@ package com.example.padelversus.Team;
 import com.example.padelversus.Player;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "team_id")
     private Long id;
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Player playerOne;
+    @ManyToMany
+    @JoinTable(name="team_players", joinColumns=@JoinColumn(name="player_id"), inverseJoinColumns=@JoinColumn(name="team_id"))
+    private List<Player> players;
 
     @OneToOne(cascade = CascadeType.ALL)
     private TeamStatistics teamStatistics;
@@ -22,10 +25,10 @@ public class Team {
     public Team(){
     }
 
-    public Team(String name, Player playerOne, TeamStatistics teamStatistics){
+    public Team(String name, List<Player> playerOne, TeamStatistics teamStatistics){
         super();
         this.name = name;
-        this.playerOne = playerOne;
+        this.players = playerOne;
         this.teamStatistics = teamStatistics;
     }
 
@@ -45,12 +48,12 @@ public class Team {
         this.name = name;
     }
 
-    public Player getPlayerOne() {
-        return playerOne;
+    public List<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayerOne(Player playerOne) {
-        this.playerOne = playerOne;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 
     public TeamStatistics getTeamStatistics() {

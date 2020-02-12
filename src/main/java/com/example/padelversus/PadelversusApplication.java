@@ -9,7 +9,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -33,18 +35,23 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Player player = new Player("Daniel", 50);
         Player player1 = new Player("Pedro", 50);
+        playerRepository.save(player);
+        playerRepository.save(player1);
+        List<Player> p = new ArrayList<>();
+        p.add(player);
+        p.add(player1);
 
         TeamStatistics ts1 = new TeamStatistics(4,5);
         TeamStatistics ts2 = new TeamStatistics(10,1);
 
-        Team team1 = new Team("Nombre 1", player, ts1);
-        Team team2 = new Team("Nombre 2", player1, ts2);
+        Team team1 = new Team("Nombre 1", p, ts1);
+        Team team2 = new Team("Nombre 2", p, ts2);
 
         teamRepository.save(team1);
         teamRepository.save(team2);
 
-        player.setUsername("PEPE");
-        playerRepository.save(player);
+        //player.setUsername("PEPE");
+        //playerRepository.save(player);
 
     }
 }

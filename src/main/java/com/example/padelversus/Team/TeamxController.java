@@ -24,10 +24,9 @@ public class TeamxController {
         if(team.isPresent()){
 
             String teamName = team.get().getName();
-            String playerOneName = team.get().getPlayerOne().getUsername();
 
             model.addAttribute("teamName", teamName);
-            model.addAttribute("playerOneName", playerOneName);
+            model.addAttribute("playerOneName", "PEPE");
             return "teamx";
         }else{
             return "404";
