@@ -1,7 +1,9 @@
-package com.example.padelversus;
+package com.example.padelversus.database;
 
 import javax.annotation.PostConstruct;
 
+import com.example.padelversus.user.User;
+import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

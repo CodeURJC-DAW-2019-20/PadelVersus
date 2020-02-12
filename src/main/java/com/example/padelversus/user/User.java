@@ -1,4 +1,4 @@
-package com.example.padelversus;
+package com.example.padelversus.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -21,6 +22,7 @@ public class User {
 	private Long id;
 
 	private String name;
+	@NotNull
 	private String passwordHash;
 
 	@ElementCollection(fetch = FetchType.EAGER) //EAGER para que el usuario se coja con los roles de la bbdd
@@ -47,8 +49,8 @@ public class User {
 		return passwordHash;
 	}
 
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+	public void setPasswordHash(String password) {
+		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 	}
 
 	public List<String> getRoles() {
@@ -57,6 +59,9 @@ public class User {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+	public void setRol(String rol){
+		this.roles.add(rol);
 	}
 
 }

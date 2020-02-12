@@ -1,17 +1,13 @@
-package com.example.padelversus;
-
-import javax.validation.Valid;
+package com.example.padelversus.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/crud")
 public class UserController {
 
     @Autowired
@@ -29,10 +25,23 @@ public class UserController {
         return "crud/nuevo";
     }
 
-    @RequestMapping(value = "/crear", method = RequestMethod.POST)
-    public String crear(@Valid User user, BindingResult bindingResult, ModelMap mp) {
+    @RequestMapping(value = "/crear", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String crear(@RequestParam User user) {
+        uc.save(user);
+
+        return "/";
+    }
+
+    @PostMapping("/saveUser")
+    public String saveUser(Model model, User user){
+        //user.setRol("ROLE_USER");
+        User u = uc.save(user);
+        return "/";
+    }
+    /*public String crear(@RequestParam String name, String pass, BindingResult bindingResult, ModelMap mp) {
+        uc.save(new User(name,pass,"ROLE_USER"));
         System.out.println("Crear");
-        if (bindingResult.hasErrors()) {
+        /*if (bindingResult.hasErrors()) {
             System.out.println("HAY ERROR");
             return "/crud/nuevo";
         } else {
@@ -40,7 +49,8 @@ public class UserController {
             mp.put("usuario", user);
             return "/";
         }
-    }
+        return "/";
+    }*/
 
     @RequestMapping(value = "/creado", method = RequestMethod.POST)
     public String creado(@RequestParam("usuario") User user) {

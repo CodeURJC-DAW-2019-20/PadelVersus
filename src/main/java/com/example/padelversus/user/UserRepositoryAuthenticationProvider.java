@@ -1,4 +1,4 @@
-package com.example.padelversus;
+package com.example.padelversus.user;
 
 import java.util.ArrayList;
 import java.util.List;
