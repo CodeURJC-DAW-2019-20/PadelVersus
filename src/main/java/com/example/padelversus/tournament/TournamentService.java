@@ -20,4 +20,14 @@ public class TournamentService {
         }
         return teams;
     }
+
+    // Returns the number of matches won for a specific team
+    int wonGames(Tournament tournament, Team team){
+        int won = 0;
+        List<Match> matches = tournament.getMatches();
+        for (Match match : matches) {
+            List<Team>
+        }
+        return won;
+    }
 }

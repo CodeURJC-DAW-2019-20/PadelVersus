@@ -5,7 +5,9 @@ import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Match {
@@ -26,7 +28,7 @@ public class Match {
     private MatchStadistics stadistics_2;
 
     @ManyToMany
-    private List<Team> teams;
+    private Set<Team> teams;
 
     @Override
     public String toString() {
@@ -44,7 +46,7 @@ public class Match {
     }
     public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
-        List<Team> aux = new ArrayList<>(2);
+        Set<Team> aux = new HashSet<>(2);
         aux.add(t1);
         aux.add(t2);
         this.teams= aux;
@@ -62,11 +64,11 @@ public class Match {
         this.stadistics_1 = stadistics_1;
     }
 
-    public List<Team> getTeams() {
+    public Set<Team> getTeams() {
         return teams;
     }
 
-    public void setTeams(List<Team> teams) {
+    public void setTeams(Set<Team> teams) {
         this.teams = teams;
     }
 
