@@ -3,6 +3,7 @@ package com.example.padelversus.team;
 import com.example.padelversus.player.Player;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,10 +24,13 @@ public class Team {
     public Team(){
     }
 
-    public Team(String name, List<Player> playerOne, TeamStatistics teamStatistics){
+    public Team(String name, Player playerOne,Player playerTwo,  TeamStatistics teamStatistics){
         super();
+        List<Player> aux = new ArrayList<>(2);
+        aux.add(playerOne);
+        aux.add(playerTwo);
         this.name = name;
-        this.players = playerOne;
+        this.players =  aux;
         this.teamStatistics = teamStatistics;
     }
 

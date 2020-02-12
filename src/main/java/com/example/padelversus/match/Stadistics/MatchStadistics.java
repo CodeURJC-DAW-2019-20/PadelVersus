@@ -15,15 +15,25 @@ public class MatchStadistics {
     private int effectiveness;
     private int games_wins;
     private int unforcedErrors;
+    private boolean win;
 
     public MatchStadistics() {
     }
-    public MatchStadistics(int acurracy,int effectiveness,int wins,int unforcedErrors) {
+    public MatchStadistics(int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
         super();
         this.acurracy=acurracy;
         this.effectiveness=effectiveness;
         this.unforcedErrors=unforcedErrors;
         this.games_wins=wins;
+        this.win=win;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
     }
 
     public Long getId() {
