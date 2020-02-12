@@ -26,32 +26,10 @@ public class PadelversusApplication implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
         System.out.println("ACABO");
-
-
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
-        Player player = new Player("Daniel", 50);
-        Player player1 = new Player("Pedro", 50);
-        playerRepository.save(player);
-        playerRepository.save(player1);
-        List<Player> p = new ArrayList<>();
-        p.add(player);
-        p.add(player1);
-
-        TeamStatistics ts1 = new TeamStatistics(4,5);
-        TeamStatistics ts2 = new TeamStatistics(10,1);
-
-        Team team1 = new Team("Nombre 1", p, ts1);
-        Team team2 = new Team("Nombre 2", p, ts2);
-
-        teamRepository.save(team1);
-        teamRepository.save(team2);
-
-        //player.setUsername("PEPE");
-        //playerRepository.save(player);
 
     }
 }

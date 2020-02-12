@@ -1,6 +1,5 @@
 package com.example.padelversus.Team;
 
-import com.example.padelversus.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
