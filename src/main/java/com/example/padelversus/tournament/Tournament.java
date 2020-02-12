@@ -13,6 +13,7 @@ public class Tournament {
     private Long id;
 
     private String name;
+    private String nonspacename;
 
     @Override
     public String toString() {
@@ -20,6 +21,7 @@ public class Tournament {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", Matches=" + Matches +
+                ", nonspacename= " + nonspacename +
                 '}';
     }
 
@@ -31,7 +33,8 @@ public class Tournament {
 
     public Tournament(String name, List<Match> matches) {
         this.name = name;
-        Matches = matches;
+        this.Matches = matches;
+        this.nonspacename = name.replaceAll("\\s","");
     }
 
     public Long getId() {

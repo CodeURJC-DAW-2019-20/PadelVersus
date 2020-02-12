@@ -131,7 +131,7 @@
                     <h4 class="center-h4">Categories</h4>
                     <ul class="tab-filters" role="tablist">
                         {{#tournament-list}}
-                        <li><a href="#{{name}}" role="tab" data-toggle="tab" class="show_href_onclick">{{name}}</a></li>
+                        <li><a href="#{{nonspacename}}" role="tab" data-toggle="tab" class="show_href_onclick">{{name}}</a></li>
                         {{/tournament-list}}
                     </ul>
                 </div>
@@ -139,7 +139,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12 overflow-scroll standings-table"> 
                     <div class="tab-content">
                         {{#tournament-list}}
-                        <div class="tab-pane dont_load" id="{{name}}" role="tabpanel">
+                        <div class="tab-pane dont_load" id="{{nonspacename}}" role="tabpanel">
                             <table class="standing-full">
                                 <tr>
                                     <th>club</th>
