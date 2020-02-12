@@ -28,7 +28,7 @@ public class Match {
     private MatchStadistics stadistics_2;
 
     @ManyToMany
-    private Set<Team> teams;
+    private List<Team> teams;
 
     @Override
     public String toString() {
@@ -46,7 +46,7 @@ public class Match {
     }
     public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
-        Set<Team> aux = new HashSet<>(2);
+        List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
         aux.add(t2);
         this.teams= aux;
@@ -64,11 +64,11 @@ public class Match {
         this.stadistics_1 = stadistics_1;
     }
 
-    public Set<Team> getTeams() {
+    public List<Team> getTeams() {
         return teams;
     }
 
-    public void setTeams(Set<Team> teams) {
+    public void setTeams(List<Team> teams) {
         this.teams = teams;
     }
 

@@ -26,7 +26,7 @@ public class TournamentService {
         int won = 0;
         List<Match> matches = tournament.getMatches();
         for (Match match : matches) {
-            List<Team>
+            Set<Team> teams_match = match.getTeams();
         }
         return won;
     }
