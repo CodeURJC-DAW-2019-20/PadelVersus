@@ -1,12 +1,8 @@
 package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
-import com.example.padelversus.team.Team;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -17,21 +13,16 @@ public class Tournament {
     private Long id;
 
     private String name;
-    private String date;
 
-
+    @OneToMany
     private List<Match> Matches;
-
-    private Team winner;
 
     public Tournament() {
     }
 
-    public Tournament(String name, String date, List<Match> matches, Team winner) {
+    public Tournament(String name, List<Match> matches) {
         this.name = name;
-        this.date = date;
         Matches = matches;
-        this.winner = winner;
     }
 
     public Long getId() {
@@ -50,14 +41,6 @@ public class Tournament {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public List<Match> getMatches() {
         return Matches;
     }
@@ -66,11 +49,4 @@ public class Tournament {
         Matches = matches;
     }
 
-    public Team getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Team winner) {
-        this.winner = winner;
-    }
 }

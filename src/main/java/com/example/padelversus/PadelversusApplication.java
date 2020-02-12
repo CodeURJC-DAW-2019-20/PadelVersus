@@ -9,6 +9,8 @@ import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.team.TeamStatistics;
+import com.example.padelversus.tournament.Tournament;
+import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,6 +28,8 @@ public class PadelversusApplication implements ApplicationRunner {
     private MatchStadisticsRepository matchStadisticsRepository;
     @Autowired
     private TeamRepository teamRepository;
+    @Autowired
+    private TournamentRepository tournamentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
@@ -72,6 +76,8 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match1);
         matchRepository.save(match2);
         matchRepository.save(match3);
+
+        Tournament tournament1 = new Tournament("Tournament 1", )
 
     }
 
