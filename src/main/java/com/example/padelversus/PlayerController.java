@@ -1,7 +1,10 @@
 package com.example.padelversus;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +16,12 @@ import java.util.Optional;
 @RequestMapping("/player")
 public class PlayerController {
 
+    private Logger logger = LoggerFactory.getLogger(PlayerController.class);
     @Autowired
     PlayerRepository playerRepository;
 
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id){
@@ -26,6 +32,18 @@ public class PlayerController {
             } else {
                 return "404";
             }
+    }
+
+    @RequestMapping("/signup")
+    public String signupSuccess(){
+        Player player = new Player("Dan",5,"alexcheca.98@gmail.com");
+
+        try{
+            notificationService.sendNotification(player);
+        }catch (MailException e){
+            logger.info("Error email:" + e.getMessage());
+        }
+        return "404";
     }
 
     @GetMapping("/teamxtest")

@@ -21,7 +21,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Player player1 = new Player("Nombre 1", 1);
+       /* Player player1 = new Player("Nombre 1", 1);
         Player player2 = new Player("Nombre 2", 2);
         Player player3 = new Player("Nombre 3", 3);
         Player player4 = new Player("Nombre 4", 4);
@@ -29,6 +29,6 @@ public class PadelversusApplication implements ApplicationRunner {
         playerRepository.save(player1);
         playerRepository.save(player2);
         playerRepository.save(player3);
-        playerRepository.save(player4);
+        playerRepository.save(player4);*/
     }
 }

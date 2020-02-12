@@ -14,14 +14,15 @@ public class Player {
 
     private String username;
     private int fuerza;
-
+    private String email;
     public Player() {
     }
 
-    public Player( String username, int fuerza){
+    public Player( String username, int fuerza, String email){
         super();
         this.username = username;
         this.fuerza = fuerza;
+        this.email = email;
     }
 
     public Long getId() {
@@ -47,4 +48,13 @@ public class Player {
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
