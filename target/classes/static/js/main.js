@@ -8,8 +8,12 @@
 
 
     $(document).ready(function () {
-
-
+        $(".dont_load").css("display","none");
+        $('.show_href_onclick').click(function(){
+            var id_to_show = $(this).attr("href");
+            console.log(id_to_show);
+           $(id_to_show).css("display","block");
+        });
         /**
          * Init matches slider
          * @html: ./html-component/matches-slider.html

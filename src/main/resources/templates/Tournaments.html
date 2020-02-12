@@ -129,11 +129,11 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <h4 class="center-h4">Categories</h4>
-                    {{#tournament-list}}
                     <ul class="tab-filters" role="tablist">
-                        <li><a href="#{{name}}" role="tab" data-toggle="tab">{{name}}</a></li>
+                        {{#tournament-list}}
+                        <li><a href="#{{name}}" role="tab" data-toggle="tab" class="show_href_onclick">{{name}}</a></li>
+                        {{/tournament-list}}
                     </ul>
-                    {{/tournament-list}}
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12 overflow-scroll standings-table"> 
