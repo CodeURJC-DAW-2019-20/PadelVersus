@@ -1,7 +1,6 @@
-package com.example.padelversus.Team;
+package com.example.padelversus.team;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class TeamStatistics {
