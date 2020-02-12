@@ -1,4 +1,4 @@
-package com.example.padelversus.Match;
+package com.example.padelversus.match;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

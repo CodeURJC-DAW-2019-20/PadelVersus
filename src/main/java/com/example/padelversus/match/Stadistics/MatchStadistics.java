@@ -1,4 +1,4 @@
-package com.example.padelversus.Match.Stadistics;
+package com.example.padelversus.match.Stadistics;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

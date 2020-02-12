@@ -1,6 +1,6 @@
-package com.example.padelversus.Match;
+package com.example.padelversus.match;
 
-import com.example.padelversus.Match.Stadistics.MatchStadistics;
+import com.example.padelversus.match.Stadistics.MatchStadistics;
 
 import javax.persistence.*;
 

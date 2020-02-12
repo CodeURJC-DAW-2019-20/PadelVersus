@@ -1,4 +1,4 @@
-package com.example.padelversus.Player;
+package com.example.padelversus.player;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
