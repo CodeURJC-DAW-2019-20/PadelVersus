@@ -1,6 +1,6 @@
 /**
  * This is jQuery plugin declaration for standings html-component
- * @html: ./html-component/standings.html 
+ * @html: ./html-component/Tournaments.html
  * @deps: jQuery, jquery-bracket
  * @using: ./js/main.js
  * @author torbara  (https://themeforest.net/user/torbara)
