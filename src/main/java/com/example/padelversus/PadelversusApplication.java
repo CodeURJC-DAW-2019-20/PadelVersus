@@ -1,5 +1,7 @@
 package com.example.padelversus;
 
+import com.example.padelversus.Player.Player;
+import com.example.padelversus.Player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -10,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PadelversusApplication implements ApplicationRunner {
 
     @Autowired
-    private PlayerRepository playerRepository;
+    PlayerRepository playerRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
@@ -19,16 +21,23 @@ public class PadelversusApplication implements ApplicationRunner {
 
     }
 
+
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Player player1 = new Player("Nombre 1", 1);
-        Player player2 = new Player("Nombre 2", 2);
-        Player player3 = new Player("Nombre 3", 3);
-        Player player4 = new Player("Nombre 4", 4);
+        Player player1 = new Player("Lucas","lucasgt",14,1.68,60,"tortuga","RayoTeam",5.6,8,"Spain");
+        Player player2 = new Player("Alex","alexcf",16,1.86,66,"leon","CaptainTeam",6.8,10,"France");
+        Player player3 = new Player("Jose","joseluisls",29,1.89,50,"arena","CaptianTeam",5,10,"Netherland");
+        Player player4 = new Player("Dani","danicp",20,1.40,59,"sombrilla","RayoTeam",4,7,"Sweden");
+        Player player5 = new Player("Ivan","ivanms",10,1.59,67,"alfombra","RelampagoTeam",6,9,"United Kingdom");
 
         playerRepository.save(player1);
         playerRepository.save(player2);
         playerRepository.save(player3);
         playerRepository.save(player4);
+        playerRepository.save(player5);
+
     }
+
+
 }
