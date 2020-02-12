@@ -27,6 +27,24 @@ public class Player {
     }
 
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", password='" + password + '\'' +
+                ", team='" + team + '\'' +
+                ", speed=" + speed +
+                ", strength=" + strength +
+                ", image=" + image +
+                ", countryBirth='" + countryBirth + '\'' +
+                '}';
+    }
+
     public Player (String username, String email, int age, double height, double weight, String password, String team, double speed, double strength, String  countryBirth) {
         super();
         this.username = username;

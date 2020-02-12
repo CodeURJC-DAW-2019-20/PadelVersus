@@ -14,6 +14,15 @@ public class Tournament {
 
     private String name;
 
+    @Override
+    public String toString() {
+        return "Tournament{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", Matches=" + Matches +
+                '}';
+    }
+
     @OneToMany
     private List<Match> Matches;
 

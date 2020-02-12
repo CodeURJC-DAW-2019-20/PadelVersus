@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Optional;
+
 @Controller
 public class TournamentController {
 
@@ -14,6 +16,7 @@ public class TournamentController {
 
     @GetMapping("/tournaments")
     public String loadTournament(Model model){
+        Optional<Tournament> tournament = tournamentRepository.getById(1L);
         return "Tournaments";
     }
 

@@ -28,6 +28,18 @@ public class Match {
     @ManyToMany
     private List<Team> teams;
 
+    @Override
+    public String toString() {
+        return "Match{" +
+                "id=" + id +
+                ", score='" + score + '\'' +
+                ", date='" + date + '\'' +
+                ", stadistics_1=" + stadistics_1 +
+                ", stadistics_2=" + stadistics_2 +
+                ", teams=" + teams +
+                '}';
+    }
+
     public Match() {
     }
     public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){

@@ -17,6 +17,18 @@ public class MatchStadistics {
     private int unforcedErrors;
     private boolean win;
 
+    @Override
+    public String toString() {
+        return "MatchStadistics{" +
+                "id=" + id +
+                ", acurracy=" + acurracy +
+                ", effectiveness=" + effectiveness +
+                ", games_wins=" + games_wins +
+                ", unforcedErrors=" + unforcedErrors +
+                ", win=" + win +
+                '}';
+    }
+
     public MatchStadistics() {
     }
     public MatchStadistics(int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
