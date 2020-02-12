@@ -1,8 +1,11 @@
 package com.example.padelversus.match;
 
 import com.example.padelversus.match.Stadistics.MatchStadistics;
+import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Match {
@@ -11,8 +14,6 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //private Team team_1;
-    //private Team team_2;
     private String score;
     private String date;
 
@@ -23,19 +24,22 @@ public class Match {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
     private MatchStadistics stadistics_2;
-    //private Team winner;
+
+    @ManyToMany
+    private List<Team> teams;
 
     public Match() {
     }
-    public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2){
+    public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
-        //this.team_1=team_1;
-        //this.team_2=team_2;
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.teams= aux;
         this.score=score;
         this.date=date;
         this.stadistics_1=stadistics_1;
         this.stadistics_2=stadistics_2;
-        //this.winner=winner;
     }
 
     public MatchStadistics getStadistics_1() {
@@ -44,6 +48,14 @@ public class Match {
 
     public void setStadistics_1(MatchStadistics stadistics_1) {
         this.stadistics_1 = stadistics_1;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
     public MatchStadistics getStadistics_2() {
