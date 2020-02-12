@@ -17,6 +17,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class PadelversusApplication implements ApplicationRunner {
 
@@ -77,7 +80,11 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match2);
         matchRepository.save(match3);
 
-        Tournament tournament1 = new Tournament("Tournament 1", )
+        List<Match> tournamrnt1_matches =  new ArrayList<>();
+        tournamrnt1_matches.add(match1);
+        tournamrnt1_matches.add(match2);
+        tournamrnt1_matches.add(match3);
+        Tournament tournament1 = new Tournament("Tournament 1", tournamrnt1_matches);
 
     }
 
