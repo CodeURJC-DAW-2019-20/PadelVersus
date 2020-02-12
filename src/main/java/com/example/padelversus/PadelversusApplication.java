@@ -18,9 +18,6 @@ import java.util.Optional;
 public class PadelversusApplication implements ApplicationRunner {
 
     @Autowired
-    private PlayerRepository playerRepository;
-
-    @Autowired
     private TeamRepository teamRepository;
 
     public static void main(String[] args) {
