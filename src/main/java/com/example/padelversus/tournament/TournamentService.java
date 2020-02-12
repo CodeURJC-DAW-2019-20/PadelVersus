@@ -5,13 +5,16 @@ import com.example.padelversus.team.Team;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TournamentService {
-    public List<Team> getTeams(Tournament tournament){
+    // Returns the teams that are into one tournament (no duplicates)
+    Set<Team> getTeams(Tournament tournament){
         List<Match> matches = tournament.getMatches();
-        List<Team> teams = new ArrayList<>();
+        Set<Team> teams = new HashSet<>();
         for (Match match : matches) {
             teams.addAll(match.getTeams());
         }
