@@ -15,8 +15,13 @@ public class TournamentController {
     TournamentRepository tournamentRepository;
 
     @GetMapping("/tournaments")
-    public String loadTournament(Model model){
+    public String loadTournament(Model model) {
+        System.out.println("Estoy en /tournament");
         Optional<Tournament> tournament = tournamentRepository.getById(1L);
+        if (tournament.isPresent()) {
+            System.out.println("Torneo encontrado");
+
+        }
         return "Tournaments";
     }
 
