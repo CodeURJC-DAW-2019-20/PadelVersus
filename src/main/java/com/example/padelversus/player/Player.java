@@ -13,31 +13,33 @@ public class Player {
     private Long id;
     private String username;
     private  String email;
-    private int edad;
-    private double altura;
-    private double peso;
+    private int age;
+    private double height;
+    private double weight;
     private String password;
-    private String equipo;
-    private double velocidad;
-    private double fuerza;
-    private Byte imagen;
-    private String paisNacimiento;
+    private String team;
+    private double speed;
+    private double strength;
+    private Byte image;
+    private String countryBirth;
 
     public Player() {
     }
 
-    //FaltaAñadirImagenContructor
-    public Player (String username, String email,int edad,double altura,double peso, String password,String equipo,double velocidad,double fuerza,String pais){
+
+    public Player (String username, String email, int age, double height, double weight, String password, String team, double speed, double strength, String  countryBirth) {
+        super();
         this.username = username;
         this.email = email;
-        this.edad = edad;
-        this.altura = altura;
-        this.peso = peso;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
         this.password = password;
-        this.equipo = equipo;
-        this.velocidad = velocidad;
-        this.fuerza = fuerza;
-        this.paisNacimiento = pais;
+        this.team = team;
+        this.speed = speed;
+        this.strength = strength;
+        this.countryBirth =  countryBirth;
+        ;
         //this.imagen = imagen;
     }
 
@@ -53,36 +55,40 @@ public class Player {
         return email;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getAge() {
+        return age;
     }
 
-    public double getAltura() {
-        return altura;
+    public double getHeight() {
+        return height;
     }
 
-    public double getPeso() {
-        return peso;
+    public double getWeight() {
+        return weight;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getEquipo() {
-        return equipo;
+    public String getTeam() {
+        return team;
     }
 
-    public double getVelocidad() {
-        return velocidad;
+    public double getSpeed() {
+        return speed;
     }
 
-    public double getFuerza() {
-        return fuerza;
+    public double getStrength() {
+        return strength;
     }
 
-    public Byte getImagen() {
-        return imagen;
+    public Byte getImage() {
+        return image;
+    }
+
+    public String getCountryBirth() {
+        return countryBirth;
     }
 
     public void setId(Long id) {
@@ -97,43 +103,39 @@ public class Player {
         this.email = email;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setEquipo(String equipo) {
-        this.equipo = equipo;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
-    public void setVelocidad(double velocidad) {
-        this.velocidad = velocidad;
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 
-    public void setFuerza(double fuerza) {
-        this.fuerza = fuerza;
+    public void setStrength(double strength) {
+        this.strength = strength;
     }
 
-    public void setImagen(Byte imagen) {
-        this.imagen = imagen;
+    public void setImage(Byte imagen) {
+        this.image = imagen;
     }
 
-    public String getPaisNacimiento() {
-        return paisNacimiento;
-    }
-
-    public void setPaisNacimiento(String paisNacimiento) {
-        this.paisNacimiento = paisNacimiento;
+    public void setCountryBirth(String countryBirth) {
+        this.countryBirth = countryBirth;
     }
 }
