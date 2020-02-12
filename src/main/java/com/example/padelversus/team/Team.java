@@ -1,5 +1,7 @@
 package com.example.padelversus.team;
 
+import com.example.padelversus.player.Player;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,13 +10,11 @@ public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "team_id")
     private Long id;
 
     private String name;
 
     @ManyToMany
-    @JoinTable(name="team_players", joinColumns=@JoinColumn(name="player_id"), inverseJoinColumns=@JoinColumn(name="team_id"))
     private List<Player> players;
 
     @OneToOne(cascade = CascadeType.ALL)
