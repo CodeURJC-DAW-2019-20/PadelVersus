@@ -1,5 +1,7 @@
 package com.example.padelversus.Team;
 
+import com.example.padelversus.Player;
+
 import javax.persistence.*;
 import java.util.List;
 
