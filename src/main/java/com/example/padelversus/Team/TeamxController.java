@@ -18,7 +18,7 @@ public class TeamxController {
     @Autowired
     TeamRepository teamRepository;
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public String teamx(Model model, @PathVariable Long id){
         Optional<Team> team = teamRepository.findByid(id);
         if(team.isPresent()){
@@ -31,5 +31,5 @@ public class TeamxController {
         }else{
             return "404";
         }
-    }*/
+    }
 }
