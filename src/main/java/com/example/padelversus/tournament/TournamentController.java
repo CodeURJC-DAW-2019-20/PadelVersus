@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -35,6 +36,13 @@ public class TournamentController {
                 System.out.println("------------------");
             }
         }
+        List<Tournament> allTournament = tournamentRepository.findAll();
+        List<String> tournament_names = new ArrayList<>();
+        for (Tournament tournament : allTournament) {
+            tournament_names.add(tournament.getName());
+        }
+        System.out.println(tournament_names);
+        model.addAttribute("tournament-list", allTournament);
         return "Tournaments";
     }
 
