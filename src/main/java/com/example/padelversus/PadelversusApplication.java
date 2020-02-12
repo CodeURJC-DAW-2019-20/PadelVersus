@@ -69,8 +69,8 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms1_2 = new MatchStadistics(13,17,0,0, false);
         MatchStadistics ms2_1 = new MatchStadistics(99,99,99,99,true);
         MatchStadistics ms2_2 = new MatchStadistics(78,7,9,3,false);
-        MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,true);
-        MatchStadistics ms3_2 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms3_2 = new MatchStadistics(23,57,50,50,true);
 
         Match match1 = new Match("patata","20/20/2020",ms1_1,ms1_2,t1,t2);
         Match match2 = new Match("patata","21/20/2020",ms2_1,ms2_2,t3,t1);
