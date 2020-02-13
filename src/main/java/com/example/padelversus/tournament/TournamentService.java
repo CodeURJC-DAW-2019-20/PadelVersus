@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TournamentService {
@@ -16,10 +15,10 @@ public class TournamentService {
         ArrayList<Team> teamOrder = new ArrayList<>();
         Team mostWin = null;
         int wonMost = Integer.MIN_VALUE;
-        while(!tournamentTeams.isEmpty()){
+        while (!tournamentTeams.isEmpty()) {
             for (Team onCheckTeam : tournamentTeams) {
-                int gamesWon = wonGames(tournament, onCheckTeam);
-                if(gamesWon > wonMost){
+                int gamesWon = wonGames(tournament, onCheckTeam)[0];
+                if (gamesWon > wonMost) {
                     mostWin = onCheckTeam;
                     wonMost = gamesWon;
                 }
@@ -31,19 +30,23 @@ public class TournamentService {
         tournament.setTeams(teamOrder);
     }
 
-    // Returns the number of matches won for a specific team
-    int wonGames(Tournament tournament, Team team) {
+    // Returns the number of matches won and played for a specific team
+    int[] wonGames(Tournament tournament, Team team) {
         int won = 0;
+        int played = 0;
         List<Match> matches = tournament.getMatches();
         for (Match match : matches) {
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
-            if (index_team == 0) {
-                if (match.getStadistics_1().isWin()) won++;
-            } else if (index_team == 1) {
-                if (match.getStadistics_2().isWin()) won++;
+            if (index_team != -1) {
+                if (index_team == 0) {
+                    if (match.getStadistics_1().isWin()) won++;
+                } else if (index_team == 1) {
+                    if (match.getStadistics_2().isWin()) won++;
+                }
+                played++;
             }
         }
-        return won;
+        return new int[]{won, played};
     }
 }
