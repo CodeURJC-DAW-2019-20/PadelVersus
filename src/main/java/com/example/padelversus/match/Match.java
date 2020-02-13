@@ -4,10 +4,7 @@ import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Match {
@@ -17,7 +14,7 @@ public class Match {
     private Long id;
 
     private String score;
-    private String date;
+    private Date date;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
@@ -44,7 +41,7 @@ public class Match {
 
     public Match() {
     }
-    public Match(String score, String date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
+    public Match(String score, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
@@ -112,11 +109,11 @@ public class Match {
         this.score = score;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

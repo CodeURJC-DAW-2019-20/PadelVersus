@@ -18,6 +18,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -114,27 +116,27 @@ public class PadelversusApplication implements ApplicationRunner {
 
         MatchStadistics ms1_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms1_2 = new MatchStadistics(13,17,0,0, false);
-        Match match1 = new Match("t1 vs t2 win t1","20/10/2020",ms1_1,ms1_2,t1,t2);
+        Match match1 = new Match("t1 vs t2 win t1",new Date(2020, Calendar.OCTOBER, 20),ms1_1,ms1_2,t1,t2);
 
         MatchStadistics ms2_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms2_2 = new MatchStadistics(13,17,0,0, false);
-        Match match2 = new Match("t1 vs t3 win t1","21/10/2020",ms2_1,ms2_2,t1,t3);
+        Match match2 = new Match("t1 vs t3 win t1",new Date(2020, Calendar.OCTOBER, 21),ms2_1,ms2_2,t1,t3);
 
         MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms3_2 = new MatchStadistics(13,17,+0,0, false);
-        Match match3 = new Match("t1 vs t4 win t4","22/10/2020",ms3_1,ms3_2,t4,t1);
+        Match match3 = new Match("t1 vs t4 win t4",new Date(2020, Calendar.OCTOBER, 22),ms3_1,ms3_2,t4,t1);
 
         MatchStadistics ms4_1 = new MatchStadistics(99,99,99,99,true);
         MatchStadistics ms4_2 = new MatchStadistics(78,7,9,3,false);
-        Match match4 = new Match("t2 vs t3 win t2","23/10/2020",ms4_1,ms4_2,t2,t3);
+        Match match4 = new Match("t2 vs t3 win t2",new Date(2020, Calendar.OCTOBER, 23),ms4_1,ms4_2,t2,t3);
 
         MatchStadistics ms5_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms5_2 = new MatchStadistics(23,57,50,50,true);
-        Match match5 = new Match("t2 vs t4 win t4","24/10/2020",ms5_1,ms5_2,t2,t4);
+        Match match5 = new Match("t2 vs t4 win t4",new Date(2020, Calendar.OCTOBER, 24),ms5_1,ms5_2,t2,t4);
 
         MatchStadistics ms6_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms6_2 = new MatchStadistics(23,57,50,50,false);
-        Match match6 = new Match("t3 vs t3 win t4","28/10/2020",ms6_1,ms6_2,t4,t3);
+        Match match6 = new Match("t3 vs t3 win t4",new Date(2020, Calendar.OCTOBER, 25),ms6_1,ms6_2,t4,t3);
 
         matchRepository.save(match1);
         matchRepository.save(match2);
@@ -163,27 +165,27 @@ public class PadelversusApplication implements ApplicationRunner {
         // Tournament 2
         MatchStadistics ms7_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms7_2 = new MatchStadistics(23,57,50,50,true);
-        Match match7 = new Match("t4 vs t5 win t5","20/112020",ms7_1,ms7_2,t4,t5);
+        Match match7 = new Match("t4 vs t5 win t5",new Date(2020, Calendar.NOVEMBER, 20),ms7_1,ms7_2,t4,t5);
 
         MatchStadistics ms8_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms8_2 = new MatchStadistics(23,57,50,50,true);
-        Match match8 = new Match("t4 vs t6 wins t6","21/11/2020",ms8_1,ms8_2,t4,t6);
+        Match match8 = new Match("t4 vs t6 wins t6",new Date(2020, Calendar.NOVEMBER, 21),ms8_1,ms8_2,t4,t6);
 
         MatchStadistics ms9_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms9_2 = new MatchStadistics(23,57,50,50,true);
-        Match match9 = new Match("t4 vs t7 wins t7","22/11/2020",ms9_1,ms9_2,t4,t7);
+        Match match9 = new Match("t4 vs t7 wins t7",new Date(2020, Calendar.NOVEMBER, 22),ms9_1,ms9_2,t4,t7);
 
         MatchStadistics ms10_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms10_2 = new MatchStadistics(23,57,50,50,true);
-        Match match10 = new Match("t5 vs t6 wins t6","23/11/2020",ms10_1,ms10_2,t5,t6);
+        Match match10 = new Match("t5 vs t6 wins t6",new Date(2020, Calendar.NOVEMBER, 23),ms10_1,ms10_2,t5,t6);
 
         MatchStadistics ms11_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms11_2 = new MatchStadistics(23,57,50,50,true);
-        Match match11 = new Match("t5 vs t7 wins t7","24/11/2020",ms11_1,ms11_2,t5,t7);
+        Match match11 = new Match("t5 vs t7 wins t7",new Date(2020, Calendar.NOVEMBER, 24),ms11_1,ms11_2,t5,t7);
 
         MatchStadistics ms12_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms12_2 = new MatchStadistics(23,57,50,50,true);
-        Match match12 = new Match("t6 vs t7 wins t6","25/11/2020",ms12_1,ms12_2,t7,t6);
+        Match match12 = new Match("t6 vs t7 wins t6",new Date(2020, Calendar.NOVEMBER, 25),ms12_1,ms12_2,t7,t6);
 
         matchRepository.save(match7);
         matchRepository.save(match8);
@@ -211,27 +213,27 @@ public class PadelversusApplication implements ApplicationRunner {
         // Tournament 3
         MatchStadistics ms13_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms13_2 = new MatchStadistics(23,57,50,50,true);
-        Match match13 = new Match("t6 vs t8 win t6","20/12/2020",ms13_1,ms13_2,t8,t6);
+        Match match13 = new Match("t6 vs t8 win t6",new Date(2020, Calendar.DECEMBER, 20),ms13_1,ms13_2,t8,t6);
 
         MatchStadistics ms14_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms14_2 = new MatchStadistics(23,57,50,50,true);
-        Match match14 = new Match("t6 vs t9 wins t9","21/12/2020",ms14_1,ms14_2,t6,t9);
+        Match match14 = new Match("t6 vs t9 wins t9",new Date(2020, Calendar.DECEMBER, 21),ms14_1,ms14_2,t6,t9);
 
         MatchStadistics ms15_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms15_2 = new MatchStadistics(23,57,50,50,true);
-        Match match15 = new Match("t6 vs t10 wins t10","22/12/2020",ms15_1,ms15_2,t6,t10);
+        Match match15 = new Match("t6 vs t10 wins t10",new Date(2020, Calendar.DECEMBER, 22),ms15_1,ms15_2,t6,t10);
 
         MatchStadistics ms16_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms16_2 = new MatchStadistics(23,57,50,50,true);
-        Match match16 = new Match("t8 vs t9 wins t9","23/12/2020",ms16_1,ms16_2,t8,t9);
+        Match match16 = new Match("t8 vs t9 wins t9",new Date(2020, Calendar.DECEMBER, 23),ms16_1,ms16_2,t8,t9);
 
         MatchStadistics ms17_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms17_2 = new MatchStadistics(23,57,50,50,true);
-        Match match17 = new Match("t8 vs t10 wins t10","24/12/2020",ms17_1,ms17_2,t8,t10);
+        Match match17 = new Match("t8 vs t10 wins t10",new Date(2020, Calendar.DECEMBER, 24),ms17_1,ms17_2,t8,t10);
 
         MatchStadistics ms18_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms18_2 = new MatchStadistics(23,57,50,50,true);
-        Match match18 = new Match("t9 vs t10 wins t10","25/12/2020",ms18_1,ms18_2,t9,t10);
+        Match match18 = new Match("t9 vs t10 wins t10",new Date(2020, Calendar.DECEMBER, 25),ms18_1,ms18_2,t9,t10);
 
         matchRepository.save(match13);
         matchRepository.save(match14);
