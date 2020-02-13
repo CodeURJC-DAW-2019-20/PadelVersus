@@ -30,7 +30,7 @@ public class Tournament {
     @OneToMany
     private List<Match> matches;
 
-    @OneToMany
+    @ManyToMany
     private List<Team> teams;
     
     public Tournament() {
