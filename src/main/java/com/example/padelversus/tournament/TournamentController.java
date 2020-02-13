@@ -43,8 +43,6 @@ public class TournamentController {
             tournament_names.add(tournament.getName());
         }
         System.out.println(tournament_names);*/
-        List<String> test = new ArrayList<>();
-        test.add("name");
         model.addAttribute("tournament-list", allTournament);
         return "Tournaments";
     }
