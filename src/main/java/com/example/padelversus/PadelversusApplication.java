@@ -43,6 +43,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        // Save teams and player
         Player player1 = new Player("Lucas","lucasgt",14,1.68,60,"tortuga","RayoTeam",5.6,8,"Spain");
         Player player2 = new Player("Alex","alexcf",16,1.86,66,"leon","CaptainTeam",6.8,10,"France");
         Player player3 = new Player("Jose","joseluisls",29,1.89,50,"arena","CaptianTeam",5,10,"Netherland");
@@ -108,45 +109,32 @@ public class PadelversusApplication implements ApplicationRunner {
         teamRepository.save(t9);
         teamRepository.save(t10);
 
+        // Save tournaments and mathches
+        // Tournament 1
 
         MatchStadistics ms1_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms1_2 = new MatchStadistics(13,17,0,0, false);
-        Match match1 = new Match("t1 vs t2 win t1","20/20/2020",ms1_1,ms1_2,t2,t1);
+        Match match1 = new Match("t1 vs t2 win t1","20/20/2020",ms1_1,ms1_2,t1,t2);
 
-        MatchStadistics ms2_1 = new MatchStadistics(99,99,99,99,true);
-        MatchStadistics ms2_2 = new MatchStadistics(78,7,9,3,false);
-        Match match2 = new Match("t3 vs t4 win t4","21/20/2020",ms2_1,ms2_2,t4,t3);
+        MatchStadistics ms2_1 = new MatchStadistics(23,57,50,50,true);
+        MatchStadistics ms2_2 = new MatchStadistics(13,17,0,0, false);
+        Match match2 = new Match("t1 vs t3 win t1","20/20/2020",ms2_1,ms2_2,t1,t3);
 
-        MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,false);
-        MatchStadistics ms3_2 = new MatchStadistics(23,57,50,50,true);
-        Match match3 = new Match("t1 vs t4 win t1","22/20/2020",ms3_1,ms3_2,t4,t1);
+        MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,true);
+        MatchStadistics ms3_2 = new MatchStadistics(13,17,0,0, false);
+        Match match3 = new Match("t1 vs t4 win t4","20/20/2020",ms3_1,ms3_2,t4,t1);
 
-        
-        MatchStadistics ms4_1 = new MatchStadistics(23,57,50,50,true);
-        MatchStadistics ms4_2 = new MatchStadistics(23,57,50,50,false);
-        Match match4 = new Match("t4 vs t5 win t5","22/20/2020",ms4_1,ms4_2,t5,t4);
+        MatchStadistics ms4_1 = new MatchStadistics(99,99,99,99,true);
+        MatchStadistics ms4_2 = new MatchStadistics(78,7,9,3,false);
+        Match match4 = new Match("t2 vs t3 win t2","21/20/2020",ms4_1,ms4_2,t2,t3);
 
         MatchStadistics ms5_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms5_2 = new MatchStadistics(23,57,50,50,true);
-        Match match5 = new Match("t6 vs t7 win t6","22/20/2020",ms5_1,ms5_2,t7,t6);
+        Match match5 = new Match("t2 vs t4 win t4","22/20/2020",ms5_1,ms5_2,t2,t4);
 
-        MatchStadistics ms6_1 = new MatchStadistics(23,57,50,50,false);
-        MatchStadistics ms6_2 = new MatchStadistics(23,57,50,50,true);
-        Match match6 = new Match("t5 vs t6 wins t5","22/20/2020",ms6_1,ms6_2,t6,t5);
-
-        
-        MatchStadistics ms7_1 = new MatchStadistics(23,57,50,50,false);
-        MatchStadistics ms7_2 = new MatchStadistics(23,57,50,50,true);
-        Match match7 = new Match("t6 vs t10 wins t6","22/20/2020",ms7_1,ms7_2,t10,t6);
-
-        MatchStadistics ms8_1 = new MatchStadistics(23,57,50,50,false);
-        MatchStadistics ms8_2 = new MatchStadistics(23,57,50,50,true);
-        Match match8 = new Match("t8 vs t9 wins t8","22/20/2020",ms8_1,ms8_2,t9,t8);
-
-        MatchStadistics ms9_1 = new MatchStadistics(23,57,50,50,false);
-        MatchStadistics ms9_2 = new MatchStadistics(23,57,50,50,true);
-        Match match9 = new Match("t6 vs t8 wins t8","22/20/2020",ms9_1,ms9_2,t9,t10);
-
+        MatchStadistics ms6_1 = new MatchStadistics(23,57,50,50,true);
+        MatchStadistics ms6_2 = new MatchStadistics(23,57,50,50,false);
+        Match match6 = new Match("t3 vs t3 win t4","22/20/2020",ms6_1,ms6_2,t4,t3);
 
         matchRepository.save(match1);
         matchRepository.save(match2);
@@ -154,38 +142,104 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match4);
         matchRepository.save(match5);
         matchRepository.save(match6);
-        matchRepository.save(match7);
-        matchRepository.save(match8);
-        matchRepository.save(match9);
 
         List<Match> tournament1_matches =  new ArrayList<>();
         tournament1_matches.add(match1);
         tournament1_matches.add(match2);
         tournament1_matches.add(match3);
-        
+        tournament1_matches.add(match4);
+        tournament1_matches.add(match5);
+        tournament1_matches.add(match6);
+
         List<Team> teamsTournament1 = new ArrayList<>();
         teamsTournament1.add(t1);
         teamsTournament1.add(t2);
         teamsTournament1.add(t3);
-        
+        teamsTournament1.add(t4);
+
         Tournament tournament1 = new Tournament("Tournament 1", tournament1_matches, teamsTournament1);
+        tournamentRepository.save(tournament1);
+
+        // Tournament 2
+        MatchStadistics ms7_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms7_2 = new MatchStadistics(23,57,50,50,true);
+        Match match7 = new Match("t4 vs t5 win t5","22/20/2020",ms7_1,ms7_2,t4,t5);
+
+        MatchStadistics ms8_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms8_2 = new MatchStadistics(23,57,50,50,true);
+        Match match8 = new Match("t4 vs t6 wins t6","22/20/2020",ms8_1,ms8_2,t4,t6);
+
+        MatchStadistics ms9_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms9_2 = new MatchStadistics(23,57,50,50,true);
+        Match match9 = new Match("t4 vs t7 wins t7","22/20/2020",ms9_1,ms9_2,t4,t7);
+
+        MatchStadistics ms10_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms10_2 = new MatchStadistics(23,57,50,50,true);
+        Match match10 = new Match("t5 vs t6 wins t6","22/20/2020",ms10_1,ms10_2,t5,t6);
+
+        MatchStadistics ms11_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms11_2 = new MatchStadistics(23,57,50,50,true);
+        Match match11 = new Match("t5 vs t7 wins t7","22/20/2020",ms11_1,ms11_2,t5,t7);
+
+        MatchStadistics ms12_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms12_2 = new MatchStadistics(23,57,50,50,true);
+        Match match12 = new Match("t6 vs t7 wins t6","22/20/2020",ms12_1,ms12_2,t7,t6);
+
+        matchRepository.save(match7);
+        matchRepository.save(match8);
+        matchRepository.save(match9);
+        matchRepository.save(match10);
+        matchRepository.save(match11);
+        matchRepository.save(match12);
 
         List<Match> tournament2_matches =  new ArrayList<>();
-        tournament2_matches.add(match4);
-        tournament2_matches.add(match5);
-        tournament2_matches.add(match6);
-        
+        tournament2_matches.add(match7);
+        tournament2_matches.add(match8);
+        tournament2_matches.add(match9);
+        tournament2_matches.add(match10);
+        tournament2_matches.add(match11);
+        tournament2_matches.add(match12);
+
         List<Team> teamsTournament2 = new ArrayList<>();
         teamsTournament2.add(t4);
         teamsTournament2.add(t5);
         teamsTournament2.add(t6);
         teamsTournament2.add(t7);
         Tournament tournament2 = new Tournament("Tournament 2", tournament2_matches, teamsTournament2);
+        tournamentRepository.save(tournament2);
+
+        // Tournament 3
+        MatchStadistics ms13_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms13_2 = new MatchStadistics(23,57,50,50,true);
+        Match match13 = new Match("t6 vs t8 win t6","22/20/2020",ms13_1,ms13_2,t8,t6);
+
+        MatchStadistics ms14_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms14_2 = new MatchStadistics(23,57,50,50,true);
+        Match match14 = new Match("t6 vs t9 wins t9","22/20/2020",ms14_1,ms14_2,t6,t9);
+
+        MatchStadistics ms15_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms15_2 = new MatchStadistics(23,57,50,50,true);
+        Match match15 = new Match("t6 vs t10 wins t10","22/20/2020",ms15_1,ms15_2,t6,t10);
+
+        MatchStadistics ms16_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms16_2 = new MatchStadistics(23,57,50,50,true);
+        Match match16 = new Match("t8 vs t9 wins t9","22/20/2020",ms16_1,ms16_2,t8,t9);
+
+        MatchStadistics ms17_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms17_2 = new MatchStadistics(23,57,50,50,true);
+        Match match17 = new Match("t8 vs t10 wins t10","22/20/2020",ms17_1,ms17_2,t8,t10);
+
+        MatchStadistics ms18_1 = new MatchStadistics(23,57,50,50,false);
+        MatchStadistics ms18_2 = new MatchStadistics(23,57,50,50,true);
+        Match match18 = new Match("t9 vs t10 wins t10","22/20/2020",ms18_1,ms18_2,t9,t10);
 
         List<Match> tournament3_matches =  new ArrayList<>();
-        tournament3_matches.add(match7);
-        tournament3_matches.add(match8);
-        tournament3_matches.add(match9);
+        tournament3_matches.add(match13);
+        tournament3_matches.add(match14);
+        tournament3_matches.add(match15);
+        tournament3_matches.add(match16);
+        tournament3_matches.add(match17);
+        tournament3_matches.add(match18);
 
         List<Team> teamsTournament3 = new ArrayList<>();
         teamsTournament3.add(t6);
@@ -194,9 +248,6 @@ public class PadelversusApplication implements ApplicationRunner {
         teamsTournament3.add(t10);
 
         Tournament tournament3 = new Tournament("Tournament 3", tournament3_matches, teamsTournament3);
-
-        tournamentRepository.save(tournament1);
-        tournamentRepository.save(tournament2);
         tournamentRepository.save(tournament3);
 
 
