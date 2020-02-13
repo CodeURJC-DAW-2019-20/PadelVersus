@@ -147,6 +147,7 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms9_2 = new MatchStadistics(23,57,50,50,true);
         Match match9 = new Match("t9 vs t10 wins t10","22/20/2020",ms9_1,ms9_2,t9,t10);
 
+
         matchRepository.save(match1);
         matchRepository.save(match2);
         matchRepository.save(match3);
