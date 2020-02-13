@@ -121,7 +121,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match2 = new Match("t1 vs t3 win t1","20/20/2020",ms2_1,ms2_2,t1,t3);
 
         MatchStadistics ms3_1 = new MatchStadistics(23,57,50,50,true);
-        MatchStadistics ms3_2 = new MatchStadistics(13,17,0,0, false);
+        MatchStadistics ms3_2 = new MatchStadistics(13,17,+0,0, false);
         Match match3 = new Match("t1 vs t4 win t4","20/20/2020",ms3_1,ms3_2,t4,t1);
 
         MatchStadistics ms4_1 = new MatchStadistics(99,99,99,99,true);
@@ -232,6 +232,13 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms18_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms18_2 = new MatchStadistics(23,57,50,50,true);
         Match match18 = new Match("t9 vs t10 wins t10","22/20/2020",ms18_1,ms18_2,t9,t10);
+
+        matchRepository.save(match13);
+        matchRepository.save(match14);
+        matchRepository.save(match15);
+        matchRepository.save(match16);
+        matchRepository.save(match17);
+        matchRepository.save(match18);
 
         List<Match> tournament3_matches =  new ArrayList<>();
         tournament3_matches.add(match13);
