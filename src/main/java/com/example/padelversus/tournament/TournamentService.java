@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Service
 public class TournamentService {
-    //Returns all team from a tournament oredered by games won(order is archived by insertion)
-    ArrayList<Team> teamOrder(Tournament tournament) {
+    //Order all team from a tournament by games won
+    void teamOrder(Tournament tournament) {
         List<Team> tournamentTeams = tournament.getTeams();
         ArrayList<Team> teamOrder = new ArrayList<>();
         Team mostWin = null;
@@ -28,7 +28,7 @@ public class TournamentService {
             wonMost = Integer.MIN_VALUE;
             teamOrder.add(mostWin);
         }
-        return teamOrder;
+        tournament.setTeams(teamOrder);
     }
 
     // Returns the number of matches won for a specific team

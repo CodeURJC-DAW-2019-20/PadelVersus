@@ -7,12 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class TournamentController {
-
     @Autowired
     TournamentRepository tournamentRepository;
 
@@ -22,6 +22,9 @@ public class TournamentController {
     @GetMapping("/tournaments")
     public String loadTournament(Model model) {
         List<Tournament> allTournament = tournamentRepository.findAll();
+        for (Tournament tournament : allTournament) {
+            tournamentService.teamOrder(tournament);
+        }
         /*System.out.println("Estoy en /tournament");
         Optional<Tournament> Optionaltournament = tournamentRepository.getById(1L);
         if (Optionaltournament.isPresent()) {
@@ -40,14 +43,8 @@ public class TournamentController {
             tournament_names.add(tournament.getName());
         }
         System.out.println(tournament_names);*/
-        Optional<Tournament> Opttournament = tournamentRepository.getByName("Tournament 1");
-        if(Opttournament.isPresent()){
-            Tournament tournament = Opttournament.get();
-            System.out.println(tournament.getName());
-            List<Team> teamOrder = tournamentService.teamOrder(tournament);
-            teamOrder.forEach(t-> System.out.print(t.getName() + "\t"));
-            System.out.println();
-        }
+        List<String> test = new ArrayList<>();
+        test.add("name");
         model.addAttribute("tournament-list", allTournament);
         return "Tournaments";
     }
