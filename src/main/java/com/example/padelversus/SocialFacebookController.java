@@ -18,6 +18,11 @@ public class SocialFacebookController {
     private FacebookConnectionFactory factory = new FacebookConnectionFactory("237417980592642",
             "f277ddc32f1e45c2e41359da292909d5");
 
+    @RequestMapping("/")
+    public ModelAndView firstPage() {
+        return new ModelAndView("welcome");
+    }
+
     @GetMapping(value = "/useApplication")
     public String producer() {
 
@@ -34,7 +39,7 @@ public class SocialFacebookController {
     }
 
     @RequestMapping(value = "/forwardLogin")
-    public String prodducer(@RequestParam("code") String authorizationCode) {
+    public ModelAndView prodducer(@RequestParam("code") String authorizationCode) {
         OAuth2Operations operations = factory.getOAuthOperations();
         AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "http://localhost:8080/forwardLogin",
                 null);
@@ -42,7 +47,13 @@ public class SocialFacebookController {
         Connection<Facebook> connection = factory.createConnection(accessToken);
         Facebook facebook = connection.getApi();
         String[] fields = { "id", "email", "first_name", "last_name" };
-        return "teamx";
+        User userProfile = facebook.fetchObject("me", User.class, fields);
+        System.out.println("email "+userProfile.getEmail());
+        System.out.println("nombre "+userProfile.getName());
+        System.out.println("userProfile = " + userProfile.toString());
+        ModelAndView model = new ModelAndView("/player/s");
+        model.addObject("user", userProfile);
+        return model;
 
     }
 
