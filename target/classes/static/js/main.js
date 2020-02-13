@@ -17,7 +17,14 @@
            $(id_to_show).css("display","block");
         });
         $("ul.tab-filters li:first-child").addClass("active");
-
+        $.each($("td.form > span"), function(){
+            if($(this).text() === "l"){
+                $(this).addClass("lose")
+            }
+            if($(this).text() === "w"){
+                $(this).addClass("win")
+            }
+        });
         /**
          * Init matches slider
          * @html: ./html-component/matches-slider.html

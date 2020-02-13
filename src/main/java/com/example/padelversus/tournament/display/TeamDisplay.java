@@ -1,16 +1,20 @@
 package com.example.padelversus.tournament.display;
 
+import java.util.List;
+
 public class TeamDisplay {
     private String name;
     private int gamesWon;
     private int gamesPlayed;
     private int gamesLost;
+    private List<String> lastMatches;
 
-    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost) {
+    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches) {
         this.name = name;
         this.gamesWon = gamesWon;
         this.gamesPlayed = gamesPlayed;
         this.gamesLost = gamesLost;
+        this.lastMatches = lastMatches;
     }
 
     public String getName() {
@@ -43,5 +47,13 @@ public class TeamDisplay {
 
     public void setGamesLost(int gamesLost) {
         this.gamesLost = gamesLost;
+    }
+
+    public List<String> getLastMatches() {
+        return lastMatches;
+    }
+
+    public void setLastMatches(List<String> lastMatches) {
+        this.lastMatches = lastMatches;
     }
 }

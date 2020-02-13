@@ -157,9 +157,9 @@
                                     <td>{{gamesWon}}</td> <!--Won-->
                                     <td>{{gamesLost}}</td> <!--Lost-->
                                     <td class="form">
-                                        <span class="win">w</span>
-                                        <span class="win">w</span>
-                                        <span class="lose">l</span>
+                                        {{#lastMatches}}
+                                            <span class="">{{.}}</span>
+                                        {{/lastMatches}}
                                     </td>
                                 </tr>
                                 {{/teams}}

@@ -52,8 +52,8 @@ public class TournamentService {
         return new int[]{won, played};
     }
 
-    String [] lastThreeMatches(Tournament tournament, Team team){
-        String [] lastThreeMatchesRepresentation = new String[3];
+    List<String> lastThreeMatches(Tournament tournament, Team team){
+        List<String> lastThreeMatchesRepresentation = new ArrayList<>();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
         matchesOrdered.addAll(tournament.getMatches());
@@ -69,9 +69,9 @@ public class TournamentService {
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
             if(index_team == 0){
-                lastThreeMatchesRepresentation[i] = match.getStadistics_1().isWin() ? "w" : "l";
+                lastThreeMatchesRepresentation.add(match.getStadistics_1().isWin() ? "w" : "l");
             }else if(index_team == 1){
-                lastThreeMatchesRepresentation[i] = match.getStadistics_2().isWin() ? "w" : "l";
+                lastThreeMatchesRepresentation.add(match.getStadistics_2().isWin() ? "w" : "l");
             }
         }
         return lastThreeMatchesRepresentation;

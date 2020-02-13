@@ -37,8 +37,8 @@ public class TournamentDisplay {
         return teams;
     }
 
-    public void addTeam(Team team, int gamesWon, int gamesPlayed){
-        TeamDisplay teamDisplay = new TeamDisplay(team.getName(), gamesWon, gamesPlayed, gamesPlayed - gamesWon);
+    public void addTeam(Team team, int gamesWon, int gamesPlayed, List<String> lastMatches){
+        TeamDisplay teamDisplay = new TeamDisplay(team.getName(), gamesWon, gamesPlayed, gamesPlayed - gamesWon, lastMatches);
         this.teams.add(teamDisplay);
     }
 }

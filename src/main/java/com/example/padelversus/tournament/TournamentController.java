@@ -28,10 +28,11 @@ public class TournamentController {
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for(Team team: tournament.getTeams()){
                 int [] wonPlayed = tournamentService.wonGames(tournament, team);
-                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1]);
+                List<String> lastMatches = tournamentService.lastThreeMatches(tournament, team);
+                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches);
             }
             allTournamentDisplay.add(tournamentDisplay);
-            System.out.println(tournament.getName());
+            /*System.out.println(tournament.getName());
             TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
             matchesOrdered.addAll(tournament.getMatches());
             for (Match match : matchesOrdered) {
@@ -43,7 +44,7 @@ public class TournamentController {
                 System.out.println("Team name: " + team.getName()+
                                    "\t Representation: " + Arrays.toString(wl_representation));
             }
-            System.out.println();
+            System.out.println();*/
         }
         /*System.out.println("Estoy en /tournament");
         Optional<Tournament> Optionaltournament = tournamentRepository.getById(1L);
