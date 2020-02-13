@@ -5,7 +5,9 @@ import com.example.padelversus.team.Team;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 
 @Service
 public class TournamentService {
@@ -52,7 +54,26 @@ public class TournamentService {
 
     String [] lastThreeMatches(Tournament tournament, Team team){
         String [] lastThreeMatchesRepresentation = new String[3];
-        List<Match> matches = tournament.getMatches();
+        TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
+        TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
+        matchesOrdered.addAll(tournament.getMatches());
+        for (Match match : matchesOrdered) {
+            List<Team> teams_match = match.getTeams();
+            int index_team = teams_match.indexOf(team);
+            if (index_team != -1) {
+                matchesOrderedTeam.add(match);
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            Match match = matchesOrderedTeam.pollFirst();
+            List<Team> teams_match = match.getTeams();
+            int index_team = teams_match.indexOf(team);
+            if(index_team == 0){
+                lastThreeMatchesRepresentation[i] = match.getStadistics_1().isWin() ? "w" : "l";
+            }else if(index_team == 1){
+                lastThreeMatchesRepresentation[i] = match.getStadistics_2().isWin() ? "w" : "l";
+            }
+        }
         return lastThreeMatchesRepresentation;
     }
 }

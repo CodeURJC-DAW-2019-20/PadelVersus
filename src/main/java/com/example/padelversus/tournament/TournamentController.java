@@ -38,6 +38,11 @@ public class TournamentController {
                 System.out.println("Match Date: " + match.getDate() +
                                    "\t Score: " + match.getScore());
             }
+            for (Team team : tournament.getTeams()){
+                String [] wl_representation = tournamentService.lastThreeMatches(tournament, team);
+                System.out.println("Team name: " + team.getName()+
+                                   "\t Representation: " + Arrays.toString(wl_representation));
+            }
             System.out.println();
         }
         /*System.out.println("Estoy en /tournament");
