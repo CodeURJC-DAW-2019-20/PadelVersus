@@ -23,7 +23,8 @@ public class TournamentController {
 
     @GetMapping("/tournaments")
     public String loadTournament(Model model) {
-        System.out.println("Estoy en /tournament");
+        List<Tournament> allTournament = tournamentRepository.findAll();
+        /*System.out.println("Estoy en /tournament");
         Optional<Tournament> Optionaltournament = tournamentRepository.getById(1L);
         if (Optionaltournament.isPresent()) {
             Tournament tournament = Optionaltournament.get();
@@ -36,12 +37,11 @@ public class TournamentController {
                 System.out.println("------------------");
             }
         }
-        List<Tournament> allTournament = tournamentRepository.findAll();
         List<String> tournament_names = new ArrayList<>();
         for (Tournament tournament : allTournament) {
             tournament_names.add(tournament.getName());
         }
-        System.out.println(tournament_names);
+        System.out.println(tournament_names);*/
         model.addAttribute("tournament-list", allTournament);
         return "Tournaments";
     }

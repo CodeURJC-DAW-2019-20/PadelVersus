@@ -142,7 +142,7 @@
                         <div class="tab-pane dont_load" id="{{nonspacename}}" role="tabpanel">
                             <table class="standing-full">
                                 <tr>
-                                    <th>club {{name}}</th>
+                                    <th>Teams {{name}}</th>
                                     <th>played</th>
                                     <th>won</th>
                                     <th>win</th>
@@ -151,9 +151,10 @@
                                     <th>form</th>
                                     <th>next</th>
                                 </tr>
+                                {{#teams}}
                                 <tr>
                                     <td class="up">
-                                        <i class="fa fa-caret-up" aria-hidden="true"></i> 1 <span class="team"><img src="/images/soccer/team-logo1.png" width="30" height="30" alt="team-logo"> </span>Team 1
+                                        <i class="fa fa-caret-up" aria-hidden="true"></i> 1 <span class="team"><img src="/images/soccer/team-logo1.png" width="30" height="30" alt="team-logo"> </span>{{name}}
                                     </td>
                                     <td>11</td>
                                     <td>8</td>
@@ -169,7 +170,8 @@
                                     </td>
                                     <td><a href="club-stats.html"><img src="/images/soccer/team-logo2.png" width="30" height="30" alt="team-logo"></a></td>
                                 </tr>
-                                <tr>
+                                {{/teams}}
+                                <!--<tr>
                                     <td class="down">
                                         <i class="fa fa-caret-down" aria-hidden="true"></i> 2 <span class="team"><img src="/images/soccer/team-logo2.png" width="30" height="30" alt="team-logo"> </span>Team 2
                                     </td>
@@ -240,7 +242,7 @@
                                         <span class="win">w</span>
                                     </td>
                                     <td><a href="club-stats.html"><img src="/images/soccer/team-logo1.png" width="30" height="30" alt="team-logo"></a></td>
-                                </tr>
+                                </tr>-->
                             </table>
                         </div>
                         {{/tournament-list}}
