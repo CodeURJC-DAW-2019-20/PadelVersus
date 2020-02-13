@@ -15,6 +15,15 @@ public class Tournament {
     private Long id;
 
     private String name;
+
+    public String getNonspacename() {
+        return nonspacename;
+    }
+
+    public void setNonspacename(String nonspacename) {
+        this.nonspacename = nonspacename;
+    }
+
     private String nonspacename;
 
     @Override
