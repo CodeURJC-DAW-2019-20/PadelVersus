@@ -28,7 +28,7 @@ public class TournamentController {
         if (Optionaltournament.isPresent()) {
             Tournament tournament = Optionaltournament.get();
             System.out.println("Torneo encontrado");
-            Set<Team> tournamentTeams = tournamentService.getTeams(tournament);
+            List<Team> tournamentTeams = tournament.getTeams();
             for (Team team : tournamentTeams) {
                 int games_won = tournamentService.wonGames(tournament, team);
                 System.out.println(team);

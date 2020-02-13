@@ -1,6 +1,7 @@
 package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
+import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,21 +21,34 @@ public class Tournament {
         return "Tournament{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", Matches=" + Matches +
+                ", matches=" + matches +
                 ", nonspacename= " + nonspacename +
+                ", teams= " + teams +
                 '}';
     }
 
     @OneToMany
-    private List<Match> Matches;
+    private List<Match> matches;
 
+    @OneToMany
+    private List<Team> teams;
+    
     public Tournament() {
     }
 
-    public Tournament(String name, List<Match> matches) {
+    public Tournament(String name, List<Match> matches, List<Team> teams) {
         this.name = name;
-        this.Matches = matches;
+        this.matches = matches;
         this.nonspacename = name.replaceAll("\\s","");
+        this.teams = teams;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
     public Long getId() {
@@ -54,11 +68,11 @@ public class Tournament {
     }
 
     public List<Match> getMatches() {
-        return Matches;
+        return matches;
     }
 
     public void setMatches(List<Match> matches) {
-        Matches = matches;
+        matches = matches;
     }
 
 }

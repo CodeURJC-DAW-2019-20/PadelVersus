@@ -123,6 +123,7 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms3_2 = new MatchStadistics(23,57,50,50,true);
         Match match3 = new Match("t2 vs t3 win t3","22/20/2020",ms3_1,ms3_2,t2,t3);
 
+        
         MatchStadistics ms4_1 = new MatchStadistics(23,57,50,50,true);
         MatchStadistics ms4_2 = new MatchStadistics(23,57,50,50,false);
         Match match4 = new Match("t4 vs t5 win t4","22/20/2020",ms4_1,ms4_2,t4,t5);
@@ -135,6 +136,7 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms6_2 = new MatchStadistics(23,57,50,50,true);
         Match match6 = new Match("t4 vs t7 wins t7","22/20/2020",ms6_1,ms6_2,t4,t7);
 
+        
         MatchStadistics ms7_1 = new MatchStadistics(23,57,50,50,false);
         MatchStadistics ms7_2 = new MatchStadistics(23,57,50,50,true);
         Match match7 = new Match("t8 vs t10 wins t10","22/20/2020",ms7_1,ms7_2,t8,t10);
@@ -157,23 +159,41 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match8);
         matchRepository.save(match9);
 
-        List<Match> tournamrnt1_matches =  new ArrayList<>();
-        tournamrnt1_matches.add(match1);
-        tournamrnt1_matches.add(match2);
-        tournamrnt1_matches.add(match3);
-        Tournament tournament1 = new Tournament("Tournament 1", tournamrnt1_matches);
+        List<Match> tournament1_matches =  new ArrayList<>();
+        tournament1_matches.add(match1);
+        tournament1_matches.add(match2);
+        tournament1_matches.add(match3);
+        
+        List<Team> teamsTournament1 = new ArrayList<>();
+        teamsTournament1.add(t1);
+        teamsTournament1.add(t2);
+        teamsTournament1.add(t3);
+        
+        Tournament tournament1 = new Tournament("Tournament 1", tournament1_matches, teamsTournament1);
 
-        List<Match> tournamrnt2_matches =  new ArrayList<>();
-        tournamrnt2_matches.add(match4);
-        tournamrnt2_matches.add(match5);
-        tournamrnt2_matches.add(match6);
-        Tournament tournament2 = new Tournament("Tournament 2", tournamrnt2_matches);
+        List<Match> tournament2_matches =  new ArrayList<>();
+        tournament2_matches.add(match4);
+        tournament2_matches.add(match5);
+        tournament2_matches.add(match6);
+        
+        List<Team> teamsTournament2 = new ArrayList<>();
+        teamsTournament2.add(t4);
+        teamsTournament2.add(t5);
+        teamsTournament2.add(t6);
+        teamsTournament2.add(t7);
+        Tournament tournament2 = new Tournament("Tournament 2", tournament2_matches, teamsTournament2);
 
-        List<Match> tournamrnt3_matches =  new ArrayList<>();
-        tournamrnt3_matches.add(match7);
-        tournamrnt3_matches.add(match8);
-        tournamrnt3_matches.add(match9);
-        Tournament tournament3 = new Tournament("Tournament 3", tournamrnt3_matches);
+        List<Match> tournament3_matches =  new ArrayList<>();
+        tournament3_matches.add(match7);
+        tournament3_matches.add(match8);
+        tournament3_matches.add(match9);
+
+        List<Team> teamsTournament3 = new ArrayList<>();
+        teamsTournament3.add(t8);
+        teamsTournament3.add(t9);
+        teamsTournament3.add(t10);
+        
+        Tournament tournament3 = new Tournament("Tournament 3", tournament3_matches, teamsTournament3);
 
         tournamentRepository.save(tournament1);
         tournamentRepository.save(tournament2);

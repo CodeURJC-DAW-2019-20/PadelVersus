@@ -11,16 +11,6 @@ import java.util.Set;
 
 @Service
 public class TournamentService {
-    // Returns the teams that are into one tournament (no duplicates)
-    Set<Team> getTeams(Tournament tournament){
-        List<Match> matches = tournament.getMatches();
-        Set<Team> teams = new HashSet<>();
-        for (Match match : matches) {
-            teams.addAll(match.getTeams());
-        }
-        return teams;
-    }
-
     // Returns the number of matches won for a specific team
     int wonGames(Tournament tournament, Team team){
         int won = 0;
