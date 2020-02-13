@@ -143,7 +143,7 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match5);
         matchRepository.save(match6);
 
-        List<Match> tournament1_matches =  new ArrayList<>();
+        ArrayList<Match> tournament1_matches =  new ArrayList<>();
         tournament1_matches.add(match1);
         tournament1_matches.add(match2);
         tournament1_matches.add(match3);
@@ -151,7 +151,7 @@ public class PadelversusApplication implements ApplicationRunner {
         tournament1_matches.add(match5);
         tournament1_matches.add(match6);
 
-        List<Team> teamsTournament1 = new ArrayList<>();
+        ArrayList<Team> teamsTournament1 = new ArrayList<>();
         teamsTournament1.add(t1);
         teamsTournament1.add(t2);
         teamsTournament1.add(t3);

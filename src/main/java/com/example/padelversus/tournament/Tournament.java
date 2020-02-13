@@ -4,6 +4,7 @@ import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
