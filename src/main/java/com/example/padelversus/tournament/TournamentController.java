@@ -1,16 +1,15 @@
 package com.example.padelversus.tournament;
 
 
+import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
-import com.example.padelversus.tournament.display.TeamDisplay;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class TournamentController {
@@ -32,14 +31,14 @@ public class TournamentController {
                 tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1]);
             }
             allTournamentDisplay.add(tournamentDisplay);
-            /*
             System.out.println(tournament.getName());
-            for (Team team : tournament.getTeams()) {
-                System.out.println("Team name: " + team.getName() +
-                        "\tWon: " + tournamentService.wonGames(tournament, team)[0] +
-                        "\tPlayed: "+ tournamentService.wonGames(tournament, team)[1]);
+            TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
+            matchesOrdered.addAll(tournament.getMatches());
+            for (Match match : matchesOrdered) {
+                System.out.println("Match Date: " + match.getDate() +
+                                   "\t Score: " + match.getScore());
             }
-            System.out.println();*/
+            System.out.println();
         }
         /*System.out.println("Estoy en /tournament");
         Optional<Tournament> Optionaltournament = tournamentRepository.getById(1L);

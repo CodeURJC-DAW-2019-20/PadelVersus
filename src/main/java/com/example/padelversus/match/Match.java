@@ -14,6 +14,7 @@ public class Match {
     private Long id;
 
     private String score;
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     @OneToOne(cascade = CascadeType.ALL)

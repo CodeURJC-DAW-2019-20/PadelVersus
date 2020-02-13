@@ -49,4 +49,10 @@ public class TournamentService {
         }
         return new int[]{won, played};
     }
+
+    String [] lastThreeMatches(Tournament tournament, Team team){
+        String [] lastThreeMatchesRepresentation = new String[3];
+        List<Match> matches = tournament.getMatches();
+        return lastThreeMatchesRepresentation;
+    }
 }
