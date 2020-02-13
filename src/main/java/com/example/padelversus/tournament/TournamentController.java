@@ -43,8 +43,10 @@ public class TournamentController {
         Optional<Tournament> Opttournament = tournamentRepository.getByName("Tournament 1");
         if(Opttournament.isPresent()){
             Tournament tournament = Opttournament.get();
+            System.out.println(tournament.getName());
             List<Team> teamOrder = tournamentService.teamOrder(tournament);
-            System.out.println(teamOrder);
+            teamOrder.forEach(t-> System.out.print(t.getName() + "\t"));
+            System.out.println();
         }
         model.addAttribute("tournament-list", allTournament);
         return "Tournaments";
