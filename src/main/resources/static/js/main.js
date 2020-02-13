@@ -9,11 +9,15 @@
 
     $(document).ready(function () {
         $(".dont_load").css("display","none");
+        $(".dont_load:first").css("display","block");
         $('.show_href_onclick').click(function(){
+            $(".dont_load").css("display","none");
             var id_to_show = $(this).attr("href");
             console.log(id_to_show);
            $(id_to_show).css("display","block");
         });
+        $("ul.tab-filters li:first-child").addClass("active");
+
         /**
          * Init matches slider
          * @html: ./html-component/matches-slider.html
