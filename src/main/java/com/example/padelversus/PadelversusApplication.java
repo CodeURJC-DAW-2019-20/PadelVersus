@@ -43,26 +43,26 @@ public class PadelversusApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         // Save teams and player
-        Player player1 = new Player("Lucas", "lucasgt", 14, 1.68, 60, "tortuga", "RayoTeam", 5.6, 8, "Spain");
-        Player player2 = new Player("Alex", "alexcf", 16, 1.86, 66, "leon", "CaptainTeam", 6.8, 10, "France");
-        Player player3 = new Player("Jose", "joseluisls", 29, 1.89, 50, "arena", "CaptianTeam", 5, 10, "Netherland");
-        Player player4 = new Player("Dani", "danicp", 20, 1.40, 59, "sombrilla", "RayoTeam", 4, 7, "Sweden");
-        Player player5 = new Player("Ivan", "ivanms", 10, 1.59, 67, "alfombra", "RelampagoTeam", 6, 9, "United Kingdom");
-        Player player6 = new Player("Juan", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player7 = new Player("Pedro", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player8 = new Player("Luis", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player9 = new Player("Mario", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player10 = new Player("Guillermo", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player11 = new Player("Luis", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player12 = new Player("Israel", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player13 = new Player("Maria", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player14 = new Player("Pilar", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player15 = new Player("Alejandra", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player16 = new Player("Carmen", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player17 = new Player("Nerea", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player18 = new Player("Daniel", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player19 = new Player("Manuel", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
-        Player player20 = new Player("Ana", "ivanms", 102, 1.592, 672, "alfombra2", "RelampagoTeam2", 62, 92, "United Kingdom2");
+        Player player1 = new Player("Lucas", "lucasgt", 14, 1.68, 60, "tortuga", 5.6, 8, "Spain");
+        Player player2 = new Player("Alex", "alexcf", 16, 1.86, 66, "leon",  6.8, 10, "France");
+        Player player3 = new Player("Jose", "joseluisls", 29, 1.89, 50, "arena", 5, 10, "Netherland");
+        Player player4 = new Player("Dani", "danicp", 20, 1.40, 59, "sombrilla", 4, 7, "Sweden");
+        Player player5 = new Player("Ivan", "ivanms", 10, 1.59, 67, "alfombra", 6, 9, "United Kingdom");
+        Player player6 = new Player("Juan", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player7 = new Player("Pedro", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player8 = new Player("Luis", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player9 = new Player("Mario", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player10 = new Player("Guillermo", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player11 = new Player("Luis", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player12 = new Player("Israel", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player13 = new Player("Maria", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player14 = new Player("Pilar", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player15 = new Player("Alejandra", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player16 = new Player("Carmen", "ivanms", 102, 1.592, 672, "alfombra2", 62, 92, "United Kingdom2");
+        Player player17 = new Player("Nerea", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player18 = new Player("Daniel", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player19 = new Player("Manuel", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
+        Player player20 = new Player("Ana", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
 
         Team t1 = new Team("Danielos - T1", player1, player2, new TeamStatistics(10, 40));
         Team t2 = new Team("Joselos - T2", player3, player4, new TeamStatistics(15, 45));

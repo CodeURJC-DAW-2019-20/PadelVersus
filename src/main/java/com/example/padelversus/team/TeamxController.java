@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/teamx")
-public class TeamxController {
+public class  TeamxController {
 
     @Autowired
     TeamRepository teamRepository;
