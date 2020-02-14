@@ -23,7 +23,6 @@ public class NotificationService {
         mail.setFrom("ach.juegos@gmail.com");
         mail.setSubject("HOLAAA");
         mail.setText("Bienvenido a la pagina!");
-
         javaMailSender.send(mail);
     }
 }
