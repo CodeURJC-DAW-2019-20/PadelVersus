@@ -1,4 +1,4 @@
-package com.example.padelversus.database;
+package com.example.padelversus.security;
 
 import com.example.padelversus.user.UserRepositoryAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/signup").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/saveUser").permitAll();
+        http.authorizeRequests().antMatchers("/signupPlayer").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
-        http.authorizeRequests().antMatchers("/css-min/**","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**").permitAll();
+        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**").permitAll();
         //http.authorizeRequests().antMatchers("/resources/**").permitAll();
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();

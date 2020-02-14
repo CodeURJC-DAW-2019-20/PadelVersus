@@ -20,6 +20,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Autowired
 	private UserRepository userRepository;
 
+
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 

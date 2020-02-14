@@ -28,11 +28,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('/images/bg-02.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form" action="/saveUser"  method="post"> <!--th:action="@{/crud/crear}" th:object="${user}"-->
+				<form class="login100-form validate-form" action="/saveUser"  method="post">
 					<span class="login100-form-title p-b-49">
 						Sign Up
 					</span>
@@ -41,12 +41,12 @@
 						<span class="label-input100">Username</span>
 						<input class="input100 form-control" type="text" name="name" id="name" placeholder="Type your username">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div><!--
+					</div>
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" id="email" placeholder="Type your email">
+						<input class="input100 form-control" type="email" name="mail" id="email" placeholder="Type your email">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>-->
+					</div>
 					<div class="wrap-input100 validate-input" data-validate="Password is required" >
 						<span class="label-input100 ">Password</span>
 						<input class="input100 form-control" type="password" name="passwordHash" id="password" placeholder="Type your password">

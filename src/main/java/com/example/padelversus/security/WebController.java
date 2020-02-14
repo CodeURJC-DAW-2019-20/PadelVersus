@@ -1,4 +1,4 @@
-package com.example.padelversus.database;
+package com.example.padelversus.security;
 
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
