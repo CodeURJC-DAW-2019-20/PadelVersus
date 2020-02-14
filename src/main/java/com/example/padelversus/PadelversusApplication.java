@@ -22,10 +22,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 @SpringBootApplication
 public class PadelversusApplication implements ApplicationRunner {
@@ -49,6 +46,43 @@ public class PadelversusApplication implements ApplicationRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
+    }
+
+    public List<List<SetPadel>> createSets(int n){ //Create n lists with lists of 2 sets
+        List<List<SetPadel>> allSets = new ArrayList<>();
+        for(int j=0; j<n; j++){
+            List<SetPadel> sets = new ArrayList<>();
+            List<Game> games1 = new ArrayList<>();
+            List<Game> games2 = new ArrayList<>();
+
+            games1.add(new Game(5));
+            games1.add(new Game(6));
+            games1.add(new Game(7));
+            games1.add(new Game(5));
+            games1.add(new Game(4));
+            games1.add(new Game(6));
+
+            games2.add(new Game(6));
+            games2.add(new Game(1));
+            games2.add(new Game(5));
+            games2.add(new Game(2));
+            games2.add(new Game(1));
+            games2.add(new Game(3));
+
+            SetPadel set1 = new SetPadel(games1, 1);
+            SetPadel set2 = new SetPadel(games2, 1);
+
+
+            setPadelRepository.save(set1);
+            setPadelRepository.save(set2);
+
+            sets.add(set1);
+            sets.add(set2);
+
+            allSets.add(sets);
+        }
+
+        return allSets;
     }
 
     @Override
@@ -120,70 +154,31 @@ public class PadelversusApplication implements ApplicationRunner {
         teamRepository.save(t10);
 
         //Example test
-        List<Game> games1 = new ArrayList<>();
-        List<Game> games2 = new ArrayList<>();
-        List<Game> games3 = new ArrayList<>();
-        List<Game> games4 = new ArrayList<>();
-        List<Game> games5 = new ArrayList<>();
-        List<Game> games6 = new ArrayList<>();
-
-        for(int i=0; i<6; i++){
-            games1.add(new Game(i+1));
-            games2.add(new Game(i+2));
-            games3.add(new Game(i+3));
-            games4.add(new Game(i+4));
-            games5.add(new Game(i+5));
-            games6.add(new Game(i+6));
-        }
-
-        SetPadel set1 = new SetPadel(games1, 1);
-        SetPadel set2 = new SetPadel(games2, 2);
-        SetPadel set3 = new SetPadel(games3,3);
-        SetPadel set4 = new SetPadel(games4,4);
-        SetPadel set5 = new SetPadel(games5,5);
-        SetPadel set6 = new SetPadel(games6,6);
-
-        List<SetPadel> sets1 = new ArrayList<>();
-        List<SetPadel> sets2 = new ArrayList<>();
-
-        sets1.add(set1);
-        sets1.add(set2);
-        sets1.add(set3);
-        sets2.add(set4);
-        sets2.add(set5);
-        sets2.add(set6);
-
-        setPadelRepository.save(set1);
-        setPadelRepository.save(set2);
-        setPadelRepository.save(set3);
-        setPadelRepository.save(set4);
-        setPadelRepository.save(set5);
-        setPadelRepository.save(set6);
-
+        List<List<SetPadel>> thirtySixSets = createSets(36);
         // Save tournaments and mathches
         // Tournament 1
-        MatchStadistics ms1_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
-        MatchStadistics ms1_2 = new MatchStadistics(sets2,13, 17, 0, 0, false);
+        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0),23, 57, 50, 50, true);
+        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1),13, 17, 0, 0, false);
         Match match1 = new Match(true,"t1 vs t2 win t1", new Date(2020, Calendar.OCTOBER, 20), ms1_1, ms1_2, t1, t2);
 
-        MatchStadistics ms2_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
-        MatchStadistics ms2_2 = new MatchStadistics(sets2, 13, 17, 0, 0, false);
+        MatchStadistics ms2_1 = new MatchStadistics(thirtySixSets.get(2),23, 57, 50, 50, true);
+        MatchStadistics ms2_2 = new MatchStadistics(thirtySixSets.get(3), 13, 17, 0, 0, false);
         Match match2 = new Match(true,"t1 vs t3 win t1", new Date(2020, Calendar.OCTOBER, 21), ms2_1, ms2_2, t1, t3);
 
-        MatchStadistics ms3_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
-        MatchStadistics ms3_2 = new MatchStadistics(sets2,13, 17, +0, 0, false);
+        MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4),23, 57, 50, 50, true);
+        MatchStadistics ms3_2 = new MatchStadistics(thirtySixSets.get(5),13, 17, +0, 0, false);
         Match match3 = new Match(true,"t1 vs t4 win t4", new Date(2020, Calendar.OCTOBER, 22), ms3_1, ms3_2, t4, t1);
 
-        MatchStadistics ms4_1 = new MatchStadistics(sets1,99, 99, 99, 99, true);
-        MatchStadistics ms4_2 = new MatchStadistics(sets2,78, 7, 9, 3, false);
+        MatchStadistics ms4_1 = new MatchStadistics(thirtySixSets.get(6),99, 99, 99, 99, true);
+        MatchStadistics ms4_2 = new MatchStadistics(thirtySixSets.get(7),78, 7, 9, 3, false);
         Match match4 = new Match(true,"t2 vs t3 win t2", new Date(2020, Calendar.OCTOBER, 23), ms4_1, ms4_2, t2, t3);
 
-        MatchStadistics ms5_1 = new MatchStadistics(sets1,23, 57, 50, 50, false);
-        MatchStadistics ms5_2 = new MatchStadistics(sets2,23, 57, 50, 50, true);
+        MatchStadistics ms5_1 = new MatchStadistics(thirtySixSets.get(8),23, 57, 50, 50, false);
+        MatchStadistics ms5_2 = new MatchStadistics(thirtySixSets.get(9),23, 57, 50, 50, true);
         Match match5 = new Match(true,"t2 vs t4 win t4", new Date(2020, Calendar.OCTOBER, 24), ms5_1, ms5_2, t2, t4);
 
-        MatchStadistics ms6_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
-        MatchStadistics ms6_2 = new MatchStadistics(sets2,23, 57, 50, 50, false);
+        MatchStadistics ms6_1 = new MatchStadistics(thirtySixSets.get(10),23, 57, 50, 50, true);
+        MatchStadistics ms6_2 = new MatchStadistics(thirtySixSets.get(11),23, 57, 50, 50, false);
         Match match6 = new Match(true,"t3 vs t3 win t4", new Date(2020, Calendar.OCTOBER, 25), ms6_1, ms6_2, t4, t3);
 
         matchRepository.save(match1);
@@ -193,7 +188,7 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match5);
         matchRepository.save(match6);
 
-        ArrayList<Match> tournament1_matches = new ArrayList<>();
+        /*ArrayList<Match> tournament1_matches = new ArrayList<>();
         tournament1_matches.add(match1);
         tournament1_matches.add(match2);
         tournament1_matches.add(match3);
@@ -312,7 +307,7 @@ public class PadelversusApplication implements ApplicationRunner {
         t1.getTeamStatistics().addGame(new Game(6));
         t1.getTeamStatistics().addGame(new Game(6));
         t1.getTeamStatistics().addGame(new Game(6));
-        teamRepository.save(t1);
+        teamRepository.save(t1);*/
 
     }
 
