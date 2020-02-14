@@ -24,7 +24,7 @@ public class Team {
     private TeamStatistics teamStatistics;
 
     @ManyToMany
-    private List<Match> playedMatches;
+    private List<Match> matches;
 
     public Team(){
     }
@@ -37,7 +37,7 @@ public class Team {
         this.name = name;
         this.players =  aux;
         this.teamStatistics = new TeamStatistics();
-        this.playedMatches = new ArrayList<>();
+        this.matches = new ArrayList<>();
     }
 
     public Long getId() {
@@ -72,16 +72,16 @@ public class Team {
         this.teamStatistics = teamStatistics;
     }
 
-    public List<Match> getPlayedMatches() {
-        return playedMatches;
+    public List<Match> getMatches() {
+        return matches;
     }
 
-    public void setPlayedMatches(List<Match> playedMatches) {
-        this.playedMatches = playedMatches;
+    public void setMatches(List<Match> playedMatches) {
+        this.matches = playedMatches;
     }
 
     public void addMatch(Match m) {
-        this.playedMatches.add(m);
+        this.matches.add(m);
     }
 
     @Override
@@ -92,5 +92,18 @@ public class Team {
                 ", players=" + players +
                 ", teamStatistics=" + teamStatistics +
                 '}';
+    }
+
+    public void updateTeamStatistics(){
+        teamStatistics.resetStatistics();
+        for(Match m: matches){
+            if (m.isPlayed()){
+                if (id == m.getidTeam(1)) {
+                    teamStatistics.updateStatistics(m.getStadistics_1());
+                } else {
+                    teamStatistics.updateStatistics(m.getStadistics_2());
+                }
+            }
+        }
     }
 }

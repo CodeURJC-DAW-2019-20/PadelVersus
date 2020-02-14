@@ -1,5 +1,6 @@
 package com.example.padelversus.team.teamstatistics;
 
+import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.team.teamstatistics.game.Game;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class TeamStatistics {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     Long id;
 
+    private int totalGames;
     private int totalWins;
     private int totalDefeats;
     private int totalAcurracy;
@@ -25,6 +27,7 @@ public class TeamStatistics {
 
     public TeamStatistics() {
         super();
+        this.totalGames = 0;
         this.totalWins = 0;
         this.totalDefeats = 0;
         this.totalAcurracy = 0;
@@ -40,6 +43,14 @@ public class TeamStatistics {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getTotalGames() {
+        return totalGames;
+    }
+
+    public void setTotalGames(int totalGames) {
+        this.totalGames = totalGames;
     }
 
     public int getTotalWins() {
@@ -100,5 +111,30 @@ public class TeamStatistics {
 
     public void addGame(Game game){
         gamesPerMatch.add(game);
+    }
+
+    public void resetStatistics(){
+        this.totalGames = 0;
+        this.totalWins = 0;
+        this.totalDefeats = 0;
+        this.totalAcurracy = 0;
+        this.totalEffectiveness = 0;
+        this.totalGamesWon = 0;
+        this.totalUnforcedErrors = 0;
+        this.gamesPerMatch.clear();
+    }
+
+    public void updateStatistics(MatchStadistics lastMatch){
+        totalGames++;
+        if(lastMatch.isWin()){
+            totalWins++;
+        }else{
+            totalDefeats++;
+        }
+        totalAcurracy += lastMatch.getAcurracy();
+        totalEffectiveness += lastMatch.getEffectiveness();
+        totalGamesWon += lastMatch.getGames_wins();
+        gamesPerMatch.add(new Game(lastMatch.getGames_wins()));
+        totalUnforcedErrors += lastMatch.getUnforcedErrors();
     }
 }
