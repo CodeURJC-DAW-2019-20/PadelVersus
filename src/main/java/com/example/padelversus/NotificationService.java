@@ -19,8 +19,7 @@ public class NotificationService {
     public void sendNotification(Player player) throws MailException {  //Send an email
 
         SimpleMailMessage mail = new SimpleMailMessage();
-        //mail.setTo(player.getEmail());
-        mail.setTo("mchr1967@gmail.com");
+        mail.setTo(player.getEmail());
         mail.setFrom("ach.juegos@gmail.com");
         mail.setSubject("HOLAAA");
         mail.setText("Bienvenido a la pagina!");
