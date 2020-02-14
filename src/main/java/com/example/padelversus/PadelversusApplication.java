@@ -135,7 +135,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match1 = new Match(true,"t1 vs t2 win t1", new Date(2020, Calendar.OCTOBER, 20), ms1_1, ms1_2, t1, t2);
 
         MatchStadistics ms2_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
-        MatchStadistics ms2_2 = new MatchStadistics(13, 17, 0, 0, false);
+        MatchStadistics ms2_2 = new MatchStadistics(sets2, 13, 17, 0, 0, false);
         Match match2 = new Match(true,"t1 vs t3 win t1", new Date(2020, Calendar.OCTOBER, 21), ms2_1, ms2_2, t1, t3);
 
         MatchStadistics ms3_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);
