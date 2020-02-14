@@ -43,7 +43,7 @@ public class MatchStadistics {
         this.sets=sets;
         this.games_wins = 0;
         for(SetPadel s: sets){ //For each set of the teamx it adds the games won of this set to the total
-            for(Game g: (SetPadel) s) {
+            for(Game g: s.getGames()) {
                 this.games_wins += g.getGames();
             }
         }
@@ -97,11 +97,11 @@ public class MatchStadistics {
         this.unforcedErrors = unforcedErrors;
     }
 
-    public List<Game> getSets() {
+    public List<SetPadel> getSets() {
         return sets;
     }
 
-    public void setSets(List<Game> sets) {
+    public void setSets(List<SetPadel> sets) {
         this.sets = sets;
     }
 }
