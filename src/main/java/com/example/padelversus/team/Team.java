@@ -2,6 +2,7 @@ package com.example.padelversus.team;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.player.Player;
+import com.example.padelversus.team.teamstatistics.TeamStatistics;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -28,14 +29,14 @@ public class Team {
     public Team(){
     }
 
-    public Team(String name, Player playerOne, Player playerTwo,  TeamStatistics teamStatistics){
+    public Team(String name, Player playerOne, Player playerTwo){
         super();
         List<Player> aux = new ArrayList<>(2);
         aux.add(playerOne);
         aux.add(playerTwo);
         this.name = name;
         this.players =  aux;
-        this.teamStatistics = teamStatistics;
+        this.teamStatistics = new TeamStatistics();
         this.playedMatches = new ArrayList<>();
     }
 
