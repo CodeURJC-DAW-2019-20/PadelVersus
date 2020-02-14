@@ -9,19 +9,21 @@ public class TeamStatistics {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     Long id;
 
-    private int wins;
-    private int defeats;
+    private int totalWins;
+    private int totalDefeats;
+    private int totalAcurracy;
+    private int totalEffectiveness;
+    private int totalGamesWon;
+    private int totalUnforcedErrors;
 
-
-    public TeamStatistics(){
-
-    }
-
-    public TeamStatistics(int wins, int defeats) {
+    public TeamStatistics() {
         super();
-
-        this.wins = wins;
-        this.defeats = defeats;
+        this.totalWins = 0;
+        this.totalDefeats = 0;
+        this.totalAcurracy = 0;
+        this.totalEffectiveness = 0;
+        this.totalGamesWon = 0;
+        this.totalUnforcedErrors = 0;
     }
 
     public Long getId() {
@@ -32,19 +34,53 @@ public class TeamStatistics {
         this.id = id;
     }
 
-    public int getWins() {
-        return wins;
+    public int getTotalWins() {
+        return totalWins;
     }
 
-    public void setWins(int wins) {
-        this.wins = wins;
+    public void setTotalWins(int totalWins) {
+        this.totalWins = totalWins;
     }
 
-    public int getDefeats() {
-        return defeats;
+    public int getTotalDefeats() {
+        return totalDefeats;
     }
 
-    public void setDefeats(int defeats) {
-        this.defeats = defeats;
+    public void setTotalDefeats(int totalDefeats) {
+        this.totalDefeats = totalDefeats;
     }
+
+    public int getTotalAcurracy() {
+        return totalAcurracy;
+    }
+
+    public void setTotalAcurracy(int totalAcurracy) {
+        this.totalAcurracy = totalAcurracy;
+    }
+
+    public int getTotalEffectiveness() {
+        return totalEffectiveness;
+    }
+
+    public void setTotalEffectiveness(int totalEffectiveness) {
+        this.totalEffectiveness = totalEffectiveness;
+    }
+
+    public int getTotalGamesWon() {
+        return totalGamesWon;
+    }
+
+    public void setTotalGamesWon(int totalGamesWon) {
+        this.totalGamesWon = totalGamesWon;
+    }
+
+    public int getTotalUnforcedErrors() {
+        return totalUnforcedErrors;
+    }
+
+    public void setTotalUnforcedErrors(int totalUnforcedErrors) {
+        this.totalUnforcedErrors = totalUnforcedErrors;
+    }
+
+
 }

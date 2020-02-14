@@ -64,16 +64,16 @@ public class PadelversusApplication implements ApplicationRunner {
         Player player19 = new Player("Manuel", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
         Player player20 = new Player("Ana", "ivanms", 102, 1.592, 672, "alfombra2",  62, 92, "United Kingdom2");
 
-        Team t1 = new Team("Danielos - T1", player1, player2, new TeamStatistics(10, 40));
-        Team t2 = new Team("Joselos - T2", player3, player4, new TeamStatistics(15, 45));
-        Team t3 = new Team("Papateros - T3", player5, player6, new TeamStatistics(20, 42));
-        Team t4 = new Team("Leones - T4", player7, player8, new TeamStatistics(20, 42));
-        Team t5 = new Team("Tigres - T5", player9, player10, new TeamStatistics(20, 42));
-        Team t6 = new Team("Donuts - T6", player11, player12, new TeamStatistics(20, 42));
-        Team t7 = new Team("PapdelTeam - T7", player13, player14, new TeamStatistics(20, 42));
-        Team t8 = new Team("VersusTeam - T8", player15, player16, new TeamStatistics(20, 42));
-        Team t9 = new Team("Luqueros - T9", player17, player18, new TeamStatistics(20, 42));
-        Team t10 = new Team("Jamoneros - T10", player18, player20, new TeamStatistics(20, 42));
+        Team t1 = new Team("Danielos - T1", player1, player2);
+        Team t2 = new Team("Joselos - T2", player3, player4);
+        Team t3 = new Team("Papateros - T3", player5, player6);
+        Team t4 = new Team("Leones - T4", player7, player8);
+        Team t5 = new Team("Tigres - T5", player9, player10);
+        Team t6 = new Team("Donuts - T6", player11, player12);
+        Team t7 = new Team("PapdelTeam - T7", player13, player14);
+        Team t8 = new Team("VersusTeam - T8", player15, player16);
+        Team t9 = new Team("Luqueros - T9", player17, player18);
+        Team t10 = new Team("Jamoneros - T10", player18, player20);
 
         playerRepository.save(player1);
         playerRepository.save(player2);

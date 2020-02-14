@@ -28,14 +28,14 @@ public class Team {
     public Team(){
     }
 
-    public Team(String name, Player playerOne, Player playerTwo,  TeamStatistics teamStatistics){
+    public Team(String name, Player playerOne, Player playerTwo){
         super();
         List<Player> aux = new ArrayList<>(2);
         aux.add(playerOne);
         aux.add(playerTwo);
         this.name = name;
         this.players =  aux;
-        this.teamStatistics = teamStatistics;
+        this.teamStatistics = new TeamStatistics();
         this.playedMatches = new ArrayList<>();
     }
 
