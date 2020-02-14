@@ -32,11 +32,13 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('/images/bg-02.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form">
+            <form class="login100-form validate-form" action="/login" method="post">
 					<span class="login100-form-title p-b-49">
 						Log In
 					</span>
-
+                <div class="text-right p-t-6 p-b-31"style="color: red;" >
+                    Error al introducir el usuario o la contraseña
+                </div>
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Username is required">
                     <span class="label-input100">Username</span>
                     <input class="input100" type="text" name="username" placeholder="Type your username">
@@ -45,7 +47,7 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="pass" placeholder="Type your password">
+                    <input class="input100" type="password" name="password" placeholder="Type your password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
@@ -63,7 +65,7 @@
                         </button>
                     </div>
                 </div>
-
+            </form>
                 <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
 							Or Log In Using
@@ -90,7 +92,7 @@
 							Or Sign Up
 						</span>
 
-                    <a href="signUp.html" class="txt2">
+                    <a href="/signup" class="txt2">
                         Sign Up
                     </a>
                 </div>
@@ -102,7 +104,7 @@
                         </button>
                     </div>
                 </div>
-            </form>
+
         </div>
     </div>
 </div>

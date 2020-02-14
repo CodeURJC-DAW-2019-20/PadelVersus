@@ -38,9 +38,6 @@ public class PadelversusApplication implements ApplicationRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
-        System.out.println("ACABO");
-
-
     }
 
     @Override
