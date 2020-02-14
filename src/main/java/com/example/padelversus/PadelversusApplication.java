@@ -43,26 +43,26 @@ public class PadelversusApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         // Save teams and player
-        Player player1 = new Player( 14,  1.68, 60, 45, 5.6, 8,10 , 10, 12,"Spain");
-        Player player2 = new Player( 16, 16, 1.86, 66, 34.4,  6.8, 10,19 , 34,"France");
-        Player player3 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player4 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player5 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player6 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player7 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player8 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player9 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player10 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player11 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player12 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player13 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player14 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player15 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player16 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player17 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player18 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player19 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
-        Player player20 = new Player( 29, 29, 1.89, 50, 35, 5, 10, 13, 14, "France");
+        Player player1 = new Player( 14,  1.68, 60, 1, 5.6, 8,10 , 10, 2.5,"Spain");
+        Player player2 = new Player( 16, 1.70, 65, 2, 4.4,  6.8, 9,2 , 4.6,"France");
+        Player player3 = new Player( 23, 1.72, 66, 3, 5, 5, 2, 2, 5.6, "Netherland");
+        Player player4 = new Player( 24, 1.78, 67, 4, 3.7, 6.7, 3, 5, 6.7, "Spain");
+        Player player5 = new Player( 25, 1.79, 89, 5, 3.5, 3, 4, 6, 6.9, "Portugal");
+        Player player6 = new Player( 26, 1.87, 70, 6, 3.7, 5, 5, 7, 7.0, "United Kindgdom");
+        Player player7 = new Player( 28, 1.9, 73, 7, 3.3, 6, 7, 8, 7.2, "United Kindgdom");
+        Player player8 = new Player( 31, 1.8, 75, 8, 3.2, 6.7, 8, 7, 6.4, "France");
+        Player player9 = new Player( 32, 1.8, 77, 9, 1.6, 6.8, 9, 6, 5.6, "Spain");
+        Player player10 = new Player( 33, 1.5, 70, 7, 1.7, 4.6, 10, 8, 6.7, "Spain");
+        Player player11 = new Player( 35, 1.7, 51, 8, 1.8, 4.6, 3, 9, 8.8, "France");
+        Player player12 = new Player( 47, 1.5, 58, 6, 1.9, 4.8, 4, 2, 9.9, "France");
+        Player player13 = new Player( 45, 1.6, 60, 7, 1.5, 4.3, 4.6, 3, 3.4, "Netherland");
+        Player player14 = new Player( 24, 1.8, 62, 9, 1.4, 3.2, 5.7, 4, 5.6, "Netherland");
+        Player player15 = new Player( 48, 1.9, 45, 10, 1.3, 3.4, 5.6, 5, 6.7, "France");
+        Player player16 = new Player( 50, 1.4, 67, 10, 1.2, 5.7, 5.6, 6, 7.6, "France");
+        Player player17 = new Player( 29, 1.6, 69, 9, 1.1, 5.8, 6.7, 7, 6.7, "Spain");
+        Player player18 = new Player( 21, 1.7, 70, 8, 5.6, 5.9, 3.4, 8, 4.5, "Spain");
+        Player player19 = new Player( 39, 1.8, 76, 7, 5.8, 3.4, 5.6, 9, 6.7, "United Kindgdom");
+        Player player20 = new Player( 40, 1.9, 40, 6, 5.9, 5.4, 5.8, 10, 5.6, "United Kindgdom");
 
         Team t1 = new Team("Danielos - T1", player1, player2);
         Team t2 = new Team("Joselos - T2", player3, player4);
