@@ -1,5 +1,6 @@
 package com.example.padelversus.team;
 
+import com.example.padelversus.match.Match;
 import com.example.padelversus.player.Player;
 
 import javax.persistence.*;
@@ -21,10 +22,13 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     private TeamStatistics teamStatistics;
 
+    @ManyToMany
+    private List<Match> playedMatches;
+
     public Team(){
     }
 
-    public Team(String name, Player playerOne,Player playerTwo,  TeamStatistics teamStatistics){
+    public Team(String name, Player playerOne, Player playerTwo,  TeamStatistics teamStatistics, List<Match> playedMatches){
         super();
         List<Player> aux = new ArrayList<>(2);
         aux.add(playerOne);
@@ -32,6 +36,7 @@ public class Team {
         this.name = name;
         this.players =  aux;
         this.teamStatistics = teamStatistics;
+        this.playedMatches = playedMatches;
     }
 
     public Long getId() {
@@ -64,6 +69,14 @@ public class Team {
 
     public void setTeamStatistics(TeamStatistics teamStatistics) {
         this.teamStatistics = teamStatistics;
+    }
+
+    public List<Match> getPlayedMatches() {
+        return playedMatches;
+    }
+
+    public void setPlayedMatches(List<Match> playedMatches) {
+        this.playedMatches = playedMatches;
     }
 
     @Override
