@@ -17,7 +17,6 @@ public class Player {
     private double height;
     private double weight;
     private String password;
-    private String team;
     private double speed;
     private double strength;
     private Byte image;
@@ -37,7 +36,6 @@ public class Player {
                 ", height=" + height +
                 ", weight=" + weight +
                 ", password='" + password + '\'' +
-                ", team='" + team + '\'' +
                 ", speed=" + speed +
                 ", strength=" + strength +
                 ", image=" + image +
@@ -45,7 +43,7 @@ public class Player {
                 '}';
     }
 
-    public Player (String username, String email, int age, double height, double weight, String password, String team, double speed, double strength, String  countryBirth) {
+    public Player (String username, String email, int age, double height, double weight, String password, double speed, double strength, String  countryBirth) {
         super();
         this.username = username;
         this.email = email;
@@ -53,7 +51,6 @@ public class Player {
         this.height = height;
         this.weight = weight;
         this.password = password;
-        this.team = team;
         this.speed = speed;
         this.strength = strength;
         this.countryBirth =  countryBirth;
@@ -87,10 +84,6 @@ public class Player {
 
     public String getPassword() {
         return password;
-    }
-
-    public String getTeam() {
-        return team;
     }
 
     public double getSpeed() {
@@ -135,10 +128,6 @@ public class Player {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
     }
 
     public void setSpeed(double speed) {
