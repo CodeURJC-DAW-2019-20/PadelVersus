@@ -17,7 +17,7 @@ public class MatchStadistics {
     private int unforcedErrors;
     private boolean win;
 
-    @OneToMany (cascade = CascadeType.ALL)
+    @OneToMany (cascade = CascadeType.MERGE)
     private List<SetPadel> sets; //Sets with their games on each set
 
     @Override
@@ -34,6 +34,7 @@ public class MatchStadistics {
 
     public MatchStadistics() {
     }
+
     public MatchStadistics(List<SetPadel> sets, int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
         super();
         this.acurracy=acurracy;

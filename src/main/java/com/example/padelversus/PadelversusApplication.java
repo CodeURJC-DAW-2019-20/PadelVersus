@@ -5,11 +5,15 @@ import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
 import com.example.padelversus.match.Stadistics.SetPadel;
+import com.example.padelversus.match.Stadistics.SetPadelRepository;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
+import com.example.padelversus.team.teamstatistics.TeamStatistics;
+import com.example.padelversus.team.teamstatistics.TeamStatisticsRepository;
 import com.example.padelversus.team.teamstatistics.game.Game;
+import com.example.padelversus.team.teamstatistics.game.GameRepository;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +39,13 @@ public class PadelversusApplication implements ApplicationRunner {
     @Autowired
     private TeamRepository teamRepository;
     @Autowired
+    private TeamStatisticsRepository teamStatisticsRepository;
+    @Autowired
     private TournamentRepository tournamentRepository;
+    @Autowired
+    private SetPadelRepository setPadelRepository;
+    @Autowired
+    private GameRepository gameRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
@@ -112,22 +122,44 @@ public class PadelversusApplication implements ApplicationRunner {
         //Example test
         List<Game> games1 = new ArrayList<>();
         List<Game> games2 = new ArrayList<>();
+        List<Game> games3 = new ArrayList<>();
+        List<Game> games4 = new ArrayList<>();
+        List<Game> games5 = new ArrayList<>();
+        List<Game> games6 = new ArrayList<>();
 
         for(int i=0; i<6; i++){
             games1.add(new Game(i+1));
             games2.add(new Game(i+2));
+            games3.add(new Game(i+3));
+            games4.add(new Game(i+4));
+            games5.add(new Game(i+5));
+            games6.add(new Game(i+6));
         }
 
-        SetPadel set1 = new SetPadel(games1);
-        SetPadel set2 = new SetPadel(games2);
-
+        SetPadel set1 = new SetPadel(games1, 1);
+        SetPadel set2 = new SetPadel(games2, 2);
+        SetPadel set3 = new SetPadel(games3,3);
+        SetPadel set4 = new SetPadel(games4,4);
+        SetPadel set5 = new SetPadel(games5,5);
+        SetPadel set6 = new SetPadel(games6,6);
 
         List<SetPadel> sets1 = new ArrayList<>();
         List<SetPadel> sets2 = new ArrayList<>();
-        for(int i=0; i<3; i++){
-            sets1.add(set1);
-            sets2.add(set2);
-        }
+
+        sets1.add(set1);
+        sets1.add(set2);
+        sets1.add(set3);
+        sets2.add(set4);
+        sets2.add(set5);
+        sets2.add(set6);
+
+        setPadelRepository.save(set1);
+        setPadelRepository.save(set2);
+        setPadelRepository.save(set3);
+        setPadelRepository.save(set4);
+        setPadelRepository.save(set5);
+        setPadelRepository.save(set6);
+
         // Save tournaments and mathches
         // Tournament 1
         MatchStadistics ms1_1 = new MatchStadistics(sets1,23, 57, 50, 50, true);

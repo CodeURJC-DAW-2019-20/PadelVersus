@@ -9,18 +9,29 @@ import java.util.List;
 public class SetPadel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToMany
+    @OneToMany (cascade = CascadeType.ALL)
     List<Game> games; //Games won by one team in this set
+
+    int setNumber;
 
     public SetPadel() {
     }
 
-    public SetPadel(List<Game> games){
+    public SetPadel(List<Game> games, int setNumber){
         super();
         this.games = games;
+        this.setNumber = setNumber;
+    }
+
+    public int getSetNumber() {
+        return setNumber;
+    }
+
+    public void setSetNumber(int setNumber) {
+        this.setNumber = setNumber;
     }
 
     public Long getId() {
