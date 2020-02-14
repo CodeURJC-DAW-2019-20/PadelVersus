@@ -4,6 +4,7 @@ import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
+import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.team.Team;
@@ -108,6 +109,25 @@ public class PadelversusApplication implements ApplicationRunner {
         teamRepository.save(t9);
         teamRepository.save(t10);
 
+        //Example test
+        List<Game> games1 = new ArrayList<>();
+        List<Game> games2 = new ArrayList<>();
+
+        for(int i=0; i<6; i++){
+            games1.add(new Game(i+1));
+            games2.add(new Game(i+2));
+        }
+
+        SetPadel set1 = new SetPadel(games1);
+        SetPadel set2 = new SetPadel(games2);
+
+
+        List<SetPadel> sets1 = new ArrayList<>();
+        List<SetPadel> sets2 = new ArrayList<>();
+        for(int i=0; i<3; i++){
+            sets1.add(set1);
+            sets2.add(set2);
+        }
         // Save tournaments and mathches
         // Tournament 1
         MatchStadistics ms1_1 = new MatchStadistics(23, 57, 50, 50, true);
