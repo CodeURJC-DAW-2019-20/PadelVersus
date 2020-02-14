@@ -34,7 +34,7 @@ public class MatchStadistics {
 
     public MatchStadistics() {
     }
-    public MatchStadistics(List<Game> sets, int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
+    public MatchStadistics(List<SetPadel> sets, int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
         super();
         this.acurracy=acurracy;
         this.effectiveness=effectiveness;
@@ -42,7 +42,7 @@ public class MatchStadistics {
         this.win=win;
         this.sets=sets;
         this.games_wins = 0;
-        for(Game s: sets){ //For each set of the teamx it adds the games won of this set to the total
+        for(SetPadel s: sets){ //For each set of the teamx it adds the games won of this set to the total
             this.games_wins += s.getGames();
         }
     }
