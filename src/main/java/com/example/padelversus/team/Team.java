@@ -28,7 +28,7 @@ public class Team {
     public Team(){
     }
 
-    public Team(String name, Player playerOne, Player playerTwo,  TeamStatistics teamStatistics, List<Match> playedMatches){
+    public Team(String name, Player playerOne, Player playerTwo,  TeamStatistics teamStatistics){
         super();
         List<Player> aux = new ArrayList<>(2);
         aux.add(playerOne);
@@ -36,7 +36,7 @@ public class Team {
         this.name = name;
         this.players =  aux;
         this.teamStatistics = teamStatistics;
-        this.playedMatches = playedMatches;
+        this.playedMatches = new ArrayList<>();
     }
 
     public Long getId() {
@@ -77,6 +77,10 @@ public class Team {
 
     public void setPlayedMatches(List<Match> playedMatches) {
         this.playedMatches = playedMatches;
+    }
+
+    public void addMatch(Match m) {
+        this.playedMatches.add(m);
     }
 
     @Override
