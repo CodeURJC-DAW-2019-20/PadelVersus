@@ -11,64 +11,66 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private  String email;
+
+
     private int age;
-    private double height;
-    private double weight;
-    private String password;
-    private double speed;
-    private double strength;
     private Byte image;
     private String countryBirth;
 
+
+    private double height;
+    private double weight;
+    private double speed;
+    private double strength;
+    private double endurance;
+    private double pace;
+    private double accuaracy;
+    private double aceleration;
+
     public Player() {
     }
+
+    public Player(int age,double height,double weight,double speed,double strength,double endurance,double pace,double accuaracy,double aceleration,String countryBirth) {
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.speed = speed;
+        this.strength = strength;
+        this.endurance = endurance;
+        this.pace = pace;
+        this.accuaracy = accuaracy;
+        this.aceleration = aceleration;
+        this.countryBirth = countryBirth;
+    }
+
 
 
     @Override
     public String toString() {
         return "Player{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
                 ", age=" + age +
                 ", height=" + height +
                 ", weight=" + weight +
-                ", password='" + password + '\'' +
                 ", speed=" + speed +
+                ", aceleration=" + aceleration +
+                ", accuaracy=" + accuaracy +
+                ", pace=" + pace +
+                ", endurance=" + endurance +
                 ", strength=" + strength +
                 ", image=" + image +
                 ", countryBirth='" + countryBirth + '\'' +
+
                 '}';
     }
 
-    public Player (String username, String email, int age, double height, double weight, String password, double speed, double strength, String  countryBirth) {
-        super();
-        this.username = username;
-        this.email = email;
-        this.age = age;
-        this.height = height;
-        this.weight = weight;
-        this.password = password;
-        this.speed = speed;
-        this.strength = strength;
-        this.countryBirth =  countryBirth;
-        ;
-        //this.imagen = imagen;
-    }
+
+
 
     public Long getId() {
         return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
 
     public int getAge() {
         return age;
@@ -82,9 +84,6 @@ public class Player {
         return weight;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public double getSpeed() {
         return speed;
@@ -106,13 +105,6 @@ public class Player {
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setAge(int age) {
         this.age = age;
@@ -126,9 +118,7 @@ public class Player {
         this.weight = weight;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
 
     public void setSpeed(double speed) {
         this.speed = speed;
@@ -144,5 +134,36 @@ public class Player {
 
     public void setCountryBirth(String countryBirth) {
         this.countryBirth = countryBirth;
+    }
+    public double getEndurance() {
+        return endurance;
+    }
+
+    public void setEndurance(double endurance) {
+        this.endurance = endurance;
+    }
+
+    public double getPace() {
+        return pace;
+    }
+
+    public void setPace(double pace) {
+        this.pace = pace;
+    }
+
+    public double getAccuaracy() {
+        return accuaracy;
+    }
+
+    public void setAccuaracy(double accuaracy) {
+        this.accuaracy = accuaracy;
+    }
+
+    public double getAceleration() {
+        return aceleration;
+    }
+
+    public void setAceleration(double aceleration) {
+        this.aceleration = aceleration;
     }
 }

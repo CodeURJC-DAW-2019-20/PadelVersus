@@ -29,8 +29,17 @@ public class PlayerController {
     public String player(Model model, @PathVariable Long id){
         Optional<Player> player = playerRepository.findById(id);
         if (player.isPresent()) {
-            model.addAttribute("name",player.get().getUsername());
+            //model.addAttribute("name",player.get().getUsername());
             model.addAttribute("country",player.get().getCountryBirth());
+            model.addAttribute("age",player.get().getAge());
+            model.addAttribute("height", player.get().getHeight());
+            model.addAttribute("weight", player.get().getWeight());
+            model.addAttribute("strenght", player.get().getStrength());
+            model.addAttribute("endurance", player.get().getEndurance());
+            model.addAttribute("pace", player.get().getPace());
+            model.addAttribute("speed", player.get().getSpeed());
+            model.addAttribute("accuaracy", player.get().getAccuaracy());
+            model.addAttribute("aceleration", player.get().getAceleration());
             return "player";
         } else {
             return "404";
