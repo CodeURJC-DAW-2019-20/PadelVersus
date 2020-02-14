@@ -42,6 +42,7 @@ public class Match {
 
     public Match() {
     }
+
     public Match(String score, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
