@@ -43,7 +43,9 @@ public class MatchStadistics {
         this.sets=sets;
         this.games_wins = 0;
         for(SetPadel s: sets){ //For each set of the teamx it adds the games won of this set to the total
-            this.games_wins += s.getGames();
+            for(Game g: (SetPadel) s) {
+                this.games_wins += g.getGames();
+            }
         }
     }
 
