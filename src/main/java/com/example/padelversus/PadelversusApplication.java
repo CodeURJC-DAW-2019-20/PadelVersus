@@ -8,7 +8,6 @@ import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
-import com.example.padelversus.team.TeamStatistics;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

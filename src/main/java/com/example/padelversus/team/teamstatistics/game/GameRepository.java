@@ -1,4 +1,4 @@
-package com.example.padelversus.team.game;
+package com.example.padelversus.team.teamstatistics.game;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

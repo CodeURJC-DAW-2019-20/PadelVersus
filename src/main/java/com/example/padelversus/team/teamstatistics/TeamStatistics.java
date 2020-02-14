@@ -1,6 +1,6 @@
-package com.example.padelversus.team;
+package com.example.padelversus.team.teamstatistics;
 
-import com.example.padelversus.team.game.Game;
+import com.example.padelversus.team.teamstatistics.game.Game;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -2,6 +2,7 @@ package com.example.padelversus.team;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.player.Player;
+import com.example.padelversus.team.teamstatistics.TeamStatistics;
 
 import javax.persistence.*;
 import java.util.ArrayList;
