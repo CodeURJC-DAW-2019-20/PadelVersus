@@ -363,14 +363,14 @@
          * @usage: ./html-components/player_single_wrap.html
          */
 
-        var height = parseInt($("#stats > li#height").text());
+        var height = parseInt($("#stats > li#height").text())*100;
         var weight = parseInt($("#stats > li#weight").text());
-        var endurance = parseInt($("#stats > li#endurance").text());
-        var speed = parseInt($("#stats > li#speed").text());
-        var accuaracy = parseInt($("#stats > li#accuaracy").text());
-        var aceleration = parseInt($("#stats > li#aceleration").text());
-        var strenght = parseInt($("#stats > li#strenght").text());
-        var pace = parseInt($("#stats > li#pace").text());
+        var endurance = parseInt($("#stats > li#endurance").text())*100;
+        var speed = parseInt($("#stats > li#speed").text())*100;
+        var accuaracy = parseInt($("#stats > li#accuaracy").text())*100;
+        var aceleration = parseInt($("#stats > li#aceleration").text())*100;
+        var strenght = parseInt($("#stats > li#strenght").text())*100;
+        var pace = parseInt($("#stats > li#pace").text())*100;
         if ($('#player-radar-graph').length > 0) {
             $('#player-radar-graph').teamRadarGraph(
                     'stats',
