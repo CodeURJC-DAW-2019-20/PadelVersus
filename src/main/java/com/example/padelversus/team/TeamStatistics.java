@@ -1,5 +1,7 @@
 package com.example.padelversus.team;
 
+import com.example.padelversus.team.game.Game;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

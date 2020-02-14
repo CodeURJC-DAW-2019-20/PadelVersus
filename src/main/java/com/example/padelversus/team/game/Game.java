@@ -1,4 +1,4 @@
-package com.example.padelversus.team;
+package com.example.padelversus.team.game;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
