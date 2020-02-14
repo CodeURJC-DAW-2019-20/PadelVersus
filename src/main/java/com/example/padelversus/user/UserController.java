@@ -1,5 +1,8 @@
 package com.example.padelversus.user;
 
+import com.example.padelversus.mail.NotificationService;
+import com.example.padelversus.player.Player;
+import com.example.padelversus.player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -13,31 +16,34 @@ public class UserController {
     @Autowired
     private UserRepository uc;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public String listaUsuarios(ModelMap mp) {
-        mp.put("usuarios", uc.findAll());
-        return "crud/lista";
-    }
+    @Autowired
+    private PlayerRepository pc;
+    @Autowired
+    private NotificationService notificationService;
 
-    @RequestMapping(value = "/nuevo", method = RequestMethod.GET)
-    public String nuevo(ModelMap mp) {
-        mp.put("usuario", new User());
-        return "crud/nuevo";
-    }
-
-    @RequestMapping(value = "/crear", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String crear(@RequestParam User user) {
-        uc.save(user);
-
-        return "/";
-    }
 
     @PostMapping("/saveUser")
-    public String saveUser(Model model, User user){
+    public String saveUser(User user){
         //user.setRol("ROLE_USER");
-        User u = uc.save(user);
-        return "/";
+        //User u = uc.save(user);
+        //return "/";
+        User u = uc.findByName(user.getName());
+        if (u == null) {
+            uc.save(user);
+            notificationService.sendNotification(user);
+            //updateTabs(model);
+            return "/signupPlayer";
+        }
+
+        return "404";
     }
+
+    @PostMapping("/signupPlayer")
+    public String signupPlayer(Player player){
+        pc.save(player);
+        return "/signupSuccess";
+    }
+
     /*public String crear(@RequestParam String name, String pass, BindingResult bindingResult, ModelMap mp) {
         uc.save(new User(name,pass,"ROLE_USER"));
         System.out.println("Crear");
@@ -52,9 +58,5 @@ public class UserController {
         return "/";
     }*/
 
-    @RequestMapping(value = "/creado", method = RequestMethod.POST)
-    public String creado(@RequestParam("usuario") User user) {
-        return "/crud/creado";
-    }
 
 }

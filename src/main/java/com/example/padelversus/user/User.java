@@ -21,9 +21,14 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@NotNull
 	private String name;
+
 	@NotNull
 	private String passwordHash;
+
+	@NotNull
+	private String mail;
 
 	@ElementCollection(fetch = FetchType.EAGER) //EAGER para que el usuario se coja con los roles de la bbdd
 	private List<String> roles;   //Rol de ADMIN/ USER...
@@ -31,9 +36,10 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String... roles) {
+	public User(String name, String password, String mail, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.mail = mail;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
@@ -64,4 +70,30 @@ public class User {
 		this.roles.add(rol);
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", passwordHash='" + passwordHash + '\'' +
+				", mail='" + mail + '\'' +
+				", roles=" + roles +
+				'}';
+	}
 }

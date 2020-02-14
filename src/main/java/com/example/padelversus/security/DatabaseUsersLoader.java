@@ -1,4 +1,4 @@
-package com.example.padelversus.database;
+package com.example.padelversus.security;
 
 import javax.annotation.PostConstruct;
 
@@ -16,8 +16,8 @@ public class DatabaseUsersLoader {
     @PostConstruct
     private void initDatabase() { //Para guardarlo en la bbdd al inicializar
     	
-    	userRepository.save(new User("user", "pass", "ROLE_USER"));
-		userRepository.save(new User("admin", "adminpass", "ROLE_USER", "ROLE_ADMIN"));
+    	userRepository.save(new User("user", "pass", "prueba@gmail.com","ROLE_USER"));
+		userRepository.save(new User("admin", "adminpass","procesosoftg1@gmail.com","ROLE_USER", "ROLE_ADMIN"));
     }
 
 }
