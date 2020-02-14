@@ -113,6 +113,17 @@ public class TeamStatistics {
         gamesPerMatch.add(game);
     }
 
+    public void resetStatistics(){
+        this.totalGames = 0;
+        this.totalWins = 0;
+        this.totalDefeats = 0;
+        this.totalAcurracy = 0;
+        this.totalEffectiveness = 0;
+        this.totalGamesWon = 0;
+        this.totalUnforcedErrors = 0;
+        this.gamesPerMatch.clear();
+    }
+
     public void updateStatistics(MatchStadistics lastMatch){
         totalGames++;
         if(lastMatch.isWin()){
