@@ -18,7 +18,7 @@ public class MatchStadistics {
     private boolean win;
 
     @OneToMany (cascade = CascadeType.ALL)
-    private List<SetPadel> sets; //Sets with their games
+    private List<SetPadel> sets; //Sets with their games on each set
 
     @Override
     public String toString() {
