@@ -1,6 +1,8 @@
 package com.example.padelversus.team;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class TeamStatistics {
@@ -16,6 +18,9 @@ public class TeamStatistics {
     private int totalGamesWon;
     private int totalUnforcedErrors;
 
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Game> gamesPerMatch;
+
     public TeamStatistics() {
         super();
         this.totalWins = 0;
@@ -24,6 +29,7 @@ public class TeamStatistics {
         this.totalEffectiveness = 0;
         this.totalGamesWon = 0;
         this.totalUnforcedErrors = 0;
+        this.gamesPerMatch = new ArrayList<>();
     }
 
     public Long getId() {
@@ -82,5 +88,15 @@ public class TeamStatistics {
         this.totalUnforcedErrors = totalUnforcedErrors;
     }
 
+    public List<Game> getGamesPerMatch() {
+        return gamesPerMatch;
+    }
 
+    public void setGamesPerMatch(List<Game> gamesPerMatch) {
+        this.gamesPerMatch = gamesPerMatch;
+    }
+
+    public void addGame(Game game){
+        gamesPerMatch.add(game);
+    }
 }
