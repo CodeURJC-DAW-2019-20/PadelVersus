@@ -67,6 +67,9 @@ public class User {
 		this.roles = roles;
 	}
 	public void setRol(String rol){
+		if(roles == null){
+			roles = new ArrayList<>();
+		}
 		this.roles.add(rol);
 	}
 

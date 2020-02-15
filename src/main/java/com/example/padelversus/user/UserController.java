@@ -29,7 +29,12 @@ public class UserController {
         //return "/";
         User u = uc.findByName(user.getName());
         if (u == null) {
-            uc.save(user);
+            User userSave = new User();
+            userSave.setName(user.getName());
+            userSave.setPasswordHash(user.getPasswordHash());
+            userSave.setMail(user.getMail());
+            userSave.setRol("USER_ROLE");
+            uc.save(userSave);
             notificationService.sendNotification(user);
             //updateTabs(model);
             return "/signupPlayer";
