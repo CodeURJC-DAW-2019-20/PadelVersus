@@ -18,6 +18,7 @@ public class UserController {
 
     @Autowired
     private PlayerRepository pc;
+
     @Autowired
     private NotificationService notificationService;
 

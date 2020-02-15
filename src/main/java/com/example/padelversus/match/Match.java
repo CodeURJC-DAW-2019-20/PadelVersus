@@ -2,6 +2,7 @@ package com.example.padelversus.match;
 
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.*;
@@ -15,6 +16,7 @@ public class Match {
 
     private String score;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date date;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -53,7 +55,14 @@ public class Match {
         this.stadistics_1=stadistics_1;
         this.stadistics_2=stadistics_2;
     }
-
+    public Match(Date date,Team t1,Team t2){
+        super();
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.teams= aux;
+        this.date=date;
+    }
     public MatchStadistics getStadistics_1() {
         return stadistics_1;
     }

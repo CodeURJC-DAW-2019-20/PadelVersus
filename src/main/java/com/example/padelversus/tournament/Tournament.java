@@ -82,7 +82,7 @@ public class Tournament {
     }
 
     public void setMatches(List<Match> matches) {
-        matches = matches;
+        this.matches = matches;
     }
 
 }
