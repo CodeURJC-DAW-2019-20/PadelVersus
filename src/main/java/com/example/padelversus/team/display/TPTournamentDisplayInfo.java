@@ -14,10 +14,9 @@ public class TPTournamentDisplayInfo {
     public TPTournamentDisplayInfo(Tournament tournament){
         this.teamNames = new ArrayList<>();
         this.tournamentName = tournament.getName();
-        for(Team t: tournament.getTeams()){
+        for(Team t: tournament.getTeams()) {
             teamNames.add(t.getName());
         }
-        System.out.println(teamNames.size());
     }
 
     public TPTournamentDisplayInfo(List<String> teamNames){

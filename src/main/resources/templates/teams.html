@@ -131,11 +131,11 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <ul class="tab-filters" role="tablist">
                         {{#allTournamentsInfo}}
-                        <li><a href="#{{tournamentName}}" role="tab" data-toggle="tab" aria-expanded="true">{{tournamentName}}</a></li>
+                        <li><a href="#{{tournamentName}}" role="tab" data-toggle="tab" aria-expanded="true" class="show_teamlist_onclick">{{tournamentName}}</a></li>
                         {{/allTournamentsInfo}}
                     </ul>
                         {{#allTournamentsInfo}}
-                        <div class="tab-pane" id="{{tournamentName}}">
+                        <div class="tab-pane dont_load" id="{{tournamentName}}" role="tabpanel">
                             <div class="esport_championship_participants">
                                 <div class="container">
                                     <div class="row no-guters">

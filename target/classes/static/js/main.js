@@ -143,6 +143,7 @@
          *        ./html-component/next_matc_score.html
          *        ./html-component/player_statistic_slider.html
          *        ./html-component/players_slider.html
+         *        ./html-component/teams.html
          */
         $('.champ-navigation li a, .tab-filters li a, .player-filters li a').on('click', function (e) {
 
