@@ -57,4 +57,12 @@ public class TeamxDisplay {
     public void setLastMatches(List<LastMatchDisplay> lastMatches) {
         this.lastMatches = lastMatches;
     }
+
+    public TeamStatisticsDisplay getStatisticsDisplay() {
+        return statisticsDisplay;
+    }
+
+    public void setStatisticsDisplay(TeamStatisticsDisplay statisticsDisplay) {
+        this.statisticsDisplay = statisticsDisplay;
+    }
 }
