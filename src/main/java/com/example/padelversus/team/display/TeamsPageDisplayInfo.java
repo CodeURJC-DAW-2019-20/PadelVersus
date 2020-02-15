@@ -1,39 +1,28 @@
 package com.example.padelversus.team.display;
 
-import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.Tournament;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TeamsPageDisplayInfo {
-    private List<TPTournamentDisplayInfo> tournaments;
+
+    private List<TPTournamentDisplayInfo> tournamentDisplays;
 
     public TeamsPageDisplayInfo(List<Tournament> tournaments){
 
+        this.tournamentDisplays = new ArrayList<>();
         for(Tournament t: tournaments){
-            this.tournamentsNames.add(t.getName());
-            List<String> tTeams = new ArrayList<>();
-            for(Team team: t.getTeams()){
-                tTeams.add(team.getName());
-            }
-            this.tournamentTeamsNames.add(tTeams);
+            TPTournamentDisplayInfo display = new TPTournamentDisplayInfo(t);
+            tournamentDisplays.add(display);
         }
     }
 
-    public List<String> getTournamentsNames() {
-        return tournamentsNames;
+    public List<TPTournamentDisplayInfo> getTournamentDisplays() {
+        return tournamentDisplays;
     }
 
-    public void setTournamentsNames(List<String> tournamentsNames) {
-        this.tournamentsNames = tournamentsNames;
-    }
-
-    public List<List<String>> getTournamentTeamsNames() {
-        return tournamentTeamsNames;
-    }
-
-    public void setTournamentTeamsNames(List<List<String>> tournamentTeamsNames) {
-        this.tournamentTeamsNames = tournamentTeamsNames;
+    public void setTournamentDisplays(List<TPTournamentDisplayInfo> tournamentDisplays) {
+        this.tournamentDisplays = tournamentDisplays;
     }
 }
