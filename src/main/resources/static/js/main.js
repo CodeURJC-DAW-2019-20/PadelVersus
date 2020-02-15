@@ -17,6 +17,7 @@
            $(id_to_show).css("display","block");
         });
         $("ul.tab-filters li:first-child").addClass("active");
+        $("div.tab-content div:first-child").addClass("active");
         $.each($("td.form > span"), function(){
             if($(this).text() === "l"){
                 $(this).addClass("lose")
@@ -143,6 +144,7 @@
          *        ./html-component/next_matc_score.html
          *        ./html-component/player_statistic_slider.html
          *        ./html-component/players_slider.html
+         *        ./html-component/teams.html
          */
         $('.champ-navigation li a, .tab-filters li a, .player-filters li a').on('click', function (e) {
 
