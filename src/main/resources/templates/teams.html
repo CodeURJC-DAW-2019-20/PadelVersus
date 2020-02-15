@@ -34,7 +34,7 @@
 
 <body>
 
-	<div class="preloader-wrapper" id="preloader">
+<div class="preloader-wrapper" id="preloader">
     <div class="motion-line dark-big"></div>
     <div class="motion-line yellow-big"></div>
     <div class="motion-line dark-small"></div>
@@ -43,12 +43,12 @@
     <div class="motion-line yellow-small2"></div>
 </div>
 
-    
-
-    
 
 
-    <!--MAIN MENU WRAP BEGIN-->
+
+
+
+<!--MAIN MENU WRAP BEGIN-->
 <div class="main-menu-wrap sticky-menu">
     <div class="container">
         <a  class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
@@ -93,16 +93,16 @@
                     </li>
                     <li><a href="logIn.html"><span>LOG IN</span></a></li>
                 </ul>
-            </div>       
+            </div>
         </nav>
     </div>
 </div>
 <!--MAIN MENU WRAP END-->
 
 
-    <!--MAIN MENU WRAP END-->
+<!--MAIN MENU WRAP END-->
 
-    <!--BREADCRUMBS BEGIN-->
+<!--BREADCRUMBS BEGIN-->
 <section class="image-header">
     <div class="container">
         <div class="row">
@@ -116,52 +116,313 @@
                         <h1>Teams</h1>
                     </div>
                 </div>
-            </div>	
+            </div>
         </div>
     </div>
 </section>
 <!--BREADCRUMBS END-->
 
 
-    <!--MAIN MATCH SHEDULE BEGIN-->
+<!--MAIN MATCH SHEDULE BEGIN-->
 
-    <section class="main-match-shedule amateurs-match-shedule">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <ul class="tab-filters" role="tablist">
-                        {{#allTournamentsInfo}}
-                        <li><a href="#{{tournamentName}}" role="tab" data-toggle="tab" aria-expanded="true" class="show_teamlist_onclick">{{tournamentName}}</a></li>
-                        {{/allTournamentsInfo}}
-                    </ul>
-                        {{#allTournamentsInfo}}
-                        <div class="tab-pane dont_load" id="{{tournamentName}}" role="tabpanel">
-                            <div class="esport_championship_participants">
-                                <div class="container">
-                                    <div class="row no-guters">
-                                        {{#teamNames}}
-                                        <div class="col-md-3 col-sm-4 col-xs-6">
-                                            <a href="teamx.html">
-                                                <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
-                                                <img src="/images/common/team-logo4.png" alt="team-logo">
-                                                <span>{{.}}</span>
-                                            </a>
-                                        </div>
-                                        {{/teamNames}}
+<section class="main-match-shedule amateurs-match-shedule">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="tab-filters" role="tablist">
+                    <li class="active"><a href="#all" role="tab" data-toggle="tab" aria-expanded="true">All</a></li>
+                    <li><a href="#nationalcup" role="tab" data-toggle="tab" aria-expanded="true">National cup</a></li>
+                    <li><a href="#premierleague" role="tab" data-toggle="tab" aria-expanded="true">premier league</a></li>
+                    <li><a href="#otraLeague" role="tab" data-toggle="tab" aria-expanded="true">otra league league</a></li>
+                    {{#allTournamentsInfo}}
+                    <li><a href="#{{cleanName}}" role="tab" data-toggle="tab" aria-expanded="true" class="show_href_onclick">{{tournamentName}}</a></li>
+                    {{/allTournamentsInfo}}
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="all">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="teamx.html">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo4.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {{/allTournamentsInfo}}
                     </div>
+                    <div class="tab-pane" id="nationalcup">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo1.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="premierleague">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="otraLeague">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo3.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#allTournamentsInfo}}
+                    <div class="tab-pane" id="{{cleanName}}">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    {{#teamNames}}
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="#">
+                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/team-logo2.png" alt="team-logo">
+                                            <span>Boars team</span>
+                                        </a>
+                                    </div>
+                                    {{/teamNames}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/allTournamentsInfo}}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--MAIN MATCH SHEDULE END-->
+<!--MAIN MATCH SHEDULE END-->
 
-    <!--FOOTER BEGIN-->
+<!--FOOTER BEGIN-->
 <footer class="footer">
     <div class="wrapper-overfllow">
         <div class="container">
@@ -205,21 +466,21 @@
     </div>
     <div class="footer-menu-wrap">
         <div class="container">
-                   <ul class="main-menu nav">
-                        <li class="active">
-                            <a href="index.html"><span>Home</span></a>
-                        </li>
-                        <li>
-                            <a href="matches.html"><span>Matches</span></a>
-                        </li>
-                        <li>
-                            <a href="teams.html"><span>Team</span></a>
-                        </li>
-                        <li><a href="Tournaments.html"><span>Ranking</span></a></li>
-                        <li><a href="calendar.html"><span>Calendar</span></a></li>
-                        <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
-                        <li><a href="logIn.html"><span>LOG IN</span></a></li>
-                    </ul>
+            <ul class="main-menu nav">
+                <li class="active">
+                    <a href="index.html"><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="matches.html"><span>Matches</span></a>
+                </li>
+                <li>
+                    <a href="teams.html"><span>Team</span></a>
+                </li>
+                <li><a href="Tournaments.html"><span>Ranking</span></a></li>
+                <li><a href="calendar.html"><span>Calendar</span></a></li>
+                <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
+                <li><a href="logIn.html"><span>LOG IN</span></a></li>
+            </ul>
 
 
         </div>
@@ -228,7 +489,7 @@
 </footer>
 <!--FOOTER END-->
 
-    <script type="text/javascript" src="/js/library/jquery.js"></script>
+<script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>
 <script type="text/javascript" src="/js/library/jquery.sticky.js"></script>

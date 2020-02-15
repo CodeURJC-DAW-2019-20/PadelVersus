@@ -8,12 +8,14 @@ import java.util.List;
 
 public class TPTournamentDisplayInfo {
 
+    private String cleanName; //Name without spaces
     private String tournamentName;
     private List<String> teamNames;
 
     public TPTournamentDisplayInfo(Tournament tournament){
         this.teamNames = new ArrayList<>();
         this.tournamentName = tournament.getName();
+        this.cleanName = tournamentName.replaceAll("\\s","");
         for(Team t: tournament.getTeams()) {
             teamNames.add(t.getName());
         }

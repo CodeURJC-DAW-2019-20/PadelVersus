@@ -16,14 +16,6 @@
             console.log(id_to_show);
            $(id_to_show).css("display","block");
         });
-        $('.show_teamlist_onclick').click(function(){
-            $(".dont_load").css("display","none");
-            var id_to_show = $(this).attr("href");
-            var id_clean = id_to_show.substring(1, fid.length);
-            console.log(id_clean);
-            $(id_clean).css("display","block");
-        });
-
         $("ul.tab-filters li:first-child").addClass("active");
         $.each($("td.form > span"), function(){
             if($(this).text() === "l"){
