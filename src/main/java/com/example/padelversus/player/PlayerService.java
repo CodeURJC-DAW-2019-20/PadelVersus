@@ -14,9 +14,9 @@ public class PlayerService {
     private UserRepository userRepository;
 
     //Save (a copy) of a player joined with the user passed in username param if not possible return false
-    public boolean savePlayer(Player player, String username){
+    public boolean savePlayer(Player player, String username) {
         User relatedUser = userRepository.findByName(username);
-        if(relatedUser != null) {
+        if (relatedUser != null) {
             Player playerSave = new Player();
 
             playerSave.setAge(player.getAge());
