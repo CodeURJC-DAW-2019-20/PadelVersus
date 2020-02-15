@@ -38,6 +38,7 @@ public class Team {
         this.players =  aux;
         this.teamStatistics = new TeamStatistics();
         this.matches = new ArrayList<>();
+        updateTeamStatistics();
     }
 
     public Long getId() {
@@ -82,6 +83,7 @@ public class Team {
 
     public void addMatch(Match m) {
         this.matches.add(m);
+        updateTeamStatistics();
     }
 
     @Override

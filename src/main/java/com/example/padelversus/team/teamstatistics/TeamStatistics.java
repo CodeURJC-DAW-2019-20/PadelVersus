@@ -140,16 +140,25 @@ public class TeamStatistics {
 
     public String[] meanStatisticsParsed(){
         String[] means = new String[6];
-        means[0] = Integer.toString(totalWins);
-        means[1] = Integer.toString(totalDefeats);
-        means[2] = Float.toString(totalAcurracy/totalGames);
-        means[3] = Float.toString(totalEffectiveness/totalGames);
-        means[4] = Float.toString(totalUnforcedErrors/totalGames);
-        StringBuilder sb = new StringBuilder();
-        for(Game g: gamesPerMatch){
-            sb.append(g.getGames()+"|");
+        if(totalGames > 0) {
+            means[0] = Integer.toString(totalWins);
+            means[1] = Integer.toString(totalDefeats);
+            means[2] = Float.toString(totalAcurracy / totalGames);
+            means[3] = Float.toString(totalEffectiveness / totalGames);
+            means[4] = Float.toString(totalUnforcedErrors / totalGames);
+            StringBuilder sb = new StringBuilder();
+            for (Game g : gamesPerMatch) {
+                sb.append(g.getGames() + "|");
+            }
+            means[5] = sb.toString();
+        }else{
+            means[0] = "0";
+            means[1] = "0";
+            means[2] = "0";
+            means[3] = "0";
+            means[4] = "0";
+            means[5] = "0";
         }
-        means[5] = sb.toString();
 
         return means;
     }
