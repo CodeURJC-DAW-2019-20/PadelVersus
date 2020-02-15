@@ -94,10 +94,9 @@
                 <div class="form-group col-md-offset-2">
                     <label>Chose Tournament</label>
                     <select class="form-control" style="width: 75%">
-                        <option selected>Choose...</option>
-                        <option>Tournament 1</option>
-                        <option>Tournament 2</option>
-                        <option>Tournament 3</option>
+                        {{#tournamnet-list}}
+                                <option>{{name}}</option>
+                        {{/tournamnet-list}}
                     </select>
                     <label>Team name</label>
                     <input type="text" class="form-control" placeholder="Team name" style="width: 75%">
