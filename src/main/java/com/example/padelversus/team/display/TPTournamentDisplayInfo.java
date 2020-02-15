@@ -17,6 +17,7 @@ public class TPTournamentDisplayInfo {
         for(Team t: tournament.getTeams()){
             teamNames.add(t.getName());
         }
+        System.out.println(teamNames.size());
     }
 
     public String getTournamentName() {

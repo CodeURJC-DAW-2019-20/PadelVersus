@@ -37,8 +37,7 @@ public class TeamsController {
         TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList);
 
         model.addAttribute("allTeamNames", allTeamNames);
-        model.addAttribute("tournamentNames", teamsPageDisplayInfo.getTournamentsNames());
-        model.addAttribute("tournamentTeamNames", teamsPageDisplayInfo.getTournamentTeamsNames());
+        model.addAttribute("allTournamentsInfo", teamsPageDisplayInfo.getTournamentDisplays());
 
         return "teams";
     }
