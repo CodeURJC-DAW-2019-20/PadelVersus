@@ -15,7 +15,7 @@ public class TPTournamentDisplayInfo {
     public TPTournamentDisplayInfo(Tournament tournament){
         this.teamNames = new ArrayList<>();
         this.tournamentName = tournament.getName();
-        this.cleanName = tournamentName.replaceAll("\\s","");
+        this.cleanName = tournament.getNonspacename();
         for(Team t: tournament.getTeams()) {
             teamNames.add(t.getName());
         }
@@ -24,6 +24,15 @@ public class TPTournamentDisplayInfo {
     public TPTournamentDisplayInfo(List<String> teamNames){
         this.teamNames = teamNames;
         this.tournamentName = "All";
+        this.cleanName = tournamentName;
+    }
+
+    public String getCleanName() {
+        return cleanName;
+    }
+
+    public void setCleanName(String cleanName) {
+        this.cleanName = cleanName;
     }
 
     public String getTournamentName() {
