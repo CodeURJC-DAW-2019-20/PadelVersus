@@ -1,8 +1,10 @@
 package com.example.padelversus.team.display;
 
+import com.example.padelversus.match.Match;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.Team;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeamxDisplay {
@@ -14,6 +16,15 @@ public class TeamxDisplay {
     public TeamxDisplay(Team team){
         this.teamName = team.getName();
         this.players = team.getPlayers();
+
+        this.lastMatches = new ArrayList<>();
+        List<Match> matches = team.getLastNMatches(LAST_MATCHES_SHOWN);
+        for(Match m : matches){
+            if(m.isPlayed()){
+                lastMatches.add(new LastMatchDisplay(m));
+            }
+        }
+
     }
 
     public String getTeamName() {

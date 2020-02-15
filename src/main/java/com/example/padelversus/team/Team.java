@@ -116,7 +116,7 @@ public class Team {
         }
     }
 
-    public List<Match> lastNMatches(int n){
+    public List<Match> getLastNMatches(int n){
 
         List<Match> lastmatches = new ArrayList<>();
         if(this.matches.size() >= n){
