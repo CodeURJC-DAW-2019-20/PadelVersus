@@ -120,13 +120,12 @@
 <!--BREADCRUMBS END-->
 
 <!--PLAYER SINGLE WRAP BEGIN-->
-
+{{#teamInfo}}
 <section class="player-single-wrap">
 
     <!--PLAYER INFO BEGIN-->
     <div class="container">
         <div class="row">
-            {{#teamInfo}}
             <div class="col-md-6">
                 <div class="captain-bage">Team</div>
                 <h4 class="player-name">{{teamName}}</h4>
@@ -157,7 +156,6 @@
                     </div>
                 </div>
             </div>
-            {{/teamInfo}}
         </div>
     </div>
 
@@ -166,10 +164,48 @@
     <!--LAST MATCHES BEGIN-->
     <div class="container last-hockey-macthes">
         <div class="row">
-            <h6>Last four matches</h6>
+            <h6>Last {{LAST_MATCHES_SHOWN}} matches</h6>
             <div class="main-lates-matches">
+                {{#lastMatches}}
                 <a href="#" class="item">
-                    <span class="championship">National cup - semifinal</span>
+                    <span class="championship">COGER TORNEO AQUI</span>
+                    {{#winsTeamOne}}
+                    <span class="teams-wrap">
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
+                    </span>
+                    <span class="teams-wrap">
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
+                    </span>
+                    {{/winsTeamOne}}
+
+                    {{^winsTeamOne}}
+                    <span class="teams-wrap">
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
+                    </span>
+                    <span class="teams-wrap">
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
+                    </span>
+                    {{/winsTeamOne}}
+                </a>
+                {{/lastMatches}}
+                <a href="#" class="item">
+                    <span class="championship">COGER TORNEO AQUI</span>
                     <span class="teams-wrap">
                                     <span class="teamwinner">
                                         <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
@@ -364,7 +400,7 @@
     </footer>
     <!--FOOTER END-->
 </section>
-
+{{/teamInfo}}
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>
