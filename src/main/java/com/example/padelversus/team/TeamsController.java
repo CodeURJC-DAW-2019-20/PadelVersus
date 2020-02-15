@@ -1,6 +1,7 @@
 package com.example.padelversus.team;
 
 
+import com.example.padelversus.team.display.TPTournamentDisplayInfo;
 import com.example.padelversus.team.display.TeamsPageDisplayInfo;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
@@ -25,6 +26,7 @@ public class TeamsController {
 
     @GetMapping("")
     public String teams(Model model){
+
         List<Team> allTeams = teamRepository.findAll();
         List<String> allTeamNames = new ArrayList<>();
 
@@ -34,9 +36,8 @@ public class TeamsController {
 
         List<Tournament> tournamentsList = tournamentRepository.findAll();
 
-        TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList);
+        TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList, allTeamNames);
 
-        model.addAttribute("allTeamNames", allTeamNames);
         model.addAttribute("allTournamentsInfo", teamsPageDisplayInfo.getTournamentDisplays());
 
         return "teams";

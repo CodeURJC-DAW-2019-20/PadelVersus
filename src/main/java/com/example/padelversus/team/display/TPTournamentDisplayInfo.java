@@ -20,6 +20,11 @@ public class TPTournamentDisplayInfo {
         System.out.println(teamNames.size());
     }
 
+    public TPTournamentDisplayInfo(List<String> teamNames){
+        this.teamNames = teamNames;
+        this.tournamentName = "All";
+    }
+
     public String getTournamentName() {
         return tournamentName;
     }
