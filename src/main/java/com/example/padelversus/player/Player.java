@@ -1,9 +1,8 @@
 package com.example.padelversus.player;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.padelversus.user.User;
+
+import javax.persistence.*;
 
 @Entity
 public class Player {
@@ -27,10 +26,13 @@ public class Player {
     private double accuaracy;
     private double aceleration;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
+
     public Player() {
     }
 
-    public Player(int age,double height,double weight,double speed,double strength,double endurance,double pace,double accuaracy,double aceleration,String countryBirth) {
+    public Player(int age,double height,double weight,double speed,double strength,double endurance,double pace,double accuaracy,double aceleration,String countryBirth, User user) {
         this.age = age;
         this.height = height;
         this.weight = weight;
@@ -41,6 +43,7 @@ public class Player {
         this.accuaracy = accuaracy;
         this.aceleration = aceleration;
         this.countryBirth = countryBirth;
+        this.user = user;
     }
 
 
@@ -165,5 +168,13 @@ public class Player {
 
     public void setAceleration(double aceleration) {
         this.aceleration = aceleration;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
