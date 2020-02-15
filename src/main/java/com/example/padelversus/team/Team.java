@@ -115,4 +115,19 @@ public class Team {
             return null;
         }
     }
+
+    public List<Match> lastNMatches(int n){
+
+        List<Match> lastmatches = new ArrayList<>();
+        if(this.matches.size() >= n){
+            int counter = matches.size()-1;
+            for(int i=0; i<n; i++){
+                lastmatches.add(matches.get(counter));
+                counter--;
+            }
+            return lastmatches;
+        }else{
+            return this.matches;
+        }
+    }
 }
