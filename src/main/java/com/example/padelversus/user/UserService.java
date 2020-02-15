@@ -14,7 +14,7 @@ public class UserService {
     private NotificationService notificationService;
 
     //Saves a (copy with ROLE_USER) user if succes return user name if not return null (user already exists)
-    public String saveUser(User user){
+    public String saveUser(User user) {
         User u = userRepository.findByName(user.getName());
         if (u == null) {
             User userSave = new User();
@@ -25,7 +25,7 @@ public class UserService {
             userRepository.save(userSave);
             notificationService.sendNotification(user);
             return userSave.getName();
-        }else {
+        } else {
             return null;
         }
     }
