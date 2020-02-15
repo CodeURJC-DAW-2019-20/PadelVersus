@@ -51,7 +51,7 @@ public class PlayerService {
         return false;
     }
 
-    //find the name of the team with an id of the player
+    //find the name of the team  of the player
 
     public Team findTeamOfPlayer(Player player) {
         Team team = null;
@@ -68,6 +68,7 @@ public class PlayerService {
         return team;
     }
 
+    //find the name of the tournament  of the player
     public Tournament findTournamentOfPlayer(Player player) {
         Tournament tournament = null;
         List<Tournament> allTournaments = tournamentRepository.findAll();
