@@ -143,8 +143,8 @@ public class PadelversusApplication implements ApplicationRunner {
         List<List<SetPadel>> thirtySixSets = createSets(36);
         // Save tournaments and mathches
         // Tournament 1
-        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0),23, 57, 50, 50, true);
-        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1),13, 17, 0, 0, false);
+        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0),23, 57, 50, 50, false);
+        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1),13, 17, 0, 0, true);
         Match match1 = new Match(true,"t1 vs t2 win t1", new Date(2020, Calendar.OCTOBER, 20), ms1_1, ms1_2, t1, t2);
 
         MatchStadistics ms2_1 = new MatchStadistics(thirtySixSets.get(2),23, 57, 50, 50, true);
