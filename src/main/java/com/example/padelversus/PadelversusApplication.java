@@ -55,22 +55,8 @@ public class PadelversusApplication implements ApplicationRunner {
             List<Game> games1 = new ArrayList<>();
             List<Game> games2 = new ArrayList<>();
 
-            games1.add(new Game(5));
-            games1.add(new Game(6));
-            games1.add(new Game(7));
-            games1.add(new Game(5));
-            games1.add(new Game(4));
-            games1.add(new Game(6));
-
-            games2.add(new Game(6));
-            games2.add(new Game(1));
-            games2.add(new Game(5));
-            games2.add(new Game(2));
-            games2.add(new Game(1));
-            games2.add(new Game(3));
-
-            SetPadel set1 = new SetPadel(games1, 1);
-            SetPadel set2 = new SetPadel(games2, 1);
+            SetPadel set1 = new SetPadel(5, 1);
+            SetPadel set2 = new SetPadel(6, 1);
 
 
             setPadelRepository.save(set1);

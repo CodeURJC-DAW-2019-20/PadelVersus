@@ -10,17 +10,16 @@ public class SetPadel {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    List<Game> games; //Games won by one team in this set
+    private int games;
 
-    int setNumber;
+    private int setNumber;
 
     public SetPadel() {
     }
 
-    public SetPadel(List<Game> games, int setNumber){
+    public SetPadel(int games, int setNumber){
         super();
         this.games = games;
         this.setNumber = setNumber;
@@ -42,11 +41,11 @@ public class SetPadel {
         this.id = id;
     }
 
-    public List<Game> getGames() {
+    public int getGames() {
         return games;
     }
 
-    public void setGames(List<Game> games) {
+    public void setGames(int games) {
         this.games = games;
     }
 }
