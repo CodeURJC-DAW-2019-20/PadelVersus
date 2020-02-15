@@ -12,6 +12,7 @@ public class TeamxDisplay {
     private String teamName;
     private List<Player> players;
     private List<LastMatchDisplay> lastMatches;
+    private TeamStatisticsDisplay statisticsDisplay;
 
     public TeamxDisplay(Team team){
         this.teamName = team.getName();
@@ -24,6 +25,8 @@ public class TeamxDisplay {
                 lastMatches.add(new LastMatchDisplay(m));
             }
         }
+
+        this.statisticsDisplay = new TeamStatisticsDisplay(team.getTeamStatistics());
 
     }
 
