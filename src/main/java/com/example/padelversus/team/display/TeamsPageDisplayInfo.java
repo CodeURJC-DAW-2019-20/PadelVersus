@@ -7,12 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeamsPageDisplayInfo {
-    List<String> tournamentsNames;
-    List<List<String>> tournamentTeamsNames;
+    private List<TPTournamentDisplayInfo> tournaments;
 
     public TeamsPageDisplayInfo(List<Tournament> tournaments){
-        this.tournamentsNames = new ArrayList<>();
-        this.tournamentTeamsNames = new ArrayList<>();
 
         for(Tournament t: tournaments){
             this.tournamentsNames.add(t.getName());

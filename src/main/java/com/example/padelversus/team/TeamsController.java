@@ -1,6 +1,9 @@
 package com.example.padelversus.team;
 
 
+import com.example.padelversus.team.display.TeamsPageDisplayInfo;
+import com.example.padelversus.tournament.Tournament;
+import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +20,26 @@ public class TeamsController {
     @Autowired
     TeamRepository teamRepository;
 
+    @Autowired
+    TournamentRepository tournamentRepository;
+
     @GetMapping("")
     public String teams(Model model){
         List<Team> allTeams = teamRepository.findAll();
-        List<String> teamNames = new ArrayList<>();
+        List<String> allTeamNames = new ArrayList<>();
 
         for(Team t: allTeams){
-            teamNames.add(t.getName());
+            allTeamNames.add(t.getName());
         }
 
-        model.addAttribute("teamNames", teamNames);
+        List<Tournament> tournamentsList = tournamentRepository.findAll();
+
+        TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList);
+
+        model.addAttribute("allTeamNames", allTeamNames);
+        model.addAttribute("tournamentNames", teamsPageDisplayInfo.getTournamentsNames());
+        model.addAttribute("tournamentTeamNames", teamsPageDisplayInfo.getTournamentTeamsNames());
+
         return "teams";
     }
 }
