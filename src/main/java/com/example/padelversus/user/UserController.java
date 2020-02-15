@@ -15,27 +15,21 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
-    private PlayerRepository playerRepository;
+    private UserService userService;
+
     @Autowired
-    private NotificationService notificationService;
+    private PlayerRepository playerRepository;
 
 
     @PostMapping("/saveUser")
     public String saveUser(User user, Model model){
-        User u = userRepository.findByName(user.getName());
-        if (u == null) {
-            User userSave = new User();
-            userSave.setName(user.getName());
-            userSave.setPasswordHash(user.getPasswordHash());
-            userSave.setMail(user.getMail());
-            userSave.setRol("USER_ROLE");
-            userRepository.save(userSave);
-            notificationService.sendNotification(user);
-            model.addAttribute("user_name", userSave.getName());
+        String userName = userService.saveUser(user);
+        if(userName != null){
+            model.addAttribute("user_name", userName);
             return "signupPlayer";
+        }else {
+            return "404";
         }
-
-        return "404";
     }
 
     @PostMapping("/signupPlayer")
