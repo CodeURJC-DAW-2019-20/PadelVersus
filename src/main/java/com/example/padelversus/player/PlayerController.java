@@ -1,5 +1,7 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.user.User;
+import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,9 @@ public class PlayerController {
     @Autowired
     PlayerRepository playerRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
 
     @GetMapping("/")
     public String player(Model model){
@@ -28,8 +33,10 @@ public class PlayerController {
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id){
         Optional<Player> player = playerRepository.findById(id);
-        if (player.isPresent()) {
-            //model.addAttribute("name",player.get().getUsername());
+        Optional<User> user = userRepository.findById(id);
+        if (player.isPresent() && user.isPresent()) {
+            model.addAttribute("name",user.get().getName());
+            model.addAttribute("email",user.get().getMail());
             model.addAttribute("country",player.get().getCountryBirth());
             model.addAttribute("age",player.get().getAge());
             model.addAttribute("height", player.get().getHeight());
