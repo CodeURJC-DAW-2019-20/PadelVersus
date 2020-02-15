@@ -17,6 +17,7 @@
            $(id_to_show).css("display","block");
         });
         $("ul.tab-filters li:first-child").addClass("active");
+        $("div.tab-content div:first-child").addClass("active");
         $.each($("td.form > span"), function(){
             if($(this).text() === "l"){
                 $(this).addClass("lose")
