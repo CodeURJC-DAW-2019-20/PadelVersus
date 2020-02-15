@@ -242,16 +242,23 @@
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="canvas">
-                <ul style="display: block" id="stats">
-                    <li>Hola</li>
+                {{#statisticsDisplay}}
+                <ul style="display:none" id="stats">
+                    <li id="totalWins">{{totalWins}}</li>
+                    <li id="totalDefeats">{{totalDefeats}}</li>
+                    <li id="meanAcurracy">{{meanAcurracy}}</li>
+                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
+                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
+                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
                 </ul>
+                {{/statisticsDisplay}}
             </div>
         </div>
     </section>
     <!--PLAYER STATS END-->
 </section>
 <!--PLAYER SINGLE WRAP END-->
-
+{{/teamInfo}}
 <section>
 
 
@@ -326,7 +333,6 @@
     </footer>
     <!--FOOTER END-->
 </section>
-{{/teamInfo}}
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>
