@@ -13,7 +13,7 @@ public class TeamsController {
     @Autowired
     TeamRepository teamRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String teams(){
         return "teams";
     }
