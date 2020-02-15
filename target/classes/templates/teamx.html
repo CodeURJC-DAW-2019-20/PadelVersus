@@ -226,6 +226,14 @@
                         <div class="col-md-6">
                             <h6>Personal stast (match stats)</h6>
                             <div class="canvas-minutes-big horizontalbar">
+                                {{#statisticsDisplay}}
+                                <ul style="display:none" id="personalStats">
+                                    <li id="meanAcurracy">{{meanAcurracy}}</li>
+                                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
+                                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
+                                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
+                                </ul>
+                                {{/statisticsDisplay}}
                                 <div class="ct-chart" id="horizontalbar"></div>
                             </div>
                         </div>
@@ -237,10 +245,6 @@
                                 <ul style="display:none" id="stats">
                                     <li id="totalWins">{{totalWins}}</li>
                                     <li id="totalDefeats">{{totalDefeats}}</li>
-                                    <li id="meanAcurracy">{{meanAcurracy}}</li>
-                                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
-                                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
-                                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
                                 </ul>
                                 {{/statisticsDisplay}}
                                 <div class="ct-chart animatedonut" data-ready id="animatedonut"></div>
