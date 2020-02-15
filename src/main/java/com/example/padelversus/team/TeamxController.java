@@ -29,6 +29,7 @@ public class  TeamxController {
             return "teamx";
         }else{
             return "404";
+
         }
     }
 }
