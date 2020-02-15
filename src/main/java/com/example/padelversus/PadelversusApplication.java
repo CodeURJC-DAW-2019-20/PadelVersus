@@ -52,18 +52,19 @@ public class PadelversusApplication implements ApplicationRunner {
         List<List<SetPadel>> allSets = new ArrayList<>();
         for(int j=0; j<n; j++){
             List<SetPadel> sets = new ArrayList<>();
-            List<Game> games1 = new ArrayList<>();
-            List<Game> games2 = new ArrayList<>();
 
-            SetPadel set1 = new SetPadel(5, 1);
-            SetPadel set2 = new SetPadel(6, 1);
+            SetPadel set1 = new SetPadel(5 + (j%2), 1);
+            SetPadel set2 = new SetPadel(6 + (j%2), 1);
+            SetPadel set3 = new SetPadel(4 + (j%2), 1);
 
 
             setPadelRepository.save(set1);
             setPadelRepository.save(set2);
+            setPadelRepository.save(set3);
 
             sets.add(set1);
             sets.add(set2);
+            sets.add(set3);
 
             allSets.add(sets);
         }
