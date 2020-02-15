@@ -32,7 +32,7 @@ public class Player {
     public Player() {
     }
 
-    public Player(int age,double height,double weight,double speed,double strength,double endurance,double pace,double accuaracy,double aceleration,String countryBirth, User user) {
+    public Player(int age, double height, double weight, double speed, double strength, double endurance, double pace, double accuaracy, double aceleration, String countryBirth) {
         this.age = age;
         this.height = height;
         this.weight = weight;
@@ -43,7 +43,6 @@ public class Player {
         this.accuaracy = accuaracy;
         this.aceleration = aceleration;
         this.countryBirth = countryBirth;
-        this.user = user;
     }
 
 

@@ -35,11 +35,10 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String mail, Player player, String... roles) {
+	public User(String name, String password, String mail, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.mail = mail;
-		this.player = player;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 

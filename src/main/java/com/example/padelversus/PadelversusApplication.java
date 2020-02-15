@@ -16,11 +16,14 @@ import com.example.padelversus.team.teamstatistics.game.Game;
 import com.example.padelversus.team.teamstatistics.game.GameRepository;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
+import com.example.padelversus.user.User;
+import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import sun.security.krb5.internal.ccache.CredentialsCache;
 
 import java.util.*;
 
@@ -43,6 +46,8 @@ public class PadelversusApplication implements ApplicationRunner {
     private SetPadelRepository setPadelRepository;
     @Autowired
     private GameRepository gameRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
@@ -89,25 +94,86 @@ public class PadelversusApplication implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         // Save teams and player
         Player player1 = new Player( 14,  1.68, 60, 1, 5.6, 8,10 , 10, 2.5,"Spain");
+        User user1 = new User("Player 1", "player1", "player1@gmail.com",  "ROLE_USER");
+        player1.setUser(user1);
+
         Player player2 = new Player( 16, 1.70, 65, 2, 4.4,  6.8, 9,2 , 4.6,"France");
+        User user2 = new User("Player 2", "player2", "player2@gmail.com",  "ROLE_USER");
+        player2.setUser(user2);
+
         Player player3 = new Player( 23, 1.72, 66, 3, 5, 5, 2, 2, 5.6, "Netherland");
+        User user3 = new User("Player 3", "player3", "player3@gmail.com",  "ROLE_USER");
+        player3.setUser(user3);
+
         Player player4 = new Player( 24, 1.78, 67, 4, 3.7, 6.7, 3, 5, 6.7, "Spain");
+        User user4 = new User("Player 4", "player4", "player4@gmail.com",  "ROLE_USER");
+        player4.setUser(user4);
+
         Player player5 = new Player( 25, 1.79, 89, 5, 3.5, 3, 4, 6, 6.9, "Portugal");
+        User user5 = new User("Player 5", "player5", "player5@gmail.com",  "ROLE_USER");
+        player5.setUser(user5);
+
         Player player6 = new Player( 26, 1.87, 70, 6, 3.7, 5, 5, 7, 7.0, "United Kindgdom");
+        User user6 = new User("Player 6", "player6", "player6@gmail.com",  "ROLE_USER");
+        player6.setUser(user6);
+
         Player player7 = new Player( 28, 1.9, 73, 7, 3.3, 6, 7, 8, 7.2, "United Kindgdom");
+        User user7 = new User("Player 7", "player7", "player7@gmail.com",  "ROLE_USER");
+        player7.setUser(user7);
+
         Player player8 = new Player( 31, 1.8, 75, 8, 3.2, 6.7, 8, 7, 6.4, "France");
+        User user8 = new User("Player 8", "player8", "player8@gmail.com",  "ROLE_USER");
+        player8.setUser(user8);
+
         Player player9 = new Player( 32, 1.8, 77, 9, 1.6, 6.8, 9, 6, 5.6, "Spain");
+        User user9 = new User("Player 9", "player9", "player9@gmail.com",  "ROLE_USER");
+        player9.setUser(user9);
+
         Player player10 = new Player( 33, 1.5, 70, 7, 1.7, 4.6, 10, 8, 6.7, "Spain");
+        User user10 = new User("Player 10", "player10", "player10@gmail.com",  "ROLE_USER");
+        player10.setUser(user10);
+
         Player player11 = new Player( 35, 1.7, 51, 8, 1.8, 4.6, 3, 9, 8.8, "France");
+        User user11 = new User("Player 11", "player11", "player11@gmail.com",  "ROLE_USER");
+        player11.setUser(user11);
+
         Player player12 = new Player( 47, 1.5, 58, 6, 1.9, 4.8, 4, 2, 9.9, "France");
+        User user12 = new User("Player 12", "player12", "player12@gmail.com",  "ROLE_USER");
+        player12.setUser(user12);
+
         Player player13 = new Player( 45, 1.6, 60, 7, 1.5, 4.3, 4.6, 3, 3.4, "Netherland");
+        User user13 = new User("Player 13", "player13", "player13@gmail.com",  "ROLE_USER");
+        player13.setUser(user13);
+
         Player player14 = new Player( 24, 1.8, 62, 9, 1.4, 3.2, 5.7, 4, 5.6, "Netherland");
+        User user14 = new User("Player 14", "player14", "player14@gmail.com",  "ROLE_USER");
+        player14.setUser(user14);
+
         Player player15 = new Player( 48, 1.9, 45, 10, 1.3, 3.4, 5.6, 5, 6.7, "France");
+        User user15 = new User("Player 15", "player15", "player15@gmail.com",  "ROLE_USER");
+        player15.setUser(user15);
+
         Player player16 = new Player( 50, 1.4, 67, 10, 1.2, 5.7, 5.6, 6, 7.6, "France");
+        User user16 = new User("Player 16", "player16", "player16@gmail.com",  "ROLE_USER");
+        player16.setUser(user16);
+
         Player player17 = new Player( 29, 1.6, 69, 9, 1.1, 5.8, 6.7, 7, 6.7, "Spain");
+        User user17 = new User("Player 17", "player17", "player17@gmail.com",  "ROLE_USER");
+        player17.setUser(user17);
+
         Player player18 = new Player( 21, 1.7, 70, 8, 5.6, 5.9, 3.4, 8, 4.5, "Spain");
+        User user18 = new User("Player 18", "player18", "player18@gmail.com",  "ROLE_USER");
+        player18.setUser(user18);
+
         Player player19 = new Player( 39, 1.8, 76, 7, 5.8, 3.4, 5.6, 9, 6.7, "United Kindgdom");
+        User user19 = new User("Player 19", "player19", "player19@gmail.com",  "ROLE_USER");
+        player19.setUser(user19);
+
         Player player20 = new Player( 40, 1.9, 40, 6, 5.9, 5.4, 5.8, 10, 5.6, "United Kindgdom");
+        User user20 = new User("Player 20", "player20", "player20@gmail.com",  "ROLE_USER");
+        player20.setUser(user20);
+
+
 
         Team t1 = new Team("Danielos - T1", player1, player2);
         Team t2 = new Team("Joselos - T2", player3, player4);
@@ -309,6 +375,9 @@ public class PadelversusApplication implements ApplicationRunner {
         t1.getTeamStatistics().addGame(new Game(6));
         teamRepository.save(t1);
 
+
+        //Save database admin
+        userRepository.save(new User("admin", "adminpass","procesosoftg1@gmail.com", null, "ROLE_USER", "ROLE_ADMIN"));
     }
 
 

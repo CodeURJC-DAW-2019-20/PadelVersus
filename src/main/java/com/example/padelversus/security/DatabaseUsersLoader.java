@@ -16,8 +16,8 @@ public class DatabaseUsersLoader {
     @PostConstruct
     private void initDatabase() { //Para guardarlo en la bbdd al inicializar
     	
-    	userRepository.save(new User("user", "pass", "prueba@gmail.com", player, "ROLE_USER"));
-		userRepository.save(new User("admin", "adminpass","procesosoftg1@gmail.com", player, "ROLE_USER", "ROLE_ADMIN"));
+    	//userRepository.save(new User("user", "pass", "prueba@gmail.com", null, "ROLE_USER"));
+		//userRepository.save(new User("admin", "adminpass","procesosoftg1@gmail.com", null, "ROLE_USER", "ROLE_ADMIN"));
     }
 
 }
