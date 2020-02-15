@@ -184,7 +184,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Team t7 = new Team("PapdelTeam - T7", player13, player14);
         Team t8 = new Team("VersusTeam - T8", player15, player16);
         Team t9 = new Team("Luqueros - T9", player17, player18);
-        Team t10 = new Team("Jamoneros - T10", player18, player20);
+        Team t10 = new Team("Jamoneros - T10", player19, player20);
 
         playerRepository.save(player1);
         playerRepository.save(player2);
