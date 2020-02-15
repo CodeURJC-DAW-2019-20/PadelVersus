@@ -12,13 +12,22 @@ public class LastMatchDisplay {
     private List<Integer> gamesPerSetTwo;
     private String nameTeamOne;
     private String nameTeamTwo;
+    private boolean winsTeamOne;
 
     public LastMatchDisplay(Match match){
-        this.gamesPerSetOne = new ArrayList<>();
-        this.gamesPerSetTwo = new ArrayList<>();
+
         this.nameTeamOne = match.getTeams().get(0).getName();
         this.nameTeamTwo = match.getTeams().get(1).getName();
 
+        if(match.getStadistics_1().isWin()){
+            this.winsTeamOne = true;
+        }else{
+            this.winsTeamOne = false;
+        }
+
+
+        this.gamesPerSetOne = new ArrayList<>();
+        this.gamesPerSetTwo = new ArrayList<>();
         List<SetPadel> setsOne = match.getStadistics_1().getSets();
         List<SetPadel> setsTwo = match.getStadistics_2().getSets();
 
@@ -61,5 +70,13 @@ public class LastMatchDisplay {
 
     public void setNameTeamTwo(String nameTeamTwo) {
         this.nameTeamTwo = nameTeamTwo;
+    }
+
+    public boolean isWinsTeamOne() {
+        return winsTeamOne;
+    }
+
+    public void setWinsTeamOne(boolean winsTeamOne) {
+        this.winsTeamOne = winsTeamOne;
     }
 }
