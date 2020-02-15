@@ -483,13 +483,14 @@
          * @js: ./js/animate-donut.js
          * @usage: ./html-components/player_stats.html
          */
+        var totalWins = parseInt($("#stats > li#totalWins").text())*100;
+        var totalDefeats = parseInt($("#stats > li#totalDefeats").text())*100;
         if ($('#animatedonut').length > 0) {
             $('#animatedonut').animatedonut(
-                    ['1', '2', '3', '4', '5', '6', '7'],
-                    [10, 20, 50, 20, 5, 50, 15],
+                    ['defeats', 'wins'],
+                    [totalDefeats,totalWins],
                     true,
                     true
-
                     );
         }
 

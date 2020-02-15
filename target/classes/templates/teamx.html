@@ -231,27 +231,22 @@
                         </div>
                     </div>
                     <div class="row">
-
                             <h6>W/L %</h6>
                             <div class="canvas-animatedonut">
+                                {{#statisticsDisplay}}
+                                <ul style="display:none" id="stats">
+                                    <li id="totalWins">{{totalWins}}</li>
+                                    <li id="totalDefeats">{{totalDefeats}}</li>
+                                    <li id="meanAcurracy">{{meanAcurracy}}</li>
+                                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
+                                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
+                                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
+                                </ul>
+                                {{/statisticsDisplay}}
                                 <div class="ct-chart animatedonut" data-ready id="animatedonut"></div>
                             </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="canvas">
-                {{#statisticsDisplay}}
-                <ul style="display:none" id="stats">
-                    <li id="totalWins">{{totalWins}}</li>
-                    <li id="totalDefeats">{{totalDefeats}}</li>
-                    <li id="meanAcurracy">{{meanAcurracy}}</li>
-                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
-                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
-                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
-                </ul>
-                {{/statisticsDisplay}}
             </div>
         </div>
     </section>
