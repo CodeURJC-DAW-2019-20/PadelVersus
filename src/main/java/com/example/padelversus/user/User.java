@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.example.padelversus.player.Player;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -30,16 +26,20 @@ public class User {
 	@NotNull
 	private String mail;
 
-	@ElementCollection(fetch = FetchType.EAGER) //EAGER para que el usuario se coja con los roles de la bbdd
-	private List<String> roles;   //Rol de ADMIN/ USER...
+	@ElementCollection(fetch = FetchType.EAGER) //EAGER because the user is taken with the roles from the database
+	private List<String> roles;   //Role ROLE_ADMIN/ ROLE_USER...
+
+	@OneToOne(mappedBy = "user")
+	private Player player;
 
 	public User() {
 	}
 
-	public User(String name, String password, String mail, String... roles) {
+	public User(String name, String password, String mail, Player player, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.mail = mail;
+		this.player = player;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
@@ -98,5 +98,13 @@ public class User {
 				", mail='" + mail + '\'' +
 				", roles=" + roles +
 				'}';
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 }
