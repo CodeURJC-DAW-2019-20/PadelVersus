@@ -1,6 +1,7 @@
 package com.example.padelversus.team;
 
 
+import com.example.padelversus.team.display.TeamxDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +23,9 @@ public class  TeamxController {
         Optional<Team> team = teamRepository.findByid(id);
         if(team.isPresent()){
 
-            String teamName = team.get().getName();
+            TeamxDisplay teamxDisplay = new TeamxDisplay(team.get());
 
-            model.addAttribute("teamName", teamName);
-            model.addAttribute("playerOneName", "PEPE");
+            model.addAttribute("teamInfo", teamxDisplay);
             return "teamx";
         }else{
             return "404";

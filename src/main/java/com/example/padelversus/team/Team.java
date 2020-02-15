@@ -106,4 +106,13 @@ public class Team {
             }
         }
     }
+
+    public Player getMemberN(int n){
+        if(n >= 1 && n <= 2){
+            return this.players.get(n-1);
+        }
+        else{
+            return null;
+        }
+    }
 }
