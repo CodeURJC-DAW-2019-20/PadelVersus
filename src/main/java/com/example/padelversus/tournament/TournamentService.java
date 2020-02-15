@@ -2,6 +2,8 @@ package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
+import com.example.padelversus.tournament.display.TournamentDisplay;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +13,9 @@ import java.util.TreeSet;
 
 @Service
 public class TournamentService {
+    @Autowired
+    TournamentRepository tournamentRepository;
+
     //Order all team from a tournament by games won
     void teamOrder(Tournament tournament) {
         List<Team> tournamentTeams = tournament.getTeams();
@@ -75,5 +80,21 @@ public class TournamentService {
             }
         }
         return lastThreeMatchesRepresentation;
+    }
+    // Get all the tournaments already to display
+    List<TournamentDisplay> getTournaments(){
+        List<Tournament> allTournament = tournamentRepository.findAll();
+        List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
+        for (Tournament tournament : allTournament) {
+            teamOrder(tournament);
+            TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
+            for (Team team : tournament.getTeams()) {
+                int[] wonPlayed = wonGames(tournament, team);
+                List<String> lastMatches = lastThreeMatches(tournament, team);
+                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches);
+            }
+            allTournamentDisplay.add(tournamentDisplay);
+        }
+        return allTournamentDisplay;
     }
 }
