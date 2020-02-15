@@ -1,5 +1,7 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.team.Team;
+import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class PlayerController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    TeamRepository teamRepository;
+
 
     @GetMapping("/")
     public String player(Model model){
@@ -34,7 +39,9 @@ public class PlayerController {
     public String player(Model model, @PathVariable Long id){
         Optional<Player> player = playerRepository.findById(id);
         Optional<User> user = userRepository.findById(id);
-        if (player.isPresent() && user.isPresent()) {
+        Optional<Team> team = teamRepository.findByid(id);
+        if (player.isPresent() || user.isPresent()|| team.isPresent()) {
+            model.addAttribute("nameTeam",team.get().getName());
             model.addAttribute("name",user.get().getName());
             model.addAttribute("email",user.get().getMail());
             model.addAttribute("country",player.get().getCountryBirth());
