@@ -27,14 +27,15 @@ public class UserController {
             model.addAttribute("user_name", userName);
             return "signupPlayer";
         } else {
-            return "404";
+            model.addAttribute("already_register", true);
+            return "signup";
         }
     }
 
     @PostMapping("/signupPlayer")
     public String signupPlayer(Player player, @RequestParam String username) {
         if (playerService.savePlayer(player, username)) {
-            return "/signupSuccess";
+            return "signupSuccess";
         }
         return "404";
     }

@@ -36,7 +36,11 @@
 					<span class="login100-form-title p-b-49">
 						Sign Up
 					</span>
-
+					{{#already_register}}
+						<div class="text-center p-t-6 p-b-31"style="color: red;" >
+							Error username already in use
+						</div>
+					{{/already_register}}
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100 form-control" type="text" name="name" id="name" placeholder="Type your username">
