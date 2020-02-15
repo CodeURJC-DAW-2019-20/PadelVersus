@@ -31,6 +31,35 @@ public class LastMatchDisplay {
         }
     }
 
+    public List<Integer> getGamesPerSetOne() {
+        return gamesPerSetOne;
+    }
 
+    public void setGamesPerSetOne(List<Integer> gamesPerSetOne) {
+        this.gamesPerSetOne = gamesPerSetOne;
+    }
 
+    public List<Integer> getGamesPerSetTwo() {
+        return gamesPerSetTwo;
+    }
+
+    public void setGamesPerSetTwo(List<Integer> gamesPerSetTwo) {
+        this.gamesPerSetTwo = gamesPerSetTwo;
+    }
+
+    public String getNameTeamOne() {
+        return nameTeamOne;
+    }
+
+    public void setNameTeamOne(String nameTeamOne) {
+        this.nameTeamOne = nameTeamOne;
+    }
+
+    public String getNameTeamTwo() {
+        return nameTeamTwo;
+    }
+
+    public void setNameTeamTwo(String nameTeamTwo) {
+        this.nameTeamTwo = nameTeamTwo;
+    }
 }
