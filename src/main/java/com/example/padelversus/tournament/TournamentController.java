@@ -1,17 +1,19 @@
 package com.example.padelversus.tournament;
 
 
-import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
+@RequestMapping("/tournament")
 public class TournamentController {
     @Autowired
     TournamentRepository tournamentRepository;
@@ -19,15 +21,15 @@ public class TournamentController {
     @Autowired
     TournamentService tournamentService;
 
-    @GetMapping("/tournaments")
-    public String loadTournament(Model model) {
+    @GetMapping("/")
+    public String loadTournaments(Model model) {
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
         for (Tournament tournament : allTournament) {
             tournamentService.teamOrder(tournament);
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
-            for(Team team: tournament.getTeams()){
-                int [] wonPlayed = tournamentService.wonGames(tournament, team);
+            for (Team team : tournament.getTeams()) {
+                int[] wonPlayed = tournamentService.wonGames(tournament, team);
                 List<String> lastMatches = tournamentService.lastThreeMatches(tournament, team);
                 tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches);
             }
@@ -67,5 +69,10 @@ public class TournamentController {
         model.addAttribute("tournament-list", allTournamentDisplay);
         return "Tournaments";
     }
+    @GetMapping("/register")
+    public String registerTournamnent(Model model){
+        return "registerTournament";
+    }
 
 }
+
