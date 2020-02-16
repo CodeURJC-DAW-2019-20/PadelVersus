@@ -57,9 +57,15 @@ public class PlayerController {
             String image_url = base_url + image_name;
             if (team!= null){
                 model.addAttribute("nameTeam",team.getName());
+                model.addAttribute("is_in_team", true);
+            }else{
+                model.addAttribute("is_in_team", false);
             }
             if (tournament!= null){
                 model.addAttribute("nameTournament",tournament.getName());
+                model.addAttribute("is_in_tournament", true);
+            }else{
+                model.addAttribute("is_in_tournament", false);
             }
             model.addAttribute("name", user.getName());
             model.addAttribute("email", user.getMail());

@@ -142,8 +142,12 @@
                                 <p class="name">{{name}}</p>
                                 <p class="name">{{age}}</p>
                                 <p class="name">{{email}}</p>
-                                <p class="name">{{nameTeam}}</p>
+                                {{#is_in_team}}
+                                    <p class="name">{{nameTeam}}</p>
+                                {{/is_in_team}}
+                                {{#is_in_tournament}}
                                 <p class="name">{{nameTournament}}</p>
+                                {{/is_in_tournament}}
                                 <p class="country"><img src="/images/common/fr-flag.png" alt="flag">{{country}} </p>
                                 <div class="wrapper-circle">
                                     <div class="circle-item">
