@@ -121,7 +121,7 @@ public class TeamStatistics {
         this.totalEffectiveness = 0;
         this.totalGamesWon = 0;
         this.totalUnforcedErrors = 0;
-        this.gamesPerMatch.clear();
+        this.gamesPerMatch = new ArrayList<>();
     }
 
     public void updateStatistics(MatchStadistics lastMatch){
@@ -147,8 +147,12 @@ public class TeamStatistics {
             means[3] = Float.toString(totalEffectiveness / totalGames);
             means[4] = Float.toString(totalUnforcedErrors / totalGames);
             StringBuilder sb = new StringBuilder();
+            int n = gamesPerMatch.size()-1;
+            System.out.println(n);
             for (Game g : gamesPerMatch) {
                 sb.append(g.getGames() + "|");
+                n--;
+                System.out.println(g.getGames());
             }
             means[5] = sb.toString();
         }else{

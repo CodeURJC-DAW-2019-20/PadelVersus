@@ -292,10 +292,6 @@ public class PadelversusApplication implements ApplicationRunner {
         Tournament tournament3 = new Tournament("Tournament 3", tournament3_matches, teamsTournament3);
         tournamentRepository.save(tournament3);
 
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
         teamRepository.save(t1);
 
     }
