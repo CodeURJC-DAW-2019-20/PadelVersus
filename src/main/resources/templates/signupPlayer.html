@@ -38,6 +38,12 @@
 						Sign Up Player
 					</span>
                 Fill in the following information
+
+                {{#error_message}}
+                <div class="text-center p-t-6 p-b-31"style="color: red;" >
+                    You must enter and image
+                </div>
+                {{/error_message}}
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Age is required">
                     <span class="label-input100">Age:</span>
                     <input class="input100 form-control" type="number" name="age" id="age" placeholder="Type your age"

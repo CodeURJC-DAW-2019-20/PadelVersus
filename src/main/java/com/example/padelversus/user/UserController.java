@@ -3,6 +3,7 @@ package com.example.padelversus.user;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +30,15 @@ public class UserController {
 
 
     @PostMapping("/saveUser")
-    public String saveUser(User user, Model model) {
-        String userName = userService.saveUser(user);
+    public String saveUser(Model model,
+                           @RequestParam String name,
+                           @RequestParam String mail,
+                           @RequestParam String passwordHash
+                           ) {
+        String userName = userService.saveUser(name, passwordHash, mail);
         if (userName != null) {
             model.addAttribute("user_name", userName);
+            model.addAttribute("error_message", false);
             return "signupPlayer";
         } else {
             model.addAttribute("already_register", true);
@@ -41,9 +47,14 @@ public class UserController {
     }
 
     @PostMapping("/signupPlayer")
-    public String signupPlayer(Player player,
+    public String signupPlayer(Model model, Player player,
                                @RequestParam String username,
                                @RequestParam MultipartFile imagenFile) throws IOException {
+        if(imagenFile.getBytes().length == 0){
+            model.addAttribute("user_name", username);
+            model.addAttribute("error_message", true);
+            return "signupPlayer";
+        }
         if (playerService.savePlayer(player, username, imagenFile)) {
             return "signupSuccess";
         }
