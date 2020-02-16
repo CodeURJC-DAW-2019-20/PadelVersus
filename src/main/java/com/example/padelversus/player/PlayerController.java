@@ -57,11 +57,17 @@ public class PlayerController {
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
-            if (teamsFounds!= null){
-                model.addAttribute("namesTeams",teamsFounds);
+            if (team!= null){
+                model.addAttribute("nameTeam",team.getName());
+                model.addAttribute("is_in_team", true);
+            }else{
+                model.addAttribute("is_in_team", false);
             }
-            if (tournamentsFounds!= null){
-                model.addAttribute("namesTournaments",tournamentsFounds);
+            if (tournament!= null){
+                model.addAttribute("nameTournament",tournament.getName());
+                model.addAttribute("is_in_tournament", true);
+            }else{
+                model.addAttribute("is_in_tournament", false);
             }
             model.addAttribute("name", user.getName());
             model.addAttribute("email", user.getMail());

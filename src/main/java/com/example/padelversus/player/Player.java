@@ -157,7 +157,7 @@ public class Player {
     }
 
     public BufferedImage getBufferedImage() throws IOException {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.image);
         BufferedImage imageBuffered = ImageIO.read(byteArrayInputStream);
         return imageBuffered;
     }

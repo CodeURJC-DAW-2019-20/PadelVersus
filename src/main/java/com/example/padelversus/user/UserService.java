@@ -17,14 +17,19 @@ public class UserService {
     public String saveUser(User user) {
         User u = userRepository.findByName(user.getName());
         if (u == null) {
-            User userSave = new User();
-            userSave.setName(user.getName());
-            userSave.setPasswordHash(user.getPasswordHash());
-            userSave.setMail(user.getMail());
-            userSave.setRol("USER_ROLE");
-            userRepository.save(userSave);
-            notificationService.sendNotification(user);
-            return userSave.getName();
+            User u_mail = userRepository.findByMail(user.getMail());
+            if(u_mail == null) {
+                User userSave = new User();
+                userSave.setName(user.getName());
+                userSave.setPasswordHash(user.getPasswordHash());
+                userSave.setMail(user.getMail());
+                userSave.setRol("USER_ROLE");
+                userRepository.save(userSave);
+                notificationService.sendNotification(user);
+                return userSave.getName();
+            }else{
+                return null;
+            }
         } else {
             return null;
         }

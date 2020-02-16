@@ -142,20 +142,23 @@
                                 <p class="name">{{name}}</p>
                                 <p class="name">{{age}}</p>
                                 <p class="name">{{email}}</p>
-
-                                <p class="name">
-                                    {{#namesTeams}}
-                                    <span class="">{{name}}</span>
-                                    {{/namesTeams}}
-                                </p>
-
-                                <p class="name">
-                                    {{#namesTournaments}}
-                                    <span class="">{{name}}</span>
-                                    {{/namesTournaments}}
-                                </p>
-
-                                </p>
+                              
+                                {{#is_in_team}}
+                                    <p class="name">
+                                        {{#namesTeams}}
+                                        <span class="">{{name}}</span>
+                                        {{/namesTeams}}
+                                    </p>
+                                {{/is_in_team}}
+                              
+                                {{#is_in_tournament}}
+                                    <p class="name">
+                                        {{#namesTournaments}}
+                                        <span class="">{{name}}</span>
+                                        {{/namesTournaments}}
+                                    </p>
+                                {{/is_in_tournament}}
+                              
                                 <p class="country"><img src="/images/common/fr-flag.png" alt="flag">{{country}} </p>
                                 <div class="wrapper-circle">
                                     <div class="circle-item">

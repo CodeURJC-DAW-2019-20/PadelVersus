@@ -22,6 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/saveUser").permitAll();
         http.authorizeRequests().antMatchers("/signupPlayer").permitAll();
+        http.authorizeRequests().antMatchers("/uploadImage").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
