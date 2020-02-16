@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -91,9 +93,10 @@ public class PlayerService {
         }
         return tournament;
     }
+
     // Return the string temporal path were the image is saved (return null if there is any problem)
-    public String getImagePath(Player player){
-        byte [] byteImage = player.getImage();
+    public String getImagePath(Player player) {
+        byte[] byteImage = player.getImage();
         BufferedImage imageFile;
         try {
             imageFile = ImageIO.read(new ByteArrayInputStream(byteImage));
@@ -107,5 +110,24 @@ public class PlayerService {
             return null;
         }
         return path;
+    }
+
+    // Only for demo purpose (assign File to byte[])
+    public boolean setImagePlayer(Player player, File imageFile) {
+        BufferedImage bImage;
+        try {
+            bImage = ImageIO.read(imageFile);
+        } catch (IOException e) {
+            return false;
+        }
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(bImage, "jpg", bos);
+        } catch (IOException e) {
+            return false;
+        }
+        byte[] data = bos.toByteArray();
+        player.setImage(data);
+        return true;
     }
 }
