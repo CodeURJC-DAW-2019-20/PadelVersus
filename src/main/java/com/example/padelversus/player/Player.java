@@ -2,7 +2,12 @@ package com.example.padelversus.player;
 
 import com.example.padelversus.user.User;
 
+import javax.imageio.ImageIO;
 import javax.persistence.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Arrays;
 
 @Entity
 public class Player {
@@ -13,7 +18,6 @@ public class Player {
 
 
     private int age;
-    private Byte image;
     private String countryBirth;
 
 
@@ -25,6 +29,9 @@ public class Player {
     private double pace;
     private double accuaracy;
     private double aceleration;
+
+    @Lob
+    private byte[] image;
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -45,98 +52,62 @@ public class Player {
         this.countryBirth = countryBirth;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "id=" + id +
-                ", age=" + age +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", speed=" + speed +
-                ", aceleration=" + aceleration +
-                ", accuaracy=" + accuaracy +
-                ", pace=" + pace +
-                ", endurance=" + endurance +
-                ", strength=" + strength +
-                ", image=" + image +
-                ", countryBirth='" + countryBirth + '\'' +
-
-                '}';
-    }
-
-
-
-
     public Long getId() {
         return id;
-    }
-
-
-    public int getAge() {
-        return age;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-
-    public double getSpeed() {
-        return speed;
-    }
-
-    public double getStrength() {
-        return strength;
-    }
-
-    public Byte getImage() {
-        return image;
-    }
-
-    public String getCountryBirth() {
-        return countryBirth;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    public int getAge() {
+        return age;
+    }
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getCountryBirth() {
+        return countryBirth;
+    }
+
+    public void setCountryBirth(String countryBirth) {
+        this.countryBirth = countryBirth;
+    }
+
+    public double getHeight() {
+        return height;
     }
 
     public void setHeight(double height) {
         this.height = height;
     }
 
+    public double getWeight() {
+        return weight;
+    }
+
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-
+    public double getSpeed() {
+        return speed;
+    }
 
     public void setSpeed(double speed) {
         this.speed = speed;
+    }
+
+    public double getStrength() {
+        return strength;
     }
 
     public void setStrength(double strength) {
         this.strength = strength;
     }
 
-    public void setImage(Byte imagen) {
-        this.image = imagen;
-    }
-
-    public void setCountryBirth(String countryBirth) {
-        this.countryBirth = countryBirth;
-    }
     public double getEndurance() {
         return endurance;
     }
@@ -169,6 +140,14 @@ public class Player {
         this.aceleration = aceleration;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     public User getUser() {
         return user;
     }
@@ -176,4 +155,31 @@ public class Player {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public BufferedImage getBufferedImage() throws IOException {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image);
+        BufferedImage imageBuffered = ImageIO.read(byteArrayInputStream);
+        return imageBuffered;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", age=" + age +
+                ", countryBirth='" + countryBirth + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", speed=" + speed +
+                ", strength=" + strength +
+                ", endurance=" + endurance +
+                ", pace=" + pace +
+                ", accuaracy=" + accuaracy +
+                ", aceleration=" + aceleration +
+                ", image=" + Arrays.toString(image) +
+                ", user=" + user +
+                '}';
+    }
+
+
 }

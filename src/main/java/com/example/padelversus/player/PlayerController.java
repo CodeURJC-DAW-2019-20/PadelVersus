@@ -1,5 +1,6 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.ImageService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.Tournament;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -22,19 +25,10 @@ public class PlayerController {
 
     @Autowired
     private PlayerRepository playerRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private TeamRepository teamRepository;
-
-    @Autowired
-    private TournamentRepository tournamentRepository;
-
     @Autowired
     private PlayerService playerService;
-
+    @Autowired
+    private ImageService imageService;
 
 
     @GetMapping("/")
@@ -45,25 +39,30 @@ public class PlayerController {
 
 
     @GetMapping("/{id}")
-    public String player(Model model, @PathVariable Long id){
+    public String player(Model model, @PathVariable Long id) throws IOException {
         Optional<Player> player = playerRepository.findById(id);
 
-        Optional<User> user = userRepository.findById(id);
         //Optional<Team> team = teamRepository.findByid(id);
         //Optional<Tournament> tournament = tournamentRepository.getById(id);
 
-        if (player.isPresent() && user.isPresent() ) {
+        if (player.isPresent()) {
             Player playerFound = player.get();
+            User user = playerFound.getUser();
+
             Team team = playerService.findTeamOfPlayer(playerFound);
             Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
+            BufferedImage playerImage = playerFound.getBufferedImage();
+            String base_url = "/images_temp/Player/";
+            String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
+            String image_url = base_url + image_name;
             if (team!= null){
                 model.addAttribute("nameTeam",team.getName());
             }
             if (tournament!= null){
                 model.addAttribute("nameTournament",tournament.getName());
             }
-            model.addAttribute("name", user.get().getName());
-            model.addAttribute("email", user.get().getMail());
+            model.addAttribute("name", user.getName());
+            model.addAttribute("email", user.getMail());
             model.addAttribute("country", player.get().getCountryBirth());
             model.addAttribute("age", player.get().getAge());
             model.addAttribute("height", player.get().getHeight());
@@ -74,6 +73,7 @@ public class PlayerController {
             model.addAttribute("speed", player.get().getSpeed());
             model.addAttribute("accuaracy", player.get().getAccuaracy());
             model.addAttribute("aceleration", player.get().getAceleration());
+            model.addAttribute("image", image_url);
 
            // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
             //tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
