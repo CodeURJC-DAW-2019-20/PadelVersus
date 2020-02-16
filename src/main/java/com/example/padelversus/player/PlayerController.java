@@ -48,8 +48,7 @@ public class PlayerController {
             Player playerFound = player.get();
             User user = playerFound.getUser();
 
-            //Team team = playerService.findTeamOfPlayer(playerFound);
-            //Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
+            
             List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
             List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
 
@@ -57,14 +56,14 @@ public class PlayerController {
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
-            if (team!= null){
-                model.addAttribute("nameTeam",team.getName());
+            if (teamsFounds!= null){
+                model.addAttribute("namesTeam",teamsFounds);
                 model.addAttribute("is_in_team", true);
             }else{
                 model.addAttribute("is_in_team", false);
             }
-            if (tournament!= null){
-                model.addAttribute("nameTournament",tournament.getName());
+            if (tournamentsFounds!= null){
+                model.addAttribute("namesTournament",tournamentsFounds);
                 model.addAttribute("is_in_tournament", true);
             }else{
                 model.addAttribute("is_in_tournament", false);
