@@ -29,8 +29,12 @@ public class UserController {
 
 
     @PostMapping("/saveUser")
-    public String saveUser(User user, Model model) {
-        String userName = userService.saveUser(user);
+    public String saveUser(Model model,
+                           @RequestParam String name,
+                           @RequestParam String mail,
+                           @RequestParam String passwordHash
+                           ) {
+        String userName = userService.saveUser(name, passwordHash, mail);
         if (userName != null) {
             model.addAttribute("user_name", userName);
             return "signupPlayer";
