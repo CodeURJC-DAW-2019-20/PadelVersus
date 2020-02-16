@@ -57,13 +57,13 @@ public class PlayerController {
             String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
             if (teamsFounds!= null){
-                model.addAttribute("namesTeam",teamsFounds);
+                model.addAttribute("namesTeams",teamsFounds);
                 model.addAttribute("is_in_team", true);
             }else{
                 model.addAttribute("is_in_team", false);
             }
             if (tournamentsFounds!= null){
-                model.addAttribute("namesTournament",tournamentsFounds);
+                model.addAttribute("namesTournaments",tournamentsFounds);
                 model.addAttribute("is_in_tournament", true);
             }else{
                 model.addAttribute("is_in_tournament", false);
@@ -92,13 +92,5 @@ public class PlayerController {
             return "404";
         }
     }
-
-
-
-
-
-
-
-
 
 }
