@@ -52,7 +52,9 @@ public class PlayerController {
             Team team = playerService.findTeamOfPlayer(playerFound);
             Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
             BufferedImage playerImage = playerFound.getBufferedImage();
-            String image_url= imageService.saveImage("Player" , playerFound.getId(), playerImage);
+            String base_url = "/images_temp/Player/";
+            String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
+            String image_url = base_url + image_name;
             if (team!= null){
                 model.addAttribute("nameTeam",team.getName());
             }

@@ -17,12 +17,13 @@ import java.nio.file.Paths;
 public class ImageService implements WebMvcConfigurer {
 
 
-    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
+    private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images_temp");
+
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        registry.addResourceHandler("/images/**")
+        registry.addResourceHandler("/images_temp/**")
                 .addResourceLocations("file:" + FILES_FOLDER.toAbsolutePath().toString() + "/");
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
@@ -42,7 +43,7 @@ public class ImageService implements WebMvcConfigurer {
         Path newFile = createFilePath(id, folder);
 
         ImageIO.write(image, "jpg", newFile.toFile());
-        return newFile.toString();
+        return newFile.toFile().getName();
     }
 
     @PreDestroy
