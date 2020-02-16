@@ -35,9 +35,11 @@ public class AdminController {
     public String adminPage(Model model){
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<Match> allMatches = matchRepository.findAll();
-        for (int i = 0; i < allMatches.size(); i++) {
+        List<Match> matchesNull = allMatches;
+       // System.out.println(allMatches.toString());
+       for (int i = 0; i < allMatches.size(); i++) {
             if(allMatches.get(i).getScore()!= null){
-                allMatches.remove(i);
+                //allMatches.remove(i);
             }
         }
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
@@ -96,7 +98,23 @@ public class AdminController {
         return "/adminPage";
     }
     @PostMapping("/saveDataMatch")
-    public String saveDatamatch() {
+    public String saveDatamatch(String matchSelect,String score) {
+        System.out.println("MATCH DATE:"+matchSelect);
+         String[] parts = matchSelect.split("-");
+        Date date = new Date(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2]));
+        System.out.println(Integer.parseInt(parts[0]));
+        System.out.println(Integer.parseInt(parts[1]));
+        System.out.println(Integer.parseInt(parts[2]));
+        Optional<Match> match = matchRepository.findByDate(new Date(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2])));
+        if(match.isPresent()){
+            System.out.println(match.get().toString());
+        }else{
+            System.out.println("NOT PRESENT");
+        }
+
+        //match.get().setScore(score);
+        //matchRepository.save(match.get().getMatch());
+
         /*System.out.println(torneoSeleccionado);
         System.out.println(t1);
         System.out.println(t2);

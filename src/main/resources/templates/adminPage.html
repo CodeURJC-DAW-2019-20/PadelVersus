@@ -15,6 +15,7 @@
     <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
     <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -150,7 +151,69 @@
                                     {{/match-list}}
                                 </select>
                                 <label for="score">Score: (t1 vs t2 win t1)</label>
-                                <textarea name="score" id="score"></textarea>
+                                <textarea name="score" class="wrap-input100 validate-input m-b-23" data-validate="Score is accuracy" id="score"></textarea>
+                                <label for="team1Stats">Stadistics Team 1:</label>
+                                <div id="team1Stats">
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is accuracy" >
+                                        <span class="label-input100 ">Accuracy:</span>
+                                        <input class="input100 form-control" type="number" name="accuracy1" id="accuracy1" placeholder="Type your accuracy" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Effectiveness is required" >
+                                        <span class="label-input100 ">Effectiveness:</span>
+                                        <input class="input100 form-control" type="number" name="effectiveness1" id="effectiveness1" placeholder="Type your effectiveness" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Games_wins is required" >
+                                        <span class="label-input100 ">Games_wins:</span>
+                                        <input class="input100 form-control" type="number" name="games_wins1" id="games_wins1" placeholder="Type your games_wins" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Unforced Errors is required" >
+                                        <span class="label-input100 ">Unforced Errors:</span>
+                                        <input class="input100 form-control" type="number" name="unforcedErrors1" id="unforcedErrors1" placeholder="Type your unforced Errors" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
+                                        <input type="checkbox" name="win1" id="win1">
+                                        <label for="win1">Win the match</label>
+                                    </div>
+                                </div>
+                                <label for="team2Stats">Stadistics Team 2:</label>
+                                <div id="team2Stats">
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is accuracy" >
+                                        <span class="label-input100 ">Accuracy:</span>
+                                        <input class="input100 form-control" type="number" name="accuracy2" id="accuracy2" placeholder="Type your accuracy" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Effectiveness is required" >
+                                        <span class="label-input100 ">Effectiveness:</span>
+                                        <input class="input100 form-control" type="number" name="effectiveness2" id="effectiveness2" placeholder="Type your effectiveness" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Games_wins is required" >
+                                        <span class="label-input100 ">Games_wins:</span>
+                                        <input class="input100 form-control" type="number" name="games_wins2" id="games_wins2" placeholder="Type your games_wins" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Unforced Errors is required" >
+                                        <span class="label-input100 ">Unforced Errors:</span>
+                                        <input class="input100 form-control" type="number" name="unforcedErrors2" id="unforcedErrors2" placeholder="Type your unforced Errors" min="0" max="100">
+
+                                    </div>
+
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
+                                        <input type="checkbox" name="win2" id="win2">
+                                        <label for="win1">Win the match</label>
+                                    </div>
+                                </div>
                                 <!--<select class="form-control" name="scor" id="teamSelect1">
                                         style="width: 75%">
                                     <option value="" selected="selected"></option>
@@ -173,8 +236,7 @@
                                     <input type="date" id="date" name="date">
                                     <span class="validity"></span>
                                 </div>-->
-                                <input id="servicioSelec" name="nom_Servicio">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary p-t-16">Save</button>
                             </div>
                         </form>
                     </div>
@@ -186,30 +248,8 @@
     </div>
 
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label style="display: block; text-align: center"><h3>Player Name</h3></label>
-            <div>
-                <a href="player.html" class="item">
-                    <img src="/images/soccer/staff-item-img.jpg" alt="player" style="margin-left: 20%">
-                </a>
-            </div>
-        </div>
+</div>
 
-        <div class="form-group col-md-6">
-            <label style="display: block; margin-left:25%"><h3>Partner</h3></label>
-            <select class="form-control" style="width: 75%; ">
-                <option selected>Choose Partner</option>
-                <option>Tournament 1</option>
-                <option>Tournament 2</option>
-                <option>Tournament 3</option>
-            </select>
-        </div>
-    </div>
-</div>
-<button type="submit" class="btn btn-primary">Register</button>
-</form>
-</div>
 
 
 <!--FOOTER BEGIN-->
@@ -348,6 +388,7 @@
 <script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 </body>
 </html>

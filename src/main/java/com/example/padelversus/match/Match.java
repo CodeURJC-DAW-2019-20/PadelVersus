@@ -126,7 +126,9 @@ public class Match {
     public void setDate(Date date) {
         this.date = date;
     }
-
+    public Match getMatch(){
+        return this;
+    }
    /* public Team getWinner() {
         return winner;
     }
