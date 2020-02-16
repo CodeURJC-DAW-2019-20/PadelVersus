@@ -499,11 +499,13 @@
          * @js: ./js/advanced-smil.js
          * @usage: ./html-components/player_stats.html
          */
+        var stringGames = $("#games > li#gamesPerMatch").text();
+        console.log(stringGames);
+        var arrayGames = stringGames.split("|");
         if ($('#advancesmill').length > 0) {
             $('#advancesmill').advancesmill(
-                    ['1', '2', '3'],
                     [
-                        [13, 9, 7],
+                        arrayGames,
                     ],
                     0,
                     ['Games per match'],

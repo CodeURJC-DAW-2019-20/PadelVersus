@@ -10,7 +10,7 @@
 
     "use strict";
 
-    $.fn.advancesmill = function (labels, series, low, legendNames, clickable, position) {
+    $.fn.advancesmill = function (series, low, legendNames, clickable, position) {
 
         var $el = $(this);
 
@@ -23,7 +23,6 @@
 
         $(this).on('visible', function () {
             var chart = Chartist.Line('#' + id, {
-                labels: labels,
                 series: series
             }, {
                 low: low,
@@ -62,27 +61,6 @@
                             from: 0,
                             // The value where it should end
                             to: 1
-                        }
-                    });
-                } else if (data.type === 'label' && data.axis === 'x') {
-                    data.element.animate({
-                        y: {
-                            begin: seq * delays,
-                            dur: durations,
-                            from: data.y + 100,
-                            to: data.y,
-                            // We can specify an easing function from Chartist.Svg.Easing
-                            easing: 'easeOutQuart'
-                        }
-                    });
-                } else if (data.type === 'label' && data.axis === 'y') {
-                    data.element.animate({
-                        x: {
-                            begin: seq * delays,
-                            dur: durations,
-                            from: data.x - 100,
-                            to: data.x,
-                            easing: 'easeOutQuart'
                         }
                     });
                 } else if (data.type === 'point') {
