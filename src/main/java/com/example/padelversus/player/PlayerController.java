@@ -48,12 +48,13 @@ public class PlayerController {
     public String player(Model model, @PathVariable Long id){
         Optional<Player> player = playerRepository.findById(id);
 
-        Optional<User> user = userRepository.findById(id);
         //Optional<Team> team = teamRepository.findByid(id);
         //Optional<Tournament> tournament = tournamentRepository.getById(id);
 
-        if (player.isPresent() && user.isPresent() ) {
+        if (player.isPresent()) {
             Player playerFound = player.get();
+            User user = playerFound.getUser();
+
             Team team = playerService.findTeamOfPlayer(playerFound);
             Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
             if (team!= null){
@@ -62,8 +63,8 @@ public class PlayerController {
             if (tournament!= null){
                 model.addAttribute("nameTournament",tournament.getName());
             }
-            model.addAttribute("name", user.get().getName());
-            model.addAttribute("email", user.get().getMail());
+            model.addAttribute("name", user.getName());
+            model.addAttribute("email", user.getMail());
             model.addAttribute("country", player.get().getCountryBirth());
             model.addAttribute("age", player.get().getAge());
             model.addAttribute("height", player.get().getHeight());
