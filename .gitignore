@@ -28,4 +28,5 @@ hs_err_pid*
 
 # Temp Images
 images/*
+images/
 !images/.gitkeep
