@@ -16,6 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -78,6 +79,22 @@ public class PlayerService {
         return team;
     }
 
+    //find the name of more the team  of each player
+    public List<Team>findMoreTeamOfEachPlayer(Player player) {
+        List<Team> allTeams = teamRepository.findAll();
+        List<Team> teamsFounds = new ArrayList<>();
+        Iterator<Team> it = allTeams.iterator();
+        Team team = null;
+        while ((it.hasNext())) {
+            team = it.next();
+            if(team.getPlayers().contains(player)){
+                teamsFounds.add(team);
+            }
+        }
+
+        return teamsFounds;
+    }
+
     //find the name of the tournament  of the player
     public Tournament findTournamentOfPlayer(Player player) {
         Tournament tournament = null;
@@ -93,6 +110,23 @@ public class PlayerService {
         }
         return tournament;
     }
+
+    public List<Tournament>findMoreTournamentOfEachPlayer(Player player) {
+        List<Tournament> allTournaments = tournamentRepository.findAll();
+        List<Tournament> tournamentsFounds = new ArrayList<>();
+        List<Team> teamsOfPlayer = findMoreTeamOfEachPlayer(player);
+        for ( Tournament oneTournament :allTournaments){
+            for(Team team :teamsOfPlayer){
+                if(oneTournament.getTeams().contains(team) && !tournamentsFounds.contains(oneTournament)){
+                    tournamentsFounds.add(oneTournament);
+                }
+            }
+        }
+
+        return tournamentsFounds;
+    }
+
+
 
     // Return the string temporal path were the image is saved (return null if there is any problem)
     public String getImagePath(Player player) {
