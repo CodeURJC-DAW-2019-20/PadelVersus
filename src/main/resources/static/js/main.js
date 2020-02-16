@@ -557,17 +557,20 @@
          * @js: ./js/horizontal-bar.js
          * @usage: ./html-components/player_stats.html
          */
+        var meanAccuracy = parseInt($("#personalStats > li#meanAcurracy").text());
+        var meanEffectiveness = parseInt($("#personalStats > li#meanEffectiveness").text());
+        var meanUnforcedErrors = parseInt($("#personalStats > li#meanUnforcedErrors").text());
+
         if ($('#horizontalbar').length > 0) {
             $('#horizontalbar').horizontalbar(
-                    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    ['Accuracy', 'Effectiveness', 'Unforced Errors'],
                     [
-                        [5, 4, 3, 7, 5, 10, 3],
-                        [3, 2, 9, 5, 4, 6, 4]
+                        [meanAccuracy, meanEffectiveness, meanUnforcedErrors],
                     ],
                     10,
                     true,
                     true,
-                    ['1-st Component', '2-nd Component'],
+                    ['%'],
                     true,
                     'bottom',
                     70
