@@ -54,9 +54,12 @@ public class ImageService implements WebMvcConfigurer {
         File [] allContent = directory.listFiles();
         if(allContent != null){
             for(File file: allContent){
+                if(file.getName().equals(".gitkeep")) continue;
+                System.out.println("Borro" + file);
                 deleteDirectory(file);
             }
         }
-        return  directory.delete();
+        if(!directory.getName().equals(FILES_FOLDER.toString())) return directory.delete();
+        return true;
     }
 }
