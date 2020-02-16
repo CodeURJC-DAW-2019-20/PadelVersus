@@ -483,11 +483,11 @@
          * @js: ./js/animate-donut.js
          * @usage: ./html-components/player_stats.html
          */
-        var totalWins = parseInt($("#stats > li#totalWins").text())*100;
-        var totalDefeats = parseInt($("#stats > li#totalDefeats").text())*100;
+        var totalWins = parseInt($("#stats > li#totalWins").text());
+        var totalDefeats = parseInt($("#stats > li#totalDefeats").text());
         if ($('#animatedonut').length > 0) {
             $('#animatedonut').animatedonut(
-                    ['defeats', 'wins'],
+                    ['L', 'W'],
                     [totalDefeats,totalWins],
                     true,
                     true
@@ -501,9 +501,9 @@
          */
         if ($('#advancesmill').length > 0) {
             $('#advancesmill').advancesmill(
-                    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+                    ['1', '2', '3'],
                     [
-                        [12, 9, 7, 8, 5, 4, 6, 2, 3, 3, 4, 6],
+                        [13, 9, 7],
                     ],
                     0,
                     ['Games per match'],
