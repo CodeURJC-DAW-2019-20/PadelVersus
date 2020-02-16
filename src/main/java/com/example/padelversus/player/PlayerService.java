@@ -36,8 +36,8 @@ public class PlayerService {
     @Autowired
     private ImageService imageService;
 
-    //Save (a copy) of a player joined with the user passed in username param if not possible return false
-    public boolean savePlayer(Player player, String username) {
+    //Save (a copy) of a player joined with the user passed in username param if not possible return null
+    public Long savePlayer(Player player, String username) {
         User relatedUser = userRepository.findByName(username);
         if (relatedUser != null) {
             Player playerSave = new Player();
@@ -56,9 +56,9 @@ public class PlayerService {
 
             player.setUser(relatedUser);
             playerRepository.save(player);
-            return true;
+            return player.getId();
         }
-        return false;
+        return null;
     }
 
     //find the name of the team  of the player

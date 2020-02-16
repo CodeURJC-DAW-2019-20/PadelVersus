@@ -1,6 +1,7 @@
 package com.example.padelversus.user;
 
 import com.example.padelversus.player.Player;
+import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
 
 
     @Autowired
@@ -34,9 +36,11 @@ public class UserController {
     }
 
     @PostMapping("/signupPlayer")
-    public String signupPlayer(Player player, @RequestParam String username) {
-        if (playerService.savePlayer(player, username)) {
-            return "signupSuccess";
+    public String signupPlayer(Model model, Player player, @RequestParam String username) {
+        Long playerId = playerService.savePlayer(player, username);
+        if (playerId != null) {
+            model.addAttribute("playerid", playerId);
+            return "uploadImage";
         }
         return "404";
     }
