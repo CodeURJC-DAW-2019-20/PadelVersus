@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -42,15 +43,16 @@ public class PlayerController {
     public String player(Model model, @PathVariable Long id) throws IOException {
         Optional<Player> player = playerRepository.findById(id);
 
-        //Optional<Team> team = teamRepository.findByid(id);
-        //Optional<Tournament> tournament = tournamentRepository.getById(id);
 
         if (player.isPresent()) {
             Player playerFound = player.get();
             User user = playerFound.getUser();
 
-            Team team = playerService.findTeamOfPlayer(playerFound);
-            Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
+            //Team team = playerService.findTeamOfPlayer(playerFound);
+            //Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
+            List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
+            List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
+
             BufferedImage playerImage = playerFound.getBufferedImage();
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
