@@ -27,6 +27,6 @@ hs_err_pid*
 .idea
 
 # Temp Images
-images/*
-images/
+images_temp/*
+images_temp/
 !images/.gitkeep
