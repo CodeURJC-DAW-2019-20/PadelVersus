@@ -1,5 +1,6 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.ImageService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.Tournament;
@@ -9,6 +10,10 @@ import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,6 +30,9 @@ public class PlayerService {
 
     @Autowired
     private TournamentRepository tournamentRepository;
+
+    @Autowired
+    private ImageService imageService;
 
     //Save (a copy) of a player joined with the user passed in username param if not possible return false
     public boolean savePlayer(Player player, String username) {
@@ -83,6 +91,21 @@ public class PlayerService {
         }
         return tournament;
     }
-
-
+    // Return the string temporal path were the image is saved (return null if there is any problem)
+    public String getImagePath(Player player){
+        byte [] byteImage = player.getImage();
+        BufferedImage imageFile;
+        try {
+            imageFile = ImageIO.read(new ByteArrayInputStream(byteImage));
+        } catch (IOException e) {
+            return null;
+        }
+        String path;
+        try {
+            path = imageService.saveImage("Player", player.getId(), imageFile);
+        } catch (IOException e) {
+            return null;
+        }
+        return path;
+    }
 }

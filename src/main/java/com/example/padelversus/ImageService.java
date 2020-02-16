@@ -29,7 +29,7 @@ public class ImageService implements WebMvcConfigurer {
         return folder.resolve("image-" + id + ".jpg");
     }
 
-    public void saveImage(String folderName, long id, BufferedImage image) throws IOException {
+    public String saveImage(String folderName, long id, BufferedImage image) throws IOException {
 
         Path folder = FILES_FOLDER.resolve(folderName);
 
@@ -40,6 +40,7 @@ public class ImageService implements WebMvcConfigurer {
         Path newFile = createFilePath(id, folder);
 
         ImageIO.write(image, "jpg", newFile.toFile());
+        return newFile.toString();
     }
 
 
