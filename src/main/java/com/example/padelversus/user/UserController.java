@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Optional;
+
 @Controller
 public class UserController {
 
@@ -17,7 +21,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
+    @Autowired
+    private PlayerRepository playerRepository;
 
     @Autowired
     private PlayerService playerService;
@@ -36,11 +41,11 @@ public class UserController {
     }
 
     @PostMapping("/signupPlayer")
-    public String signupPlayer(Model model, Player player, @RequestParam String username) {
-        Long playerId = playerService.savePlayer(player, username);
-        if (playerId != null) {
-            model.addAttribute("playerid", playerId);
-            return "uploadImage";
+    public String signupPlayer(Player player,
+                               @RequestParam String username,
+                               @RequestParam MultipartFile imagenFile) throws IOException {
+        if (playerService.savePlayer(player, username, imagenFile)) {
+            return "signupSuccess";
         }
         return "404";
     }

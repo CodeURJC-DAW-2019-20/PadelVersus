@@ -9,6 +9,7 @@ import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -37,10 +38,12 @@ public class PlayerService {
     private ImageService imageService;
 
     //Save (a copy) of a player joined with the user passed in username param if not possible return null
-    public Long savePlayer(Player player, String username) {
+    public boolean savePlayer(Player player, String username, MultipartFile imagenFile) throws IOException {
         User relatedUser = userRepository.findByName(username);
         if (relatedUser != null) {
             Player playerSave = new Player();
+
+            byte [] image = imagenFile.getBytes();
 
             playerSave.setAge(player.getAge());
             playerSave.setImage(player.getImage());
@@ -54,11 +57,13 @@ public class PlayerService {
             playerSave.setAccuaracy(player.getAccuaracy());
             playerSave.setAceleration(player.getAceleration());
 
-            player.setUser(relatedUser);
-            playerRepository.save(player);
-            return player.getId();
+            playerSave.setImage(image);
+
+            playerSave.setUser(relatedUser);
+            playerRepository.save(playerSave);
+            return true;
         }
-        return null;
+        return false;
     }
 
     //find the name of the team  of the player
