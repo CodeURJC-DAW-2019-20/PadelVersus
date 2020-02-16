@@ -156,6 +156,11 @@ public class Player {
         this.user = user;
     }
 
+    public BufferedImage getBufferedImage() throws IOException {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image);
+        BufferedImage imageBuffered = ImageIO.read(byteArrayInputStream);
+        return imageBuffered;
+    }
 
     @Override
     public String toString() {
