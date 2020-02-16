@@ -4,8 +4,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.PreDestroy;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,6 +45,18 @@ public class ImageService implements WebMvcConfigurer {
         return newFile.toString();
     }
 
+    @PreDestroy
+    private void destroy(){
+        if(deleteDirectory(FILES_FOLDER.toFile())) System.out.println("Borrados archivos temporales");
+    }
 
-
+    private boolean deleteDirectory(File directory){
+        File [] allContent = directory.listFiles();
+        if(allContent != null){
+            for(File file: allContent){
+                deleteDirectory(file);
+            }
+        }
+        return  directory.delete();
+    }
 }
