@@ -1,5 +1,6 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.ImageService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.Tournament;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -22,19 +25,10 @@ public class PlayerController {
 
     @Autowired
     private PlayerRepository playerRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private TeamRepository teamRepository;
-
-    @Autowired
-    private TournamentRepository tournamentRepository;
-
     @Autowired
     private PlayerService playerService;
-
+    @Autowired
+    private ImageService imageService;
 
 
     @GetMapping("/")
@@ -45,7 +39,7 @@ public class PlayerController {
 
 
     @GetMapping("/{id}")
-    public String player(Model model, @PathVariable Long id){
+    public String player(Model model, @PathVariable Long id) throws IOException {
         Optional<Player> player = playerRepository.findById(id);
 
         //Optional<Team> team = teamRepository.findByid(id);
@@ -57,6 +51,8 @@ public class PlayerController {
 
             Team team = playerService.findTeamOfPlayer(playerFound);
             Tournament tournament = playerService.findTournamentOfPlayer(playerFound);
+            BufferedImage playerImage = playerFound.getBufferedImage();
+            String image_url= imageService.saveImage("Player" , playerFound.getId(), playerImage);
             if (team!= null){
                 model.addAttribute("nameTeam",team.getName());
             }
@@ -75,6 +71,7 @@ public class PlayerController {
             model.addAttribute("speed", player.get().getSpeed());
             model.addAttribute("accuaracy", player.get().getAccuaracy());
             model.addAttribute("aceleration", player.get().getAceleration());
+            model.addAttribute("image", image_url);
 
            // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
             //tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
