@@ -84,5 +84,8 @@ public class Tournament {
     public void setMatches(List<Match> matches) {
         this.matches = matches;
     }
+    public Tournament getTournament(){
+        return this;
+    }
 
 }
