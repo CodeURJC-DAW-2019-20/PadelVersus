@@ -3,6 +3,7 @@ package com.example.padelversus.match;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.Tournament;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class MatchAdmin {
@@ -10,13 +11,13 @@ public class MatchAdmin {
 
     private Team t1;
     private Team t2;
-    private Date date;
+    private LocalDate date;
     private Tournament tournament;
     private String name;
     public MatchAdmin(){
 
     }
-    public MatchAdmin(Team t1,Team t2,Date date, Tournament tournament){
+    public MatchAdmin(Team t1,Team t2,LocalDate date, Tournament tournament){
         this.name = date.toString() +", "+t1.getName()+", "+t2.getName()+", "+tournament.getName();
     }
 
@@ -36,11 +37,11 @@ public class MatchAdmin {
         this.t2 = t2;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
