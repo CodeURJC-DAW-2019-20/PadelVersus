@@ -43,7 +43,6 @@ public class SocialFacebookController {
         OAuth2Operations operations = factory.getOAuthOperations();
         AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "http://localhost:8080/forwardLogin",
                 null);
-
         Connection<Facebook> connection = factory.createConnection(accessToken);
         Facebook facebook = connection.getApi();
         String[] fields = { "id", "email", "first_name", "last_name" };
