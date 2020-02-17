@@ -24,8 +24,6 @@ public class MatchController {
         Optional<Match> match = matchRepository.findById(id);
         if (match.isPresent()) {
             List<Team> teams= match.get().getTeams();
-            MatchStadistics m1 = match.get().getStadistics_1();
-            MatchStadistics m2 = match.get().getStadistics_2();
             List<Integer> nsets = new ArrayList<>();
             List<Integer> gamest1 = new ArrayList<>();
             List<Integer> gamest2 = new ArrayList<>();
@@ -43,7 +41,6 @@ public class MatchController {
                     score_t2+=1;
                 }
             }
-            System.out.println();
             model.addAttribute("score_t1",score_t1);
             model.addAttribute("score_t2",score_t2);
             model.addAttribute("number-sets",nsets);
