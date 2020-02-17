@@ -88,4 +88,8 @@ public class Tournament {
         return this;
     }
 
+    public boolean hasTeam(Team team){
+        return teams.contains(team);
+    }
+
 }

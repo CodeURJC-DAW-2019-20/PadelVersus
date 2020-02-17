@@ -14,7 +14,6 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String score;
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date date;
@@ -36,7 +35,6 @@ public class Match {
     public String toString() {
         return "Match{" +
                 "id=" + id +
-                ", score='" + score + '\'' +
                 ", date='" + date + '\'' +
                 ", stadistics_1=" + stadistics_1 +
                 ", stadistics_2=" + stadistics_2 +
@@ -47,23 +45,23 @@ public class Match {
     public Match() {
     }
 
-    public Match(boolean played, String score, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
+    public Match(boolean played, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
         aux.add(t2);
         this.played = played;
         this.teams= aux;
-        this.score=score;
         this.date=date;
         this.stadistics_1=stadistics_1;
         this.stadistics_2=stadistics_2;
     }
-    public Match(Date date,Team t1,Team t2){
+    public Match(boolean played, Date date,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
         aux.add(t2);
+        this.played = played;
         this.teams= aux;
         this.date=date;
     }
@@ -115,13 +113,6 @@ public class Match {
         this.team_2 = team_2;
     }
 */
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
 
     public Date getDate() {
         return date;

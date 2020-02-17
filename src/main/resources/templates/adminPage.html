@@ -113,8 +113,9 @@
                                             style="width: 75%">
                                     </select>
                                     {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t1" id="t1{{nonspacename}}"
+                                    <select class="form-control dontShow" name="t1_oficial" id="t1{{nonspacename}}"
                                             style="width: 75%">
+                                        <option value="" selected="selected"></option>
                                         {{#teams}}
                                         <option value="{{name}}">{{name}}</option>
                                         {{/teams}}
@@ -127,14 +128,18 @@
                                             style="width: 75%">
                                     </select>
                                     {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t2" id="t2{{nonspacename}}"
+                                    <select class="form-control dontShow" name="t2_oficial" id="t2{{nonspacename}}"
                                             style="width: 75%">
+                                        <option value="" selected="selected"></option>
                                         {{#teams}}
                                         <option value="{{name}}">{{name}}</option>
                                         {{/teams}}
                                     </select>
                                     {{/tournament-list}}
                                 </div>
+
+                                <label for="date">Chose Date:</label>
+                                <input type="date" id="date" name="date">
                                 <!--<select class="form-control" name="t2" id="teamSelect2"
                                         style="width: 75%">
                                     <option value="" selected="selected"></option>
@@ -168,8 +173,6 @@
                                     <option value="{{name}}">{{name}}</option>
                                     {{/match-list}}
                                 </select>
-                                <label for="score">Score: (t1 vs t2 win t1)</label>
-                                <textarea name="score" class="wrap-input100 validate-input m-b-23" data-validate="Score is accuracy" id="score"></textarea>
                                 <label for="team1Stats">Stadistics Team 1:</label>
                                 <div id="team1Stats">
                                     <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is accuracy" >
@@ -195,7 +198,20 @@
                                         <input class="input100 form-control" type="number" name="unforcedErrors1" id="unforcedErrors1" placeholder="Type your unforced Errors" min="0" max="100">
 
                                     </div>
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required" >
+                                        <span class="label-input100 ">Set 1:</span>
+                                        <input class="input100 form-control" type="number" name="set1team1" id="set1team1" placeholder="Type set 1" min="0" max="7">
 
+                                    </div>
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required" >
+                                        <span class="label-input100 ">Set 2:</span>
+                                        <input class="input100 form-control" type="number" name="set2team1" id="set2team1" placeholder="Type set 2" min="0" max="7">
+
+                                    </div>
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required" >
+                                        <span class="label-input100 ">Set 3: (-1 if not played)</span>
+                                        <input class="input100 form-control" type="number" name="set3team1" id="set3team1" placeholder="Type set 3" min="-1" max="7">
+                                    </div>
                                     <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
                                         <input type="checkbox" name="win1" id="win1">
                                         <label for="win1">Win the match</label>
@@ -227,6 +243,18 @@
 
                                     </div>
 
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required" >
+                                        <span class="label-input100 ">Set 1:</span>
+                                        <input class="input100 form-control" type="number" name="set1team2" id="set1team2" placeholder="Type set 1" min="0" max="7">
+                                    </div>
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required" >
+                                        <span class="label-input100 ">Set 2:</span>
+                                        <input class="input100 form-control" type="number" name="set2team2" id="set2team2" placeholder="Type set 2" min="0" max="7">
+                                    </div>
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required" >
+                                        <span class="label-input100 ">Set 3: (-1 if not played)</span>
+                                        <input class="input100 form-control" type="number" name="set3team2" id="set3team2" placeholder="Type set 3" min="-1" max="7">
+                                    </div>
                                     <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
                                         <input type="checkbox" name="win2" id="win2">
                                         <label for="win1">Win the match</label>
