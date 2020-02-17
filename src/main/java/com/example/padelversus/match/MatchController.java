@@ -19,7 +19,6 @@ public class MatchController {
     @Autowired
     MatchRepository matchRepository;
 
-
     @GetMapping("/{id}")
     public String match(Model model, @PathVariable Long id){
         Optional<Match> match = matchRepository.findById(id);
