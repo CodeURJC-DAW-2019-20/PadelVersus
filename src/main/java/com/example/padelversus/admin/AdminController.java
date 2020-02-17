@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 @Controller
@@ -89,7 +90,7 @@ public class AdminController {
         Optional<Team> team2 = teamRepository.findByName(t2);
         String[] parts = date.split("-");
 
-        Match match = new Match(new Date(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2])), team.get().getTeam(),team2.get().getTeam());
+        Match match = new Match(LocalDate.of(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2])), team.get().getTeam(),team2.get().getTeam());
         matchRepository.save(match);
         Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
         List<Match> matches = new ArrayList<>();
