@@ -18,11 +18,6 @@ public class SocialFacebookController {
     private FacebookConnectionFactory factory = new FacebookConnectionFactory("237417980592642",
             "f277ddc32f1e45c2e41359da292909d5");
 
-    @RequestMapping("/")
-    public ModelAndView firstPage() {
-        return new ModelAndView("welcome");
-    }
-
     @GetMapping(value = "/useApplication")
     public String producer() {
 
