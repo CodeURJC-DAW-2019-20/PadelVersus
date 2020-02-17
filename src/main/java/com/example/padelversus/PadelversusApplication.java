@@ -282,6 +282,8 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms6_2 = new MatchStadistics(thirtySixSets.get(11), 23, 57, 50, 50, false);
         Match match6 = new Match(true, "t3 vs t3 win t4", new Date(2020, Calendar.OCTOBER, 25), ms6_1, ms6_2, t4, t3);
 
+
+
         matchRepository.save(match1);
         matchRepository.save(match2);
         matchRepository.save(match3);
@@ -296,6 +298,7 @@ public class PadelversusApplication implements ApplicationRunner {
         tournament1_matches.add(match4);
         tournament1_matches.add(match5);
         tournament1_matches.add(match6);
+
 
         ArrayList<Team> teamsTournament1 = new ArrayList<>();
         teamsTournament1.add(t1);
@@ -379,12 +382,29 @@ public class PadelversusApplication implements ApplicationRunner {
         MatchStadistics ms18_2 = new MatchStadistics(thirtySixSets.get(33), 23, 57, 50, 50, true);
         Match match18 = new Match(true, "t9 vs t10 wins t10", new Date(2020, Calendar.DECEMBER, 25), ms18_1, ms18_2, t9, t10);
 
+
+        Match match19  = new Match(false, null, new Date(2020, Calendar.MARCH, 23), null, null, t1, t3);
+        Match match20  = new Match(false, null, new Date(2020, Calendar.SEPTEMBER, 30), null, null, t2, t4);
+        Match match21  = new Match(false, null, new Date(2020, Calendar.NOVEMBER, 20), null, null, t2, t5);
+        Match match22  = new Match(false, null, new Date(2020, Calendar.FEBRUARY, 10), null, null, t2, t8);
+        Match match23  = new Match(false, null, new Date(2020, Calendar.FEBRUARY, 10), null, null, t2, t8);
+        Match match24  = new Match(false, null, new Date(2020, Calendar.APRIL, 115), null, null, t1, t8);
+
+
         matchRepository.save(match13);
         matchRepository.save(match14);
         matchRepository.save(match15);
         matchRepository.save(match16);
         matchRepository.save(match17);
         matchRepository.save(match18);
+        matchRepository.save(match19);
+        matchRepository.save(match20);
+        matchRepository.save(match21);
+        matchRepository.save(match22);
+        matchRepository.save(match23);
+        matchRepository.save(match24);
+
+
 
         List<Match> tournament3_matches = new ArrayList<>();
         tournament3_matches.add(match13);

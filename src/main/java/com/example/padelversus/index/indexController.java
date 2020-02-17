@@ -18,16 +18,17 @@ public class indexController {
     private MatchService matchService;
 
 
+
     @GetMapping("/")
     public String Index(Model model) {
-        List<Match> matches = matchService.getFourLastMatches();
-        List<LastMatchDisplay> lastMatches = new ArrayList<>();
-        for (Match match : matches) {
-            lastMatches.add(new LastMatchDisplay(match));
-        }
+        List<LastMatchDisplay> lastMatches = matchService.lastMatches();
+        List<LastMatchDisplay> nextMatches = matchService.nextMatches();
         model.addAttribute("last_matches", lastMatches);
+        model.addAttribute("next_matches",nextMatches);
+
         return "index";
     }
+
 
 
 }
