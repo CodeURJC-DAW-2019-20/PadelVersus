@@ -337,78 +337,44 @@
                     <h6>Latest matches</h6>
 
                     <div class="main-lates-matches">
+                        {{#last_matches}}
                         <a href="#" class="item">
-                            <span class="championship">National cup - semifinal</span>
+                            <span class="championship">COGER TORNEO AQUI</span>
+                            {{#winsTeamOne}}
                             <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
+                    </span>
                             <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo2.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
-                            </span>
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
+                    </span>
+                            {{/winsTeamOne}}
+
+                            {{^winsTeamOne}}
+                            <span class="teams-wrap">
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
+                    </span>
+                            <span class="teams-wrap">
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
+                    </span>
+                            {{/winsTeamOne}}
                         </a>
-                        <a href="#" class="item">
-                            <span class="championship">National cup - semifinal</span>
-                            <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo3.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
-                            <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo4.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
-                            </span>
-                        </a>
-                        <a href="#" class="item">
-                            <span class="championship">National cup - semifinal</span>
-                            <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
-                            <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo2.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
-                            </span>
-                        </a>
-                        <a href="#" class="item">
-                            <span class="championship">National cup - semifinal</span>
-                            <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo5.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6</span></span>
-                                </span>
-                            <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7</span></span>
-                                </span>
-                            </span>
-                        </a>
+                        {{/last_matches}}
                     </div>
                 </div>
                 </div>
