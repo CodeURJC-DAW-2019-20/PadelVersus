@@ -3,6 +3,7 @@ package com.example.padelversus.tournament;
 
 import com.example.padelversus.ImageService;
 import com.example.padelversus.player.Player;
+import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.user.User;
@@ -14,9 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -37,6 +38,9 @@ public class TournamentController {
     @Autowired
     ImageService imageService;
 
+    @Autowired
+    PlayerRepository playerRepository;
+
     @GetMapping("/")
     public String loadTournaments(Model model) {
         model.addAttribute("tournament-list", tournamentService.getTournaments());
@@ -51,11 +55,19 @@ public class TournamentController {
         Player loggedPlayer = playerService.getPlayerFromUser(user);
         BufferedImage playerImage = loggedPlayer.getBufferedImage();
         String base_url = "/images_temp/Player/";
-        String image_name = imageService.saveImage("Player" , loggedPlayer.getId(), playerImage);
+        String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
         String image_url = base_url + image_name;
+        List<Player> players = playerRepository.findAll();
+        List<String> playerNames = new ArrayList<>();
+        for (Player player : players) {
+            if (!player.getUser().getName().equals(username)) {
+                playerNames.add(player.getUser().getName());
+            }
+        }
         model.addAttribute("tournament-list", tournaments);
         model.addAttribute("actual_player_name", loggedPlayer.getUser().getName());
         model.addAttribute("actual_player_img", image_url);
+        model.addAttribute("other_player_names", playerNames);
         return "registerTournament";
     }
 

@@ -106,20 +106,20 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label style="display: block; text-align: center"><h3>Player Name</h3></label>
-                    <div >
+                    <label style="display: block; text-align: center"><h3>{{actual_player_name}}</h3></label>
+                    <div>
                         <a href="player.html" class="item">
-                            <img src="/images/soccer/staff-item-img.jpg" alt="player" style="margin-left: 20%">
+                            <img style="margin-left: 20%" src="{{actual_player_img}}" alt="player">
+                            <!--<img src="/images/soccer/staff-item-img.jpg" alt="player" >-->
                         </a>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label style="display: block; margin-left:25%"><h3>Partner</h3></label>
                     <select class="form-control" style="width: 75%; ">
-                        <option selected>Choose Partner</option>
-                        <option>Tournament 1</option>
-                        <option>Tournament 2</option>
-                        <option>Tournament 3</option>
+                        {{#other_player_names}}
+                            <option>{{.}}</option>
+                        {{/other_player_names}}
                     </select>
                 </div>
             </div>
