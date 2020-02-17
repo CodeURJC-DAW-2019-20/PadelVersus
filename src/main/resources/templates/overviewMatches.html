@@ -126,7 +126,7 @@
                                 <div class="sportsmagazine-overview-team-one">
                                     <figure><img src="/images/soccer/team-logo2.png" alt=""></figure>
                                     <section>
-                                        <h4><a href="fixture-detail.html">tybyt</a></h4>
+                                        <h4><a href="fixture-detail.html">{{team_1}}</a></h4>
                                         <span>URJC</span>
                                     </section>
                                 </div>
@@ -134,12 +134,12 @@
                                     <h5>Partido numero {{id}}</h5>
                                     <time datetime="{{date}}">{{date}}</time>
                                     <h5>Score</h5>
-                                    <span>1 <small>:</small> 7</span>
+                                    <span>{{score_t1}}<small>:</small>{{score_t2}}</span>
                                 </div>
                                 <div class="sportsmagazine-overview-team-two">
                                     <figure><img src="/images/soccer/team-logo3.png" alt=""></figure>
                                     <section>
-                                        <h4><a href="fixture-detail.html">hjnyujn</a></h4>
+                                        <h4><a href="fixture-detail.html">{{team_2}}</a></h4>
                                         <span>URJC</span>
                                     </section>
                                 </div>
@@ -148,33 +148,21 @@
                                 <div class="sportsmagazine-overview-scorecard">
                                     <ul class="scorecard-head">
                                         <li><h6>Sets</h6></li>
-                                        <li>1st</li>
-                                        <li>2nd</li>
-                                        <li>3rd</li>
-                                        <li>4th</li>
-                                        <li>5nd</li>
-                                        <li>6rd</li>
-                                        <li>7th</li>
+                                        {{#number-sets}}
+                                        <li>{{.}}</li>
+                                        {{/number-sets}}
                                     </ul>
                                     <ul>
-                                        <li><h6>yrby</h6></li>
-                                        <li>30</li>
-                                        <li>31</li>
-                                        <li>22</li>
-                                        <li>24</li>
-                                        <li>31</li>
-                                        <li>22</li>
-                                        <li>24</li>
+                                        <li><h6>{{team_1}}</h6></li>
+                                        {{#games-t1}}
+                                        <li>{{.}}</li>
+                                        {{/games-t1}}
                                     </ul>
                                     <ul class="border-none">
-                                        <li><h6>ybybyb</h6></li>
-                                        <li>22</li>
-                                        <li>34</li>
-                                        <li>20</li>
-                                        <li>26</li>
-                                        <li>31</li>
-                                        <li>22</li>
-                                        <li>24</li>
+                                        <li><h6>{{team_2}}</h6></li>
+                                        {{#games-t2}}
+                                        <li>{{.}}</li>
+                                        {{/games-t2}}
                                     </ul>
                                 </div>
                             </div>
