@@ -389,7 +389,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match21  = new Match(false, null, LocalDate.of(2020, 11, 20), null, null, t2, t5);
         Match match22  = new Match(false, null, LocalDate.of(2020, 2, 10), null, null, t2, t8);
         Match match23  = new Match(false, null, LocalDate.of(2020, 2, 10), null, null, t2, t8);
-        Match match24  = new Match(false, null, LocalDate.of(2020, 4, 115), null, null, t1, t8);
+        Match match24  = new Match(false, null, LocalDate.of(2020, 4, 15), null, null, t1, t8);
 
 
         matchRepository.save(match13);
