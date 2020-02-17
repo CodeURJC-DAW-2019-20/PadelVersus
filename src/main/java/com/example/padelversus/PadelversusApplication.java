@@ -61,32 +61,19 @@ public class PadelversusApplication implements ApplicationRunner {
         List<List<SetPadel>> allSets = new ArrayList<>();
         for (int j = 0; j < n; j++) {
             List<SetPadel> sets = new ArrayList<>();
-            List<Game> games1 = new ArrayList<>();
-            List<Game> games2 = new ArrayList<>();
 
-            games1.add(new Game(5));
-            games1.add(new Game(6));
-            games1.add(new Game(7));
-            games1.add(new Game(5));
-            games1.add(new Game(4));
-            games1.add(new Game(6));
-
-            games2.add(new Game(6));
-            games2.add(new Game(1));
-            games2.add(new Game(5));
-            games2.add(new Game(2));
-            games2.add(new Game(1));
-            games2.add(new Game(3));
-
-            SetPadel set1 = new SetPadel(games1, 1);
-            SetPadel set2 = new SetPadel(games2, 1);
+            SetPadel set1 = new SetPadel(5 + (j%2), 1);
+            SetPadel set2 = new SetPadel(6 + (j%2), 1);
+            SetPadel set3 = new SetPadel(4 + (j%2), 1);
 
 
             setPadelRepository.save(set1);
             setPadelRepository.save(set2);
+            setPadelRepository.save(set3);
 
             sets.add(set1);
             sets.add(set2);
+            sets.add(set3);
 
             allSets.add(sets);
         }
@@ -267,17 +254,21 @@ public class PadelversusApplication implements ApplicationRunner {
         List<List<SetPadel>> thirtySixSets = createSets(36);
         // Save tournaments and mathches
         // Tournament 1
-        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0), 23, 57, 50, 50, true);
-        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1), 13, 17, 0, 0, false);
-        Match match1 = new Match(true, "t1 vs t2 win t1", new Date(2020, Calendar.OCTOBER, 20), ms1_1, ms1_2, t1, t2);
+        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0),23, 57, 50, 50, true);
+        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1),13, 17, 0, 0, false);
+        Match match1 = new Match(true,"t1 vs t2 win t1", new Date(2020, Calendar.OCTOBER, 20), ms1_1, ms1_2, t1, t2);
+        t1.addMatch(match1);
 
         MatchStadistics ms2_1 = new MatchStadistics(thirtySixSets.get(2), 23, 57, 50, 50, true);
         MatchStadistics ms2_2 = new MatchStadistics(thirtySixSets.get(3), 13, 17, 0, 0, false);
-        Match match2 = new Match(true, "t1 vs t3 win t1", new Date(2020, Calendar.OCTOBER, 21), ms2_1, ms2_2, t1, t3);
+      
+        Match match2 = new Match(true,"t1 vs t3 win t1", new Date(2020, Calendar.OCTOBER, 21), ms2_1, ms2_2, t1, t3);
+        t1.addMatch(match2);
 
-        MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4), 23, 57, 50, 50, true);
-        MatchStadistics ms3_2 = new MatchStadistics(thirtySixSets.get(5), 13, 17, +0, 0, false);
-        Match match3 = new Match(true, "t1 vs t4 win t4", new Date(2020, Calendar.OCTOBER, 22), ms3_1, ms3_2, t4, t1);
+        MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4),23, 57, 50, 50, true);
+        MatchStadistics ms3_2 = new MatchStadistics(thirtySixSets.get(5),13, 17, +0, 0, false);
+        Match match3 = new Match(true,"t1 vs t4 win t4", new Date(2020, Calendar.OCTOBER, 22), ms3_1, ms3_2, t4, t1);
+        t1.addMatch(match3);
 
         MatchStadistics ms4_1 = new MatchStadistics(thirtySixSets.get(6), 99, 99, 99, 99, true);
         MatchStadistics ms4_2 = new MatchStadistics(thirtySixSets.get(7), 78, 7, 9, 3, false);
@@ -412,11 +403,6 @@ public class PadelversusApplication implements ApplicationRunner {
         Tournament tournament3 = new Tournament("Tournament 3", tournament3_matches, teamsTournament3);
         tournamentRepository.save(tournament3);
 
-        t1.addMatch(match1);
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
-        t1.getTeamStatistics().addGame(new Game(6));
         teamRepository.save(t1);
 
 

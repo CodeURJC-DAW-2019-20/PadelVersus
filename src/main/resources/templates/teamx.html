@@ -120,7 +120,7 @@
 <!--BREADCRUMBS END-->
 
 <!--PLAYER SINGLE WRAP BEGIN-->
-
+{{#teamInfo}}
 <section class="player-single-wrap">
 
     <!--PLAYER INFO BEGIN-->
@@ -141,26 +141,18 @@
             <div class="col-md-9">
                 <div class="club-staff-top">
                     <div class="staff-box">
+                        {{#players}}
                         <div class="col-md-6  col-sm-3 col-xs-6">
                             <a href="player.html" class="item">
                                 <span class="info">
-                                    <span class="name">{{playerOneName}}}</span>
-                                    <span class="position">Goalkeeper</span>
-                                    <span class="number">1</span>
+                                    <span class="name">{{id}}</span>
+                                    <span class="position">{{countryBirth}}</span>
+                                    <span class="number">{{age}}</span>
                                 </span>
                                 <img src="/images/soccer/staff-item-img.jpg" alt="player">
                             </a>
                         </div>
-                        <div class="col-md-6  col-sm-3 col-xs-6">
-                            <a href="player.html" class="item">
-                                <span class="info">
-                                    <span class="name">Keevian Treapap</span>
-                                    <span class="position">Goalkeeper</span>
-                                    <span class="number">1</span>
-                                </span>
-                                <img src="/images/soccer/staff-item-img.jpg" alt="player">
-                            </a>
-                        </div>
+                        {{/players}}
                     </div>
                 </div>
             </div>
@@ -172,80 +164,46 @@
     <!--LAST MATCHES BEGIN-->
     <div class="container last-hockey-macthes">
         <div class="row">
-            <h6>Last four matches</h6>
+            <h6>Last {{LAST_MATCHES_SHOWN}} matches</h6>
             <div class="main-lates-matches">
+                {{#lastMatches}}
                 <a href="#" class="item">
-                    <span class="championship">National cup - semifinal</span>
+                    <span class="championship">COGER TORNEO AQUI</span>
+                    {{#winsTeamOne}}
                     <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
-                    <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo2.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
                     </span>
-                </a>
-                <a href="#" class="item">
-                    <span class="championship">National cup - semifinal</span>
                     <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo3.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
-                    <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo4.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
-                </a>
-                <a href="#" class="item">
-                    <span class="championship">National cup - semifinal</span>
+                    {{/winsTeamOne}}
+
+                    {{^winsTeamOne}}
                     <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7 7 7 7</span></span>
-                                </span>
-                    <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo2.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6 6 6 6</span></span>
-                                </span>
+                        <span class="team">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamOne}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetOne}}</span></span>
                     </span>
-                </a>
-                <a href="#" class="item">
-                    <span class="championship">National cup - semifinal</span>
                     <span class="teams-wrap">
-                                    <span class="team">
-                                        <span><img src="/images/common/team-logo5.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>6 4 6 6</span></span>
-                                </span>
-                    <span class="teams-wrap">
-                                    <span class="teamwinner">
-                                        <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                        <span>Team 1 Lucas & Alex</span>
-                                    </span>
-                                    <span class="score"><span>3 6 7 7</span></span>
-                                </span>
+                        <span class="teamwinner">
+                            <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
+                            <span>{{nameTeamTwo}}</span>
+                        </span>
+                        <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
+                    {{/winsTeamOne}}
                 </a>
+                {{/lastMatches}}
             </div>
         </div>
     </div>
@@ -262,40 +220,48 @@
                         <div class="col-md-6">
                             <h6>Games per match</h6>
                             <div class="canvas-minutes-big">
+                                {{#statisticsDisplay}}
+                                <ul style="display:none" id="games">
+                                    <li id="gamesPerMatch">{{gamesPerMatch}}</li>
+                                </ul>
+                                {{/statisticsDisplay}}
                                 <div class="ct-chart advancesmill" data-ready id="advancesmill"></div>
                             </div>
-
                         </div>
                         <div class="col-md-6">
-
-                            <h6>Personal stast (match stats)</h6>
+                            <h6>Stats</h6>
                             <div class="canvas-minutes-big horizontalbar">
+                                {{#statisticsDisplay}}
+                                <ul style="display:none" id="personalStats">
+                                    <li id="meanAcurracy">{{meanAcurracy}}</li>
+                                    <li id="meanEffectiveness">{{meanEffectiveness}}</li>
+                                    <li id="meanUnforcedErrors">{{meanUnforcedErrors}}</li>
+                                </ul>
+                                {{/statisticsDisplay}}
                                 <div class="ct-chart" id="horizontalbar"></div>
                             </div>
-
-
                         </div>
                     </div>
-
                     <div class="row">
-
                             <h6>W/L %</h6>
                             <div class="canvas-animatedonut">
+                                {{#statisticsDisplay}}
+                                <ul style="display:none" id="stats">
+                                    <li id="totalWins">{{totalWins}}</li>
+                                    <li id="totalDefeats">{{totalDefeats}}</li>
+                                </ul>
+                                {{/statisticsDisplay}}
                                 <div class="ct-chart animatedonut" data-ready id="animatedonut"></div>
                             </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </section>
     <!--PLAYER STATS END-->
-
 </section>
 <!--PLAYER SINGLE WRAP END-->
-
+{{/teamInfo}}
 <section>
 
 
@@ -370,7 +336,6 @@
     </footer>
     <!--FOOTER END-->
 </section>
-
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>

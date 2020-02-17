@@ -38,6 +38,7 @@ public class Team {
         this.players =  aux;
         this.teamStatistics = new TeamStatistics();
         this.matches = new ArrayList<>();
+        updateTeamStatistics();
     }
 
     public Long getId() {
@@ -82,6 +83,7 @@ public class Team {
 
     public void addMatch(Match m) {
         this.matches.add(m);
+        updateTeamStatistics();
     }
 
     @Override
@@ -105,5 +107,33 @@ public class Team {
                 }
             }
         }
+    }
+
+    public Player getMemberN(int n){
+        if(n >= 1 && n <= 2){
+            return this.players.get(n-1);
+        }
+        else{
+            return null;
+        }
+    }
+
+    public List<Match> getLastNMatches(int n){
+
+        List<Match> lastmatches = new ArrayList<>();
+
+        int counter = matches.size()-1;
+        if(this.matches.size() >= n){
+            for(int i=0; i<n; i++){
+                lastmatches.add(matches.get(counter));
+                counter--;
+            }
+        }else{
+            for(int i=0; i<matches.size(); i++){
+                lastmatches.add(matches.get(counter));
+                counter--;
+            }
+        }
+        return lastmatches;
     }
 }

@@ -139,8 +139,8 @@ public class Match {
     }
 
     public Long getidTeam(int n){
-        if(n >= 0 && n <= 2){
-           return teams.get(n).getId();
+        if(n >= 1 && n <= 2){
+           return teams.get(n-1).getId();
         }else{
            return Integer.toUnsignedLong(0);
         }

@@ -12,7 +12,7 @@ public class TeamStatistics {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     private int totalGames;
     private int totalWins;
@@ -121,7 +121,7 @@ public class TeamStatistics {
         this.totalEffectiveness = 0;
         this.totalGamesWon = 0;
         this.totalUnforcedErrors = 0;
-        this.gamesPerMatch.clear();
+        this.gamesPerMatch = new ArrayList<>();
     }
 
     public void updateStatistics(MatchStadistics lastMatch){
@@ -136,5 +136,34 @@ public class TeamStatistics {
         totalGamesWon += lastMatch.getGames_wins();
         gamesPerMatch.add(new Game(lastMatch.getGames_wins()));
         totalUnforcedErrors += lastMatch.getUnforcedErrors();
+    }
+
+    public String[] meanStatisticsParsed(){
+        String[] means = new String[6];
+        if(totalGames > 0) {
+            means[0] = Integer.toString(totalWins);
+            means[1] = Integer.toString(totalDefeats);
+            means[2] = Float.toString(totalAcurracy / totalGames);
+            means[3] = Float.toString(totalEffectiveness / totalGames);
+            means[4] = Float.toString(totalUnforcedErrors / totalGames);
+            StringBuilder sb = new StringBuilder();
+            int n = gamesPerMatch.size()-1;
+            System.out.println(n);
+            for (Game g : gamesPerMatch) {
+                sb.append(g.getGames() + "|");
+                n--;
+                System.out.println(g.getGames());
+            }
+            means[5] = sb.toString();
+        }else{
+            means[0] = "0";
+            means[1] = "0";
+            means[2] = "0";
+            means[3] = "0";
+            means[4] = "0";
+            means[5] = "0";
+        }
+
+        return means;
     }
 }

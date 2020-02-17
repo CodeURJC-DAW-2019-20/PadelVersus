@@ -483,13 +483,14 @@
          * @js: ./js/animate-donut.js
          * @usage: ./html-components/player_stats.html
          */
+        var totalWins = parseInt($("#stats > li#totalWins").text());
+        var totalDefeats = parseInt($("#stats > li#totalDefeats").text());
         if ($('#animatedonut').length > 0) {
             $('#animatedonut').animatedonut(
-                    ['1', '2', '3', '4', '5', '6', '7'],
-                    [10, 20, 50, 20, 5, 50, 15],
+                    ['L', 'W'],
+                    [totalDefeats,totalWins],
                     true,
                     true
-
                     );
         }
 
@@ -498,17 +499,16 @@
          * @js: ./js/advanced-smil.js
          * @usage: ./html-components/player_stats.html
          */
+        var stringGames = $("#games > li#gamesPerMatch").text();
+        console.log(stringGames);
+        var arrayGames = stringGames.split("|");
         if ($('#advancesmill').length > 0) {
             $('#advancesmill').advancesmill(
-                    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
                     [
-                        [12, 9, 7, 8, 5, 4, 6, 2, 3, 3, 4, 6],
-                        [4, 5, 3, 7, 3, 5, 5, 3, 4, 4, 5, 5],
-                        [5, 3, 4, 5, 6, 3, 3, 4, 5, 6, 3, 4],
-                        [3, 4, 5, 6, 7, 6, 4, 5, 6, 7, 6, 3]
+                        arrayGames,
                     ],
                     0,
-                    ['2017', '2016', '2015', '2014'],
+                    ['Games per match'],
                     true,
                     'bottom'
                     );
@@ -557,20 +557,23 @@
          * @js: ./js/horizontal-bar.js
          * @usage: ./html-components/player_stats.html
          */
+        var meanAccuracy = parseInt($("#personalStats > li#meanAcurracy").text());
+        var meanEffectiveness = parseInt($("#personalStats > li#meanEffectiveness").text());
+        var meanUnforcedErrors = parseInt($("#personalStats > li#meanUnforcedErrors").text());
+
         if ($('#horizontalbar').length > 0) {
             $('#horizontalbar').horizontalbar(
-                    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    ['Accuracy', 'Effectiveness', 'Unforced Errors'],
                     [
-                        [5, 4, 3, 7, 5, 10, 3],
-                        [3, 2, 9, 5, 4, 6, 4]
+                        [meanAccuracy, meanEffectiveness, meanUnforcedErrors],
                     ],
                     10,
                     true,
                     true,
-                    ['1-st Component', '2-nd Component'],
+                    ['%'],
                     true,
                     'bottom',
-                    70
+                    120
                     );
         }
 
