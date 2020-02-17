@@ -169,4 +169,14 @@ public class PlayerService {
         player.setImage(data);
         return true;
     }
+    // Returns the player asociate at an user or null if not returns null
+    public Player getPlayerFromUser(User user){
+        String usernameToFind = user.getName();
+        List<Player> allPlayer = playerRepository.findAll();
+        for (Player player : allPlayer) {
+            String usernamePlayer = player.getUser().getName();
+            if(usernamePlayer.equals(usernameToFind)) return player;
+        }
+        return null;
+    }
 }
