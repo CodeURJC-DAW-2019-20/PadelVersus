@@ -384,12 +384,12 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match18 = new Match(true, "t9 vs t10 wins t10",LocalDate.of(2020, 11, 26), ms18_1, ms18_2, t9, t10);
 
 
-        Match match19  = new Match(false, null, new Date(2020, Calendar.MARCH, 23), null, null, t1, t3);
-        Match match20  = new Match(false, null, new Date(2020, Calendar.SEPTEMBER, 30), null, null, t2, t4);
-        Match match21  = new Match(false, null, new Date(2020, Calendar.NOVEMBER, 20), null, null, t2, t5);
-        Match match22  = new Match(false, null, new Date(2020, Calendar.FEBRUARY, 10), null, null, t2, t8);
-        Match match23  = new Match(false, null, new Date(2020, Calendar.FEBRUARY, 10), null, null, t2, t8);
-        Match match24  = new Match(false, null, new Date(2020, Calendar.APRIL, 115), null, null, t1, t8);
+        Match match19  = new Match(false, null, LocalDate.of(2020, 3, 23), null, null, t1, t3);
+        Match match20  = new Match(false, null, LocalDate.of(2020, 10, 30), null, null, t2, t4);
+        Match match21  = new Match(false, null, LocalDate.of(2020, 11, 20), null, null, t2, t5);
+        Match match22  = new Match(false, null, LocalDate.of(2020, 2, 10), null, null, t2, t8);
+        Match match23  = new Match(false, null, LocalDate.of(2020, 2, 10), null, null, t2, t8);
+        Match match24  = new Match(false, null, LocalDate.of(2020, 4, 115), null, null, t1, t8);
 
 
         matchRepository.save(match13);
