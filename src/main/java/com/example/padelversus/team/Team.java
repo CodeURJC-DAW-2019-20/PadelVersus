@@ -85,7 +85,9 @@ public class Team {
         this.matches.add(m);
         updateTeamStatistics();
     }
-
+    public Team getTeam(){
+        return this;
+    }
     @Override
     public String toString() {
         return "Team{" +

@@ -17,7 +17,7 @@ public class TournamentService {
     TournamentRepository tournamentRepository;
 
     //Order all team from a tournament by games won
-    void teamOrder(Tournament tournament) {
+    public void teamOrder(Tournament tournament) {
         List<Team> tournamentTeams = tournament.getTeams();
         ArrayList<Team> teamOrder = new ArrayList<>();
         Team mostWin = null;
@@ -38,7 +38,7 @@ public class TournamentService {
     }
 
     // Returns the number of matches won and played for a specific team
-    int[] wonGames(Tournament tournament, Team team) {
+    public int[] wonGames(Tournament tournament, Team team) {
         int won = 0;
         int played = 0;
         List<Match> matches = tournament.getMatches();
@@ -57,7 +57,7 @@ public class TournamentService {
         return new int[]{won, played};
     }
 
-    List<String> lastThreeMatches(Tournament tournament, Team team){
+    public List<String> lastThreeMatches(Tournament tournament, Team team){
         List<String> lastThreeMatchesRepresentation = new ArrayList<>();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
