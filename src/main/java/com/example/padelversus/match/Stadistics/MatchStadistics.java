@@ -1,9 +1,9 @@
 package com.example.padelversus.match.Stadistics;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.padelversus.team.teamstatistics.game.Game;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class MatchStadistics {
@@ -16,6 +16,9 @@ public class MatchStadistics {
     private int games_wins;
     private int unforcedErrors;
     private boolean win;
+
+    @OneToMany (cascade = CascadeType.MERGE)
+    private List<SetPadel> sets; //Sets with their games on each set
 
     @Override
     public String toString() {
@@ -31,13 +34,18 @@ public class MatchStadistics {
 
     public MatchStadistics() {
     }
-    public MatchStadistics(int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
+
+    public MatchStadistics(List<SetPadel> sets, int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
         super();
         this.acurracy=acurracy;
         this.effectiveness=effectiveness;
         this.unforcedErrors=unforcedErrors;
-        this.games_wins=wins;
         this.win=win;
+        this.sets=sets;
+        this.games_wins = 0;
+        for(SetPadel s: sets){ //For each set of the teamx it adds the games won of this set to the total
+            this.games_wins += s.getGames();
+        }
     }
 
     public boolean isWin() {
@@ -86,5 +94,13 @@ public class MatchStadistics {
 
     public void setUnforcedErrors(int unforcedErrors) {
         this.unforcedErrors = unforcedErrors;
+    }
+
+    public List<SetPadel> getSets() {
+        return sets;
+    }
+
+    public void setSets(List<SetPadel> sets) {
+        this.sets = sets;
     }
 }

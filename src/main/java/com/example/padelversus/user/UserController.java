@@ -1,63 +1,65 @@
 package com.example.padelversus.user;
 
-import com.example.padelversus.mail.NotificationService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
+import com.example.padelversus.player.PlayerService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Optional;
 
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserRepository uc;
 
     @Autowired
-    private PlayerRepository pc;
+    private UserService userService;
 
     @Autowired
-    private NotificationService notificationService;
+    private PlayerRepository playerRepository;
+
+    @Autowired
+    private PlayerService playerService;
 
 
     @PostMapping("/saveUser")
-    public String saveUser(User user){
-        //user.setRol("ROLE_USER");
-        //User u = uc.save(user);
-        //return "/";
-        User u = uc.findByName(user.getName());
-        if (u == null) {
-            uc.save(user);
-            notificationService.sendNotification(user);
-            //updateTabs(model);
-            return "/signupPlayer";
+    public String saveUser(Model model,
+                           @RequestParam String name,
+                           @RequestParam String mail,
+                           @RequestParam String passwordHash
+                           ) {
+        String userName = userService.saveUser(name, passwordHash, mail);
+        if (userName != null) {
+            model.addAttribute("user_name", userName);
+            model.addAttribute("error_message", false);
+            return "signupPlayer";
+        } else {
+            model.addAttribute("already_register", true);
+            return "signup";
         }
-
-        return "404";
     }
 
     @PostMapping("/signupPlayer")
-    public String signupPlayer(Player player){
-        pc.save(player);
-        return "/signupSuccess";
-    }
-
-    /*public String crear(@RequestParam String name, String pass, BindingResult bindingResult, ModelMap mp) {
-        uc.save(new User(name,pass,"ROLE_USER"));
-        System.out.println("Crear");
-        /*if (bindingResult.hasErrors()) {
-            System.out.println("HAY ERROR");
-            return "/crud/nuevo";
-        } else {
-            uc.save(user);
-            mp.put("usuario", user);
-            return "/";
+    public String signupPlayer(Model model, Player player,
+                               @RequestParam String username,
+                               @RequestParam MultipartFile imagenFile) throws IOException {
+        if(imagenFile.getBytes().length == 0){
+            model.addAttribute("user_name", username);
+            model.addAttribute("error_message", true);
+            return "signupPlayer";
         }
-        return "/";
-    }*/
+        if (playerService.savePlayer(player, username, imagenFile)) {
+            return "signupSuccess";
+        }
+        return "404";
+    }
 
 
 }

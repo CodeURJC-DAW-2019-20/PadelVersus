@@ -25,3 +25,8 @@ hs_err_pid*
 
 # Intllij Idea
 .idea
+
+# Temp Images
+images_temp/*
+images_temp/
+!images/.gitkeep

@@ -19,6 +19,8 @@ public class Match {
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date date;
 
+    private boolean played; //If the game has been played
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
     private MatchStadistics stadistics_1;
@@ -44,11 +46,13 @@ public class Match {
 
     public Match() {
     }
-    public Match(String score, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
+
+    public Match(boolean played, String score, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
         aux.add(t2);
+        this.played = played;
         this.teams= aux;
         this.score=score;
         this.date=date;
@@ -126,14 +130,33 @@ public class Match {
     public void setDate(Date date) {
         this.date = date;
     }
+
     public Match getMatch(){
         return this;
     }
    /* public Team getWinner() {
+
+    /* public Team getWinner() {
         return winner;
     }
 
     public void setWinner(Team winner) {
         this.winner = winner;
     }*/
+
+    public boolean isPlayed() {
+        return played;
+    }
+
+    public void setPlayed(boolean played) {
+        this.played = played;
+    }
+
+    public Long getidTeam(int n){
+        if(n >= 1 && n <= 2){
+           return teams.get(n-1).getId();
+        }else{
+           return Integer.toUnsignedLong(0);
+        }
+    }
 }

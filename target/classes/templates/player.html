@@ -130,7 +130,7 @@
             </div>
             <div class="col-md-3">
                 <div class="player-photo">
-                    <img class="img-responsive" src="/images/soccer/player-hockey.jpg" alt="player">
+                    <img class="img-responsive" src="{{image}}" alt="player">
                 </div>
             </div>
             <div class="col-md-9">
@@ -139,8 +139,26 @@
                         <div class="col-md-8 col-sm-6">
                             <div class="stats">
                                 <p class="number">89</p>
-                                <p class="name">Alex</p>
+                                <p class="name">{{name}}</p>
                                 <p class="name">{{age}}</p>
+                                <p class="name">{{email}}</p>
+                              
+                                {{#is_in_team}}
+                                    <p class="name">
+                                        {{#namesTeams}}
+                                        <span class="">{{name}}</span>
+                                        {{/namesTeams}}
+                                    </p>
+                                {{/is_in_team}}
+                              
+                                {{#is_in_tournament}}
+                                    <p class="name">
+                                        {{#namesTournaments}}
+                                        <span class="">{{name}}</span>
+                                        {{/namesTournaments}}
+                                    </p>
+                                {{/is_in_tournament}}
+                              
                                 <p class="country"><img src="/images/common/fr-flag.png" alt="flag">{{country}} </p>
                                 <div class="wrapper-circle">
                                     <div class="circle-item">

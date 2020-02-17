@@ -24,7 +24,7 @@ public class Team {
     private TeamStatistics teamStatistics;
 
     @ManyToMany
-    private List<Match> playedMatches;
+    private List<Match> matches;
 
     public Team(){
     }
@@ -37,7 +37,8 @@ public class Team {
         this.name = name;
         this.players =  aux;
         this.teamStatistics = new TeamStatistics();
-        this.playedMatches = new ArrayList<>();
+        this.matches = new ArrayList<>();
+        updateTeamStatistics();
     }
 
     public Long getId() {
@@ -72,16 +73,17 @@ public class Team {
         this.teamStatistics = teamStatistics;
     }
 
-    public List<Match> getPlayedMatches() {
-        return playedMatches;
+    public List<Match> getMatches() {
+        return matches;
     }
 
-    public void setPlayedMatches(List<Match> playedMatches) {
-        this.playedMatches = playedMatches;
+    public void setMatches(List<Match> playedMatches) {
+        this.matches = playedMatches;
     }
 
     public void addMatch(Match m) {
-        this.playedMatches.add(m);
+        this.matches.add(m);
+        updateTeamStatistics();
     }
     public Team getTeam(){
         return this;
@@ -94,5 +96,46 @@ public class Team {
                 ", players=" + players +
                 ", teamStatistics=" + teamStatistics +
                 '}';
+    }
+
+    public void updateTeamStatistics(){
+        teamStatistics.resetStatistics();
+        for(Match m: matches){
+            if (m.isPlayed()){
+                if (id == m.getidTeam(1)) {
+                    teamStatistics.updateStatistics(m.getStadistics_1());
+                } else {
+                    teamStatistics.updateStatistics(m.getStadistics_2());
+                }
+            }
+        }
+    }
+
+    public Player getMemberN(int n){
+        if(n >= 1 && n <= 2){
+            return this.players.get(n-1);
+        }
+        else{
+            return null;
+        }
+    }
+
+    public List<Match> getLastNMatches(int n){
+
+        List<Match> lastmatches = new ArrayList<>();
+
+        int counter = matches.size()-1;
+        if(this.matches.size() >= n){
+            for(int i=0; i<n; i++){
+                lastmatches.add(matches.get(counter));
+                counter--;
+            }
+        }else{
+            for(int i=0; i<matches.size(); i++){
+                lastmatches.add(matches.get(counter));
+                counter--;
+            }
+        }
+        return lastmatches;
     }
 }

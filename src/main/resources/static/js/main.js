@@ -17,6 +17,7 @@
            $(id_to_show).css("display","block");
         });
         $("ul.tab-filters li:first-child").addClass("active");
+        $("div.tab-content div:first-child").addClass("active");
         $.each($("td.form > span"), function(){
             if($(this).text() === "l"){
                 $(this).addClass("lose")
@@ -143,6 +144,7 @@
          *        ./html-component/next_matc_score.html
          *        ./html-component/player_statistic_slider.html
          *        ./html-component/players_slider.html
+         *        ./html-component/teams.html
          */
         $('.champ-navigation li a, .tab-filters li a, .player-filters li a').on('click', function (e) {
 
@@ -363,14 +365,14 @@
          * @usage: ./html-components/player_single_wrap.html
          */
 
-        var height = parseInt($("#stats > li#height").text());
+        var height = parseInt($("#stats > li#height").text())*100;
         var weight = parseInt($("#stats > li#weight").text());
-        var endurance = parseInt($("#stats > li#endurance").text());
-        var speed = parseInt($("#stats > li#speed").text());
-        var accuaracy = parseInt($("#stats > li#accuaracy").text());
-        var aceleration = parseInt($("#stats > li#aceleration").text());
-        var strenght = parseInt($("#stats > li#strenght").text());
-        var pace = parseInt($("#stats > li#pace").text());
+        var endurance = parseInt($("#stats > li#endurance").text())*100;
+        var speed = parseInt($("#stats > li#speed").text())*100;
+        var accuaracy = parseInt($("#stats > li#accuaracy").text())*100;
+        var aceleration = parseInt($("#stats > li#aceleration").text())*100;
+        var strenght = parseInt($("#stats > li#strenght").text())*100;
+        var pace = parseInt($("#stats > li#pace").text())*100;
         if ($('#player-radar-graph').length > 0) {
             $('#player-radar-graph').teamRadarGraph(
                     'stats',
@@ -481,13 +483,14 @@
          * @js: ./js/animate-donut.js
          * @usage: ./html-components/player_stats.html
          */
+        var totalWins = parseInt($("#stats > li#totalWins").text());
+        var totalDefeats = parseInt($("#stats > li#totalDefeats").text());
         if ($('#animatedonut').length > 0) {
             $('#animatedonut').animatedonut(
-                    ['1', '2', '3', '4', '5', '6', '7'],
-                    [10, 20, 50, 20, 5, 50, 15],
+                    ['L', 'W'],
+                    [totalDefeats,totalWins],
                     true,
                     true
-
                     );
         }
 
@@ -496,17 +499,16 @@
          * @js: ./js/advanced-smil.js
          * @usage: ./html-components/player_stats.html
          */
+        var stringGames = $("#games > li#gamesPerMatch").text();
+        console.log(stringGames);
+        var arrayGames = stringGames.split("|");
         if ($('#advancesmill').length > 0) {
             $('#advancesmill').advancesmill(
-                    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
                     [
-                        [12, 9, 7, 8, 5, 4, 6, 2, 3, 3, 4, 6],
-                        [4, 5, 3, 7, 3, 5, 5, 3, 4, 4, 5, 5],
-                        [5, 3, 4, 5, 6, 3, 3, 4, 5, 6, 3, 4],
-                        [3, 4, 5, 6, 7, 6, 4, 5, 6, 7, 6, 3]
+                        arrayGames,
                     ],
                     0,
-                    ['2017', '2016', '2015', '2014'],
+                    ['Games per match'],
                     true,
                     'bottom'
                     );
@@ -555,20 +557,23 @@
          * @js: ./js/horizontal-bar.js
          * @usage: ./html-components/player_stats.html
          */
+        var meanAccuracy = parseInt($("#personalStats > li#meanAcurracy").text());
+        var meanEffectiveness = parseInt($("#personalStats > li#meanEffectiveness").text());
+        var meanUnforcedErrors = parseInt($("#personalStats > li#meanUnforcedErrors").text());
+
         if ($('#horizontalbar').length > 0) {
             $('#horizontalbar').horizontalbar(
-                    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    ['Accuracy', 'Effectiveness', 'Unforced Errors'],
                     [
-                        [5, 4, 3, 7, 5, 10, 3],
-                        [3, 2, 9, 5, 4, 6, 4]
+                        [meanAccuracy, meanEffectiveness, meanUnforcedErrors],
                     ],
                     10,
                     true,
                     true,
-                    ['1-st Component', '2-nd Component'],
+                    ['%'],
                     true,
                     'bottom',
-                    70
+                    120
                     );
         }
 
