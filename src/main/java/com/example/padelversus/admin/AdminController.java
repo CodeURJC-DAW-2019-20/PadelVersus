@@ -1,6 +1,7 @@
 package com.example.padelversus.admin;
 
 import com.example.padelversus.match.Match;
+import com.example.padelversus.match.MatchAdmin;
 import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.Team;
@@ -35,7 +36,7 @@ public class AdminController {
     public String adminPage(Model model){
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<Match> allMatches = matchRepository.findAll();
-        List<Match> matchesNull = allMatches;
+        List<MatchAdmin> matchAdmins = new ArrayList<>();
        // System.out.println(allMatches.toString());
        for (int i = 0; i < allMatches.size(); i++) {
             if(allMatches.get(i).getScore()!= null){
@@ -46,14 +47,30 @@ public class AdminController {
         for (Tournament tournament : allTournament) {
             //tournamentService.teamOrder(tournament);
             //TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
-            model.addAttribute("tournament-teams-"+tournament.getName(),tournament.getTeams());
+            //model.addAttribute("tournament-teams-"+tournament.getName(),tournament.getTeams());
+            for (Match match: tournament.getMatches()) {
+                List<Team> teamList = match.getTeams();
+                MatchAdmin matchAdmin = new MatchAdmin(teamList.get(0),teamList.get(1),match.getDate(),tournament);
+                matchAdmins.add(matchAdmin);
+            }
+            tournamentService.teamOrder(tournament);
+            TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
+            for(Team team: tournament.getTeams()){
+                int [] wonPlayed = tournamentService.wonGames(tournament, team);
+                List<String> lastMatches = tournamentService.lastThreeMatches(tournament, team);
+                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches);
+            }
+            allTournamentDisplay.add(tournamentDisplay);
 
-            // allTournamentDisplay.add(tournamentDisplay);
         }
-        model.addAttribute("tournament-list", allTournament);
+
+        model.addAttribute("tournament-list", allTournamentDisplay);
         //model.addAttribute("tournament-teams",tournament.getTeams());
         //List<Match> allMatches = matchRepository.findAll();
-        model.addAttribute("match-list",allMatches);
+
+        model.addAttribute("match-list",matchAdmins);
+
+
         return "/adminPage";
     }
     @RequestMapping("/prueba")
