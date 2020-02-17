@@ -5342,10 +5342,9 @@ blockquote span:before {
 }
 .sportsmagazine-overview-team-one,.sportsmagazine-overview-team-two {
     float: left;
-    padding: 90px 52px 29px 5px;
 }
 .sportsmagazine-overview-team-two {
-    float: right; padding: 94px 0px 29px 47px;}
+    float: right;}
 .sportsmagazine-overview-team-one figure,.sportsmagazine-overview-team-two figure {
     margin: 0px;
     float: right;
