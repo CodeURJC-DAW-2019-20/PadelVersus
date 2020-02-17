@@ -28,7 +28,7 @@ public class WebController {
     }
     @RequestMapping("/createuser")
     public String createuser(){
-        userRepository.save(new User("user2", "pass", "ROLE_USER"));
+        userRepository.save(new User("user2", "pass","user@gmail.com", "ROLE_USER"));
         return "createuser";
     }
     @RequestMapping("/loginerror")
