@@ -44,6 +44,7 @@ public class MatchController {
                     score_t2+=1;
                 }
             }
+            System.out.println();
             model.addAttribute("score_t1",score_t1);
             model.addAttribute("score_t2",score_t2);
             model.addAttribute("number-sets",nsets);
