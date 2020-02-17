@@ -88,18 +88,19 @@
 
 
 <div class="container" style="padding-top :3%">
-    <form>
+    <form action="/tournament/registerTournamentForm" method="post">
+        <input type="hidden" id="username" name="username" value="{{actual_player_name}}">
         <div class="form-group">
             <div class="form-row">
                 <div class="form-group col-md-offset-2">
                     <label>Chose Tournament</label>
-                    <select class="form-control" style="width: 75%">
+                    <select class="form-control" style="width: 75%" name="SelectedTournament">
                         {{#tournament-list}}
-                            <option>{{name}}</option>
+                            <option value="{{name}}">{{name}}</option>
                         {{/tournament-list}}
                     </select>
                     <label>Team name</label>
-                    <input type="text" class="form-control" placeholder="Team name" style="width: 75%">
+                    <input type="text" class="form-control" placeholder="Team name" style="width: 75%" name="teamName">
                     <!--<label> Upload team Logo</label>
                     <input type="file" class="form-control-file" style="width: 75%">-->
                 </div>
@@ -116,12 +117,13 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label style="display: block; margin-left:25%"><h3>Partner</h3></label>
-                    <select class="form-control" style="width: 75%; ">
+                    <select class="form-control" style="width: 75%;" name="otherPlayer">
                         {{#other_player_names}}
-                            <option>{{.}}</option>
+                            <option value="{{.}}">{{.}}</option>
                         {{/other_player_names}}
                     </select>
                 </div>
+
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
