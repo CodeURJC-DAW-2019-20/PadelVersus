@@ -4,6 +4,7 @@ import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchAdmin;
 import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
+import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
 import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.match.Stadistics.SetPadelRepository;
 import com.example.padelversus.player.Player;
@@ -37,7 +38,8 @@ public class AdminController {
     TeamRepository  teamRepository;
     @Autowired
     SetPadelRepository setPadelRepository;
-
+    @Autowired
+    MatchStadisticsRepository matchStadisticsRepository;
     @RequestMapping("/adminPage")
     public String adminPage(Model model){
         List<Tournament> allTournament = tournamentRepository.findAll();
@@ -147,12 +149,13 @@ public class AdminController {
         Optional<Team> team1 = teamRepository.findByName(match[1]);
         Optional<Team> team2 = teamRepository.findByName(match[2]);
         Optional<Tournament> tournament = tournamentRepository.findByName(match[3]);
-        if(team1.isPresent()){
+       /* if(team1.isPresent()){
             System.out.println(team1.get().getName());
         }else{
             System.out.println("NO PRESENT");
-        }
+        }*/
         Match matchDatabase = findMatchByTeams(team1.get(), team2.get(), tournament.get());
+        //System.out.println(matchDatabase.toString());
         if(matchDatabase != null){
             matchDatabase.setPlayed(true);
 
@@ -165,20 +168,20 @@ public class AdminController {
             int auxSet3 = Integer.parseInt(set3team1);
             boolean auxWin = Boolean.parseBoolean(win1);
 
-            List<SetPadel> auxSets = new ArrayList<>();
+            List<SetPadel> auxSets1 = new ArrayList<>();
             SetPadel firstSet = new SetPadel(auxSet1, 1);
             SetPadel secondSet = new SetPadel(auxSet2, 2);
-            auxSets.add(firstSet);
-            auxSets.add(secondSet);
-            setPadelRepository.save(firstSet);
-            setPadelRepository.save(secondSet);
+            auxSets1.add(firstSet);
+            auxSets1.add(secondSet);
+            //setPadelRepository.save(firstSet);
+            //setPadelRepository.save(secondSet);
             if (auxSet3 != -1){
                 SetPadel thirdSet = new SetPadel(auxSet3, 3);
-                auxSets.add(thirdSet);
-                setPadelRepository.save(thirdSet);
+                auxSets1.add(thirdSet);
+                //setPadelRepository.save(thirdSet);
             }
-            MatchStadistics statsOne = new MatchStadistics(auxSets, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
-
+            MatchStadistics statsOne = new MatchStadistics(auxSets1, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
+            System.out.println("MATCH STADISTICS 1:"+statsOne.toString());
             auxAccuracy = Integer.parseInt(accuracy2);
             auxEffect = Integer.parseInt(effectiveness2);
             auxGamesWin = Integer.parseInt(games_wins2);
@@ -187,25 +190,25 @@ public class AdminController {
             auxSet2 = Integer.parseInt(set2team2);
             auxSet3 = Integer.parseInt(set3team2);
             auxWin = Boolean.parseBoolean(win2);
-
-            auxSets.clear();
-            firstSet = new SetPadel(auxSet1, 1);
-            secondSet = new SetPadel(auxSet2, 2);
-            auxSets.add(firstSet);
-            auxSets.add(secondSet);
-            setPadelRepository.save(firstSet);
-            setPadelRepository.save(secondSet);
+            List<SetPadel> auxSets2 = new ArrayList<>();
+            SetPadel firstSet2 = new SetPadel(auxSet1, 1);
+            SetPadel secondSet2 = new SetPadel(auxSet2, 2);
+            auxSets2.add(firstSet2);
+            auxSets2.add(secondSet2);
+            //setPadelRepository.save(firstSet);
+            //setPadelRepository.save(secondSet);
 
             if (auxSet3 != -1){
                 SetPadel thirdSet2 = new SetPadel(auxSet3, 3);
-                auxSets.add(thirdSet2);
-                setPadelRepository.save(thirdSet2);
+                auxSets2.add(thirdSet2);
+                //setPadelRepository.save(thirdSet2);
             }
-            MatchStadistics statsTwo = new MatchStadistics(auxSets, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
+            MatchStadistics statsTwo = new MatchStadistics(auxSets2, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
 
             matchDatabase.setStadistics_1(statsOne);
             matchDatabase.setStadistics_2(statsTwo);
-
+//            matchStadisticsRepository.save(statsOne);
+  //          matchStadisticsRepository.save(statsTwo);
             matchRepository.save(matchDatabase);
         }
 
@@ -261,13 +264,13 @@ public class AdminController {
 
     public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament){
         List<Match> matches = tournament.getMatches();
-        System.out.println(matches.toString());
+        //System.out.println(matches.toString());
         for(Match m: matches) {
-            System.out.println("siguente match");
-            System.out.println(m.toString());
+            //System.out.println("siguente match");
+            //System.out.println(m.toString());
             if (!m.isPlayed() && m.hasTeam(teamOne) && m.hasTeam(teamTwo)) {
-                System.out.println("Lo he encontrado");
-                System.out.println(m.toString());
+                //System.out.println("Lo he encontrado");
+                //System.out.println(m.toString());
                 return m;
             }
         }

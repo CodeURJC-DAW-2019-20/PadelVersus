@@ -1,6 +1,7 @@
 package com.example.padelversus.match;
 
 import com.example.padelversus.match.Stadistics.MatchStadistics;
+import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.team.Team;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -65,6 +66,9 @@ public class Match {
         this.teams= aux;
         this.date=date;
     }
+
+
+
     public MatchStadistics getStadistics_1() {
         return stadistics_1;
     }
