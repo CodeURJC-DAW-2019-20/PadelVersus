@@ -150,4 +150,8 @@ public class Match {
            return Integer.toUnsignedLong(0);
         }
     }
+
+    public boolean hasTeam(Team team){
+        return teams.contains(team);
+    }
 }
