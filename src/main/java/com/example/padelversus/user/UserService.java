@@ -20,6 +20,7 @@ public class UserService {
             User u_mail = userRepository.findByMail(mail);
             if(u_mail == null) {
                 User user = new User(name, mail, pass, "ROLE_USER");
+                notificationService.sendNotification(user);
                 userRepository.save(user);
                 return user.getName();
             }else{
