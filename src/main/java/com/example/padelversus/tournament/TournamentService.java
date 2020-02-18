@@ -79,7 +79,11 @@ public class TournamentService {
             }
         }
         System.out.println("LAST THREE MATCHES: pasa el primer for");
-        System.out.println("Matches ordered: " + matchesOrdered);
+        System.out.print("Matches ordered: ");
+        matchesOrdered.forEach(m -> System.out.println(m.getId()));
+        if(team.getName().equals("Patata")){
+            System.out.println("DEBUG");
+        }
         if(matchesOrderedTeam.isEmpty()) return null;
         int max_for = matchesOrderedTeam.size() < 3 ? matchesOrdered.size() : 3;
         for (int i = 0; i < max_for; i++) {

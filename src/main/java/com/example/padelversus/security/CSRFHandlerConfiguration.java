@@ -5,7 +5,6 @@ import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,8 +26,11 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(final HttpServletRequest request,
                            final HttpServletResponse response, final Object handler,
                            final ModelAndView modelAndView) throws Exception {
+        try {
+            CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+            modelAndView.addObject("token", token.getToken());
+        }catch (Exception e){
 
-        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-        modelAndView.addObject("token", token.getToken());
+        }
     }
 }
