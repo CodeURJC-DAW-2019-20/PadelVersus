@@ -51,47 +51,48 @@ public class PlayerController {
             User user = playerFound.getUser();
             System.out.println(usernameLogged);
             System.out.println(user.getName());
+
+
+            List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
+            List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
+
+            BufferedImage playerImage = playerFound.getBufferedImage();
+            String base_url = "/images_temp/Player/";
+            String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
+            String image_url = base_url + image_name;
+            if (teamsFounds != null) {
+                model.addAttribute("namesTeams", teamsFounds);
+                model.addAttribute("is_in_team", true);
+            } else {
+                model.addAttribute("is_in_team", false);
+            }
+            if (tournamentsFounds != null) {
+                model.addAttribute("namesTournaments", tournamentsFounds);
+                model.addAttribute("is_in_tournament", true);
+            } else {
+                model.addAttribute("is_in_tournament", false);
+            }
+            model.addAttribute("name", user.getName());
+            model.addAttribute("email", user.getMail());
+            model.addAttribute("country", player.get().getCountryBirth());
+            model.addAttribute("age", player.get().getAge());
+            model.addAttribute("height", player.get().getHeight());
+            model.addAttribute("weight", player.get().getWeight());
+            model.addAttribute("strenght", player.get().getStrength());
+            model.addAttribute("endurance", player.get().getEndurance());
+            model.addAttribute("pace", player.get().getPace());
+            model.addAttribute("speed", player.get().getSpeed());
+            model.addAttribute("accuaracy", player.get().getAccuaracy());
+            model.addAttribute("aceleration", player.get().getAceleration());
+            model.addAttribute("image", image_url);
+
+            // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
+            // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
             if(!usernameLogged.equals(user.getName())) {
-
-                List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
-                List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
-
-                BufferedImage playerImage = playerFound.getBufferedImage();
-                String base_url = "/images_temp/Player/";
-                String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
-                String image_url = base_url + image_name;
-                if (teamsFounds != null) {
-                    model.addAttribute("namesTeams", teamsFounds);
-                    model.addAttribute("is_in_team", true);
-                } else {
-                    model.addAttribute("is_in_team", false);
-                }
-                if (tournamentsFounds != null) {
-                    model.addAttribute("namesTournaments", tournamentsFounds);
-                    model.addAttribute("is_in_tournament", true);
-                } else {
-                    model.addAttribute("is_in_tournament", false);
-                }
-                model.addAttribute("name", user.getName());
-                model.addAttribute("email", user.getMail());
-                model.addAttribute("country", player.get().getCountryBirth());
-                model.addAttribute("age", player.get().getAge());
-                model.addAttribute("height", player.get().getHeight());
-                model.addAttribute("weight", player.get().getWeight());
-                model.addAttribute("strenght", player.get().getStrength());
-                model.addAttribute("endurance", player.get().getEndurance());
-                model.addAttribute("pace", player.get().getPace());
-                model.addAttribute("speed", player.get().getSpeed());
-                model.addAttribute("accuaracy", player.get().getAccuaracy());
-                model.addAttribute("aceleration", player.get().getAceleration());
-                model.addAttribute("image", image_url);
-
-                // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
-                // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
                 return "player";
             }else{
-                model.addAttribute("name", usernameLogged);
-                return "playerwithInfo";
+
+                return "playerWithInfo";
             }
         }
 
