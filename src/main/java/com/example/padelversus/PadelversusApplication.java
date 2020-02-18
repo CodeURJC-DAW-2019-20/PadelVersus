@@ -89,7 +89,7 @@ public class PadelversusApplication implements ApplicationRunner {
         User user1 = new User("Player 1", "player1", "player1@gmail.com", "ROLE_USER");
         player1.setUser(user1);
         File imageFile_1 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_1.jpeg").toFile();
-
+        playerService.setImagePlayer(player1, imageFile_1);
 
         Player player2 = new Player(16, 1.70, 65, 2, 4.4, 6.8, 9, 2, 4.6, "France");
         User user2 = new User("Player 2", "player2", "player2@gmail.com", "ROLE_USER");

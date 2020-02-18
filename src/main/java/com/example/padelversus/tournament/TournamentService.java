@@ -73,7 +73,8 @@ public class TournamentService {
             }
         }
         if(matchesOrderedTeam.isEmpty()) return null;
-        for (int i = 0; i < 3; i++) {
+        int max_for = matchesOrderedTeam.size() < 3 ? matchesOrdered.size() : 3;
+        for (int i = 0; i < max_for; i++) {
             Match match = matchesOrderedTeam.pollFirst();
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
