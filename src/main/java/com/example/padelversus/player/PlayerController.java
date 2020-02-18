@@ -34,16 +34,8 @@ public class PlayerController {
 
 
     @GetMapping("/")
-    public String player(Model model){
-        return "player";
-    }
-
-
-
-    @GetMapping("/prueba")
     public String player(){
-        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "playerwithInfo";
+        return "player";
     }
 
     @GetMapping("/{id}")
@@ -52,46 +44,55 @@ public class PlayerController {
 
 
         if (player.isPresent()) {
+
+            String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
             Player playerFound = player.get();
             User user = playerFound.getUser();
+            System.out.println(usernameLogged);
+            System.out.println(user.getName());
+            if(!usernameLogged.equals(user.getName())) {
 
-            
-            List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
-            List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
+                List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
+                List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
 
-            BufferedImage playerImage = playerFound.getBufferedImage();
-            String base_url = "/images_temp/Player/";
-            String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
-            String image_url = base_url + image_name;
-            if (teamsFounds!= null){
-                model.addAttribute("namesTeams",teamsFounds);
-                model.addAttribute("is_in_team", true);
+                BufferedImage playerImage = playerFound.getBufferedImage();
+                String base_url = "/images_temp/Player/";
+                String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
+                String image_url = base_url + image_name;
+                if (teamsFounds != null) {
+                    model.addAttribute("namesTeams", teamsFounds);
+                    model.addAttribute("is_in_team", true);
+                } else {
+                    model.addAttribute("is_in_team", false);
+                }
+                if (tournamentsFounds != null) {
+                    model.addAttribute("namesTournaments", tournamentsFounds);
+                    model.addAttribute("is_in_tournament", true);
+                } else {
+                    model.addAttribute("is_in_tournament", false);
+                }
+                model.addAttribute("name", user.getName());
+                model.addAttribute("email", user.getMail());
+                model.addAttribute("country", player.get().getCountryBirth());
+                model.addAttribute("age", player.get().getAge());
+                model.addAttribute("height", player.get().getHeight());
+                model.addAttribute("weight", player.get().getWeight());
+                model.addAttribute("strenght", player.get().getStrength());
+                model.addAttribute("endurance", player.get().getEndurance());
+                model.addAttribute("pace", player.get().getPace());
+                model.addAttribute("speed", player.get().getSpeed());
+                model.addAttribute("accuaracy", player.get().getAccuaracy());
+                model.addAttribute("aceleration", player.get().getAceleration());
+                model.addAttribute("image", image_url);
+
+                // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
+                // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
+                return "player";
             }else{
-                model.addAttribute("is_in_team", false);
+                model.addAttribute("name", usernameLogged);
+                return "playerwithInfo";
             }
-            if (tournamentsFounds!= null){
-                model.addAttribute("namesTournaments",tournamentsFounds);
-                model.addAttribute("is_in_tournament", true);
-            }else{
-                model.addAttribute("is_in_tournament", false);
-            }
-            model.addAttribute("name", user.getName());
-            model.addAttribute("email", user.getMail());
-            model.addAttribute("country", player.get().getCountryBirth());
-            model.addAttribute("age", player.get().getAge());
-            model.addAttribute("height", player.get().getHeight());
-            model.addAttribute("weight", player.get().getWeight());
-            model.addAttribute("strenght", player.get().getStrength());
-            model.addAttribute("endurance", player.get().getEndurance());
-            model.addAttribute("pace", player.get().getPace());
-            model.addAttribute("speed", player.get().getSpeed());
-            model.addAttribute("accuaracy", player.get().getAccuaracy());
-            model.addAttribute("aceleration", player.get().getAceleration());
-            model.addAttribute("image", image_url);
-
-            // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
-            // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
-            return "player";
         }
 
 
