@@ -77,7 +77,7 @@ public class TournamentService {
             }
         }
         if(matchesOrderedTeam.isEmpty()) return null;
-        int max_for = matchesOrderedTeam.size() < 3 ? matchesOrdered.size() : 3;
+        int max_for = Math.min(matchesOrderedTeam.size(), 3);
         for (int i = 0; i < max_for; i++) {
             Match match = matchesOrderedTeam.pollFirst();
             List<Team> teams_match = match.getTeams();

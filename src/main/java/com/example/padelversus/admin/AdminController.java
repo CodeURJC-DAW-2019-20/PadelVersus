@@ -121,6 +121,7 @@ public class AdminController {
 
     @PostMapping("/saveDataMatch")
     public String saveDatamatch(String matchSelect, String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1, String accuracy2, String effectiveness2, String games_wins2, String unforcedErrors2, String set1team2, String set2team2, String set3team2, String win2) {
+
         String[] match = matchSelect.split(",");
         Optional<Team> team1 = teamRepository.findByName(match[1]);
         Optional<Team> team2 = teamRepository.findByName(match[2]);
@@ -137,7 +138,7 @@ public class AdminController {
             int auxSet1 = Integer.parseInt(set1team1);
             int auxSet2 = Integer.parseInt(set2team1);
             int auxSet3 = Integer.parseInt(set3team1);
-            boolean auxWin = Boolean.parseBoolean(win1);
+            boolean auxWin = win1 != null;
 
             List<SetPadel> auxSets1 = new ArrayList<>();
             SetPadel firstSet = new SetPadel(auxSet1, 1);
@@ -149,7 +150,7 @@ public class AdminController {
                 auxSets1.add(thirdSet);
             }
             MatchStadistics statsOne = new MatchStadistics(auxSets1, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
-            System.out.println("MATCH STADISTICS 1:" + statsOne.toString());
+            //System.out.println("MATCH STADISTICS 1:" + statsOne.toString());
             auxAccuracy = Integer.parseInt(accuracy2);
             auxEffect = Integer.parseInt(effectiveness2);
             auxGamesWin = Integer.parseInt(games_wins2);
@@ -157,7 +158,7 @@ public class AdminController {
             auxSet1 = Integer.parseInt(set1team2);
             auxSet2 = Integer.parseInt(set2team2);
             auxSet3 = Integer.parseInt(set3team2);
-            auxWin = Boolean.parseBoolean(win2);
+            auxWin = win2 != null;
             List<SetPadel> auxSets2 = new ArrayList<>();
             SetPadel firstSet2 = new SetPadel(auxSet1, 1);
             SetPadel secondSet2 = new SetPadel(auxSet2, 2);
