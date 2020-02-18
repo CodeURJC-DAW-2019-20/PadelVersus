@@ -52,7 +52,6 @@
                 </div>
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Country is required">
                     <span class="label-input100">Country:</span>
-
                     <select id="country" name="countryBirth" class="form-control">
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -375,7 +374,7 @@
                         </button>
                     </div>
                 </div>
-
+                <input type="hidden" name="_csrf" value="{{token}}"/>
             </form>
 
         </div>

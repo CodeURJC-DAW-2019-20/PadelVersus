@@ -7,22 +7,17 @@ import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
 import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.match.Stadistics.SetPadelRepository;
-import com.example.padelversus.player.Player;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.tournament.TournamentService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
-import com.example.padelversus.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -45,7 +40,6 @@ public class AdminController {
     @RequestMapping("/adminPage")
     public String adminPage(Model model) {
         List<Tournament> allTournament = tournamentRepository.findAll();
-        List<Match> allMatches = matchRepository.findAll();
         List<MatchAdmin> matchAdmins = new ArrayList<>();
 
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
@@ -69,7 +63,6 @@ public class AdminController {
 
         model.addAttribute("tournament-list", allTournamentDisplay);
         model.addAttribute("match-list", matchAdmins);
-
         return "/adminPage";
     }
 
@@ -81,10 +74,6 @@ public class AdminController {
 
     @PostMapping("/saveMatch")
     public String savematch(String torneoSeleccionado, String t1_oficial, String t2_oficial, String date) {
-        System.out.println(torneoSeleccionado);
-        System.out.println(t1_oficial);
-        System.out.println(t2_oficial);
-        System.out.println("MATCH DATE:" + date);
         Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
         String[] teamName1 = t1_oficial.split(",");
         String[] teamName2 = t2_oficial.split(",");
@@ -115,9 +104,7 @@ public class AdminController {
         team2.addMatch(match);
         teamRepository.save(team1);
         teamRepository.save(team2);
-        List<Match> matches = new ArrayList<>();
-        matches.add(match);
-        tournament.get().setMatches(matches);
+        tournament.get().addMatch(match);
         tournamentRepository.save(tournament.get()); //save the new match in tournament table
 
         return "/adminPage";
@@ -126,7 +113,6 @@ public class AdminController {
     @PostMapping("/savetournament")
     public String savetournament(String name) {
         Tournament tournament = new Tournament(name);
-        System.out.println(tournament.toString());
 
         tournamentRepository.save(tournament); //save new tournament in tournament table
 
@@ -194,13 +180,9 @@ public class AdminController {
 
     public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
         List<Match> matches = tournament.getMatches();
-        //System.out.println(matches.toString());
         for (Match m : matches) {
-            //System.out.println("siguente match");
-            //System.out.println(m.toString());
             if (!m.isPlayed() && m.hasTeam(teamOne) && m.hasTeam(teamTwo)) {
-                //System.out.println("Lo he encontrado");
-                //System.out.println(m.toString());
+
                 return m;
             }
         }
