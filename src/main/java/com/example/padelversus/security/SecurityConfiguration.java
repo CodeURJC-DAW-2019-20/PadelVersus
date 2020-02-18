@@ -23,7 +23,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/saveUser").permitAll();
         http.authorizeRequests().antMatchers("/signupPlayer").permitAll();
-
         http.authorizeRequests().antMatchers("/saveMatch").permitAll();
         http.authorizeRequests().antMatchers("/adminPage").permitAll(); //Cambiar a acceso solo a ADMIN
         http.authorizeRequests().antMatchers("/uploadImage").permitAll();
