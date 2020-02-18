@@ -40,7 +40,7 @@ public class TournamentService {
 
     // Returns the number of matches won and played for a specific team
     public int[] wonGames(Tournament tournament, Team team) {
-        System.out.println("WONGAMES tournament = [" + tournament.getName() + "], team = [" + team.getName() + "]");
+        
         int won = 0;
         int played = 0;
         List<Match> matches = tournament.getMatches();
@@ -64,11 +64,14 @@ public class TournamentService {
     }
 
     public List<String> lastThreeMatches(Tournament tournament, Team team){
-        System.out.println("LAST THREE MATCHES tournament = [" + tournament.getName() + "], team = [" + team.getName() + "]");
+        
         List<String> lastThreeMatchesRepresentation = new ArrayList<>();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
         matchesOrdered.addAll(tournament.getMatches());
+        if(team.getName().equals("Patata")){
+            System.out.println();
+        }
         for (Match match : matchesOrdered) {
             if(match.isPlayed()) {
                 List<Team> teams_match = match.getTeams();
@@ -77,12 +80,6 @@ public class TournamentService {
                     matchesOrderedTeam.add(match);
                 }
             }
-        }
-        System.out.println("LAST THREE MATCHES: pasa el primer for");
-        System.out.print("Matches ordered: ");
-        matchesOrdered.forEach(m -> System.out.println(m.getId()));
-        if(team.getName().equals("Patata")){
-            System.out.println("DEBUG");
         }
         if(matchesOrderedTeam.isEmpty()) return null;
         int max_for = matchesOrderedTeam.size() < 3 ? matchesOrdered.size() : 3;
@@ -104,11 +101,11 @@ public class TournamentService {
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
         for (Tournament tournament : allTournament) {
-            System.out.println("getTournament: (foreach): " + tournament.getName());
+            
             teamOrder(tournament);
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for (Team team : tournament.getTeams()) {
-                System.out.println("getTournament (foreach team): " + team.getName());
+                System.out.println("Get tournament: " + tournament.getName() + " " + team.getName());
                 int[] wonPlayed = wonGames(tournament, team);
                 List<String> lastMatches = lastThreeMatches(tournament, team);
                 boolean hasLastMatches = lastMatches != null;
