@@ -123,6 +123,10 @@ public class AdminController {
         Match match = new Match(false, LocalDate.of(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2])), team1,team2);
 
         matchRepository.save(match);
+        team1.addMatch(match);
+        team2.addMatch(match);
+        teamRepository.save(team1);
+        teamRepository.save(team2);
         //Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
         List<Match> matches = new ArrayList<>();
         matches.add(match);
