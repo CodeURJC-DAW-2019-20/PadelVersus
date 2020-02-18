@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -103,6 +104,18 @@ public class PlayerController {
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("name",usernameLogged);
         return "modifyProfilePlayer";
+    }
+
+    @PostMapping("/registerProfileForm")
+    public String formRegister(Model model,
+                        @RequestParam MultipartFile imageFile) throws IOException {
+
+        System.out.println("Estoy aqui");
+        System.out.println(imageFile);
+        String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Player player = playerService.getPlayerFromUsername(usernameLogged);
+
+        return "index";
     }
 
 }

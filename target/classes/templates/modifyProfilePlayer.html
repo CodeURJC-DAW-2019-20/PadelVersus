@@ -88,12 +88,13 @@
 
 
 <div class="container" style="padding-top :3%">
-    <form action="/tournament/registerTournamentForm" method="post">
+    <form action="/player/registerProfileForm" method="post">
         <div class="form-group">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="limiter">
                         <label style="display: block; text-align: left"><h3>{{name}}</h3></label>
+                        <input type="hidden" id="username" name="username" value="{{name}}">
                         <div>
                             <a href="player.html" class="item">
                                 <!--<img style="margin-left: 20%" src="/images/soccer/staff-item-img.jpg" alt="player">-->
@@ -103,8 +104,7 @@
                         <div class="container-login100">
                             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
                                 <span class="label-input100"></span>
-                                <input class="inputfile" type='file' id='imageFile', name='imageFile' accept=".jpg, .jpeg"/>
-                                <label for='imageFile'>Choose an image</label>
+                                <input type='file' id='imageFile', name='imageFile' accept=".jpg, .jpeg"/>
                             </div>
                         </div>
                     </div>

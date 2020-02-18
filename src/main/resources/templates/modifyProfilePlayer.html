@@ -88,12 +88,13 @@
 
 
 <div class="container" style="padding-top :3%">
-    <form action="/tournament/registerTournamentForm" method="post">
+    <form action="/player/registerProfileForm" method="post">
         <div class="form-group">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="limiter">
                         <label style="display: block; text-align: left"><h3>{{name}}</h3></label>
+                        <input type="hidden" id="username" name="username" value="{{name}}">
                         <div>
                             <a href="player.html" class="item">
                                 <!--<img style="margin-left: 20%" src="/images/soccer/staff-item-img.jpg" alt="player">-->
