@@ -57,7 +57,7 @@ public class MatchController {
             model.addAttribute("wins_2",match.get().getStadistics_2().getGames_wins());
             model.addAttribute("unferrors_1",match.get().getStadistics_1().getUnforcedErrors());
             model.addAttribute("unferrors_2",match.get().getStadistics_1().getUnforcedErrors());
-            model.addAttribute("score", match.get().getScore());
+
             model.addAttribute("date", match.get().getDate());
             return "overviewMatches";
         } else {

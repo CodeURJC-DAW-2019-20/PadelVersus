@@ -1,6 +1,7 @@
 package com.example.padelversus.match;
 
 import com.example.padelversus.match.Stadistics.MatchStadistics;
+import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String score;
+
     private LocalDate date;
 
     private boolean played; //If the game has been played
@@ -32,42 +33,45 @@ public class Match {
     @ManyToMany
     private List<Team> teams;
 
-    public Match() {
-    }
-
-    public Match(boolean played, String score, LocalDate date, MatchStadistics stadistics_1, MatchStadistics stadistics_2, Team t1, Team t2) {
-        super();
-        List<Team> aux = new ArrayList<>(2);
-        aux.add(t1);
-        aux.add(t2);
-        this.played = played;
-        this.teams = aux;
-        this.score = score;
-        this.date = date;
-        this.stadistics_1 = stadistics_1;
-        this.stadistics_2 = stadistics_2;
-    }
-
-    public Match(LocalDate date, Team t1, Team t2) {
-        super();
-        List<Team> aux = new ArrayList<>(2);
-        aux.add(t1);
-        aux.add(t2);
-        this.teams = aux;
-        this.date = date;
-    }
-
     @Override
     public String toString() {
         return "Match{" +
                 "id=" + id +
-                ", score='" + score + '\'' +
                 ", date='" + date + '\'' +
                 ", stadistics_1=" + stadistics_1 +
                 ", stadistics_2=" + stadistics_2 +
                 ", teams=" + teams +
                 '}';
     }
+
+    public Match() {
+    }
+
+    public Match(boolean played, LocalDate date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
+        super();
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.played = played;
+        this.teams= aux;
+        this.date=date;
+        this.stadistics_1=stadistics_1;
+        this.stadistics_2=stadistics_2;
+    }
+  
+  
+
+    public Match(LocalDate date, Team t1, Team t2) {
+        super();
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.played = played;
+        this.teams= aux;
+        this.date=date;
+    }
+
+
 
     public MatchStadistics getStadistics_1() {
         return stadistics_1;
@@ -115,15 +119,8 @@ public class Match {
 
      public void setTeam_2(Team team_2) {
          this.team_2 = team_2;
-     }
- */
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
+     }*/
+ 
 
     public LocalDate getDate() {
         return date;
@@ -160,5 +157,9 @@ public class Match {
         } else {
             return Integer.toUnsignedLong(0);
         }
+    }
+
+    public boolean hasTeam(Team team){
+        return teams.contains(team);
     }
 }

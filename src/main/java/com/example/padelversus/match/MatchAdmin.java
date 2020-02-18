@@ -17,8 +17,10 @@ public class MatchAdmin {
     public MatchAdmin(){
 
     }
-    public MatchAdmin(Team t1,Team t2,LocalDate date, Tournament tournament){
-        this.name = date.toString() +", "+t1.getName()+", "+t2.getName()+", "+tournament.getName();
+  
+    public MatchAdmin(Team t1,Team t2, LocalDate date, Tournament tournament){
+        this.name = date.toString() +","+t1.getName()+","+t2.getName()+","+tournament.getName();
+
     }
 
     public Team getT1() {
