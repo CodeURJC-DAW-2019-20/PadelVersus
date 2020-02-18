@@ -54,8 +54,10 @@ public class TournamentController {
 
     @GetMapping("/")
     public String loadTournaments(Model model) {
+        System.out.println("*****************ENTRO EN EL CONTROLLER*************************");
         List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
         model.addAttribute("tournament-list", tournamentList);
+        System.out.println("*****************SALGO DEL CONTROLLER*************************");
         return "Tournaments";
     }
 
