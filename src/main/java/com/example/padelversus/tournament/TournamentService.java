@@ -35,6 +35,7 @@ public class TournamentService {
             teamOrder.add(mostWin);
         }
         tournament.setTeams(teamOrder);
+        tournamentRepository.save(tournament);
     }
 
     // Returns the number of matches won and played for a specific team
@@ -63,13 +64,17 @@ public class TournamentService {
         TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
         matchesOrdered.addAll(tournament.getMatches());
         for (Match match : matchesOrdered) {
-            List<Team> teams_match = match.getTeams();
-            int index_team = teams_match.indexOf(team);
-            if (index_team != -1) {
-                matchesOrderedTeam.add(match);
+            if(match.isPlayed()) {
+                List<Team> teams_match = match.getTeams();
+                int index_team = teams_match.indexOf(team);
+                if (index_team != -1) {
+                    matchesOrderedTeam.add(match);
+                }
             }
         }
-        for (int i = 0; i < 3; i++) {
+        if(matchesOrderedTeam.isEmpty()) return null;
+        int max_for = matchesOrderedTeam.size() < 3 ? matchesOrdered.size() : 3;
+        for (int i = 0; i < max_for; i++) {
             Match match = matchesOrderedTeam.pollFirst();
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
@@ -91,7 +96,8 @@ public class TournamentService {
             for (Team team : tournament.getTeams()) {
                 int[] wonPlayed = wonGames(tournament, team);
                 List<String> lastMatches = lastThreeMatches(tournament, team);
-                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches);
+                boolean hasLastMatches = lastMatches != null;
+                tournamentDisplay.addTeam(team, wonPlayed[0], wonPlayed[1], lastMatches, hasLastMatches);
             }
             allTournamentDisplay.add(tournamentDisplay);
         }

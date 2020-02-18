@@ -156,11 +156,18 @@
                                     <td>{{gamesPlayed}}</td><!--Played-->
                                     <td>{{gamesWon}}</td> <!--Won-->
                                     <td>{{gamesLost}}</td> <!--Lost-->
+                                    {{#hasLastMatches}}
                                     <td class="form">
                                         {{#lastMatches}}
                                             <span class="">{{.}}</span>
                                         {{/lastMatches}}
                                     </td>
+                                    {{/hasLastMatches}}
+                                    {{^hasLastMatches}}
+                                    <td class="form">
+                                        <p>This team has not play any match</p>
+                                    </td>
+                                    {{/hasLastMatches}}
                                 </tr>
                                 {{/teams}}
                                 <!--<tr>
