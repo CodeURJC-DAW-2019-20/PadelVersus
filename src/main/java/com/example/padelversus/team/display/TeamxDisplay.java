@@ -27,7 +27,6 @@ public class TeamxDisplay {
         }
 
         this.statisticsDisplay = new TeamStatisticsDisplay(team.getTeamStatistics());
-
     }
 
     public String getTeamName() {
