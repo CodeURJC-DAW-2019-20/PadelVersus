@@ -106,15 +106,11 @@ public class PlayerController {
         return "modifyProfilePlayer";
     }
 
-    @PostMapping("/registerProfileForm")
-    public String formRegister(Model model,
-                        @RequestParam MultipartFile imageFile) throws IOException {
-
-        System.out.println("Estoy aqui");
-        System.out.println(imageFile);
+    @PostMapping("/editProfileForm")
+    public String formRegister(@RequestParam MultipartFile imageFile) throws IOException {
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Player player = playerService.getPlayerFromUsername(usernameLogged);
-
+        playerService.savePlayer(player, usernameLogged, imageFile);
         return "index";
     }
 

@@ -88,7 +88,7 @@
 
 
 <div class="container" style="padding-top :3%">
-    <form action="/player/registerProfileForm" method="post">
+    <form action="/player/editProfileForm" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -104,7 +104,8 @@
                         <div class="container-login100">
                             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
                                 <span class="label-input100"></span>
-                                <input type='file' id='imageFile', name='imageFile' accept=".jpg, .jpeg"/>
+                                <input class="inputfile" type='file' id='imageFile', name='imageFile' accept=".jpg, .jpeg"/>
+                                <label for='imageFile'>Choose an image</label>
                             </div>
                         </div>
                     </div>
