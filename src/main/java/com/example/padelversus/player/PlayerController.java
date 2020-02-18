@@ -39,6 +39,11 @@ public class PlayerController {
 
 
 
+    @GetMapping("/prueba")
+    public String player(){
+        return "playerwithInfo";
+    }
+
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id) throws IOException {
         Optional<Player> player = playerRepository.findById(id);
