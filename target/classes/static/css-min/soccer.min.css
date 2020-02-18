@@ -35828,6 +35828,7 @@ body{
 }
 
 .inputfile + label {
+    cursor: pointer;
     font-size: 1.25em;
     font-weight: 700;
     color: white;

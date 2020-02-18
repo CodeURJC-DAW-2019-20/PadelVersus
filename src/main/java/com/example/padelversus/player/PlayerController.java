@@ -11,9 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -49,9 +48,6 @@ public class PlayerController {
 
             Player playerFound = player.get();
             User user = playerFound.getUser();
-            System.out.println(usernameLogged);
-            System.out.println(user.getName());
-
 
             List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
             List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
@@ -103,7 +99,9 @@ public class PlayerController {
     }
 
     @GetMapping("/editProfile")
-    public String modifyProfile() {
+    public String editProfile(Model model){
+        String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("name",usernameLogged);
         return "modifyProfilePlayer";
     }
 
