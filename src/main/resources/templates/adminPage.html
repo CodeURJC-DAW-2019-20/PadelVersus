@@ -95,7 +95,7 @@
             <div id="container-main">
                 <h1>Admin Page:</h1>
                 <div class="accordion-container">
-                    <a href="#" class="accordion-titulo">Add Matches<span class="toggle-icon"></span></a>
+                    <a href="#" class="accordion-titulo">Add New Matches<span class="toggle-icon"></span></a>
                     <div class="accordion-content">
                         <form class="login100-form" action="/saveMatch" method="post">
                             <div class="form-group col-md-offset-2">
@@ -140,20 +140,6 @@
 
                                 <label for="date">Chose Date:</label>
                                 <input type="date" id="date" name="date">
-                                <!--<select class="form-control" name="t2" id="teamSelect2"
-                                        style="width: 75%">
-                                    <option value="" selected="selected"></option>
-                                    {{#tournament-teams-Tournament 2}}
-                                    <option value="{{name}}">{{name}}</option>
-                                    {{/tournament-teams-Tournament 2}}
-                                </select>
-                                <label for="date">Chose Date</label>
-                                <input type="date" id="date" name="date">-->
-                                <!--<div class="nativeDatePicker">
-                                    <label for="date">Enter the date:</label>
-                                    <input type="date" id="date" name="date">
-                                    <span class="validity"></span>
-                                </div>-->
                                 <button type="submit" class="btn btn-primary" id="saveMatch">Save</button>
                             </div>
                         </form>
@@ -266,6 +252,60 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="accordion-container">
+                    <a href="#" class="accordion-titulo">Add New Tournament:<span class="toggle-icon"></span></a>
+                    <div class="accordion-content">
+                        <form class="login100-form" action="/savetournament" method="post">
+                            <div class="form-group col-md-offset-2">
+                                <label for="newTournament">Tournament Name:</label>
+                                <input type="text" id = "newTournament" name="name">
+                                <!--<select class="form-control" name="newTournament" id="torneoSeleccionado"
+                                        style="width: 75%">
+                                    <option value="" selected="selected"></option>
+                                    {{#tournament-list}}
+                                    <option value="{{name}}">{{name}}</option>
+                                    {{/tournament-list}}
+                                </select>
+                                <div id="selectTeam1">
+                                    <label for="blankSelect">Chose Team 1</label>
+                                    <select class="form-control" name="t1" id="blankSelect"
+                                            style="width: 75%">
+                                    </select>
+                                    {{#tournament-list}}
+                                    <select class="form-control dontShow" name="t1_oficial" id="t1{{nonspacename}}"
+                                            style="width: 75%">
+                                        <option value="" selected="selected"></option>
+                                        {{#teams}}
+                                        <option value="{{name}}">{{name}}</option>
+                                        {{/teams}}
+                                    </select>
+                                    {{/tournament-list}}
+                                </div>
+                                <div id="selectTeam2">
+                                    <label for="blankSelect">Chose Team 2</label>
+                                    <select class="form-control" name="t2" id="blankSelect1"
+                                            style="width: 75%">
+                                    </select>
+                                    {{#tournament-list}}
+                                    <select class="form-control dontShow" name="t2_oficial" id="t2{{nonspacename}}"
+                                            style="width: 75%">
+                                        <option value="" selected="selected"></option>
+                                        {{#teams}}
+                                        <option value="{{name}}">{{name}}</option>
+                                        {{/teams}}
+                                    </select>
+                                    {{/tournament-list}}
+                                </div>
+
+                                <label for="date">Chose Date:</label>
+                                <input type="date" id="date" name="date">-->
+                                <button type="submit" class="btn btn-primary" id="savetournament">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
 

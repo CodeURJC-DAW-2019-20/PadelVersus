@@ -150,6 +150,72 @@ public class AdminController {
        // return "404";*/
         return "/adminPage";
     }
+
+    @PostMapping("/savetournament")
+    public String savetournament(String name) {
+        Tournament tournament = new Tournament(name);
+        System.out.println(tournament.toString());
+        /*Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
+        String[] teamName1 = t1_oficial.split(",");
+        String[] teamName2 = t2_oficial.split(",");
+        Team team1 = new Team();
+        for (String s : teamName1) {
+            Optional<Team> teamaux = teamRepository.findByName(s);
+            if(teamaux.isPresent()){
+                //System.out.println(teamaux.get().getName());
+                //System.out.println(tournament.get().hasTeam(teamaux.get()));
+                if (tournament.get().hasTeam(teamaux.get())) {
+                    team1 = teamaux.get();
+                    //System.out.println(teamaux.get().getName());
+                }
+            }
+        }
+        Team team2 = new Team();
+        for (String s : teamName2) {
+            Optional<Team> teamaux = teamRepository.findByName(s);
+            if(teamaux.isPresent()){
+                //System.out.println(teamaux.get().getName());
+                //System.out.println(tournament.get().hasTeam(teamaux.get()));
+                if (tournament.get().hasTeam(teamaux.get())) {
+                    team2 = teamaux.get();
+                    //System.out.println(teamaux.get().getName());
+                }
+            }
+        }
+        String[] parts = date.split("-");
+
+
+        Match match = new Match(false, LocalDate.of(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]) , Integer.parseInt(parts[2])), team1,team2);
+
+        matchRepository.save(match);
+        team1.addMatch(match);
+        team2.addMatch(match);
+        teamRepository.save(team1);
+        teamRepository.save(team2);
+        //Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
+        List<Match> matches = new ArrayList<>();
+        matches.add(match);
+        tournament.get().setMatches(matches);*/
+        tournamentRepository.save(tournament); //save the new match in tournament table
+
+        //System.out.println(team.toString());
+        //Match match1 = new Match(date,t1,t2);
+        //List<Match> matches = (List<Match>) match;
+        // tournament.setMatches(matches);
+        //  tournamentRepository.save(tournament);
+        //matchRepository.save(match);
+        /*User u = uc.findByName(user.getName());
+        if (u == null) {
+            uc.save(user);
+            //notificationService.sendNotification(user);
+            //updateTabs(model);
+            return "/signupPlayer";
+        }
+
+       // return "404";*/
+        return "/adminPage";
+    }
+
     @PostMapping("/saveDataMatch")
     public String saveDatamatch(String matchSelect,String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1, String accuracy2, String effectiveness2, String games_wins2, String unforcedErrors2, String set1team2, String set2team2, String set3team2, String win2) {
         String[] match = matchSelect.split(",");
