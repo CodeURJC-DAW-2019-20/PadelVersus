@@ -150,7 +150,7 @@ public class AdminController {
                 auxSets1.add(thirdSet);
             }
             MatchStadistics statsOne = new MatchStadistics(auxSets1, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
-            System.out.println("MATCH STADISTICS 1:" + statsOne.toString());
+            //System.out.println("MATCH STADISTICS 1:" + statsOne.toString());
             auxAccuracy = Integer.parseInt(accuracy2);
             auxEffect = Integer.parseInt(effectiveness2);
             auxGamesWin = Integer.parseInt(games_wins2);
