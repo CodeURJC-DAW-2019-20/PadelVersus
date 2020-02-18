@@ -64,7 +64,8 @@ public class AdminController {
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for(Team team: tournament.getTeams()){
                 List<String> lastMatches = tournamentService.lastThreeMatches(tournament, team);
-                tournamentDisplay.addTeam(team, 0, 0, lastMatches);
+                boolean hasLastMatches = lastMatches != null;
+                tournamentDisplay.addTeam(team, 0, 0, lastMatches, hasLastMatches);
             }
             allTournamentDisplay.add(tournamentDisplay);
 

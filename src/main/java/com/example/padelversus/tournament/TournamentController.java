@@ -54,7 +54,8 @@ public class TournamentController {
 
     @GetMapping("/")
     public String loadTournaments(Model model) {
-        model.addAttribute("tournament-list", tournamentService.getTournaments());
+        List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
+        model.addAttribute("tournament-list", tournamentList);
         return "Tournaments";
     }
 

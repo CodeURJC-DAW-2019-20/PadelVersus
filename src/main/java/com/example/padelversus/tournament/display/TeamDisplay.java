@@ -7,13 +7,15 @@ public class TeamDisplay {
     private int gamesWon;
     private int gamesPlayed;
     private int gamesLost;
+    private boolean hasLastMatches;
     private List<String> lastMatches;
 
-    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches) {
+    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches, boolean hasLastMatches) {
         this.name = name;
         this.gamesWon = gamesWon;
         this.gamesPlayed = gamesPlayed;
         this.gamesLost = gamesLost;
+        this.hasLastMatches = hasLastMatches;
         this.lastMatches = lastMatches;
     }
 
@@ -55,5 +57,13 @@ public class TeamDisplay {
 
     public void setLastMatches(List<String> lastMatches) {
         this.lastMatches = lastMatches;
+    }
+
+    public boolean isHasLastMatches() {
+        return hasLastMatches;
+    }
+
+    public void setHasLastMatches(boolean hasLastMatches) {
+        this.hasLastMatches = hasLastMatches;
     }
 }
