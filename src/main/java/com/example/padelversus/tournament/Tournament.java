@@ -61,7 +61,9 @@ public class Tournament {
     public List<Team> getTeams() {
         return teams;
     }
-
+    public void addMatch(Match m) {
+        this.matches.add(m);
+    }
     public void setTeams(List<Team> teams) {
         this.teams = teams;
     }

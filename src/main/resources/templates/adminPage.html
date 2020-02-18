@@ -142,6 +142,7 @@
                                 <input type="date" id="date" name="date">
                                 <button type="submit" class="btn btn-primary" id="saveMatch">Save</button>
                             </div>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
@@ -249,6 +250,7 @@
 
                                 <button type="submit" class="btn btn-primary p-t-16" id="saveStatMatch">Save</button>
                             </div>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
@@ -260,48 +262,9 @@
                             <div class="form-group col-md-offset-2">
                                 <label for="newTournament">Tournament Name:</label>
                                 <input type="text" id = "newTournament" name="name">
-                                <!--<select class="form-control" name="newTournament" id="torneoSeleccionado"
-                                        style="width: 75%">
-                                    <option value="" selected="selected"></option>
-                                    {{#tournament-list}}
-                                    <option value="{{name}}">{{name}}</option>
-                                    {{/tournament-list}}
-                                </select>
-                                <div id="selectTeam1">
-                                    <label for="blankSelect">Chose Team 1</label>
-                                    <select class="form-control" name="t1" id="blankSelect"
-                                            style="width: 75%">
-                                    </select>
-                                    {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t1_oficial" id="t1{{nonspacename}}"
-                                            style="width: 75%">
-                                        <option value="" selected="selected"></option>
-                                        {{#teams}}
-                                        <option value="{{name}}">{{name}}</option>
-                                        {{/teams}}
-                                    </select>
-                                    {{/tournament-list}}
-                                </div>
-                                <div id="selectTeam2">
-                                    <label for="blankSelect">Chose Team 2</label>
-                                    <select class="form-control" name="t2" id="blankSelect1"
-                                            style="width: 75%">
-                                    </select>
-                                    {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t2_oficial" id="t2{{nonspacename}}"
-                                            style="width: 75%">
-                                        <option value="" selected="selected"></option>
-                                        {{#teams}}
-                                        <option value="{{name}}">{{name}}</option>
-                                        {{/teams}}
-                                    </select>
-                                    {{/tournament-list}}
-                                </div>
-
-                                <label for="date">Chose Date:</label>
-                                <input type="date" id="date" name="date">-->
                                 <button type="submit" class="btn btn-primary" id="savetournament">Save</button>
                             </div>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
