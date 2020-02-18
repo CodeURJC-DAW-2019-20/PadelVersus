@@ -3,10 +3,12 @@ package com.example.padelversus.match;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.team.Team;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Match {
@@ -15,9 +17,8 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="dd/MM/yyyy")
-    private Date date;
+
+    private LocalDate date;
 
     private boolean played; //If the game has been played
 
@@ -46,7 +47,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(boolean played, Date date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
+    public Match(boolean played, LocalDate date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
@@ -57,7 +58,10 @@ public class Match {
         this.stadistics_1=stadistics_1;
         this.stadistics_2=stadistics_2;
     }
-    public Match(boolean played, Date date,Team t1,Team t2){
+  
+  
+
+    public Match(LocalDate date, Team t1, Team t2) {
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
@@ -101,32 +105,32 @@ public class Match {
         this.id = id;
     }
 
-   /* public Team getTeam_1() {
-        return team_1;
-    }
+    /* public Team getTeam_1() {
+         return team_1;
+     }
 
-    public void setTeam_1(Team team_1) {
-        this.team_1 = team_1;
-    }
+     public void setTeam_1(Team team_1) {
+         this.team_1 = team_1;
+     }
 
-    public Team getTeam_2() {
-        return team_2;
-    }
+     public Team getTeam_2() {
+         return team_2;
+     }
 
-    public void setTeam_2(Team team_2) {
-        this.team_2 = team_2;
-    }
-*/
+     public void setTeam_2(Team team_2) {
+         this.team_2 = team_2;
+     }*/
+ 
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Match getMatch(){
+    public Match getMatch() {
         return this;
     }
    /* public Team getWinner() {
@@ -147,11 +151,11 @@ public class Match {
         this.played = played;
     }
 
-    public Long getidTeam(int n){
-        if(n >= 1 && n <= 2){
-           return teams.get(n-1).getId();
-        }else{
-           return Integer.toUnsignedLong(0);
+    public Long getidTeam(int n) {
+        if (n >= 1 && n <= 2) {
+            return teams.get(n - 1).getId();
+        } else {
+            return Integer.toUnsignedLong(0);
         }
     }
 
