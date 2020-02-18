@@ -145,7 +145,9 @@
                         <div class="col-md-6  col-sm-3 col-xs-6">
                             <a href="player.html" class="item">
                                 <span class="info">
-                                    <span class="name">{{id}}</span>
+                                    {{#user}}
+                                    <span class="name">{{name}}</span>
+                                    {{/user}}
                                     <span class="position">{{countryBirth}}</span>
                                     <span class="number">{{age}}</span>
                                 </span>
