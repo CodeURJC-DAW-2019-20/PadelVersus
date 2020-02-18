@@ -48,9 +48,13 @@ public class TournamentService {
             int index_team = teams_match.indexOf(team);
             if (index_team != -1) {
                 if (index_team == 0) {
-                    if (match.getStadistics_1().isWin()) won++;
+                    if(match.getStadistics_1() != null) {
+                        if (match.getStadistics_1().isWin()) won++;
+                    }
                 } else if (index_team == 1) {
-                    if (match.getStadistics_2().isWin()) won++;
+                    if(match.getStadistics_2() != null) {
+                        if (match.getStadistics_2().isWin()) won++;
+                    }
                 }
                 played++;
             }
