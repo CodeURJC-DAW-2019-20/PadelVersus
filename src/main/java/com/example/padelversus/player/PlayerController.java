@@ -102,4 +102,9 @@ public class PlayerController {
         }
     }
 
+    @GetMapping("/editProfile")
+    public String modifyProfile() {
+        return "modifyProfilePlayer";
+    }
+
 }

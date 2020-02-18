@@ -1,88 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Padel Versus</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <!--===============================================================================================-->
+    <title>Tournament Registration</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Padel Versus</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
+          rel="stylesheet"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
+    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 
-<div class="limiter">
-    <div class="container-login100" style="background-image: url('/images/bg-02.jpg');" >
-        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form" action="/signupPlayer" method="post" enctype="multipart/form-data">
-                <input type="hidden" id="username" name="username" value="{{user_name}}">
-                <span class="login100-form-title p-b-49">
-						Edit Profile
-                </span>
-                <div class="wrap-input100 validate-input m-b-23" data-validate="Endurance is required">
-                    <span class="label-input100">Endurance (0-10)</span>
-                    <input class="input100 form-control" type="number" name="endurance" id="endurance"
-                           placeholder="Type your endurance" min="0" max="10">
-                    <span class="focus-input100" data-symbol="&#xf2a1;"></span>
-                </div>
-
-                <span class="label-input100"></span>
-                <input type='file' name='imagenFile' accept=".jpg, .jpeg"/>
-
-                <div class="text-right p-t-8 p-b-31"></div>
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" type="submit">
-                            Accept changes
-                        </button>
-                    </div>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
+<div class="preloader-wrapper" id="preloader">
+    <div class="motion-line dark-big"></div>
+    <div class="motion-line yellow-big"></div>
+    <div class="motion-line dark-small"></div>
+    <div class="motion-line yellow-normal"></div>
+    <div class="motion-line yellow-small1"></div>
+    <div class="motion-line yellow-small2"></div>
 </div>
 
 
-<div id="dropDownSelect1"></div>
 
-<!--===============================================================================================-->
-<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="/vendor/bootstrap/js/popper.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="/vendor/daterangepicker/moment.min.js"></script>
-<script src="/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="/js/main.js"></script>
 
+<!--MAIN MENU WRAP BEGIN-->
+<div class="main-menu-wrap sticky-menu">
+    <div class="container">
+        <a  class="custom-logo-link">
+            <img src="/images/soccer/logo.png" alt="logo" class="custom-logo" href="index.html">
+        </a>
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <nav class="navbar">
+            <div class="collapse navbar-collapse" id="team-menu">
+                <ul class="main-menu nav">
+                    <li class="active">
+                        <a href="index.html"><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="matches.html"><span>Matches</span></a>
+                        <ul>
+                            <li>
+                                <a href="standing-cup.html"><span>Standings</span></a>
+                            </li>
+                            <li>
+                                <a href="Tournaments.html"><span>Championship</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="teams.html"><span>Teams</span></a>
+                    </li>
+                    <li><a href="Tournaments.html"><span>Ranking</span></a></li>
+                    <li><a href="calendar.html"><span>Calendar</span></a></li>
+
+                    <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
+                    <li>
+                        <a href="coming-soon.html"><span>other</span></a>
+                        <ul>
+                            <li><a href="404.html"><span>404</span></a></li>
+                            <li><a href="offline.html"><span>offline</span></a></li>
+                            <li><a href="coming-soon.html"><span>comming soon</span></a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="logIn.html"><span>LOG IN</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--MAIN MENU WRAP END-->
+
+
+<div class="container" style="padding-top :3%">
+    <form action="/tournament/registerTournamentForm" method="post">
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="limiter">
+                        <label style="display: block; text-align: left"><h3>PLAYERNAME</h3></label>
+                        <div>
+                            <a href="player.html" class="item">
+                                <!--<img style="margin-left: 20%" src="/images/soccer/staff-item-img.jpg" alt="player">-->
+                                <img src="/images/soccer/staff-item-img.jpg" alt="player" >
+                            </a>
+                        </div>
+                        <div class="container-login100">
+                            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                                <span class="label-input100"></span>
+                                <input type='file' name='imagenFile' accept=".jpg, .jpeg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Accept changes</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--FOOTER BEGIN-->
+<footer class="footer">
+    <div class="wrapper-overfllow">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="footer-left">
+                        <div class="wrap">
+                            <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png" alt="footer-logo"></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-offset-1">
+                    <div class="foot-news">
+                        <h4>Recent news</h4>
+                        <div class="item">
+                            <a class="image"><img class="img-responsive" src="/images/padel.jpg" alt="news-image"></a>
+                            <a class="date">25 Sep 2016</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-4 col-sm-12">
+                    <div class="foot-contact">
+                        <h4>Contact us</h4>
+                        <ul class="contact-list">
+                            <li><i class="fa fa-flag" aria-hidden="true"></i><span>URJC</span></li>
+                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a></li>
+                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+34 583766284</span></li>
+                        </ul>
+                        <ul class="socials">
+                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-menu-wrap">
+        <div class="container">
+            <ul class="main-menu nav">
+                <li class="active">
+                    <a href="index.html"><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="matches.html"><span>Matches</span></a>
+                </li>
+                <li>
+                    <a href="teams.html"><span>Team</span></a>
+                </li>
+                <li><a href="Tournaments.html"><span>Ranking</span></a></li>
+                <li><a href="calendar.html"><span>Calendar</span></a></li>
+                <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
+                <li><a href="logIn.html"><span>LOG IN</span></a></li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</footer>
+<!--FOOTER END-->->
+
+<script type="text/javascript" src="/js/library/jquery.js"></script>
+<script type="text/javascript" src="/js/library/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/library/bootstrap.js"></script>
+<script type="text/javascript" src="/js/library/jquery.sticky.js"></script>
+<script type="text/javascript" src="/js/library/jquery.jcarousel.js"></script>
+<script type="text/javascript" src="/js/library/jcarousel.connected-carousels.js"></script>
+<script type="text/javascript" src="/js/library/owl.carousel.js"></script>
+<script type="text/javascript" src="/js/library/progressbar.js"></script>
+<script type="text/javascript" src="/js/library/jquery.bracket.min.js"></script>
+<script type="text/javascript" src="/js/library/chartist.js"></script>
+<script type="text/javascript" src="/js/library/Chart.js"></script>
+<script type="text/javascript" src="/js/library/fancySelect.js"></script>
+<script type="text/javascript" src="/js/library/isotope.pkgd.js"></script>
+<script type="text/javascript" src="/js/library/imagesloaded.pkgd.js"></script>
+
+<script type="text/javascript" src="/js/jquery.team-coundown.js"></script>
+<script type="text/javascript" src="/js/matches-slider.js"></script>
+<script type="text/javascript" src="/js/header.js"></script>
+<script type="text/javascript" src="/js/matches_broadcast_listing.js"></script>
+<script type="text/javascript" src="/js/news-line.js"></script>
+<script type="text/javascript" src="/js/match_galery.js"></script>
+<script type="text/javascript" src="/js/main-club-gallery.js"></script>
+<script type="text/javascript" src="/js/product-slider.js"></script>
+<script type="text/javascript" src="/js/circle-bar.js"></script>
+<script type="text/javascript" src="/js/standings.js"></script>
+<script type="text/javascript" src="/js/shop-price-filter.js"></script>
+<script type="text/javascript" src="/js/timeseries.js"></script>
+<script type="text/javascript" src="/js/radar.js"></script>
+<script type="text/javascript" src="/js/slider.js"></script>
+<script type="text/javascript" src="/js/preloader.js"></script>
+<script type="text/javascript" src="/js/diagram.js"></script>
+<script type="text/javascript" src="/js/bi-polar-diagram.js"></script>
+<script type="text/javascript" src="/js/label-placement-diagram.js"></script>
+<script type="text/javascript" src="/js/donut-chart.js"></script>
+<script type="text/javascript" src="/js/animate-donut.js"></script>
+<script type="text/javascript" src="/js/advanced-smil.js"></script>
+<script type="text/javascript" src="/js/svg-path.js"></script>
+<script type="text/javascript" src="/js/pick-circle.js"></script>
+<script type="text/javascript" src="/js/horizontal-bar.js"></script>
+<script type="text/javascript" src="/js/gauge-chart.js"></script>
+<script type="text/javascript" src="/js/stacked-bar.js"></script>
+
+<script type="text/javascript" src="/js/library/chartist-plugin-legend.js"></script>
+<script type="text/javascript" src="/js/library/chartist-plugin-threshold.js"></script>
+<script type="text/javascript" src="/js/library/chartist-plugin-pointlabels.js"></script>
+
+<script type="text/javascript" src="/js/treshold.js"></script>
+<script type="text/javascript" src="/js/visible.js"></script>
+<script type="text/javascript" src="/js/anchor.js"></script>
+<script type="text/javascript" src="/js/landing_carousel.js"></script>
+<script type="text/javascript" src="/js/landing_sport_standings.js"></script>
+<script type="text/javascript" src="/js/twitterslider.js"></script>
+<script type="text/javascript" src="/js/champions.js"></script>
+<script type="text/javascript" src="/js/landing_mainnews_slider.js"></script>
+<script type="text/javascript" src="/js/carousel.js"></script>
+<script type="text/javascript" src="/js/video_slider.js"></script>
+<script type="text/javascript" src="/js/footer_slides.js"></script>
+<script type="text/javascript" src="/js/player_test.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+<script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
 </body>
-
 </html>
