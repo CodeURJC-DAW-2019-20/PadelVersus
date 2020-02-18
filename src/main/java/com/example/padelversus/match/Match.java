@@ -61,7 +61,7 @@ public class Match {
   
   
 
-    public Match(LocalDate date, Team t1, Team t2) {
+    public Match(boolean played, LocalDate date, Team t1, Team t2) {
         super();
         List<Team> aux = new ArrayList<>(2);
         aux.add(t1);
