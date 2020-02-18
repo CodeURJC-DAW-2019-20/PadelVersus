@@ -52,7 +52,12 @@ public class Tournament {
         this.nonspacename = name.replaceAll("\\s","");
         this.teams = teams;
     }
-
+    public Tournament(String name) {
+        this.name = name;
+        this.matches = new ArrayList<>();
+        this.nonspacename = name.replaceAll("\\s","");
+        this.teams = new ArrayList<>();
+    }
     public List<Team> getTeams() {
         return teams;
     }
