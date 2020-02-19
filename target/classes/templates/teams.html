@@ -3,17 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Team HTML</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
+          rel="stylesheet"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css" />
-    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
+    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- 
     
@@ -44,15 +45,12 @@
 </div>
 
 
-
-
-
-
 <!--MAIN MENU WRAP BEGIN-->
 <div class="main-menu-wrap sticky-menu">
     <div class="container">
-        <a  class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu" aria-expanded="false">
+        <a class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu"
+                aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -131,7 +129,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ul class="tab-filters" role="tablist">
                     {{#allTournamentsInfo}}
-                    <li><a href="#{{cleanName}}" role="tab" data-toggle="tab" aria-expanded="true">{{tournamentName}}</a></li>
+                    <li><a href="#{{cleanName}}" role="tab" data-toggle="tab"
+                           aria-expanded="true">{{tournamentName}}</a></li>
                     {{/allTournamentsInfo}}
                 </ul>
                 <div class="tab-content">
@@ -143,12 +142,15 @@
                                     {{#teamNames}}
                                     <div class="col-md-3 col-sm-4 col-xs-6">
                                         <a href="#">
-                                            <img src="/images/common/esport-participants-background.jpg" class="background-team" alt="background">
+                                            <img src="/images/common/esport-participants-background.jpg"
+                                                 class="background-team" alt="background">
                                             <img src="/images/common/team-logo2.png" alt="team-logo">
                                             <span>{{.}}</span>
                                         </a>
                                     </div>
                                     {{/teamNames}}
+
+
                                 </div>
                             </div>
                         </div>
@@ -156,6 +158,11 @@
                     {{/allTournamentsInfo}}
                 </div>
             </div>
+        </div>
+        <div class="col-md-1">
+            <span class="badge badge-warning" onclick="loadPage(4)" id="loadMore">Load more</span>
+            <img src="/images/spinner.gif" alt="team-logo"  id="loadSpinner">
+            <p id="actualPage" style="display: none">-1</p>
         </div>
     </div>
 </section>
@@ -170,7 +177,8 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="footer-left">
                         <div class="wrap">
-                            <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png" alt="footer-logo"></a>
+                            <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png"
+                                                                        alt="footer-logo"></a>
 
                         </div>
                     </div>
@@ -189,8 +197,10 @@
                         <h4>Contact us</h4>
                         <ul class="contact-list">
                             <li><i class="fa fa-flag" aria-hidden="true"></i><span>URJC</span></li>
-                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a></li>
-                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+34 583766284</span></li>
+                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a>
+                            </li>
+                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+34 583766284</span>
+                            </li>
                         </ul>
                         <ul class="socials">
                             <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -287,9 +297,50 @@
 <script type="text/javascript" src="/js/video_slider.js"></script>
 <script type="text/javascript" src="/js/footer_slides.js"></script>
 <script type="text/javascript" src="/js/player_test.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        loadPage(4);
+        //$("#loadSpinner").hide();
+    });
 
+    function loadPage(size) {
+        var actual_page = parseInt($("#actualPage").text());
+        var ajax = true;
+        if (actual_page < 2) {
+            actual_page = actual_page + 1;
+            $("#actualPage").text(actual_page);
+        } else {
+            ajax = false;
+        }
+        if(ajax){
+            $("#loadSpinner").show();
+            $.ajax({
+                url: 'https://localhost:8080/apiTeams/?page=' + actual_page + '&size=' + size,
+                success: function (data) {
+                    setTimeout(function() {
+                        $.each(data, function (index, value) {
+                            $("#All > div > div > div").append("<div class=\"col-md-3 col-sm-4 col-xs-6\">\n" +
+                                "                                        <a href=\"#\">\n" +
+                                "                                            <img src=\"/images/common/esport-participants-background.jpg\" class=\"background-team\" alt=\"background\">\n" +
+                                "                                            <img src=\"/images/common/team-logo2.png\" alt=\"team-logo\">\n" +
+                                "                                            <span>" + value + "</span>\n" +
+                                "                                        </a>\n" +
+                                "                                    </div>");
+                        });
+                        $("#loadSpinner").hide();
+                    }, 1000);
+                },
+                error: function () {
+                    console.log("Ajax Error");
+                }
+            });
+        }
+        if(actual_page >= 2){
+            $("#loadMore").css("display", "none");
+        }
+    }
+</script>
 <script type="text/javascript" src="/js/main.js"></script>
-
 
 
 <script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>

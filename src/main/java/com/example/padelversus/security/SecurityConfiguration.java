@@ -17,13 +17,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/match/1").permitAll();
-        http.authorizeRequests().antMatchers("/matches").permitAll();
+        http.authorizeRequests().antMatchers("/teams/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/signup").permitAll();
+        http.authorizeRequests().antMatchers("/apiTeams").permitAll();
+        http.authorizeRequests().antMatchers("/apiTeams/").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/saveUser").permitAll();
         http.authorizeRequests().antMatchers("/signupPlayer").permitAll();
-
         http.authorizeRequests().antMatchers("/saveMatch").permitAll();
         http.authorizeRequests().antMatchers("/adminPage").permitAll(); //Cambiar a acceso solo a ADMIN
         http.authorizeRequests().antMatchers("/uploadImage").permitAll();
