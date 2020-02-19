@@ -110,7 +110,9 @@ public class PlayerController {
     public String formRegister(@RequestParam MultipartFile imageFile) throws IOException {
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Player player = playerService.getPlayerFromUsername(usernameLogged);
-        playerService.savePlayer(player, usernameLogged, imageFile);
+        byte [] image = imageFile.getBytes();
+        player.setImage(image);
+        playerRepository.save(player);
         return "index";
     }
 
