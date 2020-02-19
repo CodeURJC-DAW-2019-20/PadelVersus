@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -36,10 +37,12 @@ public class AdminController {
     SetPadelRepository setPadelRepository;
     @Autowired
     MatchStadisticsRepository matchStadisticsRepository;
+    @Autowired
+    AdminService adminService;
 
     @RequestMapping("/adminPage")
     public String adminPage(Model model) {
-        List<Tournament> allTournament = tournamentRepository.findAll();
+        /*List<Tournament> allTournament = tournamentRepository.findAll();
         List<MatchAdmin> matchAdmins = new ArrayList<>();
 
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
@@ -59,8 +62,11 @@ public class AdminController {
             }
             allTournamentDisplay.add(tournamentDisplay);
 
-        }
-
+        }*/
+        List<Object> lista;
+        lista = adminService.adminPage();
+        List<TournamentDisplay> allTournamentDisplay = (List<TournamentDisplay>) lista.get(0);
+        List<MatchAdmin> matchAdmins = (List<MatchAdmin>) lista.get(1);
         model.addAttribute("tournament-list", allTournamentDisplay);
         model.addAttribute("match-list", matchAdmins);
         return "/adminPage";
@@ -75,26 +81,9 @@ public class AdminController {
     @PostMapping("/saveMatch")
     public String savematch(String torneoSeleccionado, String t1_oficial, String t2_oficial, String date) {
         Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
-        String[] teamName1 = t1_oficial.split(",");
-        String[] teamName2 = t2_oficial.split(",");
-        Team team1 = new Team();
-        for (String s : teamName1) {
-            Optional<Team> teamaux = teamRepository.findByName(s);
-            if (teamaux.isPresent()) {
-                if (tournament.get().hasTeam(teamaux.get())) {
-                    team1 = teamaux.get();
-                }
-            }
-        }
-        Team team2 = new Team();
-        for (String s : teamName2) {
-            Optional<Team> teamaux = teamRepository.findByName(s);
-            if (teamaux.isPresent()) {
-                if (tournament.get().hasTeam(teamaux.get())) {
-                    team2 = teamaux.get();
-                }
-            }
-        }
+
+        Team team1 = adminService.getTeam(torneoSeleccionado, t1_oficial);
+        Team team2 = adminService.getTeam(torneoSeleccionado, t2_oficial);
         String[] parts = date.split("-");
 
         Match match = new Match(false, LocalDate.of(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2])), team1, team2);
@@ -127,50 +116,11 @@ public class AdminController {
         Optional<Team> team2 = teamRepository.findByName(match[2]);
         Optional<Tournament> tournament = tournamentRepository.findByName(match[3]);
 
-        Match matchDatabase = findMatchByTeams(team1.get(), team2.get(), tournament.get());
+        Match matchDatabase = adminService.findMatchByTeams(team1.get(), team2.get(), tournament.get());
         if (matchDatabase != null) {
             matchDatabase.setPlayed(true);
-
-            int auxAccuracy = Integer.parseInt(accuracy1);
-            int auxEffect = Integer.parseInt(effectiveness1);
-            int auxGamesWin = Integer.parseInt(games_wins1);
-            int auxUnforcedError = Integer.parseInt(unforcedErrors1);
-            int auxSet1 = Integer.parseInt(set1team1);
-            int auxSet2 = Integer.parseInt(set2team1);
-            int auxSet3 = Integer.parseInt(set3team1);
-            boolean auxWin = win1 != null;
-
-            List<SetPadel> auxSets1 = new ArrayList<>();
-            SetPadel firstSet = new SetPadel(auxSet1, 1);
-            SetPadel secondSet = new SetPadel(auxSet2, 2);
-            auxSets1.add(firstSet);
-            auxSets1.add(secondSet);
-            if (auxSet3 != -1) {
-                SetPadel thirdSet = new SetPadel(auxSet3, 3);
-                auxSets1.add(thirdSet);
-            }
-            MatchStadistics statsOne = new MatchStadistics(auxSets1, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
-            //System.out.println("MATCH STADISTICS 1:" + statsOne.toString());
-            auxAccuracy = Integer.parseInt(accuracy2);
-            auxEffect = Integer.parseInt(effectiveness2);
-            auxGamesWin = Integer.parseInt(games_wins2);
-            auxUnforcedError = Integer.parseInt(unforcedErrors2);
-            auxSet1 = Integer.parseInt(set1team2);
-            auxSet2 = Integer.parseInt(set2team2);
-            auxSet3 = Integer.parseInt(set3team2);
-            auxWin = win2 != null;
-            List<SetPadel> auxSets2 = new ArrayList<>();
-            SetPadel firstSet2 = new SetPadel(auxSet1, 1);
-            SetPadel secondSet2 = new SetPadel(auxSet2, 2);
-            auxSets2.add(firstSet2);
-            auxSets2.add(secondSet2);
-
-            if (auxSet3 != -1) {
-                SetPadel thirdSet2 = new SetPadel(auxSet3, 3);
-                auxSets2.add(thirdSet2);
-            }
-            MatchStadistics statsTwo = new MatchStadistics(auxSets2, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
-
+            MatchStadistics statsOne = adminService.calculateStats(accuracy1, effectiveness1, games_wins1, unforcedErrors1, set1team1, set2team1, set3team1, win1);
+            MatchStadistics statsTwo = adminService.calculateStats(accuracy2, effectiveness2, games_wins2, unforcedErrors2, set1team2, set2team2, set3team2, win2);
             matchDatabase.setStadistics_1(statsOne);
             matchDatabase.setStadistics_2(statsTwo);
             matchRepository.save(matchDatabase);
@@ -179,14 +129,5 @@ public class AdminController {
         return "/adminPage";
     }
 
-    public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
-        List<Match> matches = tournament.getMatches();
-        for (Match m : matches) {
-            if (!m.isPlayed() && m.hasTeam(teamOne) && m.hasTeam(teamTwo)) {
 
-                return m;
-            }
-        }
-        return null;
-    }
 }
