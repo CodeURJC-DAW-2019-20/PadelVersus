@@ -29,9 +29,11 @@ public class Player {
     private double pace;
     private double accuaracy;
     private double aceleration;
+    private String imageUrl;
 
     @Lob
     private byte[] image;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -160,6 +162,14 @@ public class Player {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.image);
         BufferedImage imageBuffered = ImageIO.read(byteArrayInputStream);
         return imageBuffered;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String image_url) {
+        this.imageUrl = image_url;
     }
 
     @Override

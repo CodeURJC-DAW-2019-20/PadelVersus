@@ -98,7 +98,7 @@
 </div>
 <!--MAIN MENU WRAP END-->
 
-
+{{#teamInfo}}
 <!--BREADCRUMBS BEGIN-->
 <section class="image-header">
     <div class="container">
@@ -108,9 +108,9 @@
                     <div class="wrap">
                         <ul class="breadcrumbs">
                             <li><a href="index.html">Main</a>/</li>
-                            <li>Team x</li>
+                            <li>Team: {{teamName}}</li>
                         </ul>
-                        <h1>Team x</h1>
+                        <h1>Team: {{teamName}}</h1>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
 <!--BREADCRUMBS END-->
 
 <!--PLAYER SINGLE WRAP BEGIN-->
-{{#teamInfo}}
+
 <section class="player-single-wrap">
 
     <!--PLAYER INFO BEGIN-->
@@ -151,7 +151,7 @@
                                     <span class="position">{{countryBirth}}</span>
                                     <span class="number">{{age}}</span>
                                 </span>
-                                <img src="/images/soccer/staff-item-img.jpg" alt="player">
+                                <img src="{{imageUrl}}" alt="player">
                             </a>
                         </div>
                         {{/players}}
