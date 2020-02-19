@@ -14,10 +14,12 @@ public class UserLogOut {
 
     @RequestMapping("/logout")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null){
-            new SecurityContextLogoutHandler().logout(request, response, auth);
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(!username.equals("anonymousUser")) {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth != null) new SecurityContextLogoutHandler().logout(request, response, auth);
+            return "logout";
         }
-        return "logout";
+        return "index";
     }
 }
