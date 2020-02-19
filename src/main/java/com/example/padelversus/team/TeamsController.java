@@ -30,7 +30,6 @@ public class TeamsController {
     @GetMapping("/")
     public String teams(Model model,Pageable page){
         Page<Team> pages = teamRepository.findAll(page);
-        System.out.println(page.getPageSize());
         List<Team> allTeams = teamRepository.findAll();
         List<String> pageTeamNames = new ArrayList<>();
         for(Team t: pages){

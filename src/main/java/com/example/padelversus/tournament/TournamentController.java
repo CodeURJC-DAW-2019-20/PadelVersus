@@ -11,9 +11,7 @@ import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,7 +54,7 @@ public class TournamentController {
     public String loadTournaments(Model model) {
         List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
         model.addAttribute("tournament-list", tournamentList);
-        return "Tournaments";
+        return "tournaments";
     }
 
     @GetMapping("/register")
