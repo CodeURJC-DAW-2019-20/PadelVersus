@@ -8,13 +8,14 @@ import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -33,11 +34,9 @@ public class PlayerController {
 
 
     @GetMapping("/")
-    public String player(Model model){
+    public String player(){
         return "player";
     }
-
-
 
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id) throws IOException {
@@ -45,27 +44,29 @@ public class PlayerController {
 
 
         if (player.isPresent()) {
+
+            String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
             Player playerFound = player.get();
             User user = playerFound.getUser();
 
-            
             List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
             List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
 
             BufferedImage playerImage = playerFound.getBufferedImage();
             String base_url = "/images_temp/Player/";
-            String image_name = imageService.saveImage("Player" , playerFound.getId(), playerImage);
+            String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
-            if (teamsFounds!= null){
-                model.addAttribute("namesTeams",teamsFounds);
+            if (teamsFounds != null) {
+                model.addAttribute("namesTeams", teamsFounds);
                 model.addAttribute("is_in_team", true);
-            }else{
+            } else {
                 model.addAttribute("is_in_team", false);
             }
-            if (tournamentsFounds!= null){
-                model.addAttribute("namesTournaments",tournamentsFounds);
+            if (tournamentsFounds != null) {
+                model.addAttribute("namesTournaments", tournamentsFounds);
                 model.addAttribute("is_in_tournament", true);
-            }else{
+            } else {
                 model.addAttribute("is_in_tournament", false);
             }
             model.addAttribute("name", user.getName());
@@ -84,13 +85,35 @@ public class PlayerController {
 
             // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
             // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
-            return "player";
+            if(!usernameLogged.equals(user.getName())) {
+                return "player";
+            }else{
+
+                return "playerWithInfo";
+            }
         }
 
 
         else {
             return "404";
         }
+    }
+
+    @GetMapping("/editProfile")
+    public String editProfile(Model model){
+        String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("name",usernameLogged);
+        return "modifyProfilePlayer";
+    }
+
+    @PostMapping("/editProfileForm")
+    public String formRegister(@RequestParam MultipartFile imageFile) throws IOException {
+        String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Player player = playerService.getPlayerFromUsername(usernameLogged);
+        byte [] image = imageFile.getBytes();
+        player.setImage(image);
+        playerRepository.save(player);
+        return "index";
     }
 
 }
