@@ -168,6 +168,7 @@ public class MatchService {
         for(LastMatchDisplay lastMatchDisplay:allMatches){
             if(localDate == lastMatchDisplay.getLocalDate()){
                     matchesFounds.add(lastMatchDisplay);
+                    //System.out.println("añadido partido con fecha  "+localDate.toString()+" equipos "+lastMatchDisplay.getNameTeamOne()+lastMatchDisplay.getNameTeamTwo());
             }
         }
         return matchesFounds;
@@ -182,6 +183,8 @@ public class MatchService {
                 MatchesByDateDisplay  matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate,localDate);
                 matchesByDateDisplaysFounds.add(matchByDateDisplay);
         }
+
+
 
         return matchesByDateDisplaysFounds;
     }
