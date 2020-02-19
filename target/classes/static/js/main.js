@@ -7,27 +7,6 @@
 
 
     $(document).ready(function () {
-        function loadPage(page, size) {
-            $.ajax({
-                url: 'https://localhost:8080/apiTeams/?page='+page+'&size='+size,
-                success: function (data) {
-                    $.each(data, function (index, value) {
-                        $("#All > div > div > div").append("<div class=\"col-md-3 col-sm-4 col-xs-6\">\n" +
-                            "                                        <a href=\"#\">\n" +
-                            "                                            <img src=\"/images/common/esport-participants-background.jpg\" class=\"background-team\" alt=\"background\">\n" +
-                            "                                            <img src=\"/images/common/team-logo2.png\" alt=\"team-logo\">\n" +
-                            "                                            <span>" + value + "</span>\n" +
-                            "                                        </a>\n" +
-                            "                                    </div>");
-                    });
-
-                },
-                error: function () {
-                    console.log("No se ha podido obtener la información");
-                }
-            });
-        }
-        loadPage(0,4);
 
         $(".dont_load").css("display", "none");
         $(".dont_load:first").css("display", "block");
