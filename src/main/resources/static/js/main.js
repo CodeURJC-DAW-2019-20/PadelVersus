@@ -135,7 +135,7 @@
         /**
          * Init Bootstrap tabs navigation events listener
          * @deps: bootstrap.js
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          *        ./html-component/championship_navigation.html
          *        ./html-component/amateurs_match_schedule.html
          *        ./html-component/amateurs_news_list.html
@@ -179,7 +179,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -202,7 +202,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -225,7 +225,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -247,7 +247,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */

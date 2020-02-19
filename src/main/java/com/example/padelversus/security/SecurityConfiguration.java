@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
-        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**").permitAll();
+        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**", "/html/**").permitAll();
         //http.authorizeRequests().antMatchers("/resources/**").permitAll();
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();
