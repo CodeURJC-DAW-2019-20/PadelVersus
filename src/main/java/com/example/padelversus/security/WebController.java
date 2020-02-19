@@ -28,14 +28,14 @@ public class WebController {
     public String signup(){
         return "signup";
     }
-    @RequestMapping("/createuser")
+    /*@RequestMapping("/createuser")
     public String createuser(){
         userRepository.save(new User("user2", "pass","user@gmail.com", "ROLE_USER"));
         return "createuser";
-    }
+    }*/
     @RequestMapping("/loginerror")
     public String loginerror(){
-        return "loginerror"; //Ver como manejamos el error en el logIn
+        return "loginerror";
     }
 
     @RequestMapping("/home")
