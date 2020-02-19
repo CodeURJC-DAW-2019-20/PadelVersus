@@ -2,6 +2,7 @@ package com.example.padelversus.tournament;
 
 
 import com.example.padelversus.ImageService;
+import com.example.padelversus.pdf.PdfService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
@@ -10,7 +11,12 @@ import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +28,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +59,9 @@ public class TournamentController {
 
     @Autowired
     TeamRepository teamRepository;
+
+    @Autowired
+    PdfService pdfService;
 
     @GetMapping("/")
     public String loadTournaments(Model model) {
@@ -103,6 +116,20 @@ public class TournamentController {
         tournament.getTeams().add(team);
         tournamentRepository.save(tournament);
         return "index";
+    }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<byte[]> generatePdf() throws IOException, DocumentException {
+        List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
+        Path pdfPath = pdfService.createPdf(tournamentList);
+        String filename = pdfPath.toFile().getName();
+        byte[] content = Files.readAllBytes(pdfPath);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(content, headers, HttpStatus.OK);
     }
 }
 
