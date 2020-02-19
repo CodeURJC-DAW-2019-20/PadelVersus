@@ -27,17 +27,17 @@ public class TeamsController {
     @Autowired
     TournamentRepository tournamentRepository;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String teams(Model model,Pageable page){
-        Page<Team> pages = teamRepository.findAll(PageRequest.of(0,4));
-        System.out.println(pages);
+        Page<Team> pages = teamRepository.findAll(page);
+        System.out.println(page.getPageSize());
         List<Team> allTeams = teamRepository.findAll();
-        List<String> allTeamNames = new ArrayList<>();
+        List<String> pageTeamNames = new ArrayList<>();
         for(Team t: pages){
-            allTeamNames.add(t.getName());
+            pageTeamNames.add(t.getName());
         }
         List<Tournament> tournamentsList = tournamentRepository.findAll();
-        TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList, allTeamNames);
+        TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList, pageTeamNames);
         model.addAttribute("Next",pages.getNumber()+1);
         model.addAttribute("Last",pages.getNumber()-1);
         model.addAttribute("showNext",!pages.isLast());
