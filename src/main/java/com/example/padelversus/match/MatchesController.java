@@ -37,15 +37,11 @@ public class MatchesController {
             matchService.addNameTournamentOfMatches(lastMatches,tournamentsLast);
             matchService.addNameTournamentOfMatches(nextMatches,tournamentsNext);
 
-
             List<LocalDate> dates = matchService.datesMatchesNextMatchDisplays();
-            List<LastMatchDisplay> allNextMatches = matchService.findNextMatchesWithDate();
 
             model.addAttribute("last_matches", lastMatches);
             model.addAttribute("next_matches",nextMatches);
 
-            //model.addAttribute("list_dates",dates);
-            //model.addAttribute("all_matches",allNextMatches)
             List<MatchesByDateDisplay> matchesByDateDisplays = matchService.formMatchesByDateDisplays();
             model.addAttribute("list_matches_byDate",matchesByDateDisplays);
 
