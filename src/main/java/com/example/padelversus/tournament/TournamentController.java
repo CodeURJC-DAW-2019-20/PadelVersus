@@ -2,6 +2,7 @@ package com.example.padelversus.tournament;
 
 
 import com.example.padelversus.ImageService;
+import com.example.padelversus.pdf.PdfGenerator;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
@@ -10,6 +11,7 @@ import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +52,9 @@ public class TournamentController {
 
     @Autowired
     TeamRepository teamRepository;
+
+    @Autowired
+    PdfGenerator pdfGenerator;
 
     @GetMapping("/")
     public String loadTournaments(Model model) {
@@ -103,6 +109,12 @@ public class TournamentController {
         tournament.getTeams().add(team);
         tournamentRepository.save(tournament);
         return "index";
+    }
+
+    @GetMapping("/pdf")
+    public void generatePdf() throws FileNotFoundException, DocumentException {
+        List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
+        pdfGenerator.createPdf(tournamentList);
     }
 }
 
