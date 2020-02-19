@@ -12,6 +12,7 @@ public class LastMatchDisplay {
     private String nameTeamOne;
     private String nameTeamTwo;
     private boolean winsTeamOne;
+    private String tournamentName;
 
     public LastMatchDisplay(Match match){
 
@@ -19,9 +20,9 @@ public class LastMatchDisplay {
         this.nameTeamTwo = match.getTeams().get(1).getName();
         if(match.getStadistics_1() != null || match.getStadistics_2() != null){
                 if(match.getStadistics_1().isWin()){
-                this.winsTeamOne = true;
-            }else{
-                this.winsTeamOne = false;
+                    this.winsTeamOne = true;
+                }else{
+                    this.winsTeamOne = false;
             }
             List<SetPadel> setsOne = match.getStadistics_1().getSets();
             List<SetPadel> setsTwo = match.getStadistics_2().getSets();
@@ -42,6 +43,14 @@ public class LastMatchDisplay {
         }
 
 
+    }
+
+    public String getTournamentName() {
+        return tournamentName;
+    }
+
+    public void setTournamentName(String tournamentName) {
+        this.tournamentName = tournamentName;
     }
 
     public String getGamesPerSetOne() {

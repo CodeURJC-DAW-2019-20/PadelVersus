@@ -1,16 +1,23 @@
 package com.example.padelversus.match;
 
+import com.example.padelversus.team.Team;
 import com.example.padelversus.team.display.LastMatchDisplay;
+import com.example.padelversus.tournament.Tournament;
+import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 @Service
 public class MatchService {
     @Autowired
     private MatchRepository matchRepository;
+
+    @Autowired
+    TournamentRepository tournamentRepository;
 
     public List<Match> getFourLastMatches(){
         List<Match> matches = matchRepository.findAll();
@@ -29,7 +36,13 @@ public class MatchService {
         List<Match> matches = getFourLastMatches();
         List<LastMatchDisplay> lastMatches = new ArrayList<>();
         for (Match match : matches) {
-            lastMatches.add(new LastMatchDisplay(match));
+            LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
+            lastMatches.add(lastMatchDisplay);
+            //System.out.print(lastMatchDisplay.getNameTeamOne());
+            //System.out.println(lastMatchDisplay.getNameTeamTwo());
+            //System.out.println();
+
+
         }
 
         return lastMatches;
@@ -47,6 +60,8 @@ public class MatchService {
         for (int i = 0; i < 4; i++) {
             matches.add(matchesOrdered.pollFirst());
         }
+        //System.out.println("tamaño lista nextMatch "+matches.size());
+
         return matches;
     }
 
@@ -56,12 +71,41 @@ public class MatchService {
         for (Match match : matches) {
             LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
             nextMatches.add(lastMatchDisplay);
+            System.out.print(lastMatchDisplay.getNameTeamOne());
+            System.out.println(lastMatchDisplay.getNameTeamTwo());
+            System.out.println();
         }
 
         return nextMatches;
     }
 
 
+    public List<Tournament> findTournamentsOfMatches(List<Match> matches){
+
+        List<Tournament> allTournaments = tournamentRepository.findAll();
+        List<Tournament> tournamentsFounds = new ArrayList<>();
+        for(Match match:matches){
+            for(Tournament tournament:allTournaments){
+                if(tournament.getMatches().contains(match)){
+                    tournamentsFounds.add(tournament);
+                    //System.out.println(tournament.getName());
+                    //System.out.println(match.getDate());
 
 
+                }
+            }
+
+
+        }
+        return tournamentsFounds;
+    }
+
+    public void addNameTournamentOfMatches(List<LastMatchDisplay> matchDisplays,List<Tournament> tournaments) {
+        int counter = 0;
+        for (LastMatchDisplay lastMatchDisplay1 : matchDisplays) {
+            lastMatchDisplay1.setTournamentName(tournaments.get(counter).getName());
+            counter++;
+        }
+
+    }
 }

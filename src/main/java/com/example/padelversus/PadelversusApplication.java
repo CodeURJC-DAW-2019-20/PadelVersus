@@ -395,9 +395,9 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match19  = new Match(false, LocalDate.of(2020, 3, 23), null, null, t1, t3);
         Match match20  = new Match(false, LocalDate.of(2020, 10, 30), null, null, t2, t4);
-        Match match21  = new Match(false, LocalDate.of(2020, 11, 20), null, null, t2, t5);
-        Match match22  = new Match(false, LocalDate.of(2020, 2, 10), null, null, t2, t8);
-        Match match23  = new Match(false, LocalDate.of(2020, 2, 10), null, null, t2, t8);
+        Match match21  = new Match(false, LocalDate.of(2020, 11, 20), null, null, t4, t5);
+        Match match22  = new Match(false, LocalDate.of(2020, 4, 10), null, null, t3, t8);
+        Match match23  = new Match(false, LocalDate.of(2020, 5, 10), null, null, t2, t8);
         Match match24  = new Match(false, LocalDate.of(2020, 4, 15), null, null, t1, t8);
 
 
@@ -426,6 +426,10 @@ public class PadelversusApplication implements ApplicationRunner {
         tournament3_matches.add(match18);
         tournament3_matches.add(match19);
         tournament3_matches.add(match20);
+        tournament3_matches.add(match21);
+        tournament3_matches.add(match22);
+        tournament3_matches.add(match23);
+        tournament3_matches.add(match24);
 
         List<Team> teamsTournament3 = new ArrayList<>();
         teamsTournament3.add(t6);
