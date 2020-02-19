@@ -26,7 +26,7 @@ public class LastMatchDisplay {
                     this.winsTeamOne = true;
                 }else{
                     this.winsTeamOne = false;
-            }
+                }
             List<SetPadel> setsOne = match.getStadistics_1().getSets();
             List<SetPadel> setsTwo = match.getStadistics_2().getSets();
 

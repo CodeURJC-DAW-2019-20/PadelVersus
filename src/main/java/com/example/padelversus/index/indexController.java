@@ -21,8 +21,6 @@ public class indexController {
     @Autowired
     private MatchService matchService;
 
-    @Autowired
-    private MatchRepository matchRepository;
 
 
 

@@ -1,5 +1,6 @@
 package com.example.padelversus.match;
 
+import com.example.padelversus.match.display.MatchesByDateDisplay;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.display.LastMatchDisplay;
 import com.example.padelversus.tournament.Tournament;
@@ -9,6 +10,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.sql.SQLOutput;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoPeriod;
+import java.time.chrono.Chronology;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalField;
+import java.time.temporal.TemporalUnit;
 import java.util.*;
 
 @Service
@@ -95,8 +103,92 @@ public class MatchService {
         for (LastMatchDisplay lastMatchDisplay1 : matchDisplays) {
             lastMatchDisplay1.setTournamentName(tournaments.get(counter).getName());
             counter++;
+
         }
 
     }
 
+
+    public List<Match> getAllNextMatches(){
+        List<Match> matches = matchRepository.findAll();
+        TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
+        for (Match match : matches) {
+
+            if(!match.isPlayed())
+                matchesOrdered.add(match);
+        }
+        List<Match>matchesOrderedList = new ArrayList<>();
+
+        for(Match match1:matchesOrdered){
+            matchesOrderedList.add(match1);
+        }
+        return matchesOrderedList;
+    }
+
+    public List<LastMatchDisplay> matchesNextMatchDisplays() {
+        List<Match> matches = getAllNextMatches();
+        List<LastMatchDisplay> matchDisplays = new ArrayList<>();
+        for (Match match : matches) {
+            LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
+            matchDisplays.add(lastMatchDisplay);
+
+        }
+        return matchDisplays;
+    }
+
+    public List<LocalDate> datesMatchesNextMatchDisplays() {
+        List<LocalDate> dates = new ArrayList<>();
+        List<Match> matches = getAllNextMatches();
+        for (Match match : matches) {
+            dates.add(match.getDate());
+        }
+        return dates;
+    }
+
+
+    public List<LastMatchDisplay> findNextMatchesWithDate(){
+        List<LocalDate> localDates = datesMatchesNextMatchDisplays();
+        List<LastMatchDisplay> matchesFounds = new ArrayList<>();
+        List<LastMatchDisplay> allMatches = matchesNextMatchDisplays();
+        for(LocalDate localDate1:localDates){
+            for(LastMatchDisplay lastMatchDisplay:allMatches){
+                if(localDate1 == lastMatchDisplay.getLocalDate()){
+                    matchesFounds.add(lastMatchDisplay);
+
+                }
+            }
+        }
+
+        return matchesFounds;
+    }
+
+    public List<LastMatchDisplay> findNextMatchesWithDate(LocalDate localDate){
+        List<LastMatchDisplay> matchesFounds = new ArrayList<>();
+        List<LastMatchDisplay> allMatches = matchesNextMatchDisplays();
+        for(LastMatchDisplay lastMatchDisplay:allMatches){
+            if(localDate == lastMatchDisplay.getLocalDate()){
+                    matchesFounds.add(lastMatchDisplay);
+            }
+        }
+        return matchesFounds;
+    }
+
+    public List<MatchesByDateDisplay> formMatchesByDateDisplays(){
+        List<MatchesByDateDisplay> matchesByDateDisplaysFounds = new ArrayList<>();
+        List<LocalDate> localDates = datesMatchesNextMatchDisplays();
+
+        for(LocalDate localDate:localDates){
+                List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
+                MatchesByDateDisplay  matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate,localDate);
+                matchesByDateDisplaysFounds.add(matchByDateDisplay);
+        }
+
+        return matchesByDateDisplaysFounds;
+    }
+
+
 }
+
+
+
+
