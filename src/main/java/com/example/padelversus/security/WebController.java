@@ -3,6 +3,7 @@ package com.example.padelversus.security;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,21 +20,22 @@ public class WebController {
 
     @RequestMapping("/login")
     public String login(){
-        return "login";
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return username.equals("anonymousUser") ? "login" : "index";
     }
 
     @RequestMapping("/signup")
     public String signup(){
         return "signup";
     }
-    @RequestMapping("/createuser")
+    /*@RequestMapping("/createuser")
     public String createuser(){
         userRepository.save(new User("user2", "pass","user@gmail.com", "ROLE_USER"));
         return "createuser";
-    }
+    }*/
     @RequestMapping("/loginerror")
     public String loginerror(){
-        return "loginerror"; //Ver como manejamos el error en el logIn
+        return "loginerror";
     }
 
     @RequestMapping("/home")

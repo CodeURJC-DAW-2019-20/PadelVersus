@@ -1,6 +1,7 @@
 package com.example.padelversus.security;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -10,17 +11,14 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @Configuration
-public class CSRFHandlerConfiguration implements WebMvcConfigurer {
-
+public class LoginHandlerConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CSRFHandlerInterceptor());
+        registry.addInterceptor(new LoginHandlerInterceptor());
     }
 }
-
-class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
+class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(final HttpServletRequest request,
@@ -28,8 +26,9 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
                            final ModelAndView modelAndView) {
 
         try {
-            CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-            modelAndView.addObject("token", token.getToken());
+            String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            boolean logged = !username.equals("anonymousUser");
+            modelAndView.addObject("logged", logged);
         } catch (Exception e) {
 
         }

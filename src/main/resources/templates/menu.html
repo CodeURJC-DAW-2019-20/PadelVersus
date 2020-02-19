@@ -27,7 +27,12 @@
                     <li><a href="/html/coming-soon.html"><span>Calendar</span></a></li>
 
                     <li><a href="/tournament/register"><span>Registration Tournament</span></a></li>
+                    {{#logged}}
+                    <li><a href="/logout"><span>LOG OUT</span></a></li>
+                    {{/logged}}
+                    {{^logged}}
                     <li><a href="/login"><span>LOG IN</span></a></li>
+                    {{/logged}}
                 </ul>
             </div>
         </nav>
