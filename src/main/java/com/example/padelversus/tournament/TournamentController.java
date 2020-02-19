@@ -63,24 +63,28 @@ public class TournamentController {
     public String registerTournamnent(Model model) throws IOException {
         List<TournamentDisplay> tournaments = tournamentService.getTournaments();
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userRepository.findByName(username);
-        Player loggedPlayer = playerService.getPlayerFromUser(user);
-        BufferedImage playerImage = loggedPlayer.getBufferedImage();
-        String base_url = "/images_temp/Player/";
-        String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
-        String image_url = base_url + image_name;
-        List<Player> players = playerRepository.findAll();
-        List<String> playerNames = new ArrayList<>();
-        for (Player player : players) {
-            if (!player.getUser().getName().equals(username)) {
-                playerNames.add(player.getUser().getName());
+        if (username.equals("admin")) {
+            return "/adminPage";
+        } else {
+            User user = userRepository.findByName(username);
+            Player loggedPlayer = playerService.getPlayerFromUser(user);
+            BufferedImage playerImage = loggedPlayer.getBufferedImage();
+            String base_url = "/images_temp/Player/";
+            String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
+            String image_url = base_url + image_name;
+            List<Player> players = playerRepository.findAll();
+            List<String> playerNames = new ArrayList<>();
+            for (Player player : players) {
+                if (!player.getUser().getName().equals(username)) {
+                    playerNames.add(player.getUser().getName());
+                }
             }
+            model.addAttribute("tournament-list", tournaments);
+            model.addAttribute("actual_player_name", loggedPlayer.getUser().getName());
+            model.addAttribute("actual_player_img", image_url);
+            model.addAttribute("other_player_names", playerNames);
+            return "registerTournament";
         }
-        model.addAttribute("tournament-list", tournaments);
-        model.addAttribute("actual_player_name", loggedPlayer.getUser().getName());
-        model.addAttribute("actual_player_img", image_url);
-        model.addAttribute("other_player_names", playerNames);
-        return "registerTournament";
     }
 
     @PostMapping("/registerTournamentForm")
