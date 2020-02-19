@@ -2,7 +2,7 @@ package com.example.padelversus.tournament;
 
 
 import com.example.padelversus.ImageService;
-import com.example.padelversus.pdf.PdfGenerator;
+import com.example.padelversus.pdf.PdfService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
@@ -54,7 +54,7 @@ public class TournamentController {
     TeamRepository teamRepository;
 
     @Autowired
-    PdfGenerator pdfGenerator;
+    PdfService pdfService;
 
     @GetMapping("/")
     public String loadTournaments(Model model) {
@@ -112,9 +112,9 @@ public class TournamentController {
     }
 
     @GetMapping("/pdf")
-    public void generatePdf() throws FileNotFoundException, DocumentException {
+    public void generatePdf() throws IOException, DocumentException {
         List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
-        pdfGenerator.createPdf(tournamentList);
+        pdfService.createPdf(tournamentList);
     }
 }
 

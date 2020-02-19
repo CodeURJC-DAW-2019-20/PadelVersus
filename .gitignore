@@ -30,3 +30,8 @@ hs_err_pid*
 images_temp/*
 images_temp/
 !images/.gitkeep
+
+# Temp pdf
+pdf_temp/*
+pdf_temp/
+
