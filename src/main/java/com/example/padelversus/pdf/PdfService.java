@@ -15,10 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.PreDestroy;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -38,7 +36,7 @@ public class PdfService implements WebMvcConfigurer {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
 
-    public void createPdf(List<TournamentDisplay> tournaments) throws IOException, DocumentException {
+    public Path createPdf(List<TournamentDisplay> tournaments) throws IOException, DocumentException {
 
         Path file = FILES_FOLDER.resolve("report.pdf");
         FileOutputStream fos = new FileOutputStream(file.toFile());
@@ -68,23 +66,25 @@ public class PdfService implements WebMvcConfigurer {
             document.add(table);
         }
         document.close();
+        return file;
     }
 
     @PreDestroy
-    private void destroy(){
-        if(deleteDirectory(FILES_FOLDER.toFile())) System.out.println("Borrados pdfs temporales");
+    private void destroy() {
+        System.out.println("DELETE");
+        if (deleteDirectory(FILES_FOLDER.toFile())) System.out.println("Borrados pdfs temporales");
     }
 
-    private boolean deleteDirectory(File directory){
-        File [] allContent = directory.listFiles();
-        if(allContent != null){
-            for(File file: allContent){
-                if(file.getName().equals(".gitkeep")) continue;
+    private boolean deleteDirectory(File directory) {
+        File[] allContent = directory.listFiles();
+        if (allContent != null) {
+            for (File file : allContent) {
+                if (file.getName().equals(".gitkeep")) continue;
                 System.out.println("Borro" + file);
                 deleteDirectory(file);
             }
         }
-        if(!directory.getName().equals(FILES_FOLDER.toString())) return directory.delete();
+        if (!directory.getName().equals(FILES_FOLDER.toString())) return directory.delete();
         return true;
     }
 }

@@ -13,6 +13,10 @@ import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +30,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,9 +119,17 @@ public class TournamentController {
     }
 
     @GetMapping("/pdf")
-    public void generatePdf() throws IOException, DocumentException {
+    public ResponseEntity<byte[]> generatePdf() throws IOException, DocumentException {
         List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
-        pdfService.createPdf(tournamentList);
+        Path pdfPath = pdfService.createPdf(tournamentList);
+        String filename = pdfPath.toFile().getName();
+        byte[] content = Files.readAllBytes(pdfPath);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(content, headers, HttpStatus.OK);
     }
 }
 
