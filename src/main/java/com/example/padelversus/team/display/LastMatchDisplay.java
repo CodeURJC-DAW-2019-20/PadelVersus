@@ -3,6 +3,7 @@ package com.example.padelversus.team.display;
 import com.example.padelversus.match.Match;
 import com.example.padelversus.match.Stadistics.SetPadel;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class LastMatchDisplay {
@@ -13,6 +14,8 @@ public class LastMatchDisplay {
     private String nameTeamTwo;
     private boolean winsTeamOne;
     private String tournamentName;
+    private LocalDate localDate;
+
 
     public LastMatchDisplay(Match match){
 
@@ -41,8 +44,19 @@ public class LastMatchDisplay {
             }
             this.gamesPerSetTwo = sbuilder2.toString();
         }
+        LocalDate date = match.getDate();
+        this.localDate = date;
 
 
+
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 
     public String getTournamentName() {

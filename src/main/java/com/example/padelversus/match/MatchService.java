@@ -38,10 +38,6 @@ public class MatchService {
         for (Match match : matches) {
             LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
             lastMatches.add(lastMatchDisplay);
-            //System.out.print(lastMatchDisplay.getNameTeamOne());
-            //System.out.println(lastMatchDisplay.getNameTeamTwo());
-            //System.out.println();
-
 
         }
 
@@ -60,7 +56,7 @@ public class MatchService {
         for (int i = 0; i < 4; i++) {
             matches.add(matchesOrdered.pollFirst());
         }
-        //System.out.println("tamaño lista nextMatch "+matches.size());
+
 
         return matches;
     }
@@ -71,9 +67,7 @@ public class MatchService {
         for (Match match : matches) {
             LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
             nextMatches.add(lastMatchDisplay);
-            System.out.print(lastMatchDisplay.getNameTeamOne());
-            System.out.println(lastMatchDisplay.getNameTeamTwo());
-            System.out.println();
+
         }
 
         return nextMatches;
@@ -88,10 +82,6 @@ public class MatchService {
             for(Tournament tournament:allTournaments){
                 if(tournament.getMatches().contains(match)){
                     tournamentsFounds.add(tournament);
-                    //System.out.println(tournament.getName());
-                    //System.out.println(match.getDate());
-
-
                 }
             }
 
@@ -108,4 +98,5 @@ public class MatchService {
         }
 
     }
+
 }
