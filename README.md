@@ -82,3 +82,5 @@ Contains one calendar with the matches of each month.
 ![Calendar](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/Calendar.JPG)
 ### Flow Diagram
 ![Diagram](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/flowDiagram.JPG)
+
+# Fase 2
