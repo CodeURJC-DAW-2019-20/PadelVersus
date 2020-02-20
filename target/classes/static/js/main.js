@@ -6,23 +6,23 @@
     //$(window).on('load', function () {
 
 
-
     $(document).ready(function () {
-        $(".dont_load").css("display","none");
-        $(".dont_load:first").css("display","block");
-        $('.show_href_onclick').click(function(){
-            $(".dont_load").css("display","none");
+
+        $(".dont_load").css("display", "none");
+        $(".dont_load:first").css("display", "block");
+        $('.show_href_onclick').click(function () {
+            $(".dont_load").css("display", "none");
             var id_to_show = $(this).attr("href");
             console.log(id_to_show);
-           $(id_to_show).css("display","block");
+            $(id_to_show).css("display", "block");
         });
         $("ul.tab-filters li:first-child").addClass("active");
         $("div.tab-content div:first-child").addClass("active");
-        $.each($("td.form > span"), function(){
-            if($(this).text() === "l"){
+        $.each($("td.form > span"), function () {
+            if ($(this).text() === "l") {
                 $(this).addClass("lose")
             }
-            if($(this).text() === "w"){
+            if ($(this).text() === "w") {
                 $(this).addClass("win")
             }
         });
@@ -36,7 +36,7 @@
         }
 
         /**
-         * Init header sticky menu 
+         * Init header sticky menu
          * @html: ./html-component/header.html
          * @js: ./js/header.js
          */
@@ -135,7 +135,7 @@
         /**
          * Init Bootstrap tabs navigation events listener
          * @deps: bootstrap.js
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          *        ./html-component/championship_navigation.html
          *        ./html-component/amateurs_match_schedule.html
          *        ./html-component/amateurs_news_list.html
@@ -167,9 +167,9 @@
 
         /**
          * Init circle-bar statistic elements
-         * @html: ./html-component/player_single_wrap.html 
+         * @html: ./html-component/player_single_wrap.html
          *        ./html-component/organisation_header.html
-         * @js: ./js/circle-bar.js     
+         * @js: ./js/circle-bar.js
          */
         if ($(".circle-bar").length > 0) {
             $(".circle-bar").each(function () {
@@ -179,7 +179,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -202,7 +202,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -225,7 +225,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -247,7 +247,7 @@
 
         /**
          * Init standing brackets
-         * @html: ./html-component/Tournaments.html
+         * @html: ./html-component/tournaments.html
          * @js: ./js/standings.js
          * @see [http://www.aropupu.fi/bracket/]
          */
@@ -306,15 +306,15 @@
         if ($('#attack-per-game').length > 0) {
 
             $('#attack-per-game').teamGraphTimeseries(
-                    ['16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
-                    [
-                        [75, 125, 100, 106, 55, 150],
-                        [135, 75, 75, 45, 100, 90]
-                    ],
-                    [0, 50, 100, 150],
-                    '250px',
-                    false
-                    );
+                ['16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
+                [
+                    [75, 125, 100, 106, 55, 150],
+                    [135, 75, 75, 45, 100, 90]
+                ],
+                [0, 50, 100, 150],
+                '250px',
+                false
+            );
 
         }
 
@@ -326,14 +326,14 @@
         if ($('#tournament-path').length > 0) {
 
             $('#tournament-path').teamGraphTimeseries(
-                    ['11 round', '12 round', '13 round', '14 round', '15 round', '16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
-                    [
-                        [4, 9, 6, 10, 13, 2, 5, 8, 6, 11, 3]
-                    ],
-                    [15, 10, 5, 1],
-                    '250px',
-                    true
-                    );
+                ['11 round', '12 round', '13 round', '14 round', '15 round', '16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
+                [
+                    [4, 9, 6, 10, 13, 2, 5, 8, 6, 11, 3]
+                ],
+                [15, 10, 5, 1],
+                '250px',
+                true
+            );
 
         }
 
@@ -345,18 +345,17 @@
         if ($('#player-timeseries-graph').length > 0) {
 
             $('#player-timeseries-graph').teamGraphTimeseries(
-                    ['16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
-                    [
-                        [75, 125, 100, 106, 55, 150]
-                    ],
-                    [0, 50, 100, 150],
-                    '250px',
-                    false,
-                    [
-                        80
-                    ]
-
-                    );
+                ['16 round', '17 round', '18 round', '19 round', '20 round', '21 round'],
+                [
+                    [75, 125, 100, 106, 55, 150]
+                ],
+                [0, 50, 100, 150],
+                '250px',
+                false,
+                [
+                    80
+                ]
+            );
         }
 
         /**
@@ -365,28 +364,28 @@
          * @usage: ./html-components/player_single_wrap.html
          */
 
-        var height = parseInt($("#stats > li#height").text())*100;
+        var height = parseInt($("#stats > li#height").text()) * 100;
         var weight = parseInt($("#stats > li#weight").text());
-        var endurance = parseInt($("#stats > li#endurance").text())*100;
-        var speed = parseInt($("#stats > li#speed").text())*100;
-        var accuaracy = parseInt($("#stats > li#accuaracy").text())*100;
-        var aceleration = parseInt($("#stats > li#aceleration").text())*100;
-        var strenght = parseInt($("#stats > li#strenght").text())*100;
-        var pace = parseInt($("#stats > li#pace").text())*100;
+        var endurance = parseInt($("#stats > li#endurance").text()) * 100;
+        var speed = parseInt($("#stats > li#speed").text()) * 100;
+        var accuaracy = parseInt($("#stats > li#accuaracy").text()) * 100;
+        var aceleration = parseInt($("#stats > li#aceleration").text()) * 100;
+        var strenght = parseInt($("#stats > li#strenght").text()) * 100;
+        var pace = parseInt($("#stats > li#pace").text()) * 100;
         if ($('#player-radar-graph').length > 0) {
             $('#player-radar-graph').teamRadarGraph(
-                    'stats',
-                    ["Height", "Weight", "Endurance", "Speed", "Accuaracy", "Aceleration", "Strenght", "Pace"],
-                    [height, weight, endurance, speed, accuaracy, aceleration, strenght, pace],
-                    //[1, 2, 3, 4, 5, 6, 7, 8],
-                    200,
-                    200
-                    );
+                'stats',
+                ["Height", "Weight", "Endurance", "Speed", "Accuaracy", "Aceleration", "Strenght", "Pace"],
+                [height, weight, endurance, speed, accuaracy, aceleration, strenght, pace],
+                //[1, 2, 3, 4, 5, 6, 7, 8],
+                200,
+                200
+            );
 
         }
 
         /**
-         * Init main slider 
+         * Init main slider
          * @js: ./js/slider.js
          * @usage: ./html-components/amateurs_main_slider.html
          */
@@ -395,91 +394,88 @@
         }
 
         /**
-         * Init and configuration player stats diagram 
+         * Init and configuration player stats diagram
          * @js: ./js/diagram.js
          * @usage: ./html-components/player-stats.html
          */
 
         if ($('#diagram').length > 0) {
             $('#diagram').diagram(
-                    ['2013', '2014', '2015', '2016', '2017'],
-                    [
-                        [12, 9, 7, 8, 5],
-                        [2, 1, 3.5, 7, 3],
-                        [1, 3, 4, 5, 6]
-                    ],
-                    false,
-                    5
-                    );
+                ['2013', '2014', '2015', '2016', '2017'],
+                [
+                    [12, 9, 7, 8, 5],
+                    [2, 1, 3.5, 7, 3],
+                    [1, 3, 4, 5, 6]
+                ],
+                false,
+                5
+            );
         }
 
         /**
-         * Init and configuration net rating  graph 
+         * Init and configuration net rating  graph
          * @js: ./js/bi-polar-diagram.js
          * @usage: ./html-components/player_stats.html
          */
         if ($('#bipolardiagram').length > 0) {
             $('#bipolardiagram').bipolardiagram(
-                    [1, 2, 3, 4, 5, 6, 7, 8],
-                    [
-                        [0, 2, 6, 8, 10, 7, 5, 0],
-                        [0, 0, -4, -5, -2.5, -1, -2, -3],
-                        [-9, -9, -5, -9, -7, -8, -10, -10],
-                        [-10, 2, 10, 0.5, 1, 0.5, -1, -2.5]
-                    ],
-                    10,
-                    -10,
-                    true,
-                    false,
-                    false,
-                    true,
-                    false,
-                    false
-
-                    );
+                [1, 2, 3, 4, 5, 6, 7, 8],
+                [
+                    [0, 2, 6, 8, 10, 7, 5, 0],
+                    [0, 0, -4, -5, -2.5, -1, -2, -3],
+                    [-9, -9, -5, -9, -7, -8, -10, -10],
+                    [-10, 2, 10, 0.5, 1, 0.5, -1, -2.5]
+                ],
+                10,
+                -10,
+                true,
+                false,
+                false,
+                true,
+                false,
+                false
+            );
         }
 
         /**
-         * Init and configuration financial attendance graph 
+         * Init and configuration financial attendance graph
          * @js: ./js/label-placement-diagram.js
          * @usage: ./html-components/club_main_stat.html
          */
 
         if ($('#label_placement').length > 0) {
             $('#label_placement').label_placement(
-                    ['2011', '2012', '2013', '2014', '2015', '2016', '2017'],
-                    [120, 160, 145, 200, 180, 185, 190],
-                    true
-
-                    );
+                ['2011', '2012', '2013', '2014', '2015', '2016', '2017'],
+                [120, 160, 145, 200, 180, 185, 190],
+                true
+            );
 
 
         }
 
         /**
-         * Init and configuration assists per game  graph 
+         * Init and configuration assists per game  graph
          * @js: ./js/donut-chart.js
          * @usage: ./html-components/player_stats.html
          */
 
         if ($('#donutchart').length > 0) {
             $('#donutchart').donutchart(
-                    ['20', '10', '30', '40'],
-                    [20, 10, 30, 40],
-                    true,
-                    60,
-                    true,
-                    270,
-                    false
-
-                    );
+                ['20', '10', '30', '40'],
+                [20, 10, 30, 40],
+                true,
+                60,
+                true,
+                270,
+                false
+            );
 
 
         }
 
 
         /**
-         * Init and configuration usage percentage  graph 
+         * Init and configuration usage percentage  graph
          * @js: ./js/animate-donut.js
          * @usage: ./html-components/player_stats.html
          */
@@ -487,15 +483,15 @@
         var totalDefeats = parseInt($("#stats > li#totalDefeats").text());
         if ($('#animatedonut').length > 0) {
             $('#animatedonut').animatedonut(
-                    ['L', 'W'],
-                    [totalDefeats,totalWins],
-                    true,
-                    true
-                    );
+                ['L', 'W'],
+                [totalDefeats, totalWins],
+                true,
+                true
+            );
         }
 
         /**
-         * Init and configuration points per game graph 
+         * Init and configuration points per game graph
          * @js: ./js/advanced-smil.js
          * @usage: ./html-components/player_stats.html
          */
@@ -504,56 +500,55 @@
         var arrayGames = stringGames.split("|");
         if ($('#advancesmill').length > 0) {
             $('#advancesmill').advancesmill(
-                    [
-                        arrayGames,
-                    ],
-                    0,
-                    ['Games per match'],
-                    true,
-                    'bottom'
-                    );
+                [
+                    arrayGames,
+                ],
+                0,
+                ['Games per match'],
+                true,
+                'bottom'
+            );
         }
 
         /**
-         * Init and configuration raitings graph 
+         * Init and configuration raitings graph
          * @js: ./js/svg-path.js
          * @usage: ./html-components/club_main_stat.html
          */
         if ($('#svgpath').length > 0) {
             $('#svgpath').svgpath(
-                    ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                    [
-                        [1, 5, 2, 5, 4, 3],
-                        [2, 3, 4, 8, 1, 2],
-                        [5, 4, 3, 2, 1, 0.5]
-                    ],
-                    0,
-                    true,
-                    false,
-                    false
-
-                    );
+                ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                [
+                    [1, 5, 2, 5, 4, 3],
+                    [2, 3, 4, 8, 1, 2],
+                    [5, 4, 3, 2, 1, 0.5]
+                ],
+                0,
+                true,
+                false,
+                false
+            );
         }
 
 
         /**
-         * Init and configuration financial indicators graph 
+         * Init and configuration financial indicators graph
          * @js: ./js/pick-circle.js
          * @usage: ./html-components/club_main_stat.html
          */
         if ($('#pickcircle').length > 0) {
             $('#pickcircle').pickcircle(
-                    ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-                    [
-                        [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
-                    ],
-                    10,
-                    -10
-                    );
+                ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+                [
+                    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+                ],
+                10,
+                -10
+            );
         }
 
         /**
-         * Init and configuration Pace  graph 
+         * Init and configuration Pace  graph
          * @js: ./js/horizontal-bar.js
          * @usage: ./html-components/player_stats.html
          */
@@ -563,71 +558,71 @@
 
         if ($('#horizontalbar').length > 0) {
             $('#horizontalbar').horizontalbar(
-                    ['Accuracy', 'Effectiveness', 'Unforced Errors'],
-                    [
-                        [meanAccuracy, meanEffectiveness, meanUnforcedErrors],
-                    ],
-                    10,
-                    true,
-                    true,
-                    ['%'],
-                    true,
-                    'bottom',
-                    120
-                    );
+                ['Accuracy', 'Effectiveness', 'Unforced Errors'],
+                [
+                    [meanAccuracy, meanEffectiveness, meanUnforcedErrors],
+                ],
+                10,
+                true,
+                true,
+                ['%'],
+                true,
+                'bottom',
+                120
+            );
         }
 
         /**
-         * Init and configuration main investors graph 
+         * Init and configuration main investors graph
          * @js: ./js/gauge-chart.js
          * @usage: ./html-components/club_main_stat.html
          */
         if ($('#gaugechart').length > 0) {
             $('#gaugechart').gaugechart(
-                    [20, 10, 30, 40],
-                    true,
-                    60,
-                    true,
-                    270,
-                    200,
-                    true,
-                    ['Investor Name 1', 'Investor Name 2', 'Investor Name 3', 'Investor Name 4'],
-                    true
-                    );
+                [20, 10, 30, 40],
+                true,
+                60,
+                true,
+                270,
+                200,
+                true,
+                ['Investor Name 1', 'Investor Name 2', 'Investor Name 3', 'Investor Name 4'],
+                true
+            );
         }
 
         /**
-         * Init and configuration salary cap graph 
+         * Init and configuration salary cap graph
          * @js: ./js/stacked-bar.js
          * @usage: ./html-components/club_main_stat.html
          */
         if ($('#stackedbar').length > 0) {
             $('#stackedbar').stackedbar(
-                    ['Q1', 'Q2', 'Q3', 'Q4'],
-                    [
-                        [800000, 1200000, 1400000, 1300000],
-                        [200000, 400000, 500000, 300000],
-                        [100000, 200000, 400000, 600000]
-                    ],
-                    true
-                    );
+                ['Q1', 'Q2', 'Q3', 'Q4'],
+                [
+                    [800000, 1200000, 1400000, 1300000],
+                    [200000, 400000, 500000, 300000],
+                    [100000, 200000, 400000, 600000]
+                ],
+                true
+            );
         }
 
         /**
-         * Init and configuration threshold graph 
+         * Init and configuration threshold graph
          * @js: ./js/stacked-bar.js
          * @usage: ./html-components/player_stats.html
          */
         if ($('#threshold').length > 0) {
             $('#threshold').threshold(
-                    ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    [
-                        [5, -4, -10, -8, 15, 14, 12, 8, 3, -5, -15, -8]
+                ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                [
+                    [5, -4, -10, -8, 15, 14, 12, 8, 3, -5, -15, -8]
 
-                    ],
-                    true,
-                    4
-                    );
+                ],
+                true,
+                4
+            );
         }
 
         /** Sport-team-landing.html js start**/
@@ -640,14 +635,14 @@
         /**
          * Init and configuration anchor links scroll
          * @js: ./js/anchor.js
-         * @usage: ./templates/sport-team-landing.html  
+         * @usage: ./templates/sport-team-landing.html
          *         ./html-component/landing_sport_standings.html
-         *         ./html-component/landing_sport_header.html  
+         *         ./html-component/landing_sport_header.html
          *         ./html-component/landing_sport_main_slider.html
-         *         ./html-component/landing_sport_players_slider.html  
-         *         ./html-component/landing_sport_main_news.html  
-         *         ./html-component/landing_sport_about.html  
-         *         ./html-component/landing_sport_twitter_slider.html 
+         *         ./html-component/landing_sport_players_slider.html
+         *         ./html-component/landing_sport_main_news.html
+         *         ./html-component/landing_sport_about.html
+         *         ./html-component/landing_sport_twitter_slider.html
          */
         if ($("#landing-header").length > 0) {
             $("#landing-header").anchor(3000, ".sport-team-lp-header", "#header");
@@ -739,7 +734,7 @@
          * Init and configuration latest video
          * @js: ./js/landing_sport_standings.js
          * @usage: ./html-components/sport_championship_latest_videos.html
-         
+
          */
         if ($(".sport-championship-videos").length > 0) {
             $(".sport-championship-videos").videoslider();
@@ -849,8 +844,6 @@
     });
 
 
-
-
 //});
 })(jQuery, window, document);
 
@@ -861,12 +854,11 @@
 
     /*==================================================================
    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
+    $('.input100').each(function () {
+        $(this).on('blur', function () {
+            if ($(this).val().trim() != "") {
                 $(this).addClass('has-val');
-            }
-            else {
+            } else {
                 $(this).removeClass('has-val');
             }
         })
@@ -877,13 +869,13 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
+    $('.validate-form').on('submit', function () {
         var check = true;
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
+        for (var i = 0; i < input.length; i++) {
+            if (validate(input[i]) == false) {
                 showValidate(input[i]);
-                check=false;
+                check = false;
             }
         }
 
@@ -891,20 +883,19 @@
     });
 
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
+    $('.validate-form .input100').each(function () {
+        $(this).focus(function () {
             hideValidate(this);
         });
     });
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+    function validate(input) {
+        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
                 return false;
             }
-        }
-        else {
-            if($(input).val().trim() == ''){
+        } else {
+            if ($(input).val().trim() == '') {
                 return false;
             }
         }
@@ -921,7 +912,6 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
-
 
 
 })(jQuery);

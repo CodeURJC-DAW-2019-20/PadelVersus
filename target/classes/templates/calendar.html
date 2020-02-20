@@ -38,67 +38,11 @@
 
 <body>
 
-<div class="preloader-wrapper" id="preloader">
-    <div class="motion-line dark-big"></div>
-    <div class="motion-line yellow-big"></div>
-    <div class="motion-line dark-small"></div>
-    <div class="motion-line yellow-normal"></div>
-    <div class="motion-line yellow-small1"></div>
-    <div class="motion-line yellow-small2"></div>
-</div>
+{{> preloadEffect}}
 
 
 
-    <!--MAIN MENU WRAP BEGIN-->
-<div class="main-menu-wrap sticky-menu">
-    <div class="container">
-        <a  class="custom-logo-link"><img src="/images/soccer/logo.png" alt="logo" class="custom-logo"></a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <nav class="navbar">
-            <div class="collapse navbar-collapse" id="team-menu">
-                <ul class="main-menu nav">
-                    <li class="active">
-                        <a href="index.html"><span>Home</span></a>
-                    </li>
-                    <li>
-                        <a href="matches.html"><span>Matches</span></a>
-                        <ul>
-                            <li>
-                                <a href="standing-cup.html"><span>Standings</span></a>
-                            </li>
-                            <li>
-                                <a href="Tournaments.html"><span>Championship</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="teams.html"><span>Teams</span></a>
-                    </li>
-                    <li><a href="Tournaments.html"><span>Ranking</span></a></li>
-                    <li><a href="calendar.html"><span>Calendar</span></a></li>
-
-                    <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
-                    <li>
-                        <a href="coming-soon.html"><span>other</span></a>
-                        <ul>
-                            <li><a href="404.html"><span>404</span></a></li>
-                            <li><a href="offline.html"><span>offline</span></a></li>
-                            <li><a href="coming-soon.html"><span>comming soon</span></a></li>
-
-                        </ul>
-                    </li>
-                    <li><a href="logIn.html"><span>LOG IN</span></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div>
-<!--MAIN MENU WRAP END-->
+{{> menu}}
 
 <!--BREADCRUMBS BEGIN-->
 <section class="image-header">
@@ -126,7 +70,9 @@
 <div>
     <div class="calendar">
         <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23F6BF26&amp;ctz=Europe%2FMadrid&amp;
-        src=NGZsOG1hMjE3azU1aDU4Zmg0ZDhqdnI0NTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%236633CC&amp;showTitle=1&amp;title=Padel%20Matchs&amp;showNav=1&amp;showDate=1" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
+
+       src=NGZsOG1hMjE3azU1aDU4Zmg0ZDhqdnI0NTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%236633CC&amp;showTitle=1&amp;title=Padel%20Matchs&amp;showNav=1&amp;showDate=1" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
+        <a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=M2F0YTMxbWdtdjI4Nmxja2c0b3E0Z2w3c3QgNGZsOG1hMjE3azU1aDU4Zmg0ZDhqdnI0NTBAZw&amp;tmsrc=4fl8ma217k55h58fh4d8jvr450%40group.calendar.google.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es.gif"></a>
     </div>
 </div>
 </section>
@@ -138,72 +84,7 @@
 
 
 
-    <!--FOOTER BEGIN-->
-<footer class="footer">
-    <div class="wrapper-overfllow">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <div class="footer-left">
-                        <div class="wrap">
-                            <a href="index.html" class="foot-logo"><img src="/images/soccer/footer-logo.png" alt="footer-logo"></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12 col-lg-offset-1">
-                    <div class="foot-news">
-                        <h4>Recent news</h4>
-                        <div class="item">
-                            <a class="image"><img class="img-responsive" src="/images/padel.jpg" alt="news-image"></a>
-                            <a class="date">25 Sep 2016</a>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-lg-3 col-md-4 col-sm-12">
-                    <div class="foot-contact">
-                        <h4>Contact us</h4>
-                        <ul class="contact-list">
-                            <li><i class="fa fa-flag" aria-hidden="true"></i><span>URJC</span></li>
-                            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:team@email.com">padelversus@email.com</a></li>
-                            <li class="phone"><i class="fa fa-phone" aria-hidden="true"></i><span>+34 583766284</span></li>
-                        </ul>
-                        <ul class="socials">
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-menu-wrap">
-        <div class="container">
-                   <ul class="main-menu nav">
-                        <li class="active">
-                            <a href="index.html"><span>Home</span></a>
-                        </li>
-                        <li>
-                            <a href="matches.html"><span>Matches</span></a>
-                        </li>
-                        <li>
-                            <a href="teams.html"><span>Team</span></a>
-                        </li>
-                        <li><a href="Tournaments.html"><span>Ranking</span></a></li>
-                        <li><a href="calendar.html"><span>Calendar</span></a></li>
-                        <li><a href="RegistrationForm.html"><span>Registration Tournament</span></a></li>
-                        <li><a href="logIn.html"><span>LOG IN</span></a></li>
-                    </ul>
-
-
-        </div>
-    </div>
-
-</footer>
-<!--FOOTER END-->
+    {{> footer}}
 </section>
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>

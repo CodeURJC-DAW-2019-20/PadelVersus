@@ -1,0 +1,26 @@
+<div class="footer-menu-wrap">
+    <div class="container">
+        <ul class="main-menu nav">
+            <li class="active">
+                <a href="/"><span>Home</span></a>
+            </li>
+            <li>
+                <a href="/matches/"><span>Matches</span></a>
+            </li>
+            <li>
+                <a href="/teams/"><span>Team</span></a>
+            </li>
+            <li><a href="/tournament/"><span>Ranking</span></a></li>
+            <li><a href="/html/coming-soon.html"><span>Calendar</span></a></li>
+            <li><a href="/tournament/register"><span>Registration Tournament</span></a></li>
+            {{#logged}}
+            <li><a href="/logout"><span>LOG OUT</span></a></li>
+            {{/logged}}
+            {{^logged}}
+            <li><a href="/login"><span>LOG IN</span></a></li>
+            {{/logged}}
+        </ul>
+
+
+    </div>
+</div>

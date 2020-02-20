@@ -169,6 +169,7 @@ public class PlayerService {
         player.setImage(data);
         return true;
     }
+
     // Returns the player asociate at an user or null if not returns null
     public Player getPlayerFromUser(User user){
         String usernameToFind = user.getName();
@@ -178,5 +179,11 @@ public class PlayerService {
             if(usernamePlayer.equals(usernameToFind)) return player;
         }
         return null;
+    }
+
+    public Player getPlayerFromUsername(String username){
+        User user = userRepository.findByName(username);
+        List<Player> allPlayer = playerRepository.findAll();
+        return user.getPlayer();
     }
 }

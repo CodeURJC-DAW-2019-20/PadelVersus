@@ -22,7 +22,7 @@ public class TPTournamentDisplayInfo {
     }
 
     public TPTournamentDisplayInfo(List<String> teamNames){
-        this.teamNames = teamNames;
+        //this.teamNames = teamNames;
         this.tournamentName = "All";
         this.cleanName = tournamentName;
     }

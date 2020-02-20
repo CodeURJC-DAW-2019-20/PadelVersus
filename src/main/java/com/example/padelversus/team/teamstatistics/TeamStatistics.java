@@ -148,11 +148,11 @@ public class TeamStatistics {
             means[4] = Float.toString(totalUnforcedErrors / totalGames);
             StringBuilder sb = new StringBuilder();
             int n = gamesPerMatch.size()-1;
-            System.out.println(n);
+            //System.out.println(n);
             for (Game g : gamesPerMatch) {
                 sb.append(g.getGames() + "|");
                 n--;
-                System.out.println(g.getGames());
+                //System.out.println(g.getGames());
             }
             means[5] = sb.toString();
         }else{

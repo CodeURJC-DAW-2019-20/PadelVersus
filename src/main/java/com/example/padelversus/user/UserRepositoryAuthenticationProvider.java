@@ -24,7 +24,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
-		User user = userRepository.findByName(auth.getName()); //Usuario de la BBDD
+		User user = userRepository.findByName(auth.getName()); //User from BBDD
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
@@ -40,7 +40,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			roles.add(new SimpleGrantedAuthority(role));
 		}
 
-		return new UsernamePasswordAuthenticationToken(user.getName(), password, roles); //Si existe y la contraseña es correcta devolvemos un objeto con los roles
+		return new UsernamePasswordAuthenticationToken(user.getName(), password, roles); //If user exists and pass is correct we create an objetct with the roles
 	}
 
 	@Override

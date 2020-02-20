@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <title>Tournament Registration</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Team HTML</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
+    <title>Padel Versus</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
+          rel="stylesheet"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css" />
-    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css" />
+    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- 
-    
-    Enable one styles which the you want
-    
-    <link href="css-min/hockey.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/basketball.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/football.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/baseball.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/dota.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/csgo.min.css" rel="stylesheet" type="text/css" />
-    
-    All libraries included in this css, concating rules in /grunt/cssmin.js
-    Use grunt default task for creating this files
-    
-    -->
 </head>
+<body>
+
+{{> preloadEffect}}
 
 
-<body class="error-page">
-    
-    <!--ERROR WRAP BEGIN-->
-<div class="error-wrap offline">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="index.html" class="error-logo"><img src="/images/soccer/error-logo.png" alt="logo"></a>
-            </div>
-        </div>
-    </div>
-    <div class="offline-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <span class="small-text">Site is</span>
-                    <span class="big-text">Under</span>
-                    <span class="big-text">Maintenance</span>
-                    <ul class="offline-socials">
-                        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
+
+
+{{> menu}}
+
+
+<div class="container" style="padding-top :3%">
+    <form action="/player/editProfileForm" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="limiter">
+                        <label style="display: block; text-align: left"><h3>{{name}}</h3></label>
+                        <input type="hidden" id="username" name="username" value="{{name}}">
+                        <div>
+                            <a href="player.html" class="item">
+                                <!--<img style="margin-left: 20%" src="/images/soccer/staff-item-img.jpg" alt="player">-->
+                                <img src="/images/soccer/staff-item-img.jpg" alt="player" >
+                            </a>
+                        </div>
+                        <div class="container-login100">
+                            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+                                <span class="label-input100"></span>
+                                <input class="inputfile" type='file' id='imageFile' name='imageFile' accept=".jpg, .jpeg"/>
+                                <label for='imageFile'>Choose an image</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Accept changes</button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
-<!--ERROR WRAP END-->
 
-    <script type="text/javascript" src="/js/library/jquery.js"></script>
+
+{{> footer}}->
+
+<script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>
 <script type="text/javascript" src="/js/library/jquery.sticky.js"></script>
@@ -126,9 +122,6 @@
 <script type="text/javascript" src="/js/main.js"></script>
 
 
-
 <script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
 </body>
-
-
 </html>

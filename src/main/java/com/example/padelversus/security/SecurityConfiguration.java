@@ -17,20 +17,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/match/1").permitAll();
-        http.authorizeRequests().antMatchers("/matches").permitAll();
+        http.authorizeRequests().antMatchers("/teams/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/signup").permitAll();
+        http.authorizeRequests().antMatchers("/apiTeams").permitAll();
+        http.authorizeRequests().antMatchers("/apiTeams/").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/saveUser").permitAll();
         http.authorizeRequests().antMatchers("/signupPlayer").permitAll();
-
         http.authorizeRequests().antMatchers("/saveMatch").permitAll();
-        http.authorizeRequests().antMatchers("/adminPage").permitAll(); //Cambiar a acceso solo a ADMIN
+        http.authorizeRequests().antMatchers("/adminPage").hasAnyRole("ADMIN"); //Cambiar a acceso solo a ADMIN
         http.authorizeRequests().antMatchers("/uploadImage").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
-        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**").permitAll();
+        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**", "/html/**").permitAll();
         //http.authorizeRequests().antMatchers("/resources/**").permitAll();
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();
@@ -47,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.logout().logoutSuccessUrl("/");
 
         // Disable CSRF at the moment
-        http.csrf().disable();
+       // http.csrf().disable();
         http.headers().frameOptions().disable();
         /*http
                 .authorizeRequests()
