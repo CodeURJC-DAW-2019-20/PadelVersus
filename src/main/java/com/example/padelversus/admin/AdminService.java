@@ -10,7 +10,6 @@ import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.tournament.TournamentService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
-import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
