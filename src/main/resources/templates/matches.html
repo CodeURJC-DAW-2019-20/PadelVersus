@@ -184,22 +184,20 @@
                 <div class="esport-championship-standings">
 
                     <div class="buttons-wrapper">
-                        {{#list_matches_byDate}}
                         <a href="#" class="arrow left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
 
                         <span>
-                                <span class="league">{{date}}</span>
+                                <span class="league">Calendar</span>
                         </span>
 
                         <a href="#" class="arrow right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
+                    {{#list_matches_byDate}}
                     <div class="mySlides fade-standings">
                         {{#matches}}
-
-
                         <span class="league_name">{{date}}</span>
                         <div class="amateurs-main-match">
-                            <div class="title">MIRARNOMBRETONREO</div>
+
                             <a href="matches.html" class="team">
                                 <span class="image"><img src="/images/soccer/team-logo2.png" alt="main-match"></span>
                                 <span class="info">
@@ -220,9 +218,8 @@
 
                         </div>
                         {{/matches}}
-                        {{/list_matches_byDate}}
                     </div>
-
+                    {{/list_matches_byDate}}
                 </div>
             </div>
         </div>
