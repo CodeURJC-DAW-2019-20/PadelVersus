@@ -8,6 +8,7 @@ import java.util.List;
 
 public class LastMatchDisplay {
 
+    private String id;
     private String gamesPerSetOne;
     private String gamesPerSetTwo;
     private String nameTeamOne;
@@ -18,7 +19,7 @@ public class LastMatchDisplay {
 
 
     public LastMatchDisplay(Match match){
-
+        this.id = Long.toString(match.getId());
         this.nameTeamOne = match.getTeams().get(0).getName();
         this.nameTeamTwo = match.getTeams().get(1).getName();
         if(match.getStadistics_1() != null || match.getStadistics_2() != null){
