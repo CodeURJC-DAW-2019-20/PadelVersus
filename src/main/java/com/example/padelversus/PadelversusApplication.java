@@ -85,122 +85,123 @@ public class PadelversusApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         // Save teams and player
+
         Player player1 = new Player(14, 1.68, 60, 1, 5.6, 8, 10, 10, 2.5, "Spain");
-        User user1 = new User("Player 1", "player1", "player1@gmail.com", "ROLE_USER");
+        User user1 = new User("Baltasar Grasia", "BaltasarGrasia", "baltasargrasia@gmail.com", "ROLE_USER");
         player1.setUser(user1);
         File imageFile_1 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_1.jpeg").toFile();
         playerService.setImagePlayer(player1, imageFile_1);
 
         Player player2 = new Player(16, 1.70, 65, 2, 4.4, 6.8, 9, 2, 4.6, "France");
-        User user2 = new User("Player 2", "player2", "player2@gmail.com", "ROLE_USER");
+        User user2 = new User("Baldomero Grano", "BaldomeroGrano", "baldomerograno@gmail.com", "ROLE_USER");
         player2.setUser(user2);
         File imageFile_2 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_2.jpeg").toFile();
         playerService.setImagePlayer(player2, imageFile_2);
 
         Player player3 = new Player(23, 1.72, 66, 3, 5, 5, 2, 2, 5.6, "Netherland");
-        User user3 = new User("Player 3", "player3", "player3@gmail.com", "ROLE_USER");
+        User user3 = new User("Pepe Grande", "PepeGrande", "pepegrande@gmail.com", "ROLE_USER");
         player3.setUser(user3);
         File imageFile_3 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_3.jpeg").toFile();
         playerService.setImagePlayer(player3, imageFile_3);
 
         Player player4 = new Player(24, 1.78, 67, 4, 3.7, 6.7, 3, 5, 6.7, "Spain");
-        User user4 = new User("Player 4", "player4", "player4@gmail.com", "ROLE_USER");
+        User user4 = new User("Baltasar Cardiel", "BaltasarCardiel", "baltasarcardiel@gmail.com", "ROLE_USER");
         player4.setUser(user4);
         File imageFile_4 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_4.jpeg").toFile();
         playerService.setImagePlayer(player4, imageFile_4);
 
         Player player5 = new Player(25, 1.79, 89, 5, 3.5, 3, 4, 6, 6.9, "Portugal");
-        User user5 = new User("Player 5", "player5", "player5@gmail.com", "ROLE_USER");
+        User user5 = new User("Lucas Guerreiro", "LucasGuerreiro", "lucasguerreiro@gmail.com", "ROLE_USER");
         player5.setUser(user5);
         File imageFile_5 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_5.jpeg").toFile();
         playerService.setImagePlayer(player5, imageFile_5);
 
         Player player6 = new Player(26, 1.87, 70, 6, 3.7, 5, 5, 7, 7.0, "United Kindgdom");
-        User user6 = new User("Player 6", "player6", "player6@gmail.com", "ROLE_USER");
+        User user6 = new User("Baruj Griego", "BarujGriego", "barujgriego@gmail.com", "ROLE_USER");
         player6.setUser(user6);
         File imageFile_6 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_6.jpeg").toFile();
         playerService.setImagePlayer(player6, imageFile_6);
 
         Player player7 = new Player(28, 1.9, 73, 7, 3.3, 6, 7, 8, 7.2, "United Kindgdom");
-        User user7 = new User("Player 7", "player7", "player7@gmail.com", "ROLE_USER");
+        User user7 = new User("Andrea Carion", "AndreaCarion", "andreacarion@gmail.com", "ROLE_USER");
         player7.setUser(user7);
         File imageFile_7 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_7.jpeg").toFile();
         playerService.setImagePlayer(player7, imageFile_7);
 
         Player player8 = new Player(31, 1.8, 75, 8, 3.2, 6.7, 8, 7, 6.4, "France");
-        User user8 = new User("Player 8", "player8", "player8@gmail.com", "ROLE_USER");
+        User user8 = new User("Bartolomé Grande", "BartolomeGrande", "bartolomegrande@gmail.com", "ROLE_USER");
         player8.setUser(user8);
         File imageFile_8 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_8.jpeg").toFile();
         playerService.setImagePlayer(player8, imageFile_8);
 
         Player player9 = new Player(32, 1.8, 77, 9, 1.6, 6.8, 9, 6, 5.6, "Spain");
-        User user9 = new User("Player 9", "player9", "player9@gmail.com", "ROLE_USER");
+        User user9 = new User("David Guerrero", "DavidGuerrero", "davidguerrero@gmail.com", "ROLE_USER");
         player9.setUser(user9);
         File imageFile_9 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_9.jpeg").toFile();
         playerService.setImagePlayer(player9, imageFile_9);
 
         Player player10 = new Player(33, 1.5, 70, 7, 1.7, 4.6, 10, 8, 6.7, "Spain");
-        User user10 = new User("Player 10", "player10", "player10@gmail.com", "ROLE_USER");
+        User user10 = new User("Baruj Grangenal", "BarujGrangenal", "barujgrangenal@gmail.com", "ROLE_USER");
         player10.setUser(user10);
         File imageFile_10 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_10.jpeg").toFile();
         playerService.setImagePlayer(player10, imageFile_10);
 
-        Player player11 = new Player(35, 1.7, 51, 8, 1.8, 4.6, 3, 9, 8.8, "France");
-        User user11 = new User("Player 11", "player11", "player11@gmail.com", "ROLE_USER");
+        Player player11 = new Player(35, 1.7, 51, 8, 1.8, 4.6, 3, 9, 8.8, "Italy");
+        User user11 = new User("Andrea Grigalva", "AndreaGrigalva", "andreagrigalva@gmail.com", "ROLE_USER");
         player11.setUser(user11);
         File imageFile_11 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_11.jpeg").toFile();
         playerService.setImagePlayer(player11, imageFile_11);
 
         Player player12 = new Player(47, 1.5, 58, 6, 1.9, 4.8, 4, 2, 9.9, "France");
-        User user12 = new User("Player 12", "player12", "player12@gmail.com", "ROLE_USER");
+        User user12 = new User("Baldwin Carion", "BaldwinCarion", "baldwincarion@gmail.com", "ROLE_USER");
         player12.setUser(user12);
         File imageFile_12 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_12.jpeg").toFile();
         playerService.setImagePlayer(player12, imageFile_12);
 
         Player player13 = new Player(45, 1.6, 60, 7, 1.5, 4.3, 4.6, 3, 3.4, "Netherland");
-        User user13 = new User("Player 13", "player13", "player13@gmail.com", "ROLE_USER");
+        User user13 = new User("Bart Carion", "BartCarion", "bartcarion@gmail.com", "ROLE_USER");
         player13.setUser(user13);
         File imageFile_13 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_13.jpeg").toFile();
         playerService.setImagePlayer(player13, imageFile_13);
 
         Player player14 = new Player(24, 1.8, 62, 9, 1.4, 3.2, 5.7, 4, 5.6, "Netherland");
-        User user14 = new User("Player 14", "player14", "player14@gmail.com", "ROLE_USER");
+        User user14 = new User("Carlota Grasia", "CarlotaGrasia", "carlotagrasia@gmail.com", "ROLE_USER");
         player14.setUser(user14);
         File imageFile_14 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_14.jpeg").toFile();
         playerService.setImagePlayer(player14, imageFile_14);
 
         Player player15 = new Player(48, 1.9, 45, 10, 1.3, 3.4, 5.6, 5, 6.7, "France");
-        User user15 = new User("Player 15", "player15", "player15@gmail.com", "ROLE_USER");
+        User user15 = new User("Caritina Castiyo", "CaritinaCastiyo", "caritinacastiyo@gmail.com", "ROLE_USER");
         player15.setUser(user15);
         File imageFile_15 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_15.jpeg").toFile();
         playerService.setImagePlayer(player15, imageFile_15);
 
         Player player16 = new Player(50, 1.4, 67, 10, 1.2, 5.7, 5.6, 6, 7.6, "France");
-        User user16 = new User("Player 16", "player16", "player16@gmail.com", "ROLE_USER");
+        User user16 = new User("Alex Suarez", "AlexSuarez", "alexsuarez@gmail.com", "ROLE_USER");
         player16.setUser(user16);
         File imageFile_16 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_16.jpeg").toFile();
         playerService.setImagePlayer(player16, imageFile_16);
 
         Player player17 = new Player(29, 1.6, 69, 9, 1.1, 5.8, 6.7, 7, 6.7, "Spain");
-        User user17 = new User("Player 17", "player17", "player17@gmail.com", "ROLE_USER");
+        User user17 = new User("Jordi Hurtado", "JordiHurtado", "jordihurtado@gmail.com", "ROLE_USER");
         player17.setUser(user17);
         File imageFile_17 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_17.jpeg").toFile();
         playerService.setImagePlayer(player17, imageFile_17);
 
         Player player18 = new Player(21, 1.7, 70, 8, 5.6, 5.9, 3.4, 8, 4.5, "Spain");
-        User user18 = new User("Player 18", "player18", "player18@gmail.com", "ROLE_USER");
+        User user18 = new User("Marco Gutierrez", "MarcoGutierrez", "marcogutierrez@gmail.com", "ROLE_USER");
         player18.setUser(user18);
         File imageFile_18 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_18.jpeg").toFile();
         playerService.setImagePlayer(player18, imageFile_18);
 
         Player player19 = new Player(39, 1.8, 76, 7, 5.8, 3.4, 5.6, 9, 6.7, "United Kindgdom");
-        User user19 = new User("Player 19", "player19", "player19@gmail.com", "ROLE_USER");
+        User user19 = new User("David Grano", "DavidGrano", "davidgrano@gmail.com", "ROLE_USER");
         player19.setUser(user19);
         File imageFile_19 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_19.jpeg").toFile();
         playerService.setImagePlayer(player19, imageFile_19);
 
         Player player20 = new Player(40, 1.9, 40, 6, 5.9, 5.4, 5.8, 10, 5.6, "United Kindgdom");
-        User user20 = new User("Player 20", "player20", "player20@gmail.com", "ROLE_USER");
+        User user20 = new User("Baldwin Carillo", "BaldwinCarillo", "baldwincarillo@gmail.com", "ROLE_USER");
         player20.setUser(user20);
         File imageFile_20 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_20.jpeg").toFile();
         playerService.setImagePlayer(player20, imageFile_20);
