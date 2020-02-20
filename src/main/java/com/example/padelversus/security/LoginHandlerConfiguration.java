@@ -28,7 +28,9 @@ class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
         try {
             String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             boolean logged = !username.equals("anonymousUser");
+            boolean admin = username.equals("admin");
             modelAndView.addObject("logged", logged);
+            modelAndView.addObject("admin", admin);
         } catch (Exception e) {
 
         }
