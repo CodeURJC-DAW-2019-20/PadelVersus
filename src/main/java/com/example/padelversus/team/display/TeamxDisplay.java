@@ -18,10 +18,7 @@ public class TeamxDisplay {
     private List<LastMatchDisplay> lastMatches;
     private TeamStatisticsDisplay statisticsDisplay;
 
-    @Autowired
-    private ImageService imageService;
-
-    public TeamxDisplay(Team team) throws IOException {
+    public TeamxDisplay(Team team){
         this.teamName = team.getName();
         this.players = team.getPlayers();
 

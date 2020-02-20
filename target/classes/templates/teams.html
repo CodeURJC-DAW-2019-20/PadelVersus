@@ -82,16 +82,16 @@
                         <div class="esport_championship_participants">
                             <div class="container">
                                 <div class="row no-guters">
-                                    {{#teamNames}}
+                                    {{#teams}}
                                     <div class="col-md-3 col-sm-4 col-xs-6">
-                                        <a href="#">
+                                        <a href="/teamx/{{id}}">
                                             <img src="/images/common/esport-participants-background.jpg"
                                                  class="background-team" alt="background">
                                             <img src="/images/common/team-logo2.png" alt="team-logo">
-                                            <span>{{.}}</span>
+                                            <span>{{name}}</span>
                                         </a>
                                     </div>
-                                    {{/teamNames}}
+                                    {{/teams}}
 
 
                                 </div>
@@ -195,10 +195,10 @@
                     setTimeout(function() {
                         $.each(data, function (index, value) {
                             $("#All > div > div > div").append("<div class=\"col-md-3 col-sm-4 col-xs-6\">\n" +
-                                "                                        <a href=\"#\">\n" +
+                                "                                        <a href=\"/teamx/" + value[0] +"\">\n" +
                                 "                                            <img src=\"/images/common/esport-participants-background.jpg\" class=\"background-team\" alt=\"background\">\n" +
                                 "                                            <img src=\"/images/common/team-logo2.png\" alt=\"team-logo\">\n" +
-                                "                                            <span>" + value + "</span>\n" +
+                                "                                            <span>" + value[1] + "</span>\n" +
                                 "                                        </a>\n" +
                                 "                                    </div>");
                         });

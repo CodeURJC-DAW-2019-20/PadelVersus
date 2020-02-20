@@ -10,14 +10,14 @@ public class TPTournamentDisplayInfo {
 
     private String cleanName; //Name without spaces
     private String tournamentName;
-    private List<String> teamNames;
+    private List<SimpleTeamDisplay> teams;
 
     public TPTournamentDisplayInfo(Tournament tournament){
-        this.teamNames = new ArrayList<>();
+        this.teams = new ArrayList<>();
         this.tournamentName = tournament.getName();
         this.cleanName = tournament.getNonspacename();
         for(Team t: tournament.getTeams()) {
-            teamNames.add(t.getName());
+            teams.add(new SimpleTeamDisplay(t));
         }
     }
 
@@ -43,12 +43,11 @@ public class TPTournamentDisplayInfo {
         this.tournamentName = tournamentName;
     }
 
-    public List<String> getTeamNames() {
-        return teamNames;
+    public List<SimpleTeamDisplay> getTeams() {
+        return teams;
     }
 
-    public void setTeamNames(List<String> teamNames) {
-        this.teamNames = teamNames;
+    public void setTeams(List<SimpleTeamDisplay> teams) {
+        this.teams = teams;
     }
-
 }
