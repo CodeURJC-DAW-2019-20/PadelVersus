@@ -4,6 +4,8 @@ import com.example.padelversus.ImageService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.display.TeamxDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
@@ -47,5 +49,9 @@ public class TeamService {
             System.out.println("Fatal error loading player images");
             e.printStackTrace();
         }
+    }
+
+    public Page<Team> getPages(Pageable page){
+        return teamRepository.findAll(page);
     }
 }

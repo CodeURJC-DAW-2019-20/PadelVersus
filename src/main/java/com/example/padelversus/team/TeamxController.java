@@ -19,10 +19,6 @@ import java.util.Optional;
 @RequestMapping("/teamx")
 public class  TeamxController {
     @Autowired
-    TeamRepository teamRepository;
-    @Autowired
-    private ImageService imageService;
-    @Autowired
     private TeamService teamService;
 
     @GetMapping("/{id}")
