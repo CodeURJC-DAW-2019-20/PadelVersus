@@ -86,7 +86,7 @@
                     <div class="staff-box">
                         {{#players}}
                         <div class="col-md-6  col-sm-3 col-xs-6">
-                            <a href="player.html" class="item">
+                            <a href="/player/{{id}}" class="item">
                                 <span class="info">
                                     {{#user}}
                                     <span class="name">{{name}}</span>
@@ -109,10 +109,10 @@
     <!--LAST MATCHES BEGIN-->
     <div class="container last-hockey-macthes">
         <div class="row">
-            <h6>Last {{LAST_MATCHES_SHOWN}} matches if played</h6>
+            <h6>Last {{LAST_MATCHES_SHOWN}} matches played</h6>
             <div class="main-lates-matches">
                 {{#lastMatches}}
-                <a href="#" class="item">
+                <a href="/match/{{id}}" class="item">
                     {{#winsTeamOne}}
                     <span class="teams-wrap">
                         <span class="teamwinner">
