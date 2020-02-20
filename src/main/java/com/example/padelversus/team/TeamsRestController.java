@@ -13,21 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/apiTeams")
-public class    TeamsRestController {
-
+public class TeamsRestController {
     @Autowired
-    TeamRepository teamRepository;
-    @Autowired
-    TournamentRepository tournamentRepository;
+    TeamService teamService;
 
     @GetMapping("/")
     public List<String[]> returnAllTeams(Pageable page){
-        Page<Team> pages = teamRepository.findAll(page);
-        List<String[]> pageTeamNames = new ArrayList<>();
-        for(Team t: pages){
-            String[] info = {Long.toString(t.getId()), t.getName()};
-            pageTeamNames.add(info);
-        }
-    return pageTeamNames;
+        Page<Team> pages = teamService.getPages(page);
+        List<String[]> pageTeamNames = teamService.getPageTeamNames(pages);
+        return pageTeamNames;
     }
 }

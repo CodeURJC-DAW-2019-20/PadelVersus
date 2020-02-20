@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,5 +55,15 @@ public class TeamService {
 
     public Page<Team> getPages(Pageable page){
         return teamRepository.findAll(page);
+    }
+
+    public List<String[]> getPageTeamNames(Page<Team> pages) {
+        List<String[]> pageTeamNames = new ArrayList<>();
+        for (Team t : pages) {
+            String[] info = {Long.toString(t.getId()), t.getName()};
+            pageTeamNames.add(info);
+        }
+
+        return pageTeamNames;
     }
 }
