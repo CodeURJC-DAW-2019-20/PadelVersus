@@ -1,0 +1,41 @@
+<!--MAIN MENU WRAP BEGIN-->
+<div class="main-menu-wrap sticky-menu">
+    <div class="container">
+        <a class="custom-logo-link">
+            <img src="/images/soccer/logo.png" alt="logo" class="custom-logo" href="index.html">
+        </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#team-menu"
+                aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <nav class="navbar">
+            <div class="collapse navbar-collapse" id="team-menu">
+                <ul class="main-menu nav">
+                    <li class="active">
+                        <a href="/"><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="/matches/"><span>Matches</span></a>
+                    </li>
+                    <li>
+                        <a href="/teams/"><span>Teams</span></a>
+                    </li>
+                    <li><a href="/tournament/"><span>Ranking</span></a></li>
+                    <li><a href="/html/coming-soon.html"><span>Calendar</span></a></li>
+
+                    <li><a href="/tournament/register"><span>Registration Tournament</span></a></li>
+                    {{#logged}}
+                    <li><a href="/logout"><span>LOG OUT</span></a></li>
+                    {{/logged}}
+                    {{^logged}}
+                    <li><a href="/login"><span>LOG IN</span></a></li>
+                    {{/logged}}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--MAIN MENU WRAP END-->
