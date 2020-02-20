@@ -18,6 +18,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/match/1").permitAll();
         http.authorizeRequests().antMatchers("/teams/").permitAll();
+        http.authorizeRequests().antMatchers("/teamx/{\\d+}").permitAll();
+        http.authorizeRequests().antMatchers("/tournament/").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/signup").permitAll();
         http.authorizeRequests().antMatchers("/apiTeams").permitAll();
@@ -29,6 +31,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/adminPage").hasAnyRole("ADMIN"); //Only admin
         http.authorizeRequests().antMatchers("/uploadImage").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/images_temp/**").permitAll();
+        http.authorizeRequests().antMatchers("/pdf_temp/**").permitAll();
+        http.authorizeRequests().antMatchers("/tournament/pdf**").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
         http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**", "/html/**").permitAll();

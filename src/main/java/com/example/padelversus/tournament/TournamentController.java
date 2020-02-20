@@ -25,14 +25,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,8 +99,7 @@ public class TournamentController {
             @RequestParam String SelectedTournament,
             @RequestParam String username,
             @RequestParam String otherPlayer,
-            @RequestParam String teamName,
-            HttpServletRequest request, HttpServletResponse response
+            @RequestParam String teamName
     ) {
         User user1 = userRepository.findByName(username);
         User user2 = userRepository.findByName(otherPlayer);
