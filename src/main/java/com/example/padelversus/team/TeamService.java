@@ -3,6 +3,8 @@ package com.example.padelversus.team;
 import com.example.padelversus.ImageService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.display.TeamxDisplay;
+import com.example.padelversus.tournament.Tournament;
+import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +19,8 @@ import java.util.Optional;
 @Service
 public class TeamService {
 
+    @Autowired
+    TournamentRepository tournamentRepository;
     @Autowired
     TeamRepository teamRepository;
     @Autowired
@@ -62,6 +66,21 @@ public class TeamService {
         for (Team t : pages) {
             String[] info = {Long.toString(t.getId()), t.getName()};
             pageTeamNames.add(info);
+        }
+
+        return pageTeamNames;
+    }
+
+    public List<Tournament> getAllTournaments(){
+        return tournamentRepository.findAll();
+    }
+
+    public List<String> getPageTeamNamesforTeamsController(Pageable page) {
+        Page<Team> pages = teamRepository.findAll(page);
+        List<Team> allTeams = teamRepository.findAll();
+        List<String> pageTeamNames = new ArrayList<>();
+        for (Team t : pages) {
+            pageTeamNames.add(t.getName());
         }
 
         return pageTeamNames;
