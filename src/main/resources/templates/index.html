@@ -145,61 +145,56 @@
 <!--MAIN MACTH SHEDULE BEGIN-->
 
 <section class="main-match-shedule">
+
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <h6>Next matches</h6>
-                <div class="main-lates-matches">
-                    {{#next_matches}}
-                    <a href="#" class="item">
-                        <span class="championship">COGER TORNEO AQUI</span>
-                        {{#winsTeamOne}}
-                        <span class="teams-wrap">
-                            <span class="teamwinner">
-                                <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                <span>{{nameTeamOne}}</span>
-                            </span>
-                            <span class="score"><span></span></span>
-                        </span>
-                        <span class="teams-wrap">
-                            <span class="team">
-                                <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                <span>{{nameTeamTwo}}</span>
-                            </span>
-                            <span class="score"><span></span></span>
-                        </span>
-                        {{/winsTeamOne}}
 
-                        {{^winsTeamOne}}
-                        <span class="teams-wrap">
-                            <span class="team">
-                                <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                <span>{{nameTeamOne}}</span>
-                            </span>
-                            <span class="score"><span></span></span>
-                        </span>
-                        <span class="teams-wrap">
-                            <span class="teamwinner">
-                                <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
-                                <span>{{nameTeamTwo}}</span>
-                            </span>
-                            <span class="score"><span></span></span>
-                        </span>
-                        {{/winsTeamOne}}
-                    </a>
-                    {{/next_matches}}
-                    <div class="wrap">
-                        <a href="#" class="booking">UPCOMING MATCH</a>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+
+                <h6>Next matches</h6>
+
+
+                <div class="esport-championship-standings">
+                    <div class="mySlides fade-standings">
+                        {{#next_matches}}
+                        <div class="amateurs-main-match">
+                            <div class="title">{{tournamentName}}</div>
+                            <a href="matches.html" class="team">
+                                <span class="image"><img src="/images/soccer/team-logo2.png" alt="main-match"></span>
+                                <span class="info">
+                                        <span class="name">{{nameTeamOne}}</span>
+                                </span>
+                            </a>
+                            <div class="score">
+                                <span>VS</span>
+                            </div>
+                            <a href="matches.html" class="team guest">
+                                        <span class="info">
+                                            <span class="name">{{nameTeamTwo}}</span>
+
+                                        </span>
+                                <span class="image"><img src="/images/soccer/team-logo2.png" alt="main-match"></span>
+                            </a>
+                            <div class="hour">{{localDate}}</div>
+                        </div>
+                        {{/next_matches}}
+
                     </div>
                 </div>
             </div>
+
+
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <h6>Latest matches</h6>
 
                 <div class="main-lates-matches">
-                    {{#last_matches}}
+
+
                     <a href="#" class="item">
-                        <span class="championship">COGER TORNEO AQUI</span>
+                        {{#last_matches}}
+                        <span class="championship">{{tournamentName}}</span>
+
+
                         {{#winsTeamOne}}
                         <span class="teams-wrap">
                         <span class="teamwinner">
@@ -213,9 +208,11 @@
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamTwo}}</span>
                         </span>
+
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
                         {{/winsTeamOne}}
+
 
                         {{^winsTeamOne}}
                         <span class="teams-wrap">
@@ -233,13 +230,15 @@
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
                         {{/winsTeamOne}}
+
+                        {{/last_matches}}
                     </a>
-                    {{/last_matches}}
+
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
 </section>
 
 <!--MAIN MACTH SHEDULE END-->

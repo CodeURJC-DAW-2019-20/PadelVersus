@@ -493,6 +493,10 @@ public class PadelversusApplication implements ApplicationRunner {
         tournament3_matches.add(match18);
         tournament3_matches.add(match19);
         tournament3_matches.add(match20);
+        tournament3_matches.add(match21);
+        tournament3_matches.add(match22);
+        tournament3_matches.add(match23);
+        tournament3_matches.add(match24);
 
         List<Team> teamsTournament3 = new ArrayList<>();
         teamsTournament3.add(t6);
