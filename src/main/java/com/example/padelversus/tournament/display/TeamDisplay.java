@@ -3,6 +3,7 @@ package com.example.padelversus.tournament.display;
 import java.util.List;
 
 public class TeamDisplay {
+    private Long id;
     private String name;
     private int gamesWon;
     private int gamesPlayed;
@@ -10,13 +11,14 @@ public class TeamDisplay {
     private boolean hasLastMatches;
     private List<String> lastMatches;
 
-    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches, boolean hasLastMatches) {
+    public TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches, boolean hasLastMatches, Long id) {
         this.name = name;
         this.gamesWon = gamesWon;
         this.gamesPlayed = gamesPlayed;
         this.gamesLost = gamesLost;
         this.hasLastMatches = hasLastMatches;
         this.lastMatches = lastMatches;
+        this.id = id;
     }
 
     public String getName() {
@@ -65,5 +67,13 @@ public class TeamDisplay {
 
     public void setHasLastMatches(boolean hasLastMatches) {
         this.hasLastMatches = hasLastMatches;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
