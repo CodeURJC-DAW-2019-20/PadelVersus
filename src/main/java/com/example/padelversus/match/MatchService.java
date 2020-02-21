@@ -54,17 +54,12 @@ public class MatchService {
 
 
     public List<Tournament> findTournamentsOfMatches(List<Match> matches) {
-
-        List<Tournament> allTournaments = tournamentRepository.findAll();
         List<Tournament> tournamentsFounds = new ArrayList<>();
-        for (Match match : matches) {
-            for (Tournament tournament : allTournaments) {
-                if (tournament.getMatches().contains(match)) {
-                    tournamentsFounds.add(tournament);
-                }
+        for (Match match: matches){
+            Optional<Tournament> t = tournamentRepository.findTournamentByMatchId(match.getId());
+            if(t.isPresent()){
+                tournamentsFounds.add(t.get());
             }
-
-
         }
         return tournamentsFounds;
     }
