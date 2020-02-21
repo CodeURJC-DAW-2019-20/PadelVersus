@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -40,8 +41,8 @@ public class PlayerService {
 
     //Save (a copy) of a player joined with the user passed in username param if not possible return null
     public boolean savePlayer(Player player, String username, MultipartFile imagenFile) throws IOException {
-        User relatedUser = userRepository.findByName(username);
-        if (relatedUser != null) {
+        Optional<User> relatedUser = userRepository.findByName(username);
+        if (relatedUser.isPresent()) {
             Player playerSave = new Player();
 
             byte [] image = imagenFile.getBytes();
@@ -60,7 +61,7 @@ public class PlayerService {
 
             playerSave.setImage(image);
 
-            playerSave.setUser(relatedUser);
+            playerSave.setUser(relatedUser.get());
             playerRepository.save(playerSave);
             return true;
         }
@@ -182,8 +183,8 @@ public class PlayerService {
     }
 
     public Player getPlayerFromUsername(String username){
-        User user = userRepository.findByName(username);
+        Optional<User> user = userRepository.findByName(username);
         List<Player> allPlayer = playerRepository.findAll();
-        return user.getPlayer();
+        return user.get().getPlayer();
     }
 }

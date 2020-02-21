@@ -99,7 +99,7 @@ public class PadelversusApplication implements ApplicationRunner {
         playerService.setImagePlayer(player2, imageFile_2);
 
         Player player3 = new Player(23, 1.72, 66, 3, 5, 5, 2, 2, 5.6, "Netherland");
-        User user3 = new User("Pepe Grande", "PepeGrande", "pepegrande@gmail.com", "ROLE_USER");
+        User user3 = new User("Pepe Dominguez", "PepeDominguez", "pepedominguez@gmail.com", "ROLE_USER");
         player3.setUser(user3);
         File imageFile_3 = DEMO_FILES_FOLDER.resolve("Players").resolve("Player_3.jpeg").toFile();
         playerService.setImagePlayer(player3, imageFile_3);
