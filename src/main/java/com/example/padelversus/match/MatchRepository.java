@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface MatchRepository extends JpaRepository<Match, Long> {
      Optional<Match> findById(long id);
      Optional<Match> findByDate(Date date);
-     //Optional<Match> findByTeams(List<Team> teams);
+
 }
