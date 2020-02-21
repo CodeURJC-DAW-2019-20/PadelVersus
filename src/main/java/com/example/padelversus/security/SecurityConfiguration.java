@@ -35,9 +35,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/pdf_temp/**").permitAll();
         http.authorizeRequests().antMatchers("/tournament/pdf**").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").hasAnyRole("ADMIN");
-        //http.authorizeRequests().antMatchers("../static/css/library/**").permitAll();
         http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**", "/html/**").permitAll();
-        //http.authorizeRequests().antMatchers("/resources/**").permitAll();
+
+
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();
 
@@ -52,26 +52,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
 
-        // Disable CSRF at the moment
-       // http.csrf().disable();
         http.headers().frameOptions().disable();
-        /*http
-                .authorizeRequests()
-                .antMatchers( "/css/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/index")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .and().csrf().disable();*/
+
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //Decimos cuantos usuarios tiene
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //say how many users have
         auth.authenticationProvider(authenticationProvider);
     }
 }
