@@ -82,18 +82,12 @@ public class PlayerController {
             model.addAttribute("accuaracy", player.get().getAccuaracy());
             model.addAttribute("aceleration", player.get().getAceleration());
             model.addAttribute("image", image_url);
-
-            // team.ifPresent(value -> model.addAttribute("nameTeam", value.getName()));
-            // tournament.ifPresent(value -> model.addAttribute("nameTournament", value.getName()));
             if(!usernameLogged.equals(user.getName())) {
                 return "player";
             }else{
-
                 return "playerWithInfo";
             }
         }
-
-
         else {
             return "404";
         }
