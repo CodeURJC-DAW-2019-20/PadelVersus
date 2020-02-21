@@ -126,15 +126,15 @@
                         <a href="#" class="arrow left"><i class="fa fa-caret-left" aria-hidden="true"></i></a>
 
                         <span>
-                                <span class="league">Calendar</span>
+                                <span class="league">{{first_date}}</span>
                         </span>
 
                         <a href="#" class="arrow right"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     </div>
                     {{#list_matches_byDate}}
                     <div class="mySlides fade-standings">
-                        {{#matches}}
                         <span class="league_name">{{date}}</span>
+                        {{#matches}}
                         <div class="amateurs-main-match">
 
                             <a href="matches.html" class="team">
