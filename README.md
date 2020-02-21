@@ -113,7 +113,7 @@ Contains one calendar with the matches of each month.
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|
 ## Navigation
-
+![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
 ## Entity Diagram
 
 ## Class/Template Diagram
