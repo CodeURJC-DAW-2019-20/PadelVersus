@@ -20,8 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private PlayerRepository playerRepository;
+
 
     @Autowired
     private PlayerService playerService;
