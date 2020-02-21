@@ -74,11 +74,11 @@ public class AdminController {
 
 
     @PostMapping("/saveMatch")
-    public String savematch(String torneoSeleccionado, String t1_oficial, String t2_oficial, String date) {
-        Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
+    public String savematch(String selectedTournament, String t1_oficial, String t2_oficial, String date) {
+        Optional<Tournament> tournament = tournamentRepository.findByName(selectedTournament);
 
-        Team team1 = adminService.getTeam(torneoSeleccionado, t1_oficial);
-        Team team2 = adminService.getTeam(torneoSeleccionado, t2_oficial);
+        Team team1 = adminService.getTeam(selectedTournament, t1_oficial);
+        Team team2 = adminService.getTeam(selectedTournament, t2_oficial);
         String[] parts = date.split("-");
 
         Match match = new Match(false, LocalDate.of(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2])), team1, team2);
