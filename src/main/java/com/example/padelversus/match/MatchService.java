@@ -1,23 +1,17 @@
 package com.example.padelversus.match;
 
 import com.example.padelversus.match.display.MatchesByDateDisplay;
-import com.example.padelversus.team.Team;
 import com.example.padelversus.team.display.LastMatchDisplay;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
-import java.time.chrono.ChronoPeriod;
-import java.time.chrono.Chronology;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalField;
-import java.time.temporal.TemporalUnit;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
 
 @Service
 public class MatchService {
@@ -27,15 +21,18 @@ public class MatchService {
     @Autowired
     TournamentRepository tournamentRepository;
 
-    public List<Match> getFourLastMatches(){
+    public List<Match> getFourLastMatches() {
         List<Match> matches = matchRepository.findAll();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         for (Match match : matches) {
-            if(match.isPlayed()) matchesOrdered.add(match);
+            if (match.isPlayed()) matchesOrdered.add(match);
         }
         matches.clear();
-        for (int i = 0; i < 4; i++) {
-            matches.add(matchesOrdered.pollFirst());
+        int max_for = Math.min(matchesOrdered.size(), 4);
+        for (int i = 0; i < max_for; i++) {
+            Match match = matchesOrdered.first();
+            matches.add(match);
+            matchesOrdered.remove(match);
         }
         return matches;
     }
@@ -44,7 +41,7 @@ public class MatchService {
         List<Match> matches = getFourLastMatches();
         List<LastMatchDisplay> lastMatches = new ArrayList<>();
         for (Match match : matches) {
-            LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
+            LastMatchDisplay lastMatchDisplay = new LastMatchDisplay(match);
             lastMatches.add(lastMatchDisplay);
 
         }
@@ -52,17 +49,20 @@ public class MatchService {
         return lastMatches;
     }
 
-    public List<Match> getFourNextMatches(){
+    public List<Match> getFourNextMatches() {
         List<Match> matches = matchRepository.findAll();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         for (Match match : matches) {
 
-            if(!match.isPlayed())
+            if (!match.isPlayed())
                 matchesOrdered.add(match);
         }
         matches.clear();
-        for (int i = 0; i < 4; i++) {
-            matches.add(matchesOrdered.pollFirst());
+        int max_for = Math.min(matchesOrdered.size(), 4);
+        for (int i = 0; i < max_for; i++) {
+            Match match = matchesOrdered.first();
+            matches.add(match);
+            matchesOrdered.remove(match);
         }
 
 
@@ -73,7 +73,7 @@ public class MatchService {
         List<Match> matches = getFourNextMatches();
         List<LastMatchDisplay> nextMatches = new ArrayList<>();
         for (Match match : matches) {
-            LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
+            LastMatchDisplay lastMatchDisplay = new LastMatchDisplay(match);
             nextMatches.add(lastMatchDisplay);
 
         }
@@ -82,13 +82,13 @@ public class MatchService {
     }
 
 
-    public List<Tournament> findTournamentsOfMatches(List<Match> matches){
+    public List<Tournament> findTournamentsOfMatches(List<Match> matches) {
 
         List<Tournament> allTournaments = tournamentRepository.findAll();
         List<Tournament> tournamentsFounds = new ArrayList<>();
-        for(Match match:matches){
-            for(Tournament tournament:allTournaments){
-                if(tournament.getMatches().contains(match)){
+        for (Match match : matches) {
+            for (Tournament tournament : allTournaments) {
+                if (tournament.getMatches().contains(match)) {
                     tournamentsFounds.add(tournament);
                 }
             }
@@ -98,7 +98,7 @@ public class MatchService {
         return tournamentsFounds;
     }
 
-    public void addNameTournamentOfMatches(List<LastMatchDisplay> matchDisplays,List<Tournament> tournaments) {
+    public void addNameTournamentOfMatches(List<LastMatchDisplay> matchDisplays, List<Tournament> tournaments) {
         int counter = 0;
         for (LastMatchDisplay lastMatchDisplay1 : matchDisplays) {
             lastMatchDisplay1.setTournamentName(tournaments.get(counter).getName());
@@ -109,17 +109,17 @@ public class MatchService {
     }
 
 
-    public List<Match> getAllNextMatches(){
+    public List<Match> getAllNextMatches() {
         List<Match> matches = matchRepository.findAll();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         for (Match match : matches) {
 
-            if(!match.isPlayed())
+            if (!match.isPlayed())
                 matchesOrdered.add(match);
         }
-        List<Match>matchesOrderedList = new ArrayList<>();
+        List<Match> matchesOrderedList = new ArrayList<>();
 
-        for(Match match1:matchesOrdered){
+        for (Match match1 : matchesOrdered) {
             matchesOrderedList.add(match1);
         }
         return matchesOrderedList;
@@ -129,7 +129,7 @@ public class MatchService {
         List<Match> matches = getAllNextMatches();
         List<LastMatchDisplay> matchDisplays = new ArrayList<>();
         for (Match match : matches) {
-            LastMatchDisplay  lastMatchDisplay = new LastMatchDisplay(match);
+            LastMatchDisplay lastMatchDisplay = new LastMatchDisplay(match);
             matchDisplays.add(lastMatchDisplay);
 
         }
@@ -146,13 +146,13 @@ public class MatchService {
     }
 
 
-    public List<LastMatchDisplay> findNextMatchesWithDate(){
+    public List<LastMatchDisplay> findNextMatchesWithDate() {
         List<LocalDate> localDates = datesMatchesNextMatchDisplays();
         List<LastMatchDisplay> matchesFounds = new ArrayList<>();
         List<LastMatchDisplay> allMatches = matchesNextMatchDisplays();
-        for(LocalDate localDate1:localDates){
-            for(LastMatchDisplay lastMatchDisplay:allMatches){
-                if(localDate1 == lastMatchDisplay.getLocalDate()){
+        for (LocalDate localDate1 : localDates) {
+            for (LastMatchDisplay lastMatchDisplay : allMatches) {
+                if (localDate1 == lastMatchDisplay.getLocalDate()) {
                     matchesFounds.add(lastMatchDisplay);
 
                 }
@@ -162,28 +162,27 @@ public class MatchService {
         return matchesFounds;
     }
 
-    public List<LastMatchDisplay> findNextMatchesWithDate(LocalDate localDate){
+    public List<LastMatchDisplay> findNextMatchesWithDate(LocalDate localDate) {
         List<LastMatchDisplay> matchesFounds = new ArrayList<>();
         List<LastMatchDisplay> allMatches = matchesNextMatchDisplays();
-        for(LastMatchDisplay lastMatchDisplay:allMatches){
-            if(localDate == lastMatchDisplay.getLocalDate()){
-                    matchesFounds.add(lastMatchDisplay);
-                    //System.out.println("añadido partido con fecha  "+localDate.toString()+" equipos "+lastMatchDisplay.getNameTeamOne()+lastMatchDisplay.getNameTeamTwo());
+        for (LastMatchDisplay lastMatchDisplay : allMatches) {
+            if (localDate == lastMatchDisplay.getLocalDate()) {
+                matchesFounds.add(lastMatchDisplay);
+                //System.out.println("añadido partido con fecha  "+localDate.toString()+" equipos "+lastMatchDisplay.getNameTeamOne()+lastMatchDisplay.getNameTeamTwo());
             }
         }
         return matchesFounds;
     }
 
-    public List<MatchesByDateDisplay> formMatchesByDateDisplays(){
+    public List<MatchesByDateDisplay> formMatchesByDateDisplays() {
         List<MatchesByDateDisplay> matchesByDateDisplaysFounds = new ArrayList<>();
         List<LocalDate> localDates = datesMatchesNextMatchDisplays();
 
-        for(LocalDate localDate:localDates){
-                List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
-                MatchesByDateDisplay  matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate,localDate);
-                matchesByDateDisplaysFounds.add(matchByDateDisplay);
+        for (LocalDate localDate : localDates) {
+            List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
+            MatchesByDateDisplay matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate, localDate);
+            matchesByDateDisplaysFounds.add(matchByDateDisplay);
         }
-
 
 
         return matchesByDateDisplaysFounds;

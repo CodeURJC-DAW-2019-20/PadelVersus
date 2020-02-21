@@ -31,6 +31,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/tournament")
@@ -73,8 +74,8 @@ public class TournamentController {
         if (username.equals("admin")) {
             return "/adminPage";
         } else {
-            User user = userRepository.findByName(username);
-            Player loggedPlayer = playerService.getPlayerFromUser(user);
+            Optional<User> user = userRepository.findByName(username);
+            Player loggedPlayer = playerService.getPlayerFromUser(user.get());
             BufferedImage playerImage = loggedPlayer.getBufferedImage();
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
@@ -101,10 +102,10 @@ public class TournamentController {
             @RequestParam String otherPlayer,
             @RequestParam String teamName
     ) {
-        User user1 = userRepository.findByName(username);
-        User user2 = userRepository.findByName(otherPlayer);
-        Player player1 = playerService.getPlayerFromUser(user1);
-        Player player2 = playerService.getPlayerFromUser(user2);
+        Optional<User> user1 = userRepository.findByName(username);
+        Optional<User>  user2 = userRepository.findByName(otherPlayer);
+        Player player1 = playerService.getPlayerFromUser(user1.get());
+        Player player2 = playerService.getPlayerFromUser(user2.get());
         Team team = new Team(teamName, player1, player2);
         teamRepository.save(team);
         Tournament tournament = tournamentRepository.findByName(SelectedTournament).get();
