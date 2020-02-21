@@ -55,8 +55,8 @@ public class AdminService {
 
 
 
-    public Team getTeam(String torneoSeleccionado, String t_oficial) {
-        Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
+    public Team getTeam(String selectedTournament, String t_oficial) {
+        Optional<Tournament> tournament = tournamentRepository.findByName(selectedTournament);
         String[] teamName = t_oficial.split(",");
         Team team = new Team();
         for (String s : teamName) {
