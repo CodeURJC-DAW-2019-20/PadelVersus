@@ -127,18 +127,10 @@ public class PlayerService {
 
     // Returns the player asociate at an user or null if not returns null
     public Player getPlayerFromUser(User user) {
-        String usernameToFind = user.getName();
-        List<Player> allPlayer = playerRepository.findAll();
-        for (Player player : allPlayer) {
-            String usernamePlayer = player.getUser().getName();
-            if (usernamePlayer.equals(usernameToFind)) return player;
-        }
-        return null;
+        return playerRepository.findByUser(user).orElse(null);
     }
 
     public Player getPlayerFromUsername(String username) {
-        Optional<User> user = userRepository.findByName(username);
-        List<Player> allPlayer = playerRepository.findAll();
-        return user.get().getPlayer();
+        return playerRepository.findByUserName(username).orElse(null);
     }
 }
