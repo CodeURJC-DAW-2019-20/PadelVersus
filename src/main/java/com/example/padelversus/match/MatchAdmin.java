@@ -18,8 +18,11 @@ public class MatchAdmin {
 
     }
 
-    public MatchAdmin(Match match, Tournament tournament) {
-        this.name = match.getDate().toString() + "," + match.getTeams().get(0).getName() + "," + match.getTeams().get(1).getName() + "," + tournament.getName();
+    public MatchAdmin(Match match, String tournament_name) {
+        this.name = match.getDate().toString() +
+                "," + match.getTeams().get(0).getName()
+                + "," + match.getTeams().get(1).getName()
+                + "," + tournament_name;
     }
 
     public String getName() {

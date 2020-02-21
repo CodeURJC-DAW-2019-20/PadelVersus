@@ -28,18 +28,18 @@ public class AdminService {
     TeamRepository teamRepository;
     @Autowired
     MatchRepository matchRepository;
+
     public List<Object> adminPage(){
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<MatchAdmin> matchAdmins = new ArrayList<>();
 
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
         for (Tournament tournament : allTournament) {
-            for (Match match : tournament.getMatches()) {
-                List<Team> teamList = match.getTeams();
-                if (!match.isPlayed()) {
-                    MatchAdmin matchAdmin = new MatchAdmin(teamList.get(0), teamList.get(1), match.getDate(), tournament);
-                    matchAdmins.add(matchAdmin);
-                }
+            String tournament_name = tournament.getName();
+            List<Match> matches = matchRepository.findNotPlayedByTournamentName(tournament_name);
+            for (Match match : matches) {
+                MatchAdmin matchAdmin = new MatchAdmin(match, tournament_name);
+                matchAdmins.add(matchAdmin);
             }
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for (Team team : tournament.getTeams()) {
@@ -48,10 +48,8 @@ public class AdminService {
                 tournamentDisplay.addTeam(team, 0, 0, lastMatches, hasLastMatches);
             }
             allTournamentDisplay.add(tournamentDisplay);
-
         }
         List<Object> list = new ArrayList<>();
-        List<Match> matches = matchRepository.findNotPlayedByTournamentName("Tournament 3");
         list.add(allTournamentDisplay);
         list.add(matchAdmins);
         return list;
@@ -75,14 +73,8 @@ public class AdminService {
     }
 
     public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
-        List<Match> matches = tournament.getMatches();
-        for (Match m : matches) {
-            if (!m.isPlayed() && m.hasTeam(teamOne) && m.hasTeam(teamTwo)) {
-
-                return m;
-            }
-        }
-        return null;
+        Optional<Match> match =  matchRepository.findIdByTeamsNameAndTournamentName(teamOne.getName(), teamTwo.getName(), tournament.getName());
+        return match.orElse(null);
     }
     public MatchStadistics calculateStats(String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1){
 
