@@ -1,13 +1,8 @@
 package com.example.padelversus.team.display;
 
-import com.example.padelversus.ImageService;
 import com.example.padelversus.match.Match;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.Team;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

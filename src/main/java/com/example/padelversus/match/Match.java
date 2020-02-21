@@ -106,23 +106,6 @@ public class Match {
         this.id = id;
     }
 
-    /* public Team getTeam_1() {
-         return team_1;
-     }
-
-     public void setTeam_1(Team team_1) {
-         this.team_1 = team_1;
-     }
-
-     public Team getTeam_2() {
-         return team_2;
-     }
-
-     public void setTeam_2(Team team_2) {
-         this.team_2 = team_2;
-     }*/
- 
-
     public LocalDate getDate() {
         return date;
     }
@@ -134,15 +117,6 @@ public class Match {
     public Match getMatch() {
         return this;
     }
-   /* public Team getWinner() {
-
-    /* public Team getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Team winner) {
-        this.winner = winner;
-    }*/
 
     public boolean isPlayed() {
         return played;

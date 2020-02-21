@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 @Service
 public class MatchService {
@@ -165,10 +162,10 @@ public class MatchService {
     public List<LastMatchDisplay> findNextMatchesWithDate(LocalDate localDate) {
         List<LastMatchDisplay> matchesFounds = new ArrayList<>();
         List<LastMatchDisplay> allMatches = matchesNextMatchDisplays();
-        for (LastMatchDisplay lastMatchDisplay : allMatches) {
-            if (localDate == lastMatchDisplay.getLocalDate()) {
-                matchesFounds.add(lastMatchDisplay);
-                //System.out.println("añadido partido con fecha  "+localDate.toString()+" equipos "+lastMatchDisplay.getNameTeamOne()+lastMatchDisplay.getNameTeamTwo());
+        for(LastMatchDisplay lastMatchDisplay:allMatches){
+            if(localDate == lastMatchDisplay.getLocalDate()){
+                    matchesFounds.add(lastMatchDisplay);
+
             }
         }
         return matchesFounds;
@@ -177,14 +174,11 @@ public class MatchService {
     public List<MatchesByDateDisplay> formMatchesByDateDisplays() {
         List<MatchesByDateDisplay> matchesByDateDisplaysFounds = new ArrayList<>();
         List<LocalDate> localDates = datesMatchesNextMatchDisplays();
-
-        for (LocalDate localDate : localDates) {
-            List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
-            MatchesByDateDisplay matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate, localDate);
-            matchesByDateDisplaysFounds.add(matchByDateDisplay);
+        for(LocalDate localDate:localDates){
+                List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
+                MatchesByDateDisplay  matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate,localDate);
+                matchesByDateDisplaysFounds.add(matchByDateDisplay);
         }
-
-
         return matchesByDateDisplaysFounds;
     }
 

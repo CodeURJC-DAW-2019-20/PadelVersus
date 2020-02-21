@@ -49,7 +49,7 @@ public class ImageService implements WebMvcConfigurer {
     @PreDestroy
     private void destroy(){
         System.out.println("DELETE");
-        if(deleteDirectory(FILES_FOLDER.toFile())) System.out.println("Borrados imagenes temporales");
+        if(deleteDirectory(FILES_FOLDER.toFile())) System.out.println("deleted temporary images");
     }
 
     private boolean deleteDirectory(File directory){
@@ -57,7 +57,7 @@ public class ImageService implements WebMvcConfigurer {
         if(allContent != null){
             for(File file: allContent){
                 if(file.getName().equals(".gitkeep")) continue;
-                System.out.println("Borro" + file);
+                System.out.println("delete" + file);
                 deleteDirectory(file);
             }
         }

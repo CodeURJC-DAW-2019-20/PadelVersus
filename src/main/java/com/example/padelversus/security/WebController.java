@@ -28,11 +28,7 @@ public class WebController {
     public String signup(){
         return "signup";
     }
-    /*@RequestMapping("/createuser")
-    public String createuser(){
-        userRepository.save(new User("user2", "pass","user@gmail.com", "ROLE_USER"));
-        return "createuser";
-    }*/
+
     @RequestMapping("/loginerror")
     public String loginerror(){
         return "loginerror";
@@ -42,27 +38,5 @@ public class WebController {
     public String home(){
         return "home";
     }
-  /* @Autowired
-   private UserComponent userComponent;
 
-    @ModelAttribute
-    public void addUserToModel(Model model) {
-        boolean logged = userComponent.getLoggedUser() != null;
-        model.addAttribute("logged", logged);
-        if(logged) {
-            model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-            model.addAttribute("userName",userComponent.getLoggedUser().getName());
-        }
-    }
-
-    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("hideLogin", true);
-        return "login";
-    }
-
-    @GetMapping("/loginerror")
-    public String loginError() {
-        return "loginerror";
-    }*/
 }

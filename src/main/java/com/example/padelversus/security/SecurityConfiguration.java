@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //Decimos cuantos usuarios tiene
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //say how many users have
         auth.authenticationProvider(authenticationProvider);
     }
 }

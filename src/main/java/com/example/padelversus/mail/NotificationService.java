@@ -21,8 +21,8 @@ public class NotificationService {
 
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getMail());
-        mail.setSubject("BIENVENIDO A PADEL VERSUS!");
-        mail.setText("Bienvenido a la pagina! Gracias por registrarte en el mejor gestor de torneos de Pádel de España");
+        mail.setSubject("WELCOME TO PADEL VERSUS!");
+        mail.setText("Welcome to our page! Thanks  for signing up in the best web for padel tournaments.");
         javaMailSender.send(mail);
     }
 }

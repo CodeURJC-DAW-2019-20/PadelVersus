@@ -47,16 +47,16 @@ public class AdminService {
             allTournamentDisplay.add(tournamentDisplay);
 
         }
-        List<Object> lista = new ArrayList<>();
-        lista.add(allTournamentDisplay);
-        lista.add(matchAdmins);
-        return lista;
+        List<Object> list = new ArrayList<>();
+        list.add(allTournamentDisplay);
+        list.add(matchAdmins);
+        return list;
     }
 
 
 
-    public Team getTeam(String torneoSeleccionado, String t_oficial) {
-        Optional<Tournament> tournament = tournamentRepository.findByName(torneoSeleccionado);
+    public Team getTeam(String selectedTournament, String t_oficial) {
+        Optional<Tournament> tournament = tournamentRepository.findByName(selectedTournament);
         String[] teamName = t_oficial.split(",");
         Team team = new Team();
         for (String s : teamName) {
