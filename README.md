@@ -89,7 +89,7 @@ Contains one calendar with the matches of each month.
 ## Most Important Commits
 | Name | Github user | BestCommit | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | a.checa.2016@alumnos.urjc.es |AlexCh98|--------|--------|--------|--------|
 |Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|--------|--------|
 |José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|--------|--------|
@@ -98,20 +98,20 @@ Contains one calendar with the matches of each month.
 ## More worked file
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
-|Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|--------|--------|
-|José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|--------|--------|
-|Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|
+|Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
 
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|
-|Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|
-|José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|
-|Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|
-|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|
+|Iván Martín Sanz|  i100van |--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|
+|Lucas Gómez Torres |  LucasGomezTorres |--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|
 ## Navigation
 
 ## Entity Diagram
