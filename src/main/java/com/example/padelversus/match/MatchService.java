@@ -7,16 +7,7 @@ import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
-import java.time.chrono.ChronoPeriod;
-import java.time.chrono.Chronology;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalField;
-import java.time.temporal.TemporalUnit;
 import java.util.*;
 
 @Service
@@ -168,7 +159,6 @@ public class MatchService {
         for(LastMatchDisplay lastMatchDisplay:allMatches){
             if(localDate == lastMatchDisplay.getLocalDate()){
                     matchesFounds.add(lastMatchDisplay);
-                    //System.out.println("añadido partido con fecha  "+localDate.toString()+" equipos "+lastMatchDisplay.getNameTeamOne()+lastMatchDisplay.getNameTeamTwo());
             }
         }
         return matchesFounds;
@@ -177,15 +167,11 @@ public class MatchService {
     public List<MatchesByDateDisplay> formMatchesByDateDisplays(){
         List<MatchesByDateDisplay> matchesByDateDisplaysFounds = new ArrayList<>();
         List<LocalDate> localDates = datesMatchesNextMatchDisplays();
-
         for(LocalDate localDate:localDates){
                 List<LastMatchDisplay> matchesFoundsByDate = findNextMatchesWithDate(localDate);
                 MatchesByDateDisplay  matchByDateDisplay = new MatchesByDateDisplay(matchesFoundsByDate,localDate);
                 matchesByDateDisplaysFounds.add(matchByDateDisplay);
         }
-
-
-
         return matchesByDateDisplaysFounds;
     }
 
