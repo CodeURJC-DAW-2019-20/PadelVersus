@@ -1,8 +1,6 @@
 package com.example.padelversus.team;
 
 
-import com.example.padelversus.ImageService;
-import com.example.padelversus.player.Player;
 import com.example.padelversus.team.display.TeamxDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Optional;
 
