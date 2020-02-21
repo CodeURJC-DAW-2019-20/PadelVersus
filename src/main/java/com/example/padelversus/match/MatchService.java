@@ -19,18 +19,7 @@ public class MatchService {
     TournamentRepository tournamentRepository;
 
     public List<Match> getFourLastMatches() {
-        List<Match> matches = matchRepository.findAll();
-        TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
-        for (Match match : matches) {
-            if (match.isPlayed()) matchesOrdered.add(match);
-        }
-        matches.clear();
-        int max_for = Math.min(matchesOrdered.size(), 4);
-        for (int i = 0; i < max_for; i++) {
-            Match match = matchesOrdered.first();
-            matches.add(match);
-            matchesOrdered.remove(match);
-        }
+        List<Match> matches = matchRepository.findLastFourMatchesPlayedOrderByDateDesc();
         return matches;
     }
 
@@ -47,22 +36,7 @@ public class MatchService {
     }
 
     public List<Match> getFourNextMatches() {
-        List<Match> matches = matchRepository.findAll();
-        TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
-        for (Match match : matches) {
-
-            if (!match.isPlayed())
-                matchesOrdered.add(match);
-        }
-        matches.clear();
-        int max_for = Math.min(matchesOrdered.size(), 4);
-        for (int i = 0; i < max_for; i++) {
-            Match match = matchesOrdered.first();
-            matches.add(match);
-            matchesOrdered.remove(match);
-        }
-
-
+        List<Match> matches = matchRepository.findNexFourMatchesPlayedOrderByDate();
         return matches;
     }
 

@@ -43,4 +43,19 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
              nativeQuery = true)
      Optional<Match> findIdByTeamsNameAndTournamentName(String t1, String t2, String tName);
 
+     @Query(value = "SELECT * " +
+             "FROM games " +
+             "WHERE played " +
+             "ORDER BY date desc " +
+             "LIMIT 4",
+          nativeQuery = true)
+     List<Match> findLastFourMatchesPlayedOrderByDateDesc();
+
+     @Query(value = "SELECT * " +
+             "FROM games " +
+             "WHERE NOT played " +
+             "ORDER BY date " +
+             "LIMIT 4",
+             nativeQuery = true)
+     List<Match> findNexFourMatchesPlayedOrderByDate();
 }

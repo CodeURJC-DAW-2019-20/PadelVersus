@@ -33,18 +33,13 @@ public class indexController {
         List<Match> lastMatchesTournament = matchService.getFourLastMatches();
         List<Match> nextMatchesTournament = matchService.getFourNextMatches();
 
-
         List<Tournament> tournamentsNext = matchService.findTournamentsOfMatches(nextMatchesTournament);
         List<Tournament> tournamentsLast = matchService.findTournamentsOfMatches(lastMatchesTournament);
         matchService.addNameTournamentOfMatches(lastMatches,tournamentsLast);
         matchService.addNameTournamentOfMatches(nextMatches,tournamentsNext);
 
-
-
         model.addAttribute("last_matches", lastMatches);
         model.addAttribute("next_matches",nextMatches);
-
-
 
         return "index";
     }
