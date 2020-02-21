@@ -49,91 +49,50 @@
                     <div class="main-slider-caption">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">30 Nov 2020 / 21:00/ Ciudad Raqueta</div>
-                                    <div class="team">Team 1
-
-                                        <p>LUCAS GÓMEZ TORRES & ALEJANDRO CHECA FOLGUERA</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
+                                        <div class="col-md-3">
+                                            <div class="team"><p>{{nameFirstTeamOne}}</p></div>
                                         </div>
-                                        <p>Team 2</p>
-
-                                        <p>JOSE LAVADO SÁNCHEZ & DANIEL CARMONA PEDRAJAS</p>
-                                    </div>
-                                    <div class="booking">
-                                        <a href="overviewMatches.html">
-                                            Match Page
-                                        </a>
-                                    </div>
-                                </div>
+                                        <div class="col-md-3">
+                                            <div class="team">
+                                            <p>
+                                                <div class="big-count margin-center">
+                                                    <p>VS</p>
+                                                </div>
+                                            </p>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="team"><p>{{nameFirstTeamTwo}}</p></div>
+                                        </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{#next_matchesForCarrousel}}
                 <div class="item">
                     <div class="main-slider-caption">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">2 Dec 2020 / 22:30 / Ciudad Raqueta</div>
-                                    <div class="team">Team 1
-                                        <p>PEPE SÁNCHEZ FLORES & ALEJANDRO LÓPEZ GARCÍA</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
-                                        </div>
-                                        <p>Team 2</p>
-
-                                        <p>JAVIER GÓMEZ TORRES & DANIEL RAMIRO PIEDRAS</p>
+                                <div class="col-md-3">
+                                    <div class="team"><p>{{nameTeamOne}}</p></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="team">
+                                        <p>
+                                            <div class="big-count margin-center">
+                                        <p>VS</p>
                                     </div>
-
-                                    <div class="booking">
-                                        <a href="#">
-                                            Watch live
-                                        </a>
-                                    </div>
+                                    </p>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="team"><p>{{nameTeamTwo}}</p></div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="item">
-                    <div class="main-slider-caption">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">16 Dec 2020 / 20:00 / Ciudad de la Raqueta</div>
-                                    <div class="team"> Team 1
-                                        <p>MARíA FLORES GARCÍA & VANESA ROMERO LÓPEZ</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
-                                        </div>
-                                        <p>Team 2</p>
-                                        <p>ISAAC VERGARA OCHOA & DANIEL NADAL </p>
-                                    </div>
-                                    <div class="booking">
-                                        <a href="#">
-                                            Watch live
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{/next_matchesForCarrousel}}
 
             </div>
 

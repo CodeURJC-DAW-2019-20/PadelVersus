@@ -25,7 +25,7 @@
 .animated.flipOutY,
 .animated.bounceIn,
 .animated.bounceOut {
-  animation-duration: .75s;
+  animation-duration: .5s;
 }
 
 @keyframes bounce {
