@@ -5,7 +5,6 @@ import com.example.padelversus.match.MatchAdmin;
 import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
-import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.match.Stadistics.SetPadelRepository;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
@@ -20,7 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AdminController {
@@ -104,7 +104,23 @@ public class AdminController {
     }
 
     @PostMapping("/saveDataMatch")
-    public String saveDatamatch(String matchSelect, String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1, String accuracy2, String effectiveness2, String games_wins2, String unforcedErrors2, String set1team2, String set2team2, String set3team2, String win2) {
+    public String saveDatamatch(String matchSelect,
+                                String accuracy1,
+                                String effectiveness1,
+                                String games_wins1,
+                                String unforcedErrors1,
+                                String set1team1,
+                                String set2team1,
+                                String set3team1,
+                                String win1,
+                                String accuracy2,
+                                String effectiveness2,
+                                String games_wins2,
+                                String unforcedErrors2,
+                                String set1team2,
+                                String set2team2,
+                                String set3team2,
+                                String win2) {
 
         String[] match = matchSelect.split(",");
         Optional<Team> team1 = teamRepository.findByName(match[1]);
