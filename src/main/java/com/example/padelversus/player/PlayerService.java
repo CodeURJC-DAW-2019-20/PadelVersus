@@ -18,7 +18,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,7 +44,7 @@ public class PlayerService {
         if (relatedUser.isPresent()) {
             Player playerSave = new Player();
 
-            byte [] image = imagenFile.getBytes();
+            byte[] image = imagenFile.getBytes();
 
             playerSave.setAge(player.getAge());
             playerSave.setImage(player.getImage());
@@ -70,68 +69,23 @@ public class PlayerService {
 
     //find the name of the team  of the player
 
-    public Team findTeamOfPlayer(Player player) {
-        Team team = null;
-        List<Team> allTeams = teamRepository.findAll();
-        boolean encontrado = false;
-        Iterator<Team> it = allTeams.iterator();
-        while ((!encontrado) && (it.hasNext())) {
-            team = it.next();
-            encontrado = team.getPlayers().contains(player);
-        }
-        if (!encontrado) {
-            team = null;
-        }
-        return team;
-    }
 
     //find the name of more the team  of each player
-    public List<Team>findMoreTeamOfEachPlayer(Player player) {
-        List<Team> allTeams = teamRepository.findAll();
-        List<Team> teamsFounds = new ArrayList<>();
-        Iterator<Team> it = allTeams.iterator();
-        Team team = null;
-        while ((it.hasNext())) {
-            team = it.next();
-            if(team.getPlayers().contains(player)){
-                teamsFounds.add(team);
-            }
-        }
-
-        return teamsFounds;
+    public List<Team> findTeamsOfPlayer(Player player) {
+        return teamRepository.findTeamByPlayerId(player.getId());
     }
 
-    //find the name of the tournament  of the player
-    public Tournament findTournamentOfPlayer(Player player) {
-        Tournament tournament = null;
-        List<Tournament> allTournaments = tournamentRepository.findAll();
-        boolean encontrado = false;
-        Iterator<Tournament> it = allTournaments.iterator();
-        while ((!encontrado) && (it.hasNext())) {
-            tournament = it.next();
-            encontrado = tournament.getTeams().contains(findTeamOfPlayer(player));
+
+    public List<Tournament> findTournamentsOfPlayer(Player player) {
+
+        List<Team> teamsOfPlayer1 = findTeamsOfPlayer(player);
+        List<Tournament> tournamentsFound = new ArrayList<>();
+        for (Team team : teamsOfPlayer1) {
+            List<Tournament> tournamentsOfTeam = tournamentRepository.findTournamentByTeamId(team.getId());
+            tournamentsFound.addAll(tournamentsOfTeam);
         }
-        if (!encontrado) {
-            tournament = null;
-        }
-        return tournament;
+        return tournamentsFound;
     }
-
-    public List<Tournament>findMoreTournamentOfEachPlayer(Player player) {
-        List<Tournament> allTournaments = tournamentRepository.findAll();
-        List<Tournament> tournamentsFounds = new ArrayList<>();
-        List<Team> teamsOfPlayer = findMoreTeamOfEachPlayer(player);
-        for ( Tournament oneTournament :allTournaments){
-            for(Team team :teamsOfPlayer){
-                if(oneTournament.getTeams().contains(team) && !tournamentsFounds.contains(oneTournament)){
-                    tournamentsFounds.add(oneTournament);
-                }
-            }
-        }
-
-        return tournamentsFounds;
-    }
-
 
 
     // Return the string temporal path were the image is saved (return null if there is any problem)
@@ -172,19 +126,11 @@ public class PlayerService {
     }
 
     // Returns the player asociate at an user or null if not returns null
-    public Player getPlayerFromUser(User user){
-        String usernameToFind = user.getName();
-        List<Player> allPlayer = playerRepository.findAll();
-        for (Player player : allPlayer) {
-            String usernamePlayer = player.getUser().getName();
-            if(usernamePlayer.equals(usernameToFind)) return player;
-        }
-        return null;
+    public Player getPlayerFromUser(User user) {
+        return playerRepository.findByUser(user).orElse(null);
     }
 
-    public Player getPlayerFromUsername(String username){
-        Optional<User> user = userRepository.findByName(username);
-        List<Player> allPlayer = playerRepository.findAll();
-        return user.get().getPlayer();
+    public Player getPlayerFromUsername(String username) {
+        return playerRepository.findByUserName(username).orElse(null);
     }
 }

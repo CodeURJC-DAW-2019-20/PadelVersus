@@ -43,8 +43,6 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/calendar")
-    public String patata(){return "calendar";}
     @PostMapping("/signupPlayer")
     public String signupPlayer(Model model, Player player,
                                @RequestParam String username,
