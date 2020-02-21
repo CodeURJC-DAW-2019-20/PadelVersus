@@ -47,10 +47,10 @@ public class AdminService {
             allTournamentDisplay.add(tournamentDisplay);
 
         }
-        List<Object> lista = new ArrayList<>();
-        lista.add(allTournamentDisplay);
-        lista.add(matchAdmins);
-        return lista;
+        List<Object> list = new ArrayList<>();
+        list.add(allTournamentDisplay);
+        list.add(matchAdmins);
+        return list;
     }
 
 
