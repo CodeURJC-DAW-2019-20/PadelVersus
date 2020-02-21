@@ -49,97 +49,56 @@
                     <div class="main-slider-caption">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">30 Nov 2020 / 21:00/ Ciudad Raqueta</div>
-                                    <div class="team">Team 1
-
-                                        <p>LUCAS GÓMEZ TORRES & ALEJANDRO CHECA FOLGUERA</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
-                                        </div>
-                                        <p>Team 2</p>
-
-                                        <p>JOSE LAVADO SÁNCHEZ & DANIEL CARMONA PEDRAJAS</p>
-                                    </div>
-                                    <div class="booking">
-                                        <a href="overviewMatches.html">
-                                            Match Page
-                                        </a>
-                                    </div>
+                                <div class="col-md-3">
+                                    <div class="team"><p>{{nameFirstTeamOne}}</p></div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="team">
+                                        <p>
+                                            <div class="big-count margin-center">
+                                        <p>VS</p>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="team"><p>{{nameFirstTeamTwo}}</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="main-slider-caption">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">2 Dec 2020 / 22:30 / Ciudad Raqueta</div>
-                                    <div class="team">Team 1
-                                        <p>PEPE SÁNCHEZ FLORES & ALEJANDRO LÓPEZ GARCÍA</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
-                                        </div>
-                                        <p>Team 2</p>
-
-                                        <p>JAVIER GÓMEZ TORRES & DANIEL RAMIRO PIEDRAS</p>
-                                    </div>
-
-                                    <div class="booking">
-                                        <a href="#">
-                                            Watch live
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="main-slider-caption">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="match-date">16 Dec 2020 / 20:00 / Ciudad de la Raqueta</div>
-                                    <div class="team"> Team 1
-                                        <p>MARíA FLORES GARCÍA & VANESA ROMERO LÓPEZ</p>
-
-                                        <div class="big-count margin-center">
-
-                                            <p>VS</p>
-
-
-                                        </div>
-                                        <p>Team 2</p>
-                                        <p>ISAAC VERGARA OCHOA & DANIEL NADAL </p>
-                                    </div>
-                                    <div class="booking">
-                                        <a href="#">
-                                            Watch live
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-
+            {{#next_matchesForCarrousel}}
+            <div class="item">
+                <div class="main-slider-caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="team"><p>{{nameTeamOne}}</p></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="team">
+                                    <p>
+                                        <div class="big-count margin-center">
+                                    <p>VS</p>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="team"><p>{{nameTeamTwo}}</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        {{/next_matchesForCarrousel}}
+
     </div>
+
+
+</div>
+</div>
 </div>
 
 <!--MAIN MACTH SHEDULE BEGIN-->
@@ -188,22 +147,21 @@
                 <h6>Latest matches</h6>
 
                 <div class="main-lates-matches">
-
-
-                    <a href="#" class="item">
                         {{#last_matches}}
-                        <span class="championship">{{tournamentName}}</span>
+                        <a href="/match/{{id}}" class="item">
+
+                            <span class="championship">{{tournamentName}}</span>
 
 
-                        {{#winsTeamOne}}
-                        <span class="teams-wrap">
+                            {{#winsTeamOne}}
+                            <span class="teams-wrap">
                         <span class="teamwinner">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamOne}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetOne}}</span></span>
-                    </span>
-                        <span class="teams-wrap">
+                        </span>
+                            <span class="teams-wrap">
                         <span class="team">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamTwo}}</span>
@@ -211,28 +169,27 @@
 
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
-                        {{/winsTeamOne}}
+                            {{/winsTeamOne}}
 
 
-                        {{^winsTeamOne}}
-                        <span class="teams-wrap">
+                            {{^winsTeamOne}}
+                            <span class="teams-wrap">
                         <span class="team">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamOne}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetOne}}</span></span>
                     </span>
-                        <span class="teams-wrap">
+                            <span class="teams-wrap">
                         <span class="teamwinner">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamTwo}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
-                        {{/winsTeamOne}}
-
+                            {{/winsTeamOne}}
+                        </a>
                         {{/last_matches}}
-                    </a>
 
                 </div>
             </div>
@@ -247,7 +204,7 @@
 <section>
 
 
-{{> footer}}
+    {{> footer}}
 </section>
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
