@@ -43,7 +43,7 @@ public class SocialFacebookController {
         String[] fields = { "id", "email", "first_name", "last_name" };
         User userProfile = facebook.fetchObject("me", User.class, fields);
         System.out.println("email "+userProfile.getEmail());
-        System.out.println("nombre "+userProfile.getName());
+        System.out.println("noun "+userProfile.getName());
         System.out.println("userProfile = " + userProfile);
         ModelAndView model = new ModelAndView("/player/s");
         model.addObject("user", userProfile);
