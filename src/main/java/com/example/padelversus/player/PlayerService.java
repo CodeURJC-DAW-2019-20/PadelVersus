@@ -76,19 +76,15 @@ public class PlayerService {
     }
 
 
-    public List<Tournament> findMoreTournamentOfEachPlayer(Player player) {
-        List<Tournament> allTournaments = tournamentRepository.findAll();
-        List<Tournament> tournamentsFounds = new ArrayList<>();
-        List<Team> teamsOfPlayer = findTeamsOfPlayer(player);
-        for (Tournament oneTournament : allTournaments) {
-            for (Team team : teamsOfPlayer) {
-                if (oneTournament.getTeams().contains(team) && !tournamentsFounds.contains(oneTournament)) {
-                    tournamentsFounds.add(oneTournament);
-                }
-            }
-        }
+    public List<Tournament> findTournamentsOfPlayer(Player player) {
 
-        return tournamentsFounds;
+        List<Team> teamsOfPlayer1 = findTeamsOfPlayer(player);
+        List<Tournament> tournamentsFound = new ArrayList<>();
+        for (Team team : teamsOfPlayer1) {
+            List<Tournament> tournamentsOfTeam = tournamentRepository.findTournamentByTeamId(team.getId());
+            tournamentsFound.addAll(tournamentsOfTeam);
+        }
+        return tournamentsFound;
     }
 
 

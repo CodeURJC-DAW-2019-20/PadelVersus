@@ -47,7 +47,7 @@ public class PlayerController {
             User user = playerFound.getUser();
 
             List<Team> teamsFounds = playerService.findTeamsOfPlayer(playerFound);
-            List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
+            List<Tournament> tournamentsFounds = playerService.findTournamentsOfPlayer(playerFound);
 
             BufferedImage playerImage = playerFound.getBufferedImage();
             String base_url = "/images_temp/Player/";
