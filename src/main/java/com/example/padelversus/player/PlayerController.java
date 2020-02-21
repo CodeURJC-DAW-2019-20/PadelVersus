@@ -2,11 +2,8 @@ package com.example.padelversus.player;
 
 import com.example.padelversus.ImageService;
 import com.example.padelversus.team.Team;
-import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.tournament.Tournament;
-import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.user.User;
-import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +46,7 @@ public class PlayerController {
             Player playerFound = player.get();
             User user = playerFound.getUser();
 
-            List<Team> teamsFounds = playerService.findMoreTeamOfEachPlayer(playerFound);
+            List<Team> teamsFounds = playerService.findTeamsOfPlayer(playerFound);
             List<Tournament> tournamentsFounds = playerService.findMoreTournamentOfEachPlayer(playerFound);
 
             BufferedImage playerImage = playerFound.getBufferedImage();

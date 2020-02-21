@@ -18,7 +18,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -72,26 +71,15 @@ public class PlayerService {
 
 
     //find the name of more the team  of each player
-    public List<Team> findMoreTeamOfEachPlayer(Player player) {
-        List<Team> allTeams = teamRepository.findAll();
-        List<Team> teamsFounds = new ArrayList<>();
-        Iterator<Team> it = allTeams.iterator();
-        Team team = null;
-        while ((it.hasNext())) {
-            team = it.next();
-            if (team.getPlayers().contains(player)) {
-                teamsFounds.add(team);
-            }
-        }
-
-        return teamsFounds;
+    public List<Team> findTeamsOfPlayer(Player player) {
+        return teamRepository.findTeamByPlayerId(player.getId());
     }
 
 
     public List<Tournament> findMoreTournamentOfEachPlayer(Player player) {
         List<Tournament> allTournaments = tournamentRepository.findAll();
         List<Tournament> tournamentsFounds = new ArrayList<>();
-        List<Team> teamsOfPlayer = findMoreTeamOfEachPlayer(player);
+        List<Team> teamsOfPlayer = findTeamsOfPlayer(player);
         for (Tournament oneTournament : allTournaments) {
             for (Team team : teamsOfPlayer) {
                 if (oneTournament.getTeams().contains(team) && !tournamentsFounds.contains(oneTournament)) {
