@@ -2,6 +2,7 @@ package com.example.padelversus.admin;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchAdmin;
+import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.match.Stadistics.SetPadel;
 import com.example.padelversus.team.Team;
@@ -25,6 +26,8 @@ public class AdminService {
     TournamentRepository tournamentRepository;
     @Autowired
     TeamRepository teamRepository;
+    @Autowired
+    MatchRepository matchRepository;
     public List<Object> adminPage(){
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<MatchAdmin> matchAdmins = new ArrayList<>();
@@ -48,6 +51,7 @@ public class AdminService {
 
         }
         List<Object> list = new ArrayList<>();
+        List<Match> matches = matchRepository.findNotPlayedByTournamentName("Tournament 3");
         list.add(allTournamentDisplay);
         list.add(matchAdmins);
         return list;
