@@ -73,9 +73,9 @@ A page where the team logo, the team name and its two members are shown. Below t
 ![SpecTeam](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/SpecificTeam.PNG)
 #### Player/User
 This window will show you main features of the players of each team, the last five matches, the club history and the trophies. Moreover, it shows you the minutes played, one summary of the player, detailed player statistics (graphic)and his points per game (graphic).
-![UserView](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/PlayerView.JPG)
+![UserView](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/PlayerView.jpg)
 #### Registration Tournament
-You will can choose tournament, write your team name and upload team logo. Moreover, you will can write the first name (player21) and the second player will be found for join to first player.
+You will can choose tournament, write your team name and upload team logo. Moreover, you will can write the first name (player1) and the second player will be found for join to first player.
 ![RegTournament](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/RegistrationTournament.JPG)
 #### Calendar
 Contains one calendar with the matches of each month.
@@ -84,3 +84,38 @@ Contains one calendar with the matches of each month.
 ![Diagram](https://raw.githubusercontent.com/CodeURJC-DAW-2019-20/PadelVersus/master/WebImages/flowDiagram.JPG)
 
 # Fase 2
+## Description of the Fase
+
+## Most Important Commits
+| Name | Github user | BestCommit | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |--------|--------|--------|--------|--------|
+
+## More worked file
+| Name | Github user | 1 | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |--------|--------|--------|--------|--------|
+
+## Textual Description Of Work
+| Name | Github user | Description |
+|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|
+|Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|
+|José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|
+|Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|
+|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | Dacarpe03 |--------|--------|--------|
+## Navigation
+
+## Entity Diagram
+
+## Class/Template Diagram
+
+## Demo Structure
