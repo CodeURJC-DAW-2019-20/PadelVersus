@@ -49,32 +49,8 @@
                     <div class="main-slider-caption">
                         <div class="container">
                             <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="team"><p>{{nameFirstTeamOne}}</p></div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="team">
-                                            <p>
-                                                <div class="big-count margin-center">
-                                                    <p>VS</p>
-                                                </div>
-                                            </p>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="team"><p>{{nameFirstTeamTwo}}</p></div>
-                                        </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{#next_matchesForCarrousel}}
-                <div class="item">
-                    <div class="main-slider-caption">
-                        <div class="container">
-                            <div class="row">
                                 <div class="col-md-3">
-                                    <div class="team"><p>{{nameTeamOne}}</p></div>
+                                    <div class="team"><p>{{nameFirstTeamOne}}</p></div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="team">
@@ -86,19 +62,43 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="team"><p>{{nameTeamTwo}}</p></div>
+                                <div class="team"><p>{{nameFirstTeamTwo}}</p></div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
-                {{/next_matchesForCarrousel}}
-
             </div>
-
-
+            {{#next_matchesForCarrousel}}
+            <div class="item">
+                <div class="main-slider-caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="team"><p>{{nameTeamOne}}</p></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="team">
+                                    <p>
+                                        <div class="big-count margin-center">
+                                    <p>VS</p>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="team"><p>{{nameTeamTwo}}</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        {{/next_matchesForCarrousel}}
+
     </div>
+
+
+</div>
+</div>
 </div>
 
 <!--MAIN MACTH SHEDULE BEGIN-->
@@ -147,22 +147,21 @@
                 <h6>Latest matches</h6>
 
                 <div class="main-lates-matches">
-
-
-                    <a href="#" class="item">
                         {{#last_matches}}
-                        <span class="championship">{{tournamentName}}</span>
+                        <a href="/match/{{id}}" class="item">
+
+                            <span class="championship">{{tournamentName}}</span>
 
 
-                        {{#winsTeamOne}}
-                        <span class="teams-wrap">
+                            {{#winsTeamOne}}
+                            <span class="teams-wrap">
                         <span class="teamwinner">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamOne}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetOne}}</span></span>
-                    </span>
-                        <span class="teams-wrap">
+                        </span>
+                            <span class="teams-wrap">
                         <span class="team">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamTwo}}</span>
@@ -170,28 +169,27 @@
 
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
-                        {{/winsTeamOne}}
+                            {{/winsTeamOne}}
 
 
-                        {{^winsTeamOne}}
-                        <span class="teams-wrap">
+                            {{^winsTeamOne}}
+                            <span class="teams-wrap">
                         <span class="team">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamOne}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetOne}}</span></span>
                     </span>
-                        <span class="teams-wrap">
+                            <span class="teams-wrap">
                         <span class="teamwinner">
                             <span><img src="/images/common/team-logo1.png" alt="team-image"></span>
                             <span>{{nameTeamTwo}}</span>
                         </span>
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
-                        {{/winsTeamOne}}
-
+                            {{/winsTeamOne}}
+                        </a>
                         {{/last_matches}}
-                    </a>
 
                 </div>
             </div>
@@ -206,7 +204,7 @@
 <section>
 
 
-{{> footer}}
+    {{> footer}}
 </section>
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
