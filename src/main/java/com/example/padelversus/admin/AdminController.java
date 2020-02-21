@@ -72,11 +72,6 @@ public class AdminController {
         return "/adminPage";
     }
 
-    @RequestMapping("/prueba")
-    public String prueba() {
-
-        return "/prueba";
-    }
 
     @PostMapping("/saveMatch")
     public String savematch(String torneoSeleccionado, String t1_oficial, String t2_oficial, String date) {
