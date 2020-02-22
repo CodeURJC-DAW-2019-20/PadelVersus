@@ -51,7 +51,6 @@ public class PlayerController {
             String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
             playerFound.setImageUrl(image_url);
-            playerRepository.save(playerFound);
             if (teamsFounds != null) {
                 model.addAttribute("namesTeams", teamsFounds);
                 model.addAttribute("is_in_team", true);
