@@ -1,4 +1,4 @@
-package com.example.padelversus.tournament.display;
+package com.example.padelversus.team.display;
 
 import java.util.List;
 

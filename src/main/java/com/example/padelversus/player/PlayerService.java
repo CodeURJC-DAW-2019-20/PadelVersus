@@ -38,6 +38,13 @@ public class PlayerService {
     @Autowired
     private ImageService imageService;
 
+    public Optional<Player> findPlayerById(Long id){
+        Optional<Player> player = playerRepository.findById(id);
+        return player;
+    }
+    public void savePlayer(Player player){
+        playerRepository.save(player);
+    }
     //Save (a copy) of a player joined with the user passed in username param if not possible return null
     public boolean savePlayer(Player player, String username, MultipartFile imagenFile) throws IOException {
         Optional<User> relatedUser = userRepository.findByName(username);
@@ -132,5 +139,9 @@ public class PlayerService {
 
     public Player getPlayerFromUsername(String username) {
         return playerRepository.findByUserName(username).orElse(null);
+    }
+    public List<Player> findAllPlayer(){
+        List<Player> players = playerRepository.findAll();
+        return players;
     }
 }

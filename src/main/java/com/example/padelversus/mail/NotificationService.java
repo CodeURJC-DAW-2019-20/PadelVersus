@@ -18,7 +18,6 @@ public class NotificationService {
     }
 
     public void sendNotification(User user) throws MailException {  //Send an email
-
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getMail());
         mail.setSubject("WELCOME TO PADEL VERSUS!");

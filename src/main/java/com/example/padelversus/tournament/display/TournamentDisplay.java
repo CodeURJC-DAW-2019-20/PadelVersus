@@ -1,6 +1,7 @@
 package com.example.padelversus.tournament.display;
 
 import com.example.padelversus.team.Team;
+import com.example.padelversus.team.display.TeamDisplay;
 import com.example.padelversus.tournament.Tournament;
 
 import java.util.ArrayList;

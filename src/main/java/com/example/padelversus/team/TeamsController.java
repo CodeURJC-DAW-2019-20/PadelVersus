@@ -20,12 +20,6 @@ import java.util.List;
 public class TeamsController {
 
     @Autowired
-    TeamRepository teamRepository;
-
-    @Autowired
-    TournamentRepository tournamentRepository;
-
-    @Autowired
     TeamService teamService;
 
     @GetMapping("/")

@@ -1,6 +1,6 @@
 package com.example.padelversus.pdf;
 
-import com.example.padelversus.tournament.display.TeamDisplay;
+import com.example.padelversus.team.display.TeamDisplay;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
