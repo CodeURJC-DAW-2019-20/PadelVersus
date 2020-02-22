@@ -50,6 +50,8 @@ public class PlayerController {
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
+            playerFound.setImageUrl(image_url);
+            playerRepository.save(playerFound);
             if (teamsFounds != null) {
                 model.addAttribute("namesTeams", teamsFounds);
                 model.addAttribute("is_in_team", true);
@@ -89,7 +91,9 @@ public class PlayerController {
     @GetMapping("/editProfile")
     public String editProfile(Model model){
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("name",usernameLogged);
+        model.addAttribute("name", usernameLogged);
+        Player player = playerService.getPlayerFromUsername(usernameLogged);
+        model.addAttribute("imageUrl", player.getImageUrl());
         return "modifyProfilePlayer";
     }
 

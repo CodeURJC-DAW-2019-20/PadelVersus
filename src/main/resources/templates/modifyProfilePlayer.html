@@ -37,16 +37,18 @@
                         <label style="display: block; text-align: left"><h3>{{name}}</h3></label>
                         <input type="hidden" id="username" name="username" value="{{name}}">
                         <div>
-                            <a href="player.html" class="item">
+                            <a class="item">
                                 <!--<img style="margin-left: 20%" src="/images/soccer/staff-item-img.jpg" alt="player">-->
-                                <img src="/images/soccer/staff-item-img.jpg" alt="player" >
+                                <img id="imageUrl" src="{{imageUrl}}" alt="player" >
                             </a>
                         </div>
                         <div class="container-login100">
                             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
                                 <span class="label-input100"></span>
                                 <input class="inputfile" type='file' id='imageFile' name='imageFile' accept=".jpg, .jpeg"/>
-                                <label for='imageFile'>Choose an image</label>
+                                <label for='imageFile'>
+                                    <span>Choose Image</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -100,6 +102,7 @@
 <script type="text/javascript" src="/js/svg-path.js"></script>
 <script type="text/javascript" src="/js/pick-circle.js"></script>
 <script type="text/javascript" src="/js/horizontal-bar.js"></script>
+<script type="text/javascript" src="/js/inputfile.js"></script>
 <script type="text/javascript" src="/js/gauge-chart.js"></script>
 <script type="text/javascript" src="/js/stacked-bar.js"></script>
 

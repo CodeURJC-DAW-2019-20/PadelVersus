@@ -140,6 +140,7 @@ public class PlayerService {
     public Player getPlayerFromUsername(String username) {
         return playerRepository.findByUserName(username).orElse(null);
     }
+  
     public List<Player> findAllPlayer(){
         List<Player> players = playerRepository.findAll();
         return players;
