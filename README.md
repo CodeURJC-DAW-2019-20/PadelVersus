@@ -87,7 +87,7 @@ Contains one calendar with the matches of each month.
 ## Description of the Fase
 
 ## Top 5 Most Important Commits
-| Name | Github user | BestCommit | 2 | 3 | 4 | 5 |
+| Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|
 |Iván Martín Sanz| i100van |--------|--------|--------|--------|--------|
@@ -95,7 +95,7 @@ Contains one calendar with the matches of each month.
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
 |Daniel Carmona Pedrajas | Dacarpe03 | [Team Service](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a39d30ad9e38b3e6768799ccf7ec890d7cfa2f24) | [Player Profile Editing](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/5d5bf1b79bb99b0f7b08747cf8ac8f6fcb5f0f9c) | [Teamx Page Mustache](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a5a059cf41f9a0c7d94a4f65b49077221f6c33a7) | [TeamStatistics](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/9fa9062167c712b516ac248fc21b69192747c70b) | [TeamEntity](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/676b7cf1a527192674cdf77663347693a2739b9f) |
 
-## More worked file
+## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|
