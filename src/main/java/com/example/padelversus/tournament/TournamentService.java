@@ -6,16 +6,17 @@ import com.example.padelversus.tournament.display.TournamentDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 @Service
 public class TournamentService {
     @Autowired
     TournamentRepository tournamentRepository;
 
+    public Optional<Tournament> getTournamentByName(String tName){
+        Optional<Tournament> tournament = tournamentRepository.findByName(tName);
+        return tournament;
+    }
     //Order all team from a tournament by games won
     public void teamOrder(Tournament tournament) {
         List<Team> tournamentTeams = tournament.getTeams();
@@ -106,5 +107,8 @@ public class TournamentService {
             allTournamentDisplay.add(tournamentDisplay);
         }
         return allTournamentDisplay;
+    }
+    public void saveTournament(Tournament tournament){
+        tournamentRepository.save(tournament);
     }
 }

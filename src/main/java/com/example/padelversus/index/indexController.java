@@ -21,10 +21,6 @@ public class indexController {
     @Autowired
     private MatchService matchService;
 
-
-
-
-
     @GetMapping("/")
     public String Index(Model model) {
         List<LastMatchDisplay> lastMatches = matchService.lastMatches();
@@ -43,7 +39,6 @@ public class indexController {
         model.addAttribute("nameFirstTeamTwo",nextMatchesForCarrousell.get(0).getNameTeamTwo());
         nextMatchesForCarrousell.remove(0);
         model.addAttribute("next_matchesForCarrousel",nextMatchesForCarrousell);
-      
         model.addAttribute("last_matches", lastMatches);
         model.addAttribute("next_matches",nextMatches);
 

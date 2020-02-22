@@ -14,8 +14,6 @@ public class MatchesByDateDisplay {
         this.date = localDate;
     }
 
-
-
     public List<LastMatchDisplay> getMatches() {
         return matches;
     }

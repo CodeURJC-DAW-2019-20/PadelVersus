@@ -16,14 +16,6 @@ public class Tournament {
 
     private String name;
 
-    public String getNonspacename() {
-        return nonspacename;
-    }
-
-    public void setNonspacename(String nonspacename) {
-        this.nonspacename = nonspacename;
-    }
-
     private String nonspacename;
 
     @Override
@@ -98,5 +90,13 @@ public class Tournament {
     public boolean hasTeam(Team team){
         return teams.contains(team);
     }
+
+    public String getNonspacename() {
+        return nonspacename;
+    }
+    public void setNonspacename(String nonspacename) {
+        this.nonspacename = nonspacename;
+    }
+
 
 }

@@ -22,12 +22,10 @@ import java.util.Optional;
 public class PlayerController {
 
     @Autowired
-    private PlayerRepository playerRepository;
-    @Autowired
     private PlayerService playerService;
+
     @Autowired
     private ImageService imageService;
-
 
     @GetMapping("/")
     public String player(){
@@ -36,8 +34,7 @@ public class PlayerController {
 
     @GetMapping("/{id}")
     public String player(Model model, @PathVariable Long id) throws IOException {
-        Optional<Player> player = playerRepository.findById(id);
-
+        Optional<Player> player = playerService.findPlayerById(id);
 
         if (player.isPresent()) {
 
@@ -106,7 +103,7 @@ public class PlayerController {
         Player player = playerService.getPlayerFromUsername(usernameLogged);
         byte [] image = imageFile.getBytes();
         player.setImage(image);
-        playerRepository.save(player);
+        playerService.savePlayer(player);
         return "index";
     }
 
