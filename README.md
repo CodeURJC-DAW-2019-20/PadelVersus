@@ -93,7 +93,7 @@ Contains one calendar with the matches of each month.
 |Iván Martín Sanz| i.martins.2016@alumnos.urjc.es | i100van |--------|--------|--------|--------|--------|
 |José Luis Lavado Sánchez | jl.lavado.2016@alumnos.urjc.es | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | l.gomezt.2016@alumnos.urjc.es | LucasGomezTorres |--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a39d30ad9e38b3e6768799ccf7ec890d7cfa2f24 |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | d.carmonape@alumnos.urjc.es | [Edit Profile](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a39d30ad9e38b3e6768799ccf7ec890d7cfa2f24) |--------|--------|--------|--------|--------|
 
 ## More worked file
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
