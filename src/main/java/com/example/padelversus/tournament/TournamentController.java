@@ -8,9 +8,11 @@ import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
+import com.example.padelversus.team.TeamService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
+import com.example.padelversus.user.UserService;
 import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -36,26 +38,21 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/tournament")
 public class TournamentController {
-    @Autowired
-    TournamentRepository tournamentRepository;
 
     @Autowired
     TournamentService tournamentService;
 
     @Autowired
-    UserRepository userRepository;
+    TeamService teamService;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     PlayerService playerService;
 
     @Autowired
     ImageService imageService;
-
-    @Autowired
-    PlayerRepository playerRepository;
-
-    @Autowired
-    TeamRepository teamRepository;
 
     @Autowired
     PdfService pdfService;
@@ -74,13 +71,14 @@ public class TournamentController {
         if (username.equals("admin")) {
             return "/adminPage";
         } else {
-            Optional<User> user = userRepository.findByName(username);
+            Optional<User> user = userService.findUserByName(username);
             Player loggedPlayer = playerService.getPlayerFromUser(user.get());
             BufferedImage playerImage = loggedPlayer.getBufferedImage();
             String base_url = "/images_temp/Player/";
             String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
             String image_url = base_url + image_name;
-            List<Player> players = playerRepository.findAll();
+
+            List<Player> players = playerService.findAllPlayer();
             List<String> playerNames = new ArrayList<>();
             for (Player player : players) {
                 if (!player.getUser().getName().equals(username)) {
@@ -97,20 +95,20 @@ public class TournamentController {
 
     @PostMapping("/registerTournamentForm")
     public String formTournament(
-            @RequestParam String SelectedTournament,
+            @RequestParam String selectedTournament,
             @RequestParam String username,
             @RequestParam String otherPlayer,
             @RequestParam String teamName
     ) {
-        Optional<User> user1 = userRepository.findByName(username);
-        Optional<User>  user2 = userRepository.findByName(otherPlayer);
+        Optional<User> user1 = userService.findUserByName(username);
+        Optional<User>  user2 = userService.findUserByName(otherPlayer);
         Player player1 = playerService.getPlayerFromUser(user1.get());
         Player player2 = playerService.getPlayerFromUser(user2.get());
         Team team = new Team(teamName, player1, player2);
-        teamRepository.save(team);
-        Tournament tournament = tournamentRepository.findByName(SelectedTournament).get();
+        teamService.saveTeam(team);
+        Tournament tournament = tournamentService.getTournamentByName(selectedTournament).get();
         tournament.getTeams().add(team);
-        tournamentRepository.save(tournament);
+        tournamentService.saveTournament(tournament);
         return "index";
     }
 

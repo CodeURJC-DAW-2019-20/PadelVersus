@@ -16,12 +16,14 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/match")
 public class MatchController {
+
     @Autowired
-    MatchRepository matchRepository;
+    MatchService matchService;
 
     @GetMapping("/{id}")
     public String match(Model model, @PathVariable Long id){
-        Optional<Match> match = matchRepository.findById(id);
+        Optional<Match> match = matchService.findMatchById(id);
+
         if (match.isPresent()) {
             List<Team> teams= match.get().getTeams();
             List<Integer> nsets = new ArrayList<>();

@@ -30,7 +30,10 @@ public class TeamService {
         Optional<Team> team = teamRepository.findByid(id);
         return team;
     }
-
+    public Optional<Team> getTeamByName(String name){
+        Optional<Team> team = teamRepository.findByName(name);
+        return team;
+    }
     public TeamxDisplay createTeamxDisplay(Team team){
         TeamxDisplay teamxDisplay = new TeamxDisplay(team);
         loadPlayerImages(team);
@@ -84,5 +87,8 @@ public class TeamService {
         }
 
         return pageTeamNames;
+    }
+    public void saveTeam(Team team){
+        teamRepository.save(team);
     }
 }

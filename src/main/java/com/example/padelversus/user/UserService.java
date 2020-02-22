@@ -11,7 +11,6 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-
     @Autowired
     private NotificationService notificationService;
 
@@ -31,5 +30,9 @@ public class UserService {
         } else {
             return null;
         }
+    }
+    public Optional<User> findUserByName(String username){
+        Optional<User> user = userRepository.findByName(username);
+        return user;
     }
 }

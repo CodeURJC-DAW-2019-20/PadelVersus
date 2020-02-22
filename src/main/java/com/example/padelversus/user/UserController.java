@@ -16,11 +16,8 @@ import java.io.IOException;
 @Controller
 public class UserController {
 
-
     @Autowired
     private UserService userService;
-
-
 
     @Autowired
     private PlayerService playerService;
