@@ -102,7 +102,7 @@ Contains one calendar with the matches of each month.
 |Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |TeamService.java|LastMatchDisplay.java|teamx.html|player.html|Team.java|
 
 ## Textual Description Of Work
 | Name | Github user | Description |
