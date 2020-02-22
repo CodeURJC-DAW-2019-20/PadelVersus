@@ -92,7 +92,9 @@ public class PlayerController {
     @GetMapping("/editProfile")
     public String editProfile(Model model){
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Player player = playerService.getPlayerFromUsername(usernameLogged);
         model.addAttribute("name",usernameLogged);
+        //model.addAttribute("imageUrl", "player.getImageUrl()");
         return "modifyProfilePlayer";
     }
 
