@@ -111,7 +111,7 @@ Contains one calendar with the matches of each month.
 |Iván Martín Sanz|  i100van |--------|
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to the team entity such as teamController or teamService besides templating html pages with Mustache, also helped on player and admin tasks and a minor sql query|
+|Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to the team entity such as teamController or teamService besides templating html pages with Mustache, also helped on player and admin tasks and a minor SQL query|
 ## Navigation
 ![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
 ## Entity Diagram
