@@ -133,4 +133,5 @@ public class PlayerService {
     public Player getPlayerFromUsername(String username) {
         return playerRepository.findByUserName(username).orElse(null);
     }
+
 }
