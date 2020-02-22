@@ -102,7 +102,7 @@ Contains one calendar with the matches of each month.
 |Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |TeamService.java|LastMatchDisplay.java|teamx.html|player.html|Team.java|
+|Daniel Carmona Pedrajas | Dacarpe03 |TeamService.java|LastMatchDisplay.java|teamx.html|Team.java|AdminController.java|
 
 ## Textual Description Of Work
 | Name | Github user | Description |
@@ -111,7 +111,7 @@ Contains one calendar with the matches of each month.
 |Iván Martín Sanz|  i100van |--------|
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to the team entity, also helped on the player and admin tasks|
 ## Navigation
 ![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
 ## Entity Diagram
