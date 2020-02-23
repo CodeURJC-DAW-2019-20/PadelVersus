@@ -3,6 +3,7 @@ package com.example.padelversus.tournament;
 import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.display.TournamentDisplay;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +49,7 @@ public class TournamentService {
         for (Match match : matches) {
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
-            if (index_team != -1) {
+            if (index_team != -1 && match.isPlayed()) {
                 if (index_team == 0) {
                     if (match.getStadistics_1() != null) {
                         if (match.getStadistics_1().isWin()) won++;
@@ -101,6 +102,9 @@ public class TournamentService {
             teamOrder(tournament);
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for (Team team : tournament.getTeams()) {
+                if(team.getId()==11){
+                    System.out.println();
+                }
                 int[] wonPlayed = wonGames(tournament, team);
                 List<String> lastMatches = lastThreeMatches(tournament, team);
                 boolean hasLastMatches = lastMatches != null;
