@@ -45,60 +45,39 @@
     <div class="main-slider">
         <div id="main-slider" class="carousel slide" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
+                {{#next_matches}}
+                <div class="item">
                     <div class="main-slider-caption">
-                        <div class="container">
+                        <div class="container" style=" width: 100%; padding: 0 30%;">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="team"><p>{{nameFirstTeamOne}}</p></div>
-                                </div>
-                                <div class="col-md-3">
+                                <div class="col-md-12">
+                                    <div class="match-date">{{localDate}}</div>
                                     <div class="team">
-                                        <p>
-                                            <div class="big-count margin-center">
-                                        <p>VS</p>
+                                        {{nameTeamOne}}
+                                        <div class="big-count">
+                                            VS
+                                        </div>
+                                        {{nameTeamTwo}}
                                     </div>
-                                    </p>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="team"><p>{{nameFirstTeamTwo}}</p></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{/next_matches}}
             </div>
-            {{#next_matchesForCarrousel}}
-            <div class="item">
-                <div class="main-slider-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="team"><p>{{nameTeamOne}}</p></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="team">
-                                    <p>
-                                        <div class="big-count margin-center">
-                                    <p>VS</p>
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="team"><p>{{nameTeamTwo}}</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <!-- Controls -->
+            <a class="nav-arrow left-arrow" href="#main-slider" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+            </a>
+            <a class="nav-arrow right-arrow" href="#main-slider" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+            </a>
         </div>
-        {{/next_matchesForCarrousel}}
-
     </div>
-
-
-</div>
-</div>
 </div>
 
 <!--MAIN MACTH SHEDULE BEGIN-->
@@ -199,10 +178,17 @@
 
     {{> footer}}
 </section>
+
 <script type="text/javascript" src="/js/library/jquery.js"></script>
 <script type="text/javascript" src="/js/library/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/library/bootstrap.js"></script>
 <script type="text/javascript" src="/js/library/jquery.sticky.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("patata");
+        $(".carousel-inner > .item:first").addClass("active");
+    })
+</script>
 <script type="text/javascript" src="/js/library/jquery.jcarousel.js"></script>
 <script type="text/javascript" src="/js/library/jcarousel.connected-carousels.js"></script>
 <script type="text/javascript" src="/js/library/owl.carousel.js"></script>
