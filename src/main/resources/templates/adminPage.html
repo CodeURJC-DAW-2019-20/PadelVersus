@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
     <title>Padel Versus</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
           rel="stylesheet"/>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
     <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
     <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            crossorigin="anonymous"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+            src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -35,27 +35,27 @@
             <div id="container-main">
                 <h1>Admin Page:</h1>
                 <div class="accordion-container">
-                    <a href="#" class="accordion-titulo">Add New Matches<span class="toggle-icon"></span></a>
+                    <a class="accordion-titulo" href="#">Add New Matches<span class="toggle-icon"></span></a>
                     <div class="accordion-content">
-                        <form class="login100-form" action="/saveMatch" method="post">
+                        <form action="/saveMatch" class="login100-form" method="post">
                             <div class="form-group col-md-offset-2">
                                 <label for="torneoSeleccionado">Chose Tournament</label>
-                                <select class="form-control" name="selectedTournament" id="torneoSeleccionado"
+                                <select class="form-control" id="torneoSeleccionado" name="selectedTournament"
                                         style="width: 75%">
-                                    <option value="" selected="selected"></option>
+                                    <option selected="selected" value=""></option>
                                     {{#tournament-list}}
                                     <option value="{{name}}">{{name}}</option>
                                     {{/tournament-list}}
                                 </select>
                                 <div id="selectTeam1">
                                     <label for="blankSelect">Chose Team 1</label>
-                                    <select class="form-control" name="t1" id="blankSelect"
+                                    <select class="form-control" id="blankSelect" name="t1"
                                             style="width: 75%">
                                     </select>
                                     {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t1_oficial" id="t1{{nonspacename}}"
+                                    <select class="form-control dontShow" id="t1{{nonspacename}}" name="t1_oficial"
                                             style="width: 75%">
-                                        <option value="" selected="selected"></option>
+                                        <option selected="selected" value=""></option>
                                         {{#teams}}
                                         <option value="{{name}}">{{name}}</option>
                                         {{/teams}}
@@ -64,13 +64,13 @@
                                 </div>
                                 <div id="selectTeam2">
                                     <label for="blankSelect">Chose Team 2</label>
-                                    <select class="form-control" name="t2" id="blankSelect1"
+                                    <select class="form-control" id="blankSelect1" name="t2"
                                             style="width: 75%">
                                     </select>
                                     {{#tournament-list}}
-                                    <select class="form-control dontShow" name="t2_oficial" id="t2{{nonspacename}}"
+                                    <select class="form-control dontShow" id="t2{{nonspacename}}" name="t2_oficial"
                                             style="width: 75%">
-                                        <option value="" selected="selected"></option>
+                                        <option selected="selected" value=""></option>
                                         {{#teams}}
                                         <option value="{{name}}">{{name}}</option>
                                         {{/teams}}
@@ -79,132 +79,158 @@
                                 </div>
 
                                 <label for="date">Chose Date:</label>
-                                <input type="date" id="date" name="date">
-                                <button type="submit" class="btn btn-primary" id="saveMatch">Save</button>
+                                <input id="date" name="date" type="date">
+                                <button class="btn btn-primary" id="saveMatch" type="submit">Save</button>
                             </div>
-                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                            <input name="_csrf" type="hidden" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
 
                 <div class="accordion-container">
-                    <a href="#" class="accordion-titulo">Add Matches Results<span class="toggle-icon"></span></a>
+                    <a class="accordion-titulo" href="#">Add Matches Results<span class="toggle-icon"></span></a>
                     <div class="accordion-content">
-                        <form class="login100-form validate-form" action="/saveDataMatch" method="post">
+                        <form action="/saveDataMatch" class="login100-form validate-form" method="post">
                             <div class="form-group col-md-offset-2">
                                 <label for="matchSelect">Chose Match</label>
-                                <select class="form-control" name="matchSelect" id="matchSelect"
+                                <select class="form-control" id="matchSelect" name="matchSelect"
                                         style="width: 75%">
-                                    <option value="" selected="selected"></option>
+                                    <option selected="selected" value=""></option>
                                     {{#match-list}}
                                     <option value="{{name}}">{{name}}</option>
                                     {{/match-list}}
                                 </select>
                                 <label for="team1Stats">Stadistics Team 1:</label>
                                 <div id="team1Stats">
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is accuracy" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Accuracy is accuracy">
                                         <span class="label-input100 ">Accuracy:</span>
-                                        <input class="input100 form-control" type="number" name="accuracy1" id="accuracy1" placeholder="Type your accuracy" min="0" max="100">
+                                        <input class="input100 form-control" id="accuracy1" max="100"
+                                               min="0" name="accuracy1" placeholder="Type your accuracy" type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Effectiveness is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Effectiveness is required">
                                         <span class="label-input100 ">Effectiveness:</span>
-                                        <input class="input100 form-control" type="number" name="effectiveness1" id="effectiveness1" placeholder="Type your effectiveness" min="0" max="100">
+                                        <input class="input100 form-control" id="effectiveness1" max="100"
+                                               min="0" name="effectiveness1" placeholder="Type your effectiveness"
+                                               type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Games_wins is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Games_wins is required">
                                         <span class="label-input100 ">Games_wins:</span>
-                                        <input class="input100 form-control" type="number" name="games_wins1" id="games_wins1" placeholder="Type your games_wins" min="0" max="100">
+                                        <input class="input100 form-control" id="games_wins1" max="100"
+                                               min="0" name="games_wins1" placeholder="Type your games_wins" type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Unforced Errors is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Unforced Errors is required">
                                         <span class="label-input100 ">Unforced Errors:</span>
-                                        <input class="input100 form-control" type="number" name="unforcedErrors1" id="unforcedErrors1" placeholder="Type your unforced Errors" min="0" max="100">
+                                        <input class="input100 form-control" id="unforcedErrors1" max="100"
+                                               min="0" name="unforcedErrors1" placeholder="Type your unforced Errors"
+                                               type="number">
 
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required">
                                         <span class="label-input100 ">Set 1:</span>
-                                        <input class="input100 form-control" type="number" name="set1team1" id="set1team1" placeholder="Type set 1" min="0" max="7">
+                                        <input class="input100 form-control" id="set1team1" max="7"
+                                               min="0" name="set1team1" placeholder="Type set 1" type="number">
 
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
                                         <span class="label-input100 ">Set 2:</span>
-                                        <input class="input100 form-control" type="number" name="set2team1" id="set2team1" placeholder="Type set 2" min="0" max="7">
+                                        <input class="input100 form-control" id="set2team1" max="7"
+                                               min="0" name="set2team1" placeholder="Type set 2" type="number">
 
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
                                         <span class="label-input100 ">Set 3: (-1 if not played)</span>
-                                        <input class="input100 form-control" type="number" name="set3team1" id="set3team1" placeholder="Type set 3" min="-1" max="7">
+                                        <input class="input100 form-control" id="set3team1" max="7"
+                                               min="-1" name="set3team1" placeholder="Type set 3" type="number">
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
-                                        <input type="checkbox" name="win1" id="win1">
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+                                        <input id="win1" name="win1" type="checkbox">
                                         <label for="win1">Win the match</label>
                                     </div>
                                 </div>
                                 <label for="team2Stats">Stadistics Team 2:</label>
                                 <div id="team2Stats">
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is accuracy" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Accuracy is accuracy">
                                         <span class="label-input100 ">Accuracy:</span>
-                                        <input class="input100 form-control" type="number" name="accuracy2" id="accuracy2" placeholder="Type your accuracy" min="0" max="100">
+                                        <input class="input100 form-control" id="accuracy2" max="100"
+                                               min="0" name="accuracy2" placeholder="Type your accuracy" type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Effectiveness is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Effectiveness is required">
                                         <span class="label-input100 ">Effectiveness:</span>
-                                        <input class="input100 form-control" type="number" name="effectiveness2" id="effectiveness2" placeholder="Type your effectiveness" min="0" max="100">
+                                        <input class="input100 form-control" id="effectiveness2" max="100"
+                                               min="0" name="effectiveness2" placeholder="Type your effectiveness"
+                                               type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Games_wins is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Games_wins is required">
                                         <span class="label-input100 ">Games_wins:</span>
-                                        <input class="input100 form-control" type="number" name="games_wins2" id="games_wins2" placeholder="Type your games_wins" min="0" max="100">
+                                        <input class="input100 form-control" id="games_wins2" max="100"
+                                               min="0" name="games_wins2" placeholder="Type your games_wins" type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Unforced Errors is required" >
+                                    <div class="wrap-input100 validate-input m-b-23"
+                                         data-validate="Unforced Errors is required">
                                         <span class="label-input100 ">Unforced Errors:</span>
-                                        <input class="input100 form-control" type="number" name="unforcedErrors2" id="unforcedErrors2" placeholder="Type your unforced Errors" min="0" max="100">
+                                        <input class="input100 form-control" id="unforcedErrors2" max="100"
+                                               min="0" name="unforcedErrors2" placeholder="Type your unforced Errors"
+                                               type="number">
 
                                     </div>
 
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required">
                                         <span class="label-input100 ">Set 1:</span>
-                                        <input class="input100 form-control" type="number" name="set1team2" id="set1team2" placeholder="Type set 1" min="0" max="7">
+                                        <input class="input100 form-control" id="set1team2" max="7"
+                                               min="0" name="set1team2" placeholder="Type set 1" type="number">
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
                                         <span class="label-input100 ">Set 2:</span>
-                                        <input class="input100 form-control" type="number" name="set2team2" id="set2team2" placeholder="Type set 2" min="0" max="7">
+                                        <input class="input100 form-control" id="set2team2" max="7"
+                                               min="0" name="set2team2" placeholder="Type set 2" type="number">
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required" >
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
                                         <span class="label-input100 ">Set 3: (-1 if not played)</span>
-                                        <input class="input100 form-control" type="number" name="set3team2" id="set3team2" placeholder="Type set 3" min="-1" max="7">
+                                        <input class="input100 form-control" id="set3team2" max="7"
+                                               min="-1" name="set3team2" placeholder="Type set 3" type="number">
                                     </div>
-                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win" >
-                                        <input type="checkbox" name="win2" id="win2">
+                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+                                        <input id="win2" name="win2" type="checkbox">
                                         <label for="win1">Win the match</label>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary p-t-16" id="saveStatMatch">Save</button>
+                                <button class="btn btn-primary p-t-16" id="saveStatMatch" type="submit">Save</button>
                             </div>
-                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                            <input name="_csrf" type="hidden" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
 
                 <div class="accordion-container">
-                    <a href="#" class="accordion-titulo">Add New Tournament:<span class="toggle-icon"></span></a>
+                    <a class="accordion-titulo" href="#">Add New Tournament:<span class="toggle-icon"></span></a>
                     <div class="accordion-content">
-                        <form class="login100-form" action="/savetournament" method="post">
+                        <form action="/savetournament" class="login100-form" method="post">
                             <div class="form-group col-md-offset-2">
                                 <label for="newTournament">Tournament Name:</label>
-                                <input type="text" id = "newTournament" name="name">
-                                <button type="submit" class="btn btn-primary" id="savetournament">Save</button>
+                                <input id="newTournament" name="name" type="text">
+                                <button class="btn btn-primary" id="savetournament" type="submit">Save</button>
                             </div>
-                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                            <input name="_csrf" type="hidden" value="{{token}}"/>
                         </form>
                     </div>
                 </div>
@@ -219,75 +245,74 @@
 </div>
 
 
-
 {{> footer}}->
-<script type="text/javascript" src="/js/seccion.js"></script>
-<script type="text/javascript" src="/js/admin.js"></script>
-<script type="text/javascript" src="/js/library/jquery.js"></script>
-<script type="text/javascript" src="/js/library/jquery-ui.js"></script>
-<script type="text/javascript" src="/js/library/bootstrap.js"></script>
-<script type="text/javascript" src="/js/library/jquery.sticky.js"></script>
-<script type="text/javascript" src="/js/library/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="/js/library/jcarousel.connected-carousels.js"></script>
-<script type="text/javascript" src="/js/library/owl.carousel.js"></script>
-<script type="text/javascript" src="/js/library/progressbar.js"></script>
-<script type="text/javascript" src="/js/library/jquery.bracket.min.js"></script>
-<script type="text/javascript" src="/js/library/chartist.js"></script>
-<script type="text/javascript" src="/js/library/Chart.js"></script>
-<script type="text/javascript" src="/js/library/fancySelect.js"></script>
-<script type="text/javascript" src="/js/library/isotope.pkgd.js"></script>
-<script type="text/javascript" src="/js/library/imagesloaded.pkgd.js"></script>
+<script src="/js/seccion.js" type="text/javascript"></script>
+<script src="/js/admin.js" type="text/javascript"></script>
+<script src="/js/library/jquery.js" type="text/javascript"></script>
+<script src="/js/library/jquery-ui.js" type="text/javascript"></script>
+<script src="/js/library/bootstrap.js" type="text/javascript"></script>
+<script src="/js/library/jquery.sticky.js" type="text/javascript"></script>
+<script src="/js/library/jquery.jcarousel.js" type="text/javascript"></script>
+<script src="/js/library/jcarousel.connected-carousels.js" type="text/javascript"></script>
+<script src="/js/library/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/library/progressbar.js" type="text/javascript"></script>
+<script src="/js/library/jquery.bracket.min.js" type="text/javascript"></script>
+<script src="/js/library/chartist.js" type="text/javascript"></script>
+<script src="/js/library/Chart.js" type="text/javascript"></script>
+<script src="/js/library/fancySelect.js" type="text/javascript"></script>
+<script src="/js/library/isotope.pkgd.js" type="text/javascript"></script>
+<script src="/js/library/imagesloaded.pkgd.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/jquery.team-coundown.js"></script>
-<script type="text/javascript" src="/js/matches-slider.js"></script>
-<script type="text/javascript" src="/js/header.js"></script>
-<script type="text/javascript" src="/js/matches_broadcast_listing.js"></script>
-<script type="text/javascript" src="/js/news-line.js"></script>
-<script type="text/javascript" src="/js/match_galery.js"></script>
-<script type="text/javascript" src="/js/main-club-gallery.js"></script>
-<script type="text/javascript" src="/js/product-slider.js"></script>
-<script type="text/javascript" src="/js/circle-bar.js"></script>
-<script type="text/javascript" src="/js/standings.js"></script>
-<script type="text/javascript" src="/js/shop-price-filter.js"></script>
-<script type="text/javascript" src="/js/timeseries.js"></script>
-<script type="text/javascript" src="/js/radar.js"></script>
-<script type="text/javascript" src="/js/slider.js"></script>
-<script type="text/javascript" src="/js/preloader.js"></script>
-<script type="text/javascript" src="/js/diagram.js"></script>
-<script type="text/javascript" src="/js/bi-polar-diagram.js"></script>
-<script type="text/javascript" src="/js/label-placement-diagram.js"></script>
-<script type="text/javascript" src="/js/donut-chart.js"></script>
-<script type="text/javascript" src="/js/animate-donut.js"></script>
-<script type="text/javascript" src="/js/advanced-smil.js"></script>
-<script type="text/javascript" src="/js/svg-path.js"></script>
-<script type="text/javascript" src="/js/pick-circle.js"></script>
-<script type="text/javascript" src="/js/horizontal-bar.js"></script>
-<script type="text/javascript" src="/js/gauge-chart.js"></script>
-<script type="text/javascript" src="/js/stacked-bar.js"></script>
+<script src="/js/jquery.team-coundown.js" type="text/javascript"></script>
+<script src="/js/matches-slider.js" type="text/javascript"></script>
+<script src="/js/header.js" type="text/javascript"></script>
+<script src="/js/matches_broadcast_listing.js" type="text/javascript"></script>
+<script src="/js/news-line.js" type="text/javascript"></script>
+<script src="/js/match_galery.js" type="text/javascript"></script>
+<script src="/js/main-club-gallery.js" type="text/javascript"></script>
+<script src="/js/product-slider.js" type="text/javascript"></script>
+<script src="/js/circle-bar.js" type="text/javascript"></script>
+<script src="/js/standings.js" type="text/javascript"></script>
+<script src="/js/shop-price-filter.js" type="text/javascript"></script>
+<script src="/js/timeseries.js" type="text/javascript"></script>
+<script src="/js/radar.js" type="text/javascript"></script>
+<script src="/js/slider.js" type="text/javascript"></script>
+<script src="/js/preloader.js" type="text/javascript"></script>
+<script src="/js/diagram.js" type="text/javascript"></script>
+<script src="/js/bi-polar-diagram.js" type="text/javascript"></script>
+<script src="/js/label-placement-diagram.js" type="text/javascript"></script>
+<script src="/js/donut-chart.js" type="text/javascript"></script>
+<script src="/js/animate-donut.js" type="text/javascript"></script>
+<script src="/js/advanced-smil.js" type="text/javascript"></script>
+<script src="/js/svg-path.js" type="text/javascript"></script>
+<script src="/js/pick-circle.js" type="text/javascript"></script>
+<script src="/js/horizontal-bar.js" type="text/javascript"></script>
+<script src="/js/gauge-chart.js" type="text/javascript"></script>
+<script src="/js/stacked-bar.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/library/chartist-plugin-legend.js"></script>
-<script type="text/javascript" src="/js/library/chartist-plugin-threshold.js"></script>
-<script type="text/javascript" src="/js/library/chartist-plugin-pointlabels.js"></script>
+<script src="/js/library/chartist-plugin-legend.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-threshold.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-pointlabels.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/treshold.js"></script>
-<script type="text/javascript" src="/js/visible.js"></script>
-<script type="text/javascript" src="/js/anchor.js"></script>
-<script type="text/javascript" src="/js/landing_carousel.js"></script>
-<script type="text/javascript" src="/js/landing_sport_standings.js"></script>
-<script type="text/javascript" src="/js/twitterslider.js"></script>
-<script type="text/javascript" src="/js/champions.js"></script>
-<script type="text/javascript" src="/js/landing_mainnews_slider.js"></script>
-<script type="text/javascript" src="/js/carousel.js"></script>
-<script type="text/javascript" src="/js/video_slider.js"></script>
-<script type="text/javascript" src="/js/footer_slides.js"></script>
-<script type="text/javascript" src="/js/player_test.js"></script>
+<script src="/js/treshold.js" type="text/javascript"></script>
+<script src="/js/visible.js" type="text/javascript"></script>
+<script src="/js/anchor.js" type="text/javascript"></script>
+<script src="/js/landing_carousel.js" type="text/javascript"></script>
+<script src="/js/landing_sport_standings.js" type="text/javascript"></script>
+<script src="/js/twitterslider.js" type="text/javascript"></script>
+<script src="/js/champions.js" type="text/javascript"></script>
+<script src="/js/landing_mainnews_slider.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+<script src="/js/video_slider.js" type="text/javascript"></script>
+<script src="/js/footer_slides.js" type="text/javascript"></script>
+<script src="/js/player_test.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/main.js"></script>
+<script src="/js/main.js" type="text/javascript"></script>
 
 
-<script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
+<script src="/dev-assets/demo-switcher.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 
 
 </body>

@@ -59,7 +59,6 @@
         $(this).showVisible();
 
 
-
     };
 
 })(jQuery, Chartist);

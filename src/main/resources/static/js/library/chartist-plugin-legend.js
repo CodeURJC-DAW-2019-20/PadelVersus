@@ -39,19 +39,19 @@
 
         // Catch invalid options
         if (options && options.position) {
-           if (!(options.position === 'top' || options.position === 'bottom' || options.position instanceof HTMLElement)) {
-              throw Error('The position you entered is not a valid position');
-           }
-           if(options.position instanceof HTMLElement){
-              // Detatch DOM element from options object, because Chartist.extend currently chokes on circular references present in HTMLElements
-              var cachedDOMPosition = options.position;
-              delete options.position;
-           }
+            if (!(options.position === 'top' || options.position === 'bottom' || options.position instanceof HTMLElement)) {
+                throw Error('The position you entered is not a valid position');
+            }
+            if (options.position instanceof HTMLElement) {
+                // Detatch DOM element from options object, because Chartist.extend currently chokes on circular references present in HTMLElements
+                var cachedDOMPosition = options.position;
+                delete options.position;
+            }
         }
 
         options = Chartist.extend({}, defaultOptions, options);
 
-        if(cachedDOMPosition){
+        if (cachedDOMPosition) {
             // Reattatch the DOM Element position if it was removed before
             options.position = cachedDOMPosition
         }
@@ -110,35 +110,33 @@
 
             // Loop through all legends to set each name in a list item.
             legendNames.forEach(function (legend, i) {
-               var li = document.createElement('li');
-               li.className = 'ct-series-' + i;
-               // Append specific class to a legend element, if viable classes are given
-               if (classNamesViable) {
-                  li.className += ' ' + options.classNames[i];
-               }
-               li.setAttribute('data-legend', i);
-               li.textContent = legend.name || legend;
-               legendElement.appendChild(li);
+                var li = document.createElement('li');
+                li.className = 'ct-series-' + i;
+                // Append specific class to a legend element, if viable classes are given
+                if (classNamesViable) {
+                    li.className += ' ' + options.classNames[i];
+                }
+                li.setAttribute('data-legend', i);
+                li.textContent = legend.name || legend;
+                legendElement.appendChild(li);
             });
 
             chart.on('created', function (data) {
-               // Append the legend element to the DOM
-               if(!(options.position instanceof HTMLElement))
-               {
-                  switch (options.position) {
-                     case 'top':
-                        chart.container.insertBefore(legendElement, chart.container.childNodes[0]);
-                        break;
+                // Append the legend element to the DOM
+                if (!(options.position instanceof HTMLElement)) {
+                    switch (options.position) {
+                        case 'top':
+                            chart.container.insertBefore(legendElement, chart.container.childNodes[0]);
+                            break;
 
-                     case 'bottom':
-                        chart.container.insertBefore(legendElement, null);
-                        break;
-                   }
-               }
-               else {
-                  // Appends the legend element as the last child of a given HTMLElement
-                  options.position.insertBefore(legendElement, null);
-               }
+                        case 'bottom':
+                            chart.container.insertBefore(legendElement, null);
+                            break;
+                    }
+                } else {
+                    // Appends the legend element as the last child of a given HTMLElement
+                    options.position.insertBefore(legendElement, null);
+                }
             });
 
             if (options.clickable) {
@@ -157,25 +155,24 @@
                         li.classList.remove('inactive');
                     } else {
                         if (!options.removeAll) {
-                             // Remove from series, only if a minimum of one series is still visible.
-                          if ( chart.data.series.length > 1) {
-                             removedSeries.push(seriesIndex);
-                             li.classList.add('inactive');
-                          }
-                             // Set all series as active.
-                          else {
-                             removedSeries = [];
-                             var seriesItems = Array.prototype.slice.call(legendElement.childNodes);
-                             seriesItems.forEach(function (item) {
-                                item.classList.remove('inactive');
-                             });
-                          }
-                       }
-                       else {
-                          // Remove series unaffected if it is the last or not
-                          removedSeries.push(seriesIndex);
-                          li.classList.add('inactive');
-                       }
+                            // Remove from series, only if a minimum of one series is still visible.
+                            if (chart.data.series.length > 1) {
+                                removedSeries.push(seriesIndex);
+                                li.classList.add('inactive');
+                            }
+                            // Set all series as active.
+                            else {
+                                removedSeries = [];
+                                var seriesItems = Array.prototype.slice.call(legendElement.childNodes);
+                                seriesItems.forEach(function (item) {
+                                    item.classList.remove('inactive');
+                                });
+                            }
+                        } else {
+                            // Remove series unaffected if it is the last or not
+                            removedSeries.push(seriesIndex);
+                            li.classList.add('inactive');
+                        }
                     }
 
                     // Reset the series to original and remove each series that

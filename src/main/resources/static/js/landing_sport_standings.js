@@ -1,5 +1,5 @@
 /**
- - This is jQuery plugin declaration for standings 
+ - This is jQuery plugin declaration for standings
  - @html: ./html-component/landing_sport_standings.html
  - @deps: jQuery
  - @using: ./js/main.js
@@ -37,8 +37,8 @@
             slides[slideIndex - 1].classList.add("ok");
 
 
-
         }
+
         var change = function () {
             var name = $(".ok > .league_name").text();
             $("span.league").text(name);
@@ -56,7 +56,6 @@
             plusSlides(1);
             change();
         });
-
 
 
     };

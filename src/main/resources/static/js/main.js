@@ -9,7 +9,6 @@
     $(document).ready(function () {
 
 
-
         $(".dont_load").css("display", "none");
         $(".dont_load:first").css("display", "block");
         $('.show_href_onclick').click(function () {
@@ -864,7 +863,7 @@
                 $(this).removeClass('has-val');
             }
         })
-    })
+    });
 
 
     /*==================================================================

@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
     <title>Team HTML</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
     <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
 
@@ -20,7 +20,7 @@
     <link href="/css/cssOverView/style.css" rel="stylesheet">
     <link href="/css/cssOverView/color.css" rel="stylesheet">
     <link href="/css/cssOverView/responsive.css" rel="stylesheet">
-    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/>
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -32,9 +32,7 @@
 {{> preloadEffect}}
 
 
-
 {{> menu}}
-
 
 
 <!--BREADCRUMBS BEGIN-->
@@ -57,198 +55,201 @@
 </section>
 <!--BREADCRUMBS END-->
 
-    <!--// Main Content \\-->
-    <div class="sportsmagazine-main-content">
-        <!--// Main Section \\-->
-        <div class="sportsmagazine-main-section sportsmagazine-overview-full">
-            <div class="container">
-                <div class="row">
+<!--// Main Content \\-->
+<div class="sportsmagazine-main-content">
+    <!--// Main Section \\-->
+    <div class="sportsmagazine-main-section sportsmagazine-overview-full">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-md-9">
-                        <div class="sportsmagazine-overview">
-                            <div class="sportsmagazine-overview-wrap">
-                                <div class="sportsmagazine-overview-team-one">
-                                    <!--<figure><img src="/images/soccer/team-logo2.png" alt=""></figure>-->
-                                    <section>
-                                        <h4><a>{{team_1}}</a></h4>
-                                        <span>URJC</span>
-                                    </section>
-                                </div>
-                                <div class="sportsmagazine-overview-score">
-                                    <h5>Partido numero {{id}}</h5>
-                                    <time datetime="{{date}}">{{date}}</time>
-                                    <h5>Score</h5>
-                                    <span>{{score_t1}}<small>:</small>{{score_t2}}</span>
-                                </div>
-                                <div class="sportsmagazine-overview-team-two">
-                                    <!--<figure><img src="/images/soccer/team-logo3.png" alt=""></figure>-->
-                                    <section>
-                                        <h4><a>{{team_2}}</a></h4>
-                                        <span>URJC</span>
-                                    </section>
-                                </div>
+                <div class="col-md-9">
+                    <div class="sportsmagazine-overview">
+                        <div class="sportsmagazine-overview-wrap">
+                            <div class="sportsmagazine-overview-team-one">
+                                <!--<figure><img src="/images/soccer/team-logo2.png" alt=""></figure>-->
+                                <section>
+                                    <h4><a>{{team_1}}</a></h4>
+                                    <span>URJC</span>
+                                </section>
                             </div>
-                            <div class="sportsmagazine-gamestats">
-                                <div class="sportsmagazine-overview-scorecard">
-                                    <ul class="scorecard-head">
-                                        <li><h6>Sets</h6></li>
-                                        {{#number-sets}}
-                                        <li>{{.}}</li>
-                                        {{/number-sets}}
-                                    </ul>
-                                    <ul>
-                                        <li><h6>{{team_1}}</h6></li>
-                                        {{#games-t1}}
-                                        <li>{{.}}</li>
-                                        {{/games-t1}}
-                                    </ul>
-                                    <ul class="border-none">
-                                        <li><h6>{{team_2}}</h6></li>
-                                        {{#games-t2}}
-                                        <li>{{.}}</li>
-                                        {{/games-t2}}
-                                    </ul>
-                                </div>
+                            <div class="sportsmagazine-overview-score">
+                                <h5>Partido numero {{id}}</h5>
+                                <time datetime="{{date}}">{{date}}</time>
+                                <h5>Score</h5>
+                                <span>{{score_t1}}<small>:</small>{{score_t2}}</span>
                             </div>
-                            <span class="sportsmagazine-gamestats-btn">Match Statistics</span>
-                            <div class="sportsmagazine-overview-skillbar">
-                                <div class="skillst">
-                                    <h6>Shoot Accuracy</h6>
-                                    <span>{{accuracy_1}}%</span>
-                                    <div class="progressbar1" data-width="{{accuracy_1}}" data-target="{{accuracy_1}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Shoot Accuracy</h6>
-                                    <span>{{accuracy_2}}%</span>
-                                    <div class="progressbar1" data-width="{{accuracy_2}}" data-target="{{accuracy_2}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Effectiveness</h6>
-                                    <span>{{effectiveness_1}}%</span>
-                                    <div class="progressbar1" data-width="{{effectiveness_1}}" data-target="{{effectiveness_1}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Effectiveness</h6>
-                                    <span>{{effectiveness_2}}%</span>
-                                    <div class="progressbar1" data-width="{{effectiveness_2}}" data-target="{{effectiveness_2}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Wins</h6>
-                                    <span>{{wins_1}}%</span>
-                                    <div class="progressbar1" data-width="{{wins_1}}" data-target="{{wins_1}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Wins</h6>
-                                    <span>{{wins_2}}%</span>
-                                    <div class="progressbar1" data-width="{{wins_2}}" data-target="{{wins_2}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Unforced Errors</h6>
-                                    <span>{{unferrors_1}}%</span>
-                                    <div class="progressbar1" data-width="{{unferrors_1}}" data-target="{{unferrors_1}}"></div>
-                                </div>
-                                <div class="skillst">
-                                    <h6>Unforced Errors</h6>
-                                    <span>{{unferrors_2}}%</span>
-                                    <div class="progressbar1" data-width="{{unferrors_2}}" data-target="{{unferrors_2}}"></div>
-                                </div>
+                            <div class="sportsmagazine-overview-team-two">
+                                <!--<figure><img src="/images/soccer/team-logo3.png" alt=""></figure>-->
+                                <section>
+                                    <h4><a>{{team_2}}</a></h4>
+                                    <span>URJC</span>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="sportsmagazine-gamestats">
+                            <div class="sportsmagazine-overview-scorecard">
+                                <ul class="scorecard-head">
+                                    <li><h6>Sets</h6></li>
+                                    {{#number-sets}}
+                                    <li>{{.}}</li>
+                                    {{/number-sets}}
+                                </ul>
+                                <ul>
+                                    <li><h6>{{team_1}}</h6></li>
+                                    {{#games-t1}}
+                                    <li>{{.}}</li>
+                                    {{/games-t1}}
+                                </ul>
+                                <ul class="border-none">
+                                    <li><h6>{{team_2}}</h6></li>
+                                    {{#games-t2}}
+                                    <li>{{.}}</li>
+                                    {{/games-t2}}
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="sportsmagazine-gamestats-btn">Match Statistics</span>
+                        <div class="sportsmagazine-overview-skillbar">
+                            <div class="skillst">
+                                <h6>Shoot Accuracy</h6>
+                                <span>{{accuracy_1}}%</span>
+                                <div class="progressbar1" data-target="{{accuracy_1}}"
+                                     data-width="{{accuracy_1}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Shoot Accuracy</h6>
+                                <span>{{accuracy_2}}%</span>
+                                <div class="progressbar1" data-target="{{accuracy_2}}"
+                                     data-width="{{accuracy_2}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Effectiveness</h6>
+                                <span>{{effectiveness_1}}%</span>
+                                <div class="progressbar1" data-target="{{effectiveness_1}}"
+                                     data-width="{{effectiveness_1}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Effectiveness</h6>
+                                <span>{{effectiveness_2}}%</span>
+                                <div class="progressbar1" data-target="{{effectiveness_2}}"
+                                     data-width="{{effectiveness_2}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Wins</h6>
+                                <span>{{wins_1}}%</span>
+                                <div class="progressbar1" data-target="{{wins_1}}" data-width="{{wins_1}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Wins</h6>
+                                <span>{{wins_2}}%</span>
+                                <div class="progressbar1" data-target="{{wins_2}}" data-width="{{wins_2}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Unforced Errors</h6>
+                                <span>{{unferrors_1}}%</span>
+                                <div class="progressbar1" data-target="{{unferrors_1}}"
+                                     data-width="{{unferrors_1}}"></div>
+                            </div>
+                            <div class="skillst">
+                                <h6>Unforced Errors</h6>
+                                <span>{{unferrors_2}}%</span>
+                                <div class="progressbar1" data-target="{{unferrors_2}}"
+                                     data-width="{{unferrors_2}}"></div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
-        <!--// Main Section \\-->
     </div>
-    <!--// Main Content \\-->
+    <!--// Main Section \\-->
+</div>
+<!--// Main Content \\-->
 
-    <div class="clearfix"></div>
-
+<div class="clearfix"></div>
 
 
 <!--PLAYER SINGLE WRAP END-->
 
-<section >
-
-
+<section>
 
 
     {{> footer}}
 </section>
-<script type="text/javascript" src="/js/library/jquery.js"></script>
-<script type="text/javascript" src="/js/library/jquery-ui.js"></script>
-<script type="text/javascript" src="/js/library/bootstrap.js"></script>
-<script type="text/javascript" src="/js/library/jquery.sticky.js"></script>
-<script type="text/javascript" src="/js/library/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="/js/library/jcarousel.connected-carousels.js"></script>
-<script type="text/javascript" src="/js/library/owl.carousel.js"></script>
-<script type="text/javascript" src="/js/library/progressbar.js"></script>
-<script type="text/javascript" src="/js/library/jquery.bracket.min.js"></script>
-<script type="text/javascript" src="/js/library/chartist.js"></script>
-<script type="text/javascript" src="/js/library/Chart.js"></script>
-<script type="text/javascript" src="/js/library/fancySelect.js"></script>
-<script type="text/javascript" src="/js/library/isotope.pkgd.js"></script>
-<script type="text/javascript" src="/js/library/imagesloaded.pkgd.js"></script>
+<script src="/js/library/jquery.js" type="text/javascript"></script>
+<script src="/js/library/jquery-ui.js" type="text/javascript"></script>
+<script src="/js/library/bootstrap.js" type="text/javascript"></script>
+<script src="/js/library/jquery.sticky.js" type="text/javascript"></script>
+<script src="/js/library/jquery.jcarousel.js" type="text/javascript"></script>
+<script src="/js/library/jcarousel.connected-carousels.js" type="text/javascript"></script>
+<script src="/js/library/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/library/progressbar.js" type="text/javascript"></script>
+<script src="/js/library/jquery.bracket.min.js" type="text/javascript"></script>
+<script src="/js/library/chartist.js" type="text/javascript"></script>
+<script src="/js/library/Chart.js" type="text/javascript"></script>
+<script src="/js/library/fancySelect.js" type="text/javascript"></script>
+<script src="/js/library/isotope.pkgd.js" type="text/javascript"></script>
+<script src="/js/library/imagesloaded.pkgd.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/jquery.team-coundown.js"></script>
-<script type="text/javascript" src="/js/matches-slider.js"></script>
-<script type="text/javascript" src="/js/header.js"></script>
-<script type="text/javascript" src="/js/matches_broadcast_listing.js"></script>
-<script type="text/javascript" src="/js/news-line.js"></script>
-<script type="text/javascript" src="/js/match_galery.js"></script>
-<script type="text/javascript" src="/js/main-club-gallery.js"></script>
-<script type="text/javascript" src="/js/product-slider.js"></script>
-<script type="text/javascript" src="/js/circle-bar.js"></script>
-<script type="text/javascript" src="/js/standings.js"></script>
-<script type="text/javascript" src="/js/shop-price-filter.js"></script>
-<script type="text/javascript" src="/js/timeseries.js"></script>
-<script type="text/javascript" src="/js/radar.js"></script>
-<script type="text/javascript" src="/js/slider.js"></script>
-<script type="text/javascript" src="/js/preloader.js"></script>
-<script type="text/javascript" src="/js/diagram.js"></script>
-<script type="text/javascript" src="/js/bi-polar-diagram.js"></script>
-<script type="text/javascript" src="/js/label-placement-diagram.js"></script>
-<script type="text/javascript" src="/js/donut-chart.js"></script>
-<script type="text/javascript" src="/js/animate-donut.js"></script>
-<script type="text/javascript" src="/js/advanced-smil.js"></script>
-<script type="text/javascript" src="/js/svg-path.js"></script>
-<script type="text/javascript" src="/js/pick-circle.js"></script>
-<script type="text/javascript" src="/js/horizontal-bar.js"></script>
-<script type="text/javascript" src="/js/gauge-chart.js"></script>
-<script type="text/javascript" src="/js/stacked-bar.js"></script>
+<script src="/js/jquery.team-coundown.js" type="text/javascript"></script>
+<script src="/js/matches-slider.js" type="text/javascript"></script>
+<script src="/js/header.js" type="text/javascript"></script>
+<script src="/js/matches_broadcast_listing.js" type="text/javascript"></script>
+<script src="/js/news-line.js" type="text/javascript"></script>
+<script src="/js/match_galery.js" type="text/javascript"></script>
+<script src="/js/main-club-gallery.js" type="text/javascript"></script>
+<script src="/js/product-slider.js" type="text/javascript"></script>
+<script src="/js/circle-bar.js" type="text/javascript"></script>
+<script src="/js/standings.js" type="text/javascript"></script>
+<script src="/js/shop-price-filter.js" type="text/javascript"></script>
+<script src="/js/timeseries.js" type="text/javascript"></script>
+<script src="/js/radar.js" type="text/javascript"></script>
+<script src="/js/slider.js" type="text/javascript"></script>
+<script src="/js/preloader.js" type="text/javascript"></script>
+<script src="/js/diagram.js" type="text/javascript"></script>
+<script src="/js/bi-polar-diagram.js" type="text/javascript"></script>
+<script src="/js/label-placement-diagram.js" type="text/javascript"></script>
+<script src="/js/donut-chart.js" type="text/javascript"></script>
+<script src="/js/animate-donut.js" type="text/javascript"></script>
+<script src="/js/advanced-smil.js" type="text/javascript"></script>
+<script src="/js/svg-path.js" type="text/javascript"></script>
+<script src="/js/pick-circle.js" type="text/javascript"></script>
+<script src="/js/horizontal-bar.js" type="text/javascript"></script>
+<script src="/js/gauge-chart.js" type="text/javascript"></script>
+<script src="/js/stacked-bar.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/library/chartist-plugin-legend.js"></script>
-<script type="text/javascript" src="/js/library/chartist-plugin-threshold.js"></script>
-<script type="text/javascript" src="/js/library/chartist-plugin-pointlabels.js"></script>
+<script src="/js/library/chartist-plugin-legend.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-threshold.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-pointlabels.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/treshold.js"></script>
-<script type="text/javascript" src="/js/visible.js"></script>
-<script type="text/javascript" src="/js/anchor.js"></script>
-<script type="text/javascript" src="/js/landing_carousel.js"></script>
-<script type="text/javascript" src="/js/landing_sport_standings.js"></script>
-<script type="text/javascript" src="/js/twitterslider.js"></script>
-<script type="text/javascript" src="/js/champions.js"></script>
-<script type="text/javascript" src="/js/landing_mainnews_slider.js"></script>
-<script type="text/javascript" src="/js/carousel.js"></script>
-<script type="text/javascript" src="/js/video_slider.js"></script>
-<script type="text/javascript" src="/js/footer_slides.js"></script>
-<script type="text/javascript" src="/js/player_test.js"></script>
+<script src="/js/treshold.js" type="text/javascript"></script>
+<script src="/js/visible.js" type="text/javascript"></script>
+<script src="/js/anchor.js" type="text/javascript"></script>
+<script src="/js/landing_carousel.js" type="text/javascript"></script>
+<script src="/js/landing_sport_standings.js" type="text/javascript"></script>
+<script src="/js/twitterslider.js" type="text/javascript"></script>
+<script src="/js/champions.js" type="text/javascript"></script>
+<script src="/js/landing_mainnews_slider.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+<script src="/js/video_slider.js" type="text/javascript"></script>
+<script src="/js/footer_slides.js" type="text/javascript"></script>
+<script src="/js/player_test.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/js/main.js"></script>
-<script type="text/javascript" src="/js/script/jquery.js"></script>
-<script type="text/javascript" src="/js/script/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/script/slick.slider.min.js"></script>
-<script type="text/javascript" src="/js/script/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="/js/script/fancybox.pack.js"></script>
-<script type="text/javascript" src="/js/script/isotope.min.js"></script>
-<script type="text/javascript" src="/js/script/progressbar.js"></script>
-<script type="text/javascript" src="/js/script/counter.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-<script type="text/javascript" src="/js/script/functions.js"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+<script src="/js/script/jquery.js" type="text/javascript"></script>
+<script src="/js/script/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/script/slick.slider.min.js" type="text/javascript"></script>
+<script src="/js/script/jquery.countdown.min.js" type="text/javascript"></script>
+<script src="/js/script/fancybox.pack.js" type="text/javascript"></script>
+<script src="/js/script/isotope.min.js" type="text/javascript"></script>
+<script src="/js/script/progressbar.js" type="text/javascript"></script>
+<script src="/js/script/counter.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>
+<script src="/js/script/functions.js" type="text/javascript"></script>
 
 
-<script type="text/javascript" src="/dev-assets/demo-switcher.js"></script>
+<script src="/dev-assets/demo-switcher.js" type="text/javascript"></script>
 </body>
 
 </html>
