@@ -112,6 +112,65 @@ Contains one calendar with the matches of each month.
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |Mainly tasks related to the player entity  such as playerController or playerService besides templating html with mustache in files as index.html or player.html, also helped on matches. |
 |Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to the team entity such as teamController or teamService besides templating html pages with Mustache, also helped on player and admin tasks and a minor SQL query|
+
+## Steps for making the website: 
+1. Create the html template with css, js ... 
+2. Create a spring project with maven and web dependencies, devtools, jpa, h2, mustache. 
+3. Create in resources a static folder and another of templates. 
+4. We put all our css, js, images and static elements that we already had in the static folder. 
+5. We put the html in the templates folder because we will use mustache and it is the configuration that it requires. 
+6. We will have to change the links to all the css, js from the html because the static address does not work, so we will have to put, for example, /css/library/bootstrap.css 
+7. In the application.properties file we add: 
+  a. spring.mustache.suffix = .html 
+    i. so that mustache understands the .html files. 
+  b. spring.h2.console.enabled = true 
+    i. For h2 to work. 
+8. We tried to make everything work. 
+9. To see that the bbdd works, we load localhost: port / h2-console and on the screen that comes out, we will have to leave everything the same changing what is in JDBC URL by jdbc: h2: mem: testdb and should connect and see the administrator of the bbdd. 
+10 .The project could already be uploaded to github, because it works, even if it doesn't detect the links between html (index load only). 
+
+### We start with the player class: 
+
+1. We create a controller class and add the request Mapping in the controller to have the url defined. 
+2. Later, we create the java class to define the entity (@Entity) in the bbdd, we put the attributes, define the id with @Id and @GeneratedValue (strategy = GenerationType.IDENTITY) together with all the getters and setters and constructor (empty and with all the parameters minus id) 
+3. We create a repository class of the previous entity, for example: 
+  a. public interface PlayerRepository extends JpaRepository <Player, Long> 
+4. Next, we create: 
+  a. public Optional <Player> findById (long id) 
+    i. This method method in the PlayerRepository, so we can search for the Id from the class. 
+5. To initialize the database with sample data we have Application implement ApplicationRunner. We add an @Autowired from each repository and initialize the values in the main method using the save method of the repository. 
+6. An example we are talking about is: 
+      @GetMapping("/{id}")  
+      public String player(Model model, @PathVariable Long id){  
+              Optional<Player> player = playerRepository.findById(id);  
+              if (player.isPresent()) {  
+                  model.addAttribute("name", player.get().getUsername());  
+                  return "player";  
+              } else {  
+                  return "404";  
+              }  
+      }  
+This is what we have done with the rest of the classes to generate our bbdd scheme. 
+
+### Highlighting the creation of security: 
+
+  You have to add the security dependency to the pom, and after that, define a class where you set the privileges for the different roles, and the restricted pages based on each role. In addition, to specifying how to log in, and the methods that will manage this, the logout... Finally, it would be necessary to create the keystore (certificate) that is what will accredit the https page, and add in the application properties server.ssl.key-store = classpath: keystore.jks, server.ssl.key-store-password = password and server.ssl.key-password = secret 
+
+Once everything is configured, what we will do is create the necessary queries to load our information on the page, which will be done in a java class called repository, and where each sentence will be preceded by @Query, indicating that it is a query, being an example the following: 
+      @Query (value = 
+      "SELECT m. *" + 
+      "FROM tournament_matches tm" + 
+      "INNER JOIN tournament t ON tm.tournament_id = t.id" + 
+      "INNER JOIN games m ON tm.matches_id = m.id" + 
+      "WHERE NOT played and t.name =? 1", 
+      nativeQuery = true) 
+      List <Match> findNotPlayedByTournamentName (String name); 
+
+Later, we will make the change from h2 to mysql, adding the dependency of mysql to the pom and removing the h2, and adding in the application properties the url, username and pass of access to the bbdd. 
+Finally, if you want you can add CSRF to avoid this type of attacks, deleting in the security configuration class the line crsf.disable (); and adding in all html where there is a form the following: <input type = "hidden" name = "_ csrf" value = "{{token}}" />. In addition to a CSRF Handler class that handles the configuration. 
+As we said, all this page was done with mustache, html, css, java and javascript, in addition to spring boot and Maven. 
+
+
 ## Navigation
 ![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
 ## Entity Diagram
