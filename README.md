@@ -117,6 +117,5 @@ Contains one calendar with the matches of each month.
 ## Entity Diagram
 ![EntityDiagram](WebImages/entityDiagram.png)
 ## Class/Template Diagram
-
-
+![TemplateDiagram](WebImages/Template_Diagram.png)
 ## Demo Structure
