@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface TeamStatisticsRepository extends JpaRepository<TeamStatistics, Long> {
-    public Optional<TeamStatistics> findById(Long id);
+    Optional<TeamStatistics> findById(Long id);
 }

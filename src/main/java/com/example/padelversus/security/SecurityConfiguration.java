@@ -12,7 +12,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public UserRepositoryAuthenticationProvider authenticationProvider;
-    protected void configure(HttpSecurity http) throws Exception{
+
+    protected void configure(HttpSecurity http) throws Exception {
 
         // Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
@@ -35,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/images_temp/**").permitAll();
         http.authorizeRequests().antMatchers("/pdf_temp/**").permitAll();
         http.authorizeRequests().antMatchers("/tournament/pdf**").permitAll();
-        http.authorizeRequests().antMatchers("/css-min/**","/css/main.css","/css/**","/js/**","/images/**","/fonts/**","/dev-assets/**","/vendor/**", "/html/**").permitAll();
+        http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
 
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();

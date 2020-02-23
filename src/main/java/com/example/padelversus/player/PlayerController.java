@@ -28,7 +28,7 @@ public class PlayerController {
     private ImageService imageService;
 
     @GetMapping("/")
-    public String player(){
+    public String player() {
         return "player";
     }
 
@@ -51,6 +51,7 @@ public class PlayerController {
             String image_name = imageService.saveImage("Player", playerFound.getId(), playerImage);
             String image_url = base_url + image_name;
             playerFound.setImageUrl(image_url);
+            playerService.savePlayer(playerFound);
             if (teamsFounds != null) {
                 model.addAttribute("namesTeams", teamsFounds);
                 model.addAttribute("is_in_team", true);
@@ -76,19 +77,18 @@ public class PlayerController {
             model.addAttribute("accuaracy", player.get().getAccuaracy());
             model.addAttribute("aceleration", player.get().getAceleration());
             model.addAttribute("image", image_url);
-            if(!usernameLogged.equals(user.getName())) {
+            if (!usernameLogged.equals(user.getName())) {
                 return "player";
-            }else{
+            } else {
                 return "playerWithInfo";
             }
-        }
-        else {
+        } else {
             return "404";
         }
     }
 
     @GetMapping("/editProfile")
-    public String editProfile(Model model){
+    public String editProfile(Model model) {
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("name", usernameLogged);
         Player player = playerService.getPlayerFromUsername(usernameLogged);
@@ -100,10 +100,10 @@ public class PlayerController {
     public String formRegister(@RequestParam MultipartFile imageFile) throws IOException {
         String usernameLogged = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Player player = playerService.getPlayerFromUsername(usernameLogged);
-        byte [] image = imageFile.getBytes();
+        byte[] image = imageFile.getBytes();
         player.setImage(image);
         playerService.savePlayer(player);
-        return "index";
+        return "redirect:/";
     }
 
 }

@@ -30,7 +30,7 @@ public class AdminService {
     @Autowired
     MatchRepository matchRepository;
 
-    public List<Object> adminPage(){
+    public List<Object> adminPage() {
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<MatchAdmin> matchAdmins = new ArrayList<>();
 
@@ -72,11 +72,11 @@ public class AdminService {
     }
 
     public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
-        Optional<Match> match =  matchRepository.findIdByTeamsNameAndTournamentName(teamOne.getName(), teamTwo.getName(), tournament.getName());
+        Optional<Match> match = matchRepository.findIdByTeamsNameAndTournamentName(teamOne.getName(), teamTwo.getName(), tournament.getName());
         return match.orElse(null);
     }
 
-    public MatchStadistics calculateStats(String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1){
+    public MatchStadistics calculateStats(String accuracy1, String effectiveness1, String games_wins1, String unforcedErrors1, String set1team1, String set2team1, String set3team1, String win1) {
         int auxAccuracy = Integer.parseInt(accuracy1);
         int auxEffect = Integer.parseInt(effectiveness1);
         int auxGamesWin = Integer.parseInt(games_wins1);
@@ -98,7 +98,8 @@ public class AdminService {
         MatchStadistics stats = new MatchStadistics(auxSets1, auxAccuracy, auxEffect, auxGamesWin, auxUnforcedError, auxWin);
         return stats;
     }
-    public void saveMatch(String selectedTournament, String t1_oficial, String t2_oficial, String date){
+
+    public void saveMatch(String selectedTournament, String t1_oficial, String t2_oficial, String date) {
         Optional<Tournament> tournament = tournamentService.getTournamentByName(selectedTournament);
 
         Team team1 = getTeam(selectedTournament, t1_oficial);

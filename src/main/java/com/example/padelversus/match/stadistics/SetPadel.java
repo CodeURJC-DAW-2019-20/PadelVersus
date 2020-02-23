@@ -1,12 +1,15 @@
 package com.example.padelversus.match.stadistics;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class SetPadel {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int games;
@@ -16,7 +19,7 @@ public class SetPadel {
     public SetPadel() {
     }
 
-    public SetPadel(int games, int setNumber){
+    public SetPadel(int games, int setNumber) {
         super();
         this.games = games;
         this.setNumber = setNumber;

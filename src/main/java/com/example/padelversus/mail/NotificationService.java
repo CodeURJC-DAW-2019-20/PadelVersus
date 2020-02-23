@@ -1,6 +1,5 @@
 package com.example.padelversus.mail;
 
-import com.example.padelversus.player.Player;
 import com.example.padelversus.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -13,7 +12,7 @@ public class NotificationService {
     private JavaMailSender javaMailSender;
 
     @Autowired
-    public NotificationService(JavaMailSender javaMailSender){
+    public NotificationService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 

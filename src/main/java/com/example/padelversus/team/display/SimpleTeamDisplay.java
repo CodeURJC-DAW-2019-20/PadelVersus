@@ -6,7 +6,7 @@ public class SimpleTeamDisplay {
     private String id;
     private String name;
 
-    public SimpleTeamDisplay(Team team){
+    public SimpleTeamDisplay(Team team) {
         this.id = Long.toString(team.getId());
         this.name = team.getName();
     }

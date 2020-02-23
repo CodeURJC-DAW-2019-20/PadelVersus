@@ -17,10 +17,9 @@ import java.util.stream.Collectors;
 @Service
 public class MatchService {
     @Autowired
-    private MatchRepository matchRepository;
-
-    @Autowired
     TournamentRepository tournamentRepository;
+    @Autowired
+    private MatchRepository matchRepository;
 
     public List<Match> getFourLastMatches() {
         List<Match> matches = matchRepository.findLastFourMatchesPlayedOrderByDateDesc();
@@ -101,10 +100,12 @@ public class MatchService {
         LocalDate firstDate = matchRepository.findAllDates().get(0).toLocalDate();
         return firstDate;
     }
-    public void saveMatch(Match match){
+
+    public void saveMatch(Match match) {
         matchRepository.save(match);
     }
-    public Optional<Match> findMatchById(Long id){
+
+    public Optional<Match> findMatchById(Long id) {
         Optional<Match> match = matchRepository.findById(id);
         return match;
     }

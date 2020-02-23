@@ -47,21 +47,21 @@ public class ImageService implements WebMvcConfigurer {
     }
 
     @PreDestroy
-    private void destroy(){
+    private void destroy() {
         System.out.println("DELETE");
-        if(deleteDirectory(FILES_FOLDER.toFile())) System.out.println("deleted temporary images");
+        if (deleteDirectory(FILES_FOLDER.toFile())) System.out.println("deleted temporary images");
     }
 
-    private boolean deleteDirectory(File directory){
-        File [] allContent = directory.listFiles();
-        if(allContent != null){
-            for(File file: allContent){
-                if(file.getName().equals(".gitkeep")) continue;
+    private boolean deleteDirectory(File directory) {
+        File[] allContent = directory.listFiles();
+        if (allContent != null) {
+            for (File file : allContent) {
+                if (file.getName().equals(".gitkeep")) continue;
                 System.out.println("delete" + file);
                 deleteDirectory(file);
             }
         }
-        if(!directory.getName().equals(FILES_FOLDER.toString())) return directory.delete();
+        if (!directory.getName().equals(FILES_FOLDER.toString())) return directory.delete();
         return true;
     }
 }

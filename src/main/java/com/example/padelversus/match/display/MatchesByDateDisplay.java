@@ -9,7 +9,7 @@ public class MatchesByDateDisplay {
     private List<LastMatchDisplay> matches;
     private LocalDate date;
 
-    public MatchesByDateDisplay(List<LastMatchDisplay> matches,LocalDate localDate) {
+    public MatchesByDateDisplay(List<LastMatchDisplay> matches, LocalDate localDate) {
         this.matches = matches;
         this.date = localDate;
     }
@@ -18,12 +18,12 @@ public class MatchesByDateDisplay {
         return matches;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
     public void setMatches(List<LastMatchDisplay> matches) {
         this.matches = matches;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     public void setDate(LocalDate date) {

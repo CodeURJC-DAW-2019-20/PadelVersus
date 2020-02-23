@@ -11,7 +11,7 @@ import java.util.List;
 public class TeamStatistics {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int totalGames;
@@ -22,7 +22,7 @@ public class TeamStatistics {
     private int totalGamesWon;
     private int totalUnforcedErrors;
 
-    @OneToMany (cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Game> gamesPerMatch;
 
     public TeamStatistics() {
@@ -109,11 +109,11 @@ public class TeamStatistics {
         this.gamesPerMatch = gamesPerMatch;
     }
 
-    public void addGame(Game game){
+    public void addGame(Game game) {
         gamesPerMatch.add(game);
     }
 
-    public void resetStatistics(){
+    public void resetStatistics() {
         this.totalGames = 0;
         this.totalWins = 0;
         this.totalDefeats = 0;
@@ -124,11 +124,11 @@ public class TeamStatistics {
         this.gamesPerMatch = new ArrayList<>();
     }
 
-    public void updateStatistics(MatchStadistics lastMatch){
+    public void updateStatistics(MatchStadistics lastMatch) {
         totalGames++;
-        if(lastMatch.isWin()){
+        if (lastMatch.isWin()) {
             totalWins++;
-        }else{
+        } else {
             totalDefeats++;
         }
         totalAcurracy += lastMatch.getAcurracy();
@@ -138,16 +138,16 @@ public class TeamStatistics {
         totalUnforcedErrors += lastMatch.getUnforcedErrors();
     }
 
-    public String[] meanStatisticsParsed(){
+    public String[] meanStatisticsParsed() {
         String[] means = new String[6];
-        if(totalGames > 0) {
+        if (totalGames > 0) {
             means[0] = Integer.toString(totalWins);
             means[1] = Integer.toString(totalDefeats);
             means[2] = Float.toString(totalAcurracy / totalGames);
             means[3] = Float.toString(totalEffectiveness / totalGames);
             means[4] = Float.toString(totalUnforcedErrors / totalGames);
             StringBuilder sb = new StringBuilder();
-            int n = gamesPerMatch.size()-1;
+            int n = gamesPerMatch.size() - 1;
             //System.out.println(n);
             for (Game g : gamesPerMatch) {
                 sb.append(g.getGames() + "|");
@@ -155,7 +155,7 @@ public class TeamStatistics {
                 //System.out.println(g.getGames());
             }
             means[5] = sb.toString();
-        }else{
+        } else {
             means[0] = "0";
             means[1] = "0";
             means[2] = "0";

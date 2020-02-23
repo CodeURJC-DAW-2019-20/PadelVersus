@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface SetPadelRepository extends JpaRepository<SetPadel, Long> {
-    public Optional<SetPadel> findById (Long id);
+    Optional<SetPadel> findById(Long id);
 }

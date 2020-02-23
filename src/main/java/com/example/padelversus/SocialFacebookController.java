@@ -1,4 +1,5 @@
 package com.example.padelversus;
+
 import org.springframework.social.connect.Connection;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
@@ -40,10 +41,10 @@ public class SocialFacebookController {
                 null);
         Connection<Facebook> connection = factory.createConnection(accessToken);
         Facebook facebook = connection.getApi();
-        String[] fields = { "id", "email", "first_name", "last_name" };
+        String[] fields = {"id", "email", "first_name", "last_name"};
         User userProfile = facebook.fetchObject("me", User.class, fields);
-        System.out.println("email "+userProfile.getEmail());
-        System.out.println("noun "+userProfile.getName());
+        System.out.println("email " + userProfile.getEmail());
+        System.out.println("noun " + userProfile.getName());
         System.out.println("userProfile = " + userProfile);
         ModelAndView model = new ModelAndView("/player/s");
         model.addObject("user", userProfile);

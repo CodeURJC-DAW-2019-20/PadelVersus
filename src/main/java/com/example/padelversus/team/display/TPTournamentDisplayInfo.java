@@ -12,16 +12,16 @@ public class TPTournamentDisplayInfo {
     private String tournamentName;
     private List<SimpleTeamDisplay> teams;
 
-    public TPTournamentDisplayInfo(Tournament tournament){
+    public TPTournamentDisplayInfo(Tournament tournament) {
         this.teams = new ArrayList<>();
         this.tournamentName = tournament.getName();
         this.cleanName = tournament.getNonspacename();
-        for(Team t: tournament.getTeams()) {
+        for (Team t : tournament.getTeams()) {
             teams.add(new SimpleTeamDisplay(t));
         }
     }
 
-    public TPTournamentDisplayInfo(List<String> teamNames){
+    public TPTournamentDisplayInfo(List<String> teamNames) {
 
         this.tournamentName = "All";
         this.cleanName = tournamentName;

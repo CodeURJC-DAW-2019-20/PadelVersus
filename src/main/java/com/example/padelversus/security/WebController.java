@@ -1,6 +1,5 @@
 package com.example.padelversus.security;
 
-import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,29 +12,24 @@ public class WebController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
-
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return username.equals("anonymousUser") ? "login" : "index";
     }
 
     @RequestMapping("/signup")
-    public String signup(){
+    public String signup() {
         return "signup";
     }
 
     @RequestMapping("/loginerror")
-    public String loginerror(){
+    public String loginerror() {
         return "loginerror";
     }
 
     @RequestMapping("/home")
-    public String home(){
+    public String home() {
         return "home";
     }
 

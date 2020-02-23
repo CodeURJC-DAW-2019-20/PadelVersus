@@ -9,12 +9,12 @@ public class TeamsPageDisplayInfo {
 
     private List<TPTournamentDisplayInfo> tournamentDisplays;
 
-    public TeamsPageDisplayInfo(List<Tournament> tournaments, List<String> allTeamNames){
+    public TeamsPageDisplayInfo(List<Tournament> tournaments, List<String> allTeamNames) {
 
         this.tournamentDisplays = new ArrayList<>();
         tournamentDisplays.add(new TPTournamentDisplayInfo(allTeamNames));
 
-        for(Tournament t: tournaments){
+        for (Tournament t : tournaments) {
             TPTournamentDisplayInfo display = new TPTournamentDisplayInfo(t);
             tournamentDisplays.add(display);
         }

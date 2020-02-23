@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 public class UserLogOut {
 
     @RequestMapping("/logout")
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(!username.equals("anonymousUser")) {
+        if (!username.equals("anonymousUser")) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             if (auth != null) new SecurityContextLogoutHandler().logout(request, response, auth);
             return "logout";
         }
-        return "index";
+        return "redirect:/";
     }
 }
