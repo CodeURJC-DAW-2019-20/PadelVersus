@@ -727,9 +727,9 @@
 		}
 
 		if (this.is('animating')) {
-			$.support.transform ? this.animate(stage.x) : this.$stage.stop()
-			this.invalidate('position');
-		}
+            $.support.transform ? this.animate(stage.x) : this.$stage.stop();
+            this.invalidate('position');
+        }
 
 		this.$element.toggleClass(this.options.grabClass, event.type === 'mousedown');
 
@@ -3255,21 +3255,21 @@
 	}
 
 	if (tests.csstransitions()) {
-		/* jshint -W053 */
-		$.support.transition = new String(prefixed('transition'))
-		$.support.transition.end = events.transition.end[ $.support.transition ];
-	}
+        /* jshint -W053 */
+        $.support.transition = String(prefixed('transition'));
+        $.support.transition.end = events.transition.end[$.support.transition];
+    }
 
 	if (tests.cssanimations()) {
-		/* jshint -W053 */
-		$.support.animation = new String(prefixed('animation'))
-		$.support.animation.end = events.animation.end[ $.support.animation ];
-	}
+        /* jshint -W053 */
+        $.support.animation = String(prefixed('animation'));
+        $.support.animation.end = events.animation.end[$.support.animation];
+    }
 
 	if (tests.csstransforms()) {
-		/* jshint -W053 */
-		$.support.transform = new String(prefixed('transform'));
-		$.support.transform3d = tests.csstransforms3d();
-	}
+        /* jshint -W053 */
+        $.support.transform = String(prefixed('transform'));
+        $.support.transform3d = tests.csstransforms3d();
+    }
 
 })(window.Zepto || window.jQuery, window, document);

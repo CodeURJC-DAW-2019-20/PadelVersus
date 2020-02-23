@@ -4095,7 +4095,7 @@ if ( $.fn.jquery.substring( 0, 3 ) === "1.7" ) {
 	};
 }
 
-;
+
 /*!
  * jQuery UI Keycode 1.12.1
  * http://jqueryui.com
@@ -11659,21 +11659,22 @@ $.ui.plugin.add( "resizable", "containment", {
 			ce = that.containerElement,
 			continueResize = true;
 
-		if ( ce[ 0 ] !== document && ( / ).test( ce.css( "position" ) ) ) {
+		if (ce[0] !== document && (/ ).test( ce.css( "position" ) ) ) {
 			cop = co;
+	}
+
+	if(cp.left < (that._helper ? co.left : 0));
+	{
+		that.size.width = that.size.width +
+			(that._helper ?
+				(that.position.left - co.left) :
+				(that.position.left - cop.left));
+
+		if (pRatio) {
+			that.size.height = that.size.width / that.aspectRatio;
+			continueResize = false;
 		}
-
-		if ( cp.left < ( that._helper ? co.left : 0 ) ) {
-			that.size.width = that.size.width +
-				( that._helper ?
-					( that.position.left - co.left ) :
-					( that.position.left - cop.left ) );
-
-			if ( pRatio ) {
-				that.size.height = that.size.width / that.aspectRatio;
-				continueResize = false;
-			}
-			that.position.left = o.helper ? co.left : 0;
+		that.position.left = o.helper ? co.left : 0;
 		}
 
 		if ( cp.top < ( that._helper ? co.top : 0 ) ) {
@@ -11753,25 +11754,25 @@ $.ui.plugin.add( "resizable", "containment", {
 			} );
 		}
 
-		if ( that._helper && !o.animate && ( / ).test( ce.css( "position" ) ) ) {
-			$( this ).css( {
+		if (that._helper && !o.animate && (/ ).test( ce.css( "position" ) ) ) {
+			$(this).css({
 				left: ho.left - cop.left - co.left,
 				width: w,
 				height: h
-			} );
-		}
+			});
 	}
-} );
+}
+} )
 
-$.ui.plugin.add( "resizable", "alsoResize", {
+$.ui.plugin.add("resizable", "alsoResize", {
 
-	start: function() {
-		var that = $( this ).resizable( "instance" ),
+	start: function () {
+		var that = $(this).resizable("instance"),
 			o = that.options;
 
-		$( o.alsoResize ).each( function() {
-			var el = $( this );
-			el.data( "ui-resizable-alsoresize", {
+		$(o.alsoResize).each(function () {
+			var el = $(this);
+			el.data("ui-resizable-alsoresize", {
 				width: parseFloat( el.width() ), height: parseFloat( el.height() ),
 				left: parseFloat( el.css( "left" ) ), top: parseFloat( el.css( "top" ) )
 			} );
@@ -18695,12 +18696,10 @@ if ( $.uiBackCompat !== false ) {
 			}
 			return tooltipData;
 		}
-	} );
+	});
 }
 
 var widgetsTooltip = $.ui.tooltip;
 
 
-
-
-}));
+}))

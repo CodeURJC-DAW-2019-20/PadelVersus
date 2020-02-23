@@ -23,11 +23,7 @@ public class LastMatchDisplay {
         this.nameTeamOne = match.getTeams().get(0).getName();
         this.nameTeamTwo = match.getTeams().get(1).getName();
         if(match.getStadistics_1() != null || match.getStadistics_2() != null){
-                if(match.getStadistics_1().isWin()){
-                    this.winsTeamOne = true;
-                }else{
-                    this.winsTeamOne = false;
-                }
+            this.winsTeamOne = match.getStadistics_1().isWin();
             List<SetPadel> setsOne = match.getStadistics_1().getSets();
             List<SetPadel> setsTwo = match.getStadistics_2().getSets();
 

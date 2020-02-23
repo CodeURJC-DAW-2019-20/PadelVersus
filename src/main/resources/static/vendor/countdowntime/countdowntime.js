@@ -28,7 +28,7 @@
         daysSpan.html(t.days);
         hoursSpan.html(('0' + t.hours).slice(-2));
         minutesSpan.html(('0' + t.minutes).slice(-2));
-        secondsSpan.html(('0' + t.seconds).slice(-2))
+          secondsSpan.html(('0' + t.seconds).slice(-2));
 
         if (t.total <= 0) {
           clearInterval(timeinterval);
