@@ -83,7 +83,7 @@ public class MatchService {
         List<Date> datesSQL = matchRepository.findAllDates();
         List<LocalDate> dates = datesSQL.stream().map(Date::toLocalDate).collect(Collectors.toList());
         for (LocalDate date : dates) {
-            List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date, false);
+            List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date.toString());
             if (!matchOnDateOrdered.isEmpty()) {
                 List<LastMatchDisplay> lastMatchDisplays = new ArrayList<>();
                 for (Match match : matchOnDateOrdered) {
