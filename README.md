@@ -109,7 +109,7 @@ Contains one calendar with the matches of each month.
 |--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |All the securityof spring boot. The log in and sign up form with their controllers. Email automatic sending when sign up and start spring boot proyect and merging the page in phase 1 with my teammates.|
 |Iván Martín Sanz|  i100van |Normally tasks of use of API, application of templates Mustache, port to mySQL, and html files of matches.|
-|José Luis Lavado Sánchez | lujoselu98 |--------|
+|José Luis Lavado Sánchez | lujoselu98 |Mainly task related with tournaments logic on TournamentService and display on mustache template, also logic to register team into tournament and pdf library to generate tournament ranking exportable pdf. All error handling via html for wellkonwn errors and via @ControllerAdvice for unexpected unhandled errors. Interceptor to generate the navbar links based on logged user. Link the player and user entity on the database at signup.|
 |Lucas Gómez Torres |  LucasGomezTorres |Mainly tasks related to the player entity  such as playerController or playerService besides templating html with mustache in files as index.html or player.html, also helped on matches. |
 |Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to the team entity such as teamController or teamService besides templating html pages with Mustache, also helped on player and admin tasks and a minor SQL query|
 
