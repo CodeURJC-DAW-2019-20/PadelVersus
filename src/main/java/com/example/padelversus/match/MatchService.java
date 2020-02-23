@@ -79,7 +79,7 @@ public class MatchService {
 
     public List<MatchesByDateDisplay> getMatchesByDateDisplays() {
         List<MatchesByDateDisplay> matchesByDateDisplays = new ArrayList<>();
-        List<Date> datesSQL = matchRepository.findAllDates();
+        List<Date> datesSQL = matchRepository.findAllNotPlayedDates();
         List<LocalDate> dates = datesSQL.stream().map(Date::toLocalDate).collect(Collectors.toList());
         for (LocalDate date : dates) {
             List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date.toString());
@@ -97,7 +97,7 @@ public class MatchService {
     }
 
     public LocalDate getFirstDate() {
-        LocalDate firstDate = matchRepository.findAllDates().get(0).toLocalDate();
+        LocalDate firstDate = matchRepository.findAllNotPlayedDates().get(0).toLocalDate();
         return firstDate;
     }
 
