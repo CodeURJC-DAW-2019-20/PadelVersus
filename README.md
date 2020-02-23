@@ -100,7 +100,7 @@ Contains one calendar with the matches of each month.
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98|AdminController.java|UserController.java|adminPage.html|signUp.html/logIn.html|SecurityConfiguration.java
 |Iván Martín Sanz | i100van |SocialFacebookControler.java|MatchStadistics.java|overviewMatch.html|index.html|MatchStadisticsControler.java|
-|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |TournamentService.java|ImageService.java|tournaments.html|registerTournament.html|PdfService.java|
 |Lucas Gómez Torres | LucasGomezTorres |MatchService.java|Matches.html|index.html|PlayerController.java|Player.java|
 |Daniel Carmona Pedrajas | Dacarpe03 |TeamService.java|LastMatchDisplay.java|teamx.html|Team.java|AdminController.java|
 
