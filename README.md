@@ -118,4 +118,5 @@ Contains one calendar with the matches of each month.
 ![EntityDiagram](WebImages/entityDiagram.png)
 ## Class/Template Diagram
 
+
 ## Demo Structure
