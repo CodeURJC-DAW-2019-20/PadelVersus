@@ -1,13 +1,11 @@
 package com.example.padelversus.match;
 
-import com.example.padelversus.match.Stadistics.MatchStadistics;
-import com.example.padelversus.match.Stadistics.SetPadel;
+import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity

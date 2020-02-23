@@ -2,23 +2,18 @@ package com.example.padelversus;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchRepository;
-import com.example.padelversus.match.Stadistics.MatchStadistics;
-import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
-import com.example.padelversus.match.Stadistics.SetPadel;
-import com.example.padelversus.match.Stadistics.SetPadelRepository;
+import com.example.padelversus.match.stadistics.MatchStadistics;
+import com.example.padelversus.match.stadistics.SetPadel;
+import com.example.padelversus.match.stadistics.SetPadelRepository;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerRepository;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamRepository;
-import com.example.padelversus.team.teamstatistics.TeamStatisticsRepository;
-import com.example.padelversus.team.teamstatistics.game.Game;
-import com.example.padelversus.team.teamstatistics.game.GameRepository;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserRepository;
-import com.example.padelversus.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -30,8 +25,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication

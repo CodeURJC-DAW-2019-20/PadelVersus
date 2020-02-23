@@ -1,6 +1,5 @@
 package com.example.padelversus.match;
 
-import com.example.padelversus.match.Stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
