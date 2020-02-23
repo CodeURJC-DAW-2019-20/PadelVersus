@@ -1,8 +1,6 @@
 package com.example.padelversus.index;
 
-import com.example.padelversus.ImageService;
 import com.example.padelversus.match.Match;
-import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.MatchService;
 import com.example.padelversus.team.display.LastMatchDisplay;
 import com.example.padelversus.tournament.Tournament;
@@ -11,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class indexController {
@@ -31,15 +27,14 @@ public class indexController {
 
         List<Tournament> tournamentsNext = matchService.findTournamentsOfMatches(nextMatchesTournament);
         List<Tournament> tournamentsLast = matchService.findTournamentsOfMatches(lastMatchesTournament);
-        matchService.addNameTournamentOfMatches(lastMatches,tournamentsLast);
-        matchService.addNameTournamentOfMatches(nextMatches,tournamentsNext);
-        
+        matchService.addNameTournamentOfMatches(lastMatches, tournamentsLast);
+        matchService.addNameTournamentOfMatches(nextMatches, tournamentsNext);
+
         model.addAttribute("last_matches", lastMatches);
-        model.addAttribute("next_matches",nextMatches);
+        model.addAttribute("next_matches", nextMatches);
 
         return "index";
     }
-
 
 
 }

@@ -97,10 +97,7 @@
             }
 
 
-
-
         };
-
 
 
         var NavigationView = {
@@ -151,7 +148,6 @@
             }
 
         };
-
 
 
         $(window).on("resize", function () {

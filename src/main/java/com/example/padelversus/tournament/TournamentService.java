@@ -13,10 +13,11 @@ public class TournamentService {
     @Autowired
     TournamentRepository tournamentRepository;
 
-    public Optional<Tournament> getTournamentByName(String tName){
+    public Optional<Tournament> getTournamentByName(String tName) {
         Optional<Tournament> tournament = tournamentRepository.findByName(tName);
         return tournament;
     }
+
     //Order all team from a tournament by games won
     public void teamOrder(Tournament tournament) {
         List<Team> tournamentTeams = tournament.getTeams();
@@ -47,13 +48,13 @@ public class TournamentService {
         for (Match match : matches) {
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
-            if (index_team != -1) {
+            if (index_team != -1 && match.isPlayed()) {
                 if (index_team == 0) {
-                    if(match.getStadistics_1() != null) {
+                    if (match.getStadistics_1() != null) {
                         if (match.getStadistics_1().isWin()) won++;
                     }
                 } else if (index_team == 1) {
-                    if(match.getStadistics_2() != null) {
+                    if (match.getStadistics_2() != null) {
                         if (match.getStadistics_2().isWin()) won++;
                     }
                 }
@@ -63,13 +64,13 @@ public class TournamentService {
         return new int[]{won, played};
     }
 
-    public List<String> lastThreeMatches(Tournament tournament, Team team){
+    public List<String> lastThreeMatches(Tournament tournament, Team team) {
         List<String> lastThreeMatchesRepresentation = new ArrayList<>();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
         TreeSet<Match> matchesOrderedTeam = new TreeSet<>(Comparator.comparing(Match::getDate));
         matchesOrdered.addAll(tournament.getMatches());
         for (Match match : matchesOrdered) {
-            if(match.isPlayed()) {
+            if (match.isPlayed()) {
                 List<Team> teams_match = match.getTeams();
                 int index_team = teams_match.indexOf(team);
                 if (index_team != -1) {
@@ -77,28 +78,32 @@ public class TournamentService {
                 }
             }
         }
-        if(matchesOrderedTeam.isEmpty()) return null;
+        if (matchesOrderedTeam.isEmpty()) return null;
         int max_for = Math.min(matchesOrderedTeam.size(), 3);
         for (int i = 0; i < max_for; i++) {
             Match match = matchesOrderedTeam.pollFirst();
             List<Team> teams_match = match.getTeams();
             int index_team = teams_match.indexOf(team);
-            if(index_team == 0){
+            if (index_team == 0) {
                 lastThreeMatchesRepresentation.add(match.getStadistics_1().isWin() ? "w" : "l");
-            }else if(index_team == 1){
+            } else if (index_team == 1) {
                 lastThreeMatchesRepresentation.add(match.getStadistics_2().isWin() ? "w" : "l");
             }
         }
         return lastThreeMatchesRepresentation;
     }
+
     // Get all the tournaments already to display
-    List<TournamentDisplay> getTournaments(){
+    List<TournamentDisplay> getTournaments() {
         List<Tournament> allTournament = tournamentRepository.findAll();
         List<TournamentDisplay> allTournamentDisplay = new ArrayList<>();
         for (Tournament tournament : allTournament) {
             teamOrder(tournament);
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for (Team team : tournament.getTeams()) {
+                if (team.getId() == 11) {
+                    System.out.println();
+                }
                 int[] wonPlayed = wonGames(tournament, team);
                 List<String> lastMatches = lastThreeMatches(tournament, team);
                 boolean hasLastMatches = lastMatches != null;
@@ -108,7 +113,8 @@ public class TournamentService {
         }
         return allTournamentDisplay;
     }
-    public void saveTournament(Tournament tournament){
+
+    public void saveTournament(Tournament tournament) {
         tournamentRepository.save(tournament);
     }
 }

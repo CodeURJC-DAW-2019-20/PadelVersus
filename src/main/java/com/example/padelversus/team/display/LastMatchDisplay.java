@@ -18,28 +18,24 @@ public class LastMatchDisplay {
     private LocalDate localDate;
 
 
-    public LastMatchDisplay(Match match){
+    public LastMatchDisplay(Match match) {
         this.id = Long.toString(match.getId());
         this.nameTeamOne = match.getTeams().get(0).getName();
         this.nameTeamTwo = match.getTeams().get(1).getName();
-        if(match.getStadistics_1() != null || match.getStadistics_2() != null){
-                if(match.getStadistics_1().isWin()){
-                    this.winsTeamOne = true;
-                }else{
-                    this.winsTeamOne = false;
-                }
+        if (match.getStadistics_1() != null || match.getStadistics_2() != null) {
+            this.winsTeamOne = match.getStadistics_1().isWin();
             List<SetPadel> setsOne = match.getStadistics_1().getSets();
             List<SetPadel> setsTwo = match.getStadistics_2().getSets();
 
             StringBuilder sbuilder = new StringBuilder();
-            for(SetPadel s: setsOne){
+            for (SetPadel s : setsOne) {
                 sbuilder.append(s.getGames());
                 sbuilder.append(" ");
             }
             this.gamesPerSetOne = sbuilder.toString();
 
             StringBuilder sbuilder2 = new StringBuilder();
-            for(SetPadel s: setsTwo){
+            for (SetPadel s : setsTwo) {
                 sbuilder2.append(s.getGames());
                 sbuilder2.append(" ");
             }
@@ -47,7 +43,6 @@ public class LastMatchDisplay {
         }
         LocalDate date = match.getDate();
         this.localDate = date;
-
 
 
     }
@@ -76,12 +71,12 @@ public class LastMatchDisplay {
         this.gamesPerSetOne = gamesPerSetOne;
     }
 
-    public void setGamesPerSetTwo(String gamesPerSetTwo) {
-        this.gamesPerSetTwo = gamesPerSetTwo;
-    }
-
     public String getGamesPerSetTwo() {
         return gamesPerSetTwo;
+    }
+
+    public void setGamesPerSetTwo(String gamesPerSetTwo) {
+        this.gamesPerSetTwo = gamesPerSetTwo;
     }
 
     public String getNameTeamOne() {

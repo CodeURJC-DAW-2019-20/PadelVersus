@@ -17,6 +17,27 @@ public class Tournament {
     private String name;
 
     private String nonspacename;
+    @OneToMany
+    private List<Match> matches;
+    @ManyToMany
+    private List<Team> teams;
+
+    public Tournament() {
+    }
+
+    public Tournament(String name, List<Match> matches, List<Team> teams) {
+        this.name = name;
+        this.matches = matches;
+        this.nonspacename = name.replaceAll("\\s", "");
+        this.teams = teams;
+    }
+
+    public Tournament(String name) {
+        this.name = name;
+        this.matches = new ArrayList<>();
+        this.nonspacename = name.replaceAll("\\s", "");
+        this.teams = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
@@ -29,35 +50,16 @@ public class Tournament {
                 '}';
     }
 
-    @OneToMany
-    private List<Match> matches;
-
-    @ManyToMany
-    private List<Team> teams;
-    
-    public Tournament() {
-    }
-
-    public Tournament(String name, List<Match> matches, List<Team> teams) {
-        this.name = name;
-        this.matches = matches;
-        this.nonspacename = name.replaceAll("\\s","");
-        this.teams = teams;
-    }
-    public Tournament(String name) {
-        this.name = name;
-        this.matches = new ArrayList<>();
-        this.nonspacename = name.replaceAll("\\s","");
-        this.teams = new ArrayList<>();
-    }
     public List<Team> getTeams() {
         return teams;
     }
-    public void addMatch(Match m) {
-        this.matches.add(m);
-    }
+
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public void addMatch(Match m) {
+        this.matches.add(m);
     }
 
     public Long getId() {
@@ -83,17 +85,19 @@ public class Tournament {
     public void setMatches(List<Match> matches) {
         this.matches = matches;
     }
-    public Tournament getTournament(){
+
+    public Tournament getTournament() {
         return this;
     }
 
-    public boolean hasTeam(Team team){
+    public boolean hasTeam(Team team) {
         return teams.contains(team);
     }
 
     public String getNonspacename() {
         return nonspacename;
     }
+
     public void setNonspacename(String nonspacename) {
         this.nonspacename = nonspacename;
     }

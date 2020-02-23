@@ -12,7 +12,7 @@ public class TournamentDisplay {
     private String nonspacename;
     private List<TeamDisplay> teams;
 
-    public TournamentDisplay(Tournament tournament){
+    public TournamentDisplay(Tournament tournament) {
         this.name = tournament.getName();
         this.nonspacename = tournament.getNonspacename();
         this.teams = new ArrayList<>();
@@ -38,7 +38,7 @@ public class TournamentDisplay {
         return teams;
     }
 
-    public void addTeam(Team team, int gamesWon, int gamesPlayed, List<String> lastMatches, boolean hasLastMatches){
+    public void addTeam(Team team, int gamesWon, int gamesPlayed, List<String> lastMatches, boolean hasLastMatches) {
         TeamDisplay teamDisplay = new TeamDisplay(team.getName(), gamesWon, gamesPlayed, gamesPlayed - gamesWon, lastMatches, hasLastMatches, team.getId());
         this.teams.add(teamDisplay);
     }

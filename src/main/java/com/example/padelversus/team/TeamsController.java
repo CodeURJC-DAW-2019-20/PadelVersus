@@ -1,10 +1,8 @@
 package com.example.padelversus.team;
 
 
-
 import com.example.padelversus.team.display.TeamsPageDisplayInfo;
 import com.example.padelversus.tournament.Tournament;
-import com.example.padelversus.tournament.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,16 +21,16 @@ public class TeamsController {
     TeamService teamService;
 
     @GetMapping("/")
-    public String teams(Model model,Pageable page){
+    public String teams(Model model, Pageable page) {
         Page<Team> pages = teamService.getPages(page);
         List<String> pageTeamNames = teamService.getPageTeamNamesforTeamsController(page);
         List<Tournament> tournamentsList = teamService.getAllTournaments();
 
         TeamsPageDisplayInfo teamsPageDisplayInfo = new TeamsPageDisplayInfo(tournamentsList, pageTeamNames);
-        model.addAttribute("Next",pages.getNumber()+1);
-        model.addAttribute("Last",pages.getNumber()-1);
-        model.addAttribute("showNext",!pages.isLast());
-        model.addAttribute("showPrev",!pages.isFirst());
+        model.addAttribute("Next", pages.getNumber() + 1);
+        model.addAttribute("Last", pages.getNumber() - 1);
+        model.addAttribute("showNext", !pages.isLast());
+        model.addAttribute("showPrev", !pages.isFirst());
         model.addAttribute("allTournamentsInfo", teamsPageDisplayInfo.getTournamentDisplays());
 
         return "teams";

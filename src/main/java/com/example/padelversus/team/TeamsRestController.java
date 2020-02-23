@@ -17,7 +17,7 @@ public class TeamsRestController {
     TeamService teamService;
 
     @GetMapping("/")
-    public List<String[]> returnAllTeams(Pageable page){
+    public List<String[]> returnAllTeams(Pageable page) {
         Page<Team> pages = teamService.getPages(page);
         List<String[]> pageTeamNames = teamService.getPageTeamNames(pages);
         return pageTeamNames;

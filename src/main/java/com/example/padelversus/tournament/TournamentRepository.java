@@ -16,13 +16,14 @@ public interface TournamentRepository extends JpaRepository<Tournament, Long> {
             "FROM tournament_matches AS tm " +
             "INNER JOIN tournament t ON tm.tournament_id = t.id " +
             "INNER JOIN games m ON tm.matches_id = m.id " +
-            "WHERE m.id = ?1",nativeQuery = true)
+            "WHERE m.id = ?1", nativeQuery = true)
     Optional<Tournament> findTournamentByMatchId(Long id);
+
     @Query(value = "SELECT tr.* " +
             "FROM tournament_teams AS tt " +
             "INNER JOIN team t ON tt.teams_id = t.id " +
             "INNER JOIN tournament tr ON tt.tournament_id = tr.id  " +
             "WHERE t.id = ?1",
-    nativeQuery = true)
+            nativeQuery = true)
     List<Tournament> findTournamentByTeamId(Long id);
 }

@@ -66,6 +66,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
             nativeQuery = true)
     List<Match> findMatchByDateAndPlayedOrderByDate(String date);
 
-    @Query(value = "SELECT distinct date FROM games order by date", nativeQuery = true)
-    List<Date> findAllDates();
+    @Query(value = "SELECT distinct date FROM games WHERE NOT played order by date", nativeQuery = true)
+    List<Date> findAllNotPlayedDates();
 }

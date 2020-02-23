@@ -14,11 +14,11 @@ public class Game {
 
     private int games;
 
-    public Game(){
+    public Game() {
 
     }
 
-    public Game (int games){
+    public Game(int games) {
         this.games = games;
     }
 

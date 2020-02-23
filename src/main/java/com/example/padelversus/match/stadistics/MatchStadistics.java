@@ -15,8 +15,24 @@ public class MatchStadistics {
     private int unforcedErrors;
     private boolean win;
 
-    @OneToMany (cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<SetPadel> sets; //Sets with their games on each set
+
+    public MatchStadistics() {
+    }
+
+    public MatchStadistics(List<SetPadel> sets, int acurracy, int effectiveness, int wins, int unforcedErrors, boolean win) {
+        super();
+        this.acurracy = acurracy;
+        this.effectiveness = effectiveness;
+        this.unforcedErrors = unforcedErrors;
+        this.win = win;
+        this.sets = sets;
+        this.games_wins = 0;
+        for (SetPadel s : sets) { //For each set of the teamx it adds the games won of this set to the total
+            this.games_wins += s.getGames();
+        }
+    }
 
     @Override
     public String toString() {
@@ -28,22 +44,6 @@ public class MatchStadistics {
                 ", unforcedErrors=" + unforcedErrors +
                 ", win=" + win +
                 '}';
-    }
-
-    public MatchStadistics() {
-    }
-
-    public MatchStadistics(List<SetPadel> sets, int acurracy,int effectiveness,int wins,int unforcedErrors,boolean win) {
-        super();
-        this.acurracy=acurracy;
-        this.effectiveness=effectiveness;
-        this.unforcedErrors=unforcedErrors;
-        this.win=win;
-        this.sets=sets;
-        this.games_wins = 0;
-        for(SetPadel s: sets){ //For each set of the teamx it adds the games won of this set to the total
-            this.games_wins += s.getGames();
-        }
     }
 
     public boolean isWin() {

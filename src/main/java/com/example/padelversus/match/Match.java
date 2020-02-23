@@ -32,6 +32,31 @@ public class Match {
     @ManyToMany
     private List<Team> teams;
 
+    public Match() {
+    }
+
+    public Match(boolean played, LocalDate date, MatchStadistics stadistics_1, MatchStadistics stadistics_2, Team t1, Team t2) {
+        super();
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.played = played;
+        this.teams = aux;
+        this.date = date;
+        this.stadistics_1 = stadistics_1;
+        this.stadistics_2 = stadistics_2;
+    }
+
+    public Match(boolean played, LocalDate date, Team t1, Team t2) {
+        super();
+        List<Team> aux = new ArrayList<>(2);
+        aux.add(t1);
+        aux.add(t2);
+        this.played = played;
+        this.teams = aux;
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Match{" +
@@ -42,35 +67,6 @@ public class Match {
                 ", teams=" + teams +
                 '}';
     }
-
-    public Match() {
-    }
-
-    public Match(boolean played, LocalDate date, MatchStadistics stadistics_1, MatchStadistics stadistics_2,Team t1,Team t2){
-        super();
-        List<Team> aux = new ArrayList<>(2);
-        aux.add(t1);
-        aux.add(t2);
-        this.played = played;
-        this.teams= aux;
-        this.date=date;
-        this.stadistics_1=stadistics_1;
-        this.stadistics_2=stadistics_2;
-    }
-  
-  
-
-    public Match(boolean played, LocalDate date, Team t1, Team t2) {
-        super();
-        List<Team> aux = new ArrayList<>(2);
-        aux.add(t1);
-        aux.add(t2);
-        this.played = played;
-        this.teams= aux;
-        this.date=date;
-    }
-
-
 
     public MatchStadistics getStadistics_1() {
         return stadistics_1;
@@ -132,7 +128,7 @@ public class Match {
         }
     }
 
-    public boolean hasTeam(Team team){
+    public boolean hasTeam(Team team) {
         return teams.contains(team);
     }
 }

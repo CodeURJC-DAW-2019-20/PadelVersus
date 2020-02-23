@@ -26,23 +26,25 @@ public class TeamService {
     @Autowired
     private ImageService imageService;
 
-    public Optional<Team> getTeam(Long id){
+    public Optional<Team> getTeam(Long id) {
         Optional<Team> team = teamRepository.findByid(id);
         return team;
     }
-    public Optional<Team> getTeamByName(String name){
+
+    public Optional<Team> getTeamByName(String name) {
         Optional<Team> team = teamRepository.findByName(name);
         return team;
     }
-    public TeamxDisplay createTeamxDisplay(Team team){
+
+    public TeamxDisplay createTeamxDisplay(Team team) {
         TeamxDisplay teamxDisplay = new TeamxDisplay(team);
         loadPlayerImages(team);
         return teamxDisplay;
     }
 
-    public void loadPlayerImages(Team team){
+    public void loadPlayerImages(Team team) {
         try {
-            Player player1  = team.getMemberN(1);
+            Player player1 = team.getMemberN(1);
             Player player2 = team.getMemberN(2);
             BufferedImage playerImage1 = player1.getBufferedImage();
             String base_url = "/images_temp/Player/";
@@ -54,13 +56,13 @@ public class TeamService {
             image_name = imageService.saveImage("Player", player2.getId(), playerImage2);
             String image2_url = base_url + image_name;
             player2.setImageUrl(image2_url);
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Fatal error loading player images");
             e.printStackTrace();
         }
     }
 
-    public Page<Team> getPages(Pageable page){
+    public Page<Team> getPages(Pageable page) {
         return teamRepository.findAll(page);
     }
 
@@ -74,7 +76,7 @@ public class TeamService {
         return pageTeamNames;
     }
 
-    public List<Tournament> getAllTournaments(){
+    public List<Tournament> getAllTournaments() {
         return tournamentRepository.findAll();
     }
 
@@ -88,7 +90,8 @@ public class TeamService {
 
         return pageTeamNames;
     }
-    public void saveTeam(Team team){
+
+    public void saveTeam(Team team) {
         teamRepository.save(team);
     }
 }

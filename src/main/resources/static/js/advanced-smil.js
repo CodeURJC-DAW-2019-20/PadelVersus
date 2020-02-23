@@ -37,8 +37,8 @@
             });
 
             var seq = 0,
-                    delays = 80,
-                    durations = 500;
+                delays = 80,
+                durations = 500;
 
 // Once the chart is fully created we reset the sequence
             chart.on('created', function () {
@@ -131,8 +131,6 @@
         });
 
         $(this).showVisible();
-
-
 
 
     };

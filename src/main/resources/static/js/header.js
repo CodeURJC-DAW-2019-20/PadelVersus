@@ -26,21 +26,27 @@
 
         var checkState = function () {
             if ($(window).scrollTop() > 0) {
-                $header.css({position: "fixed",
-                    top: "0px"});
+                $header.css({
+                    position: "fixed",
+                    top: "0px"
+                });
                 $header.attr("data-id", "1");
             }
             if ($(window).scrollTop() === 0) {
-                $header.css({position: headerPosition,
-                    top: headerTop});
+                $header.css({
+                    position: headerPosition,
+                    top: headerTop
+                });
                 $header.attr("data-id", "0");
             }
         };
 
         var unstick = function () {
             if ($(window).width() < max_width) {
-                $header.css({position: headerPosition,
-                    top: headerTop});
+                $header.css({
+                    position: headerPosition,
+                    top: headerTop
+                });
                 return 1;
             } else {
                 return 0;

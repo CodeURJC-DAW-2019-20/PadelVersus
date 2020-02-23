@@ -1,10 +1,10 @@
 /**
-- This is jQuery plugin declaration for  attendance graph
-- @html: ./html-component/club_main_stat.html
-- @deps: jQuery, Chartist.js
-- @using: ./js/main.js
-- @author torbara (https://themeforest.net/user/torbara)
-- */
+ - This is jQuery plugin declaration for  attendance graph
+ - @html: ./html-component/club_main_stat.html
+ - @deps: jQuery, Chartist.js
+ - @using: ./js/main.js
+ - @author torbara (https://themeforest.net/user/torbara)
+ - */
 
 (function ($, Chartist) {
 
@@ -19,7 +19,6 @@
         }
 
         var id = $el.attr('id');
-
 
 
         Chartist.Bar('#' + id, {

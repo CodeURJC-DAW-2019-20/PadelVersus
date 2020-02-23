@@ -26,16 +26,16 @@ public class Team {
     @ManyToMany
     private List<Match> matches;
 
-    public Team(){
+    public Team() {
     }
 
-    public Team(String name, Player playerOne, Player playerTwo){
+    public Team(String name, Player playerOne, Player playerTwo) {
         super();
         List<Player> aux = new ArrayList<>(2);
         aux.add(playerOne);
         aux.add(playerTwo);
         this.name = name;
-        this.players =  aux;
+        this.players = aux;
         this.teamStatistics = new TeamStatistics();
         this.matches = new ArrayList<>();
         updateTeamStatistics();
@@ -85,9 +85,11 @@ public class Team {
         this.matches.add(m);
         updateTeamStatistics();
     }
-    public Team getTeam(){
+
+    public Team getTeam() {
         return this;
     }
+
     @Override
     public String toString() {
         return "Team{" +
@@ -98,10 +100,10 @@ public class Team {
                 '}';
     }
 
-    public void updateTeamStatistics(){
+    public void updateTeamStatistics() {
         teamStatistics.resetStatistics();
-        for(Match m: matches){
-            if (m.isPlayed()){
+        for (Match m : matches) {
+            if (m.isPlayed()) {
                 if (id == m.getidTeam(1)) {
                     teamStatistics.updateStatistics(m.getStadistics_1());
                 } else {
@@ -111,33 +113,32 @@ public class Team {
         }
     }
 
-    public Player getMemberN(int n){
-        if(n >= 1 && n <= 2){
-            return this.players.get(n-1);
-        }
-        else{
+    public Player getMemberN(int n) {
+        if (n >= 1 && n <= 2) {
+            return this.players.get(n - 1);
+        } else {
             return null;
         }
     }
 
-    public List<Match> getLastNMatches(int n){
+    public List<Match> getLastNMatches(int n) {
 
         List<Match> lastmatches = new ArrayList<>();
 
         List<Match> matchesPlayed = new ArrayList<>();
-        for(Match m: matches){
+        for (Match m : matches) {
             matchesPlayed.add(m);
         }
 
-        int counter = matchesPlayed.size()-1;
-        if(matchesPlayed.size() >= n){
-            for(int i=0; i<n; i++){
+        int counter = matchesPlayed.size() - 1;
+        if (matchesPlayed.size() >= n) {
+            for (int i = 0; i < n; i++) {
                 lastmatches.add(matches.get(counter));
                 counter--;
             }
-        }else{
-            for(int i=0; i<matchesPlayed.size(); i++){
-                if(matches.get(counter).isPlayed()) {
+        } else {
+            for (int i = 0; i < matchesPlayed.size(); i++) {
+                if (matches.get(counter).isPlayed()) {
                     lastmatches.add(matches.get(counter));
                     counter--;
                 }

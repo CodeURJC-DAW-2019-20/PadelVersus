@@ -10,14 +10,14 @@ public class TeamStatisticsDisplay {
     private String meanUnforcedErrors;
     private String gamesPerMatch;
 
-    public TeamStatisticsDisplay(TeamStatistics statistics){
+    public TeamStatisticsDisplay(TeamStatistics statistics) {
         String[] parsedStatistics = statistics.meanStatisticsParsed();
         this.totalWins = parsedStatistics[0];
         this.totalDefeats = parsedStatistics[1];
         this.meanAcurracy = parsedStatistics[2];
         this.meanEffectiveness = parsedStatistics[3];
         this.meanUnforcedErrors = parsedStatistics[4];
-        this.gamesPerMatch= parsedStatistics[5];
+        this.gamesPerMatch = parsedStatistics[5];
     }
 
     public String getTotalWins() {

@@ -1,23 +1,23 @@
 /**
  * This is jQuery plugin declaration for news_line html-component
- * @html: ./html-component/news-line.html 
+ * @html: ./html-component/news-line.html
  * @deps: jQuery, owl.carousel
  * @using: ./js/main.js
  * @author torbara  (https://themeforest.net/user/torbara)
  */
 
-(function($){
-    
+(function ($) {
+
     "use strict";
-    
+
     $.fn.teamNewsLine = function () {
-        
+
         var $el = $(this);
-        
-        if ( $el.length === 0 ) {
+
+        if ($el.length === 0) {
             throw new Error('teamNewsLine: target element not found');
         }
-        
+
         $el.find('.owl-carousel').owlCarousel({
             center: true,
             items: 2,
@@ -39,7 +39,7 @@
                 }
             }
         });
-        
+
     };
 
 })(jQuery);

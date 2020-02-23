@@ -19,19 +19,20 @@ public class UserService {
         Optional<User> u = userRepository.findByName(name);
         if (!u.isPresent()) {
             Optional<User> u_mail = userRepository.findByMail(mail);
-            if(!u_mail.isPresent()) {
+            if (!u_mail.isPresent()) {
                 User user = new User(name, mail, pass, "ROLE_USER");
                 notificationService.sendNotification(user);
                 userRepository.save(user);
                 return user.getName();
-            }else{
+            } else {
                 return null;
             }
         } else {
             return null;
         }
     }
-    public Optional<User> findUserByName(String username){
+
+    public Optional<User> findUserByName(String username) {
         Optional<User> user = userRepository.findByName(username);
         return user;
     }

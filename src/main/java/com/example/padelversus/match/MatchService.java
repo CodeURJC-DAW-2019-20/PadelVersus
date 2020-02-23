@@ -17,10 +17,9 @@ import java.util.stream.Collectors;
 @Service
 public class MatchService {
     @Autowired
-    private MatchRepository matchRepository;
-
-    @Autowired
     TournamentRepository tournamentRepository;
+    @Autowired
+    private MatchRepository matchRepository;
 
     public List<Match> getFourLastMatches() {
         List<Match> matches = matchRepository.findLastFourMatchesPlayedOrderByDateDesc();
@@ -61,9 +60,7 @@ public class MatchService {
         List<Tournament> tournamentsFounds = new ArrayList<>();
         for (Match match : matches) {
             Optional<Tournament> t = tournamentRepository.findTournamentByMatchId(match.getId());
-            if (t.isPresent()) {
-                tournamentsFounds.add(t.get());
-            }
+            t.ifPresent(tournamentsFounds::add);
         }
         return tournamentsFounds;
     }
@@ -80,7 +77,7 @@ public class MatchService {
 
     public List<MatchesByDateDisplay> getMatchesByDateDisplays() {
         List<MatchesByDateDisplay> matchesByDateDisplays = new ArrayList<>();
-        List<Date> datesSQL = matchRepository.findAllDates();
+        List<Date> datesSQL = matchRepository.findAllNotPlayedDates();
         List<LocalDate> dates = datesSQL.stream().map(Date::toLocalDate).collect(Collectors.toList());
         for (LocalDate date : dates) {
             List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date.toString());
@@ -98,13 +95,15 @@ public class MatchService {
     }
 
     public LocalDate getFirstDate() {
-        LocalDate firstDate = matchRepository.findAllDates().get(0).toLocalDate();
+        LocalDate firstDate = matchRepository.findAllNotPlayedDates().get(0).toLocalDate();
         return firstDate;
     }
-    public void saveMatch(Match match){
+
+    public void saveMatch(Match match) {
         matchRepository.save(match);
     }
-    public Optional<Match> findMatchById(Long id){
+
+    public Optional<Match> findMatchById(Long id) {
         Optional<Match> match = matchRepository.findById(id);
         return match;
     }
