@@ -35,9 +35,9 @@ public class indexController {
         matchService.addNameTournamentOfMatches(nextMatches,tournamentsNext);
 
         List<LastMatchDisplay> nextMatchesForCarrousell = matchService.nextMatches();
-        model.addAttribute("nameFirstTeamOne",nextMatchesForCarrousell.get(0).getNameTeamOne());
-        model.addAttribute("nameFirstTeamTwo",nextMatchesForCarrousell.get(0).getNameTeamTwo());
-        nextMatchesForCarrousell.remove(0);
+        //model.addAttribute("nameFirstTeamOne",nextMatchesForCarrousell.get(0).getNameTeamOne());
+        //model.addAttribute("nameFirstTeamTwo",nextMatchesForCarrousell.get(0).getNameTeamTwo());
+        //nextMatchesForCarrousell.remove(0);
         model.addAttribute("next_matchesForCarrousel",nextMatchesForCarrousell);
         model.addAttribute("last_matches", lastMatches);
         model.addAttribute("next_matches",nextMatches);
