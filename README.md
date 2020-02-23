@@ -89,7 +89,7 @@ Contains one calendar with the matches of each month.
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98 |[Admin Page](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/9f20e8eea84c41ba3f46370919e08cbf6c793c26)|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |[Admin Page](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/9f20e8eea84c41ba3f46370919e08cbf6c793c26)|.[Sign Up ].(https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/1fc40aaa71d98cf12a075acda600d6ee86f413af)|.[Automatic Email].(https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/165a8af7b312e2d231850faa3fe1fb89cfd30334)|.[Log In].(https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/29e373af2504503ee12e07ffa6cceeb171914ca0)|.[Spring Security].(https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/2f56a759a3b6f6eb5cbf58922587467ae8dea98b)
 |Iván Martín Sanz| i100van |[Querys for replace filtrating](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/pull/99/commits/1b85ee8a3088fe5d7b0a4f001b14fceed9ef9ca2)|[Port a MySql](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/pull/94/commits/5478a687bb00bf60b6e1562ddbd051419fbc0ead)|[Loggin with FaceBook](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/pull/59/commits/7e8c8814a3e0abfc990ec2a1f0778d8a1afe088e)|[OverviewMatches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/pull/61/commits/ebb38fada33539d8eedc7d311b79304ba27a9eae)|[Pageable for Teams](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/pull/79)|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |[Matches Page Mustache](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/e26730f6ab91259798696caf017d55c2e74ca619)|[Index Page Mustache](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/368f9b73872e730d7205d4fad6bf45020402f3ae)|[Player_Profile](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/69c405b74118de66ac10e8e84dc57c707904351f)|[Player_Graphics](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/51ac63ceceaaab61433c9bf8c814d964d96201fb)|[Logic_Player](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/0d4eb3beb655b006426726f78bc1aa15d2c136fe)|
@@ -98,7 +98,7 @@ Contains one calendar with the matches of each month.
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98|AdminController.java|UserController.java|adminPage.html|signUp.html/logIn.html|SecurityConfiguration.java
 |Iván Martín Sanz | i100van |SocialFacebookControler.java|MatchStadistics.java|overviewMatch.html|index.html|MatchStadisticsControler.java|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |MatchService.java|Matches.html|index.html|PlayerController.java|Player.java|
@@ -107,7 +107,7 @@ Contains one calendar with the matches of each month.
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
-|Alejandro Checa Folguera | AlexCh98 |--------|
+|Alejandro Checa Folguera | AlexCh98 |All the securityof spring boot. The log in and sign up form with their controllers. Email automatic sending when sign up and start spring boot proyect and merging the page in phase 1 with my teammates.|
 |Iván Martín Sanz|  i100van |Normally tasks of use of API, application of templates Mustache, port to mySQL, and html files of matches.|
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |Mainly tasks related to the player entity  such as playerController or playerService besides templating html with mustache in files as index.html or player.html, also helped on matches. |
