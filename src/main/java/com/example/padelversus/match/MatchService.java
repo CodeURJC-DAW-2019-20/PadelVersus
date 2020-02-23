@@ -60,9 +60,7 @@ public class MatchService {
         List<Tournament> tournamentsFounds = new ArrayList<>();
         for (Match match : matches) {
             Optional<Tournament> t = tournamentRepository.findTournamentByMatchId(match.getId());
-            if (t.isPresent()) {
-                tournamentsFounds.add(t.get());
-            }
+            t.ifPresent(tournamentsFounds::add);
         }
         return tournamentsFounds;
     }
