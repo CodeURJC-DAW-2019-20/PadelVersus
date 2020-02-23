@@ -1,7 +1,7 @@
 package com.example.padelversus.team.display;
 
 import com.example.padelversus.match.Match;
-import com.example.padelversus.match.Stadistics.SetPadel;
+import com.example.padelversus.match.stadistics.SetPadel;
 
 import java.time.LocalDate;
 import java.util.List;

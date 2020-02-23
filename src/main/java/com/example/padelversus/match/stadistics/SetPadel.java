@@ -1,9 +1,6 @@
-package com.example.padelversus.match.Stadistics;
-
-import com.example.padelversus.team.teamstatistics.game.Game;
+package com.example.padelversus.match.stadistics;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class SetPadel {

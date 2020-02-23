@@ -22,19 +22,14 @@ public class MatchesController {
     @GetMapping("/")
     public String matches(Model model) {
         List<LastMatchDisplay> lastMatches = matchService.lastMatches();
-        List<LastMatchDisplay> nextMatches = matchService.nextMatches();
 
         List<Match> lastMatchesTournament = matchService.getFourLastMatches();
-        List<Match> nextMatchesTournament = matchService.getFourNextMatches();
 
 
-        List<Tournament> tournamentsNext = matchService.findTournamentsOfMatches(nextMatchesTournament);
         List<Tournament> tournamentsLast = matchService.findTournamentsOfMatches(lastMatchesTournament);
         matchService.addNameTournamentOfMatches(lastMatches, tournamentsLast);
-        matchService.addNameTournamentOfMatches(nextMatches, tournamentsNext);
 
         model.addAttribute("last_matches", lastMatches);
-        model.addAttribute("next_matches", nextMatches);
 
         List<MatchesByDateDisplay> lastMatchDisplays = matchService.getMatchesByDateDisplays();
         model.addAttribute("list_matches_byDate", lastMatchDisplays);

@@ -2,16 +2,11 @@ package com.example.padelversus.admin;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchAdmin;
-import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.match.MatchService;
-import com.example.padelversus.match.Stadistics.MatchStadistics;
-import com.example.padelversus.match.Stadistics.MatchStadisticsRepository;
-import com.example.padelversus.match.Stadistics.SetPadelRepository;
+import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
-import com.example.padelversus.team.TeamRepository;
 import com.example.padelversus.team.TeamService;
 import com.example.padelversus.tournament.Tournament;
-import com.example.padelversus.tournament.TournamentRepository;
 import com.example.padelversus.tournament.TournamentService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
