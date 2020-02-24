@@ -253,8 +253,8 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match1 = new Match(true, LocalDate.of(2019, 10, 21), ms1_1, ms1_2, t1, t2);
 
-        t1.addMatch(match1);
-        t2.addMatch(match1);
+        t1.updateTeamStatistics(ms1_1);
+        t2.updateTeamStatistics(ms1_2);
 
         MatchStadistics ms2_1 = new MatchStadistics(thirtySixSets.get(2), 23, 57, 50, 50, true);
         MatchStadistics ms2_2 = new MatchStadistics(thirtySixSets.get(3), 13, 17, 0, 0, false);
@@ -262,7 +262,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match2 = new Match(true, LocalDate.of(2019, 10, 22), ms2_1, ms2_2, t1, t3);
 
-        t1.addMatch(match2);
+        t1.updateTeamStatistics(ms2_1);
         t3.addMatch(match2);
 
         MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4), 23, 57, 50, 50, true);
@@ -270,7 +270,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match3 = new Match(true, LocalDate.of(2019, 10, 23), ms3_1, ms3_2, t4, t1);
 
-        t1.addMatch(match3);
+        t1.updateTeamStatistics(ms3_2);
         t4.addMatch(match3);
 
         MatchStadistics ms4_1 = new MatchStadistics(thirtySixSets.get(6), 99, 99, 99, 99, true);
@@ -278,7 +278,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match4 = new Match(true, LocalDate.of(2019, 10, 24), ms4_1, ms4_2, t2, t3);
 
-        t2.addMatch(match4);
+        t2.updateTeamStatistics(ms4_1);
         t3.addMatch(match4);
 
         MatchStadistics ms5_1 = new MatchStadistics(thirtySixSets.get(8), 23, 57, 50, 50, false);
@@ -286,7 +286,7 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match5 = new Match(true, LocalDate.of(2019, 10, 25), ms5_1, ms5_2, t2, t4);
 
-        t2.addMatch(match5);
+        t2.updateTeamStatistics(ms5_1);
         t4.addMatch(match5);
 
         MatchStadistics ms6_1 = new MatchStadistics(thirtySixSets.get(10), 23, 57, 50, 50, true);
@@ -444,10 +444,10 @@ public class PadelversusApplication implements ApplicationRunner {
         t10.addMatch(match18);
 
         Match match19 = new Match(false, LocalDate.of(2020, 3, 23), null, null, t1, t3);
-        t1.addMatch(match19);
+        //t1.addMatch(match19);
         t3.addMatch(match19);
         Match match20 = new Match(false, LocalDate.of(2020, 10, 30), null, null, t2, t4);
-        t2.addMatch(match20);
+        //t2.addMatch(match20);
         t4.addMatch(match20);
         Match match21 = new Match(false, LocalDate.of(2020, 11, 20), null, null, t6, t5);
         t6.addMatch(match21);
