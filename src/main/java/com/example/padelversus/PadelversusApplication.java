@@ -50,30 +50,26 @@ public class PadelversusApplication implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(PadelversusApplication.class, args);
     }
+    public List<SetPadel> createSets(int games1,int games2,int games3){
+        List<SetPadel> sets = new ArrayList<>();
 
-    public List<List<SetPadel>> createSets(int n) { //Create n lists with lists of 2 sets
-        List<List<SetPadel>> allSets = new ArrayList<>();
-        for (int j = 0; j < n; j++) {
-            List<SetPadel> sets = new ArrayList<>();
+        SetPadel set1 = new SetPadel(games1,1);
+        SetPadel set2 = new SetPadel(games2,2);
+        SetPadel set3 = new SetPadel(games3,3);
 
-            SetPadel set1 = new SetPadel(5 + (j % 2), 1);
-            SetPadel set2 = new SetPadel(6 + (j % 2), 1);
-            SetPadel set3 = new SetPadel(4 + (j % 2), 1);
+        setPadelRepository.save(set1);
+        setPadelRepository.save(set2);
+        setPadelRepository.save(set3);
 
+        sets.add(set1);
+        sets.add(set2);
+        sets.add(set3);
 
-            setPadelRepository.save(set1);
-            setPadelRepository.save(set2);
-            setPadelRepository.save(set3);
+        return sets;
 
-            sets.add(set1);
-            sets.add(set2);
-            sets.add(set3);
-
-            allSets.add(sets);
-        }
-
-        return allSets;
     }
+
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -244,20 +240,78 @@ public class PadelversusApplication implements ApplicationRunner {
         teamRepository.save(t9);
         teamRepository.save(t10);
 
-        //Example test
-        List<List<SetPadel>> thirtySixSets = createSets(36);
+
         // Save tournaments and mathches
+
+        List<SetPadel> setsPadelOne = createSets(4,6,6);
+        List<SetPadel> setsPadelTwo = createSets(6,4,3);
+
+        List<SetPadel> setsPadelThree = createSets(3,6,6);
+        List<SetPadel> setsPadelFour = createSets(6,2,1);
+
+        List<SetPadel> setsPadelFive = createSets(2,6,1);
+        List<SetPadel> setsPadelSix = createSets(6,4,6);
+
+        List<SetPadel> setsPadelSeven = createSets(1,6,1);
+        List<SetPadel> setsPadelEight = createSets(6,3,6);
+
+        List<SetPadel> setsPadelNine = createSets(6,1,6);
+        List<SetPadel> setsPadelTen = createSets(1,6,3);
+
+        List<SetPadel> setsPadelEleven = createSets(2,6,6);
+        List<SetPadel> setsPadelTwelve = createSets(6,1,3);
+
+        List<SetPadel> setsPadelThirteen = createSets(6,3,6);
+        List<SetPadel> setsPadelFourteen = createSets(1,6,3);
+
+        List<SetPadel> setsPadelFiveteen = createSets(3,6,1);
+        List<SetPadel> setsPadelSixteen = createSets(6,2,6);
+
+        List<SetPadel> setsPadelSeventeen = createSets(1,6,2);
+        List<SetPadel> setsPadelEighteen = createSets(6,4,6);
+
+        List<SetPadel> setsPadelNineteen = createSets(6,2,6);
+        List<SetPadel> setsPadelTwenty =   createSets(1,6,1);
+
+        List<SetPadel> setsPadelTwentyOne = createSets(6,3,6);
+        List<SetPadel> setsPadelTwentyTwo = createSets(1,6,1);
+
+        List<SetPadel> setsPadelTwentyThree = createSets(2,6,1);
+        List<SetPadel> setsPadelTwentyFour = createSets(6,2,6);
+
+        List<SetPadel> setsPadelTwentyFive = createSets(2,6,1);
+        List<SetPadel> setsPadelTwentySix = createSets(6,2,6);
+
+        List<SetPadel> setsPadelTwentySeven = createSets(2,6,1);
+        List<SetPadel> setsPadelTwentyEight = createSets(6,4,6);
+
+        List<SetPadel> setsPadelTwentyNine = createSets(2,6,1);
+        List<SetPadel> setsPadelThirty =     createSets(6,3,6);
+
+        List<SetPadel> setsPadelThirtyOne = createSets(6,1,6);
+        List<SetPadel> setsPadelThirtyTwo = createSets(2,6,2);
+
+        List<SetPadel> setsPadelThirtyThree = createSets(6,2,6);
+        List<SetPadel> setsPadelThirtyFour = createSets(1,6,2);
+
+        List<SetPadel> setsPadelThirtyFive = createSets(1,6,3);
+        List<SetPadel> setsPadelThirtySix = createSets(6,2,6);
+
+
         // Tournament 1
-        MatchStadistics ms1_1 = new MatchStadistics(thirtySixSets.get(0), 23, 57, 50, 50, true);
-        MatchStadistics ms1_2 = new MatchStadistics(thirtySixSets.get(1), 13, 17, 0, 0, false);
+
+        MatchStadistics ms1_1 = new MatchStadistics(setsPadelOne, 23, 57, 50, 50, true);
+        MatchStadistics ms1_2 = new MatchStadistics(setsPadelTwo, 13, 17, 0, 0, false);
 
         Match match1 = new Match(true, LocalDate.of(2019, 10, 21), ms1_1, ms1_2, t1, t2);
 
         t1.updateTeamStatistics(ms1_1);
         t2.updateTeamStatistics(ms1_2);
 
-        MatchStadistics ms2_1 = new MatchStadistics(thirtySixSets.get(2), 23, 57, 50, 50, true);
-        MatchStadistics ms2_2 = new MatchStadistics(thirtySixSets.get(3), 13, 17, 0, 0, false);
+
+
+        MatchStadistics ms2_1 = new MatchStadistics(setsPadelThree, 23, 57, 50, 50, true);
+        MatchStadistics ms2_2 = new MatchStadistics(setsPadelFour, 13, 17, 0, 0, false);
 
 
         Match match2 = new Match(true, LocalDate.of(2019, 10, 22), ms2_1, ms2_2, t1, t3);
@@ -265,32 +319,40 @@ public class PadelversusApplication implements ApplicationRunner {
         t1.updateTeamStatistics(ms2_1);
         t3.updateTeamStatistics(ms2_2);
 
-        MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4), 23, 57, 50, 50, true);
-        MatchStadistics ms3_2 = new MatchStadistics(thirtySixSets.get(5), 13, 17, +0, 0, false);
+
+
+        MatchStadistics ms3_1 = new MatchStadistics(setsPadelFive, 23, 57, 50, 50, false);
+        MatchStadistics ms3_2 = new MatchStadistics(setsPadelSix, 13, 17, +0, 0, true);
 
         Match match3 = new Match(true, LocalDate.of(2019, 10, 23), ms3_1, ms3_2, t4, t1);
 
         t1.updateTeamStatistics(ms3_2);
         t4.updateTeamStatistics(ms3_1);
 
-        MatchStadistics ms4_1 = new MatchStadistics(thirtySixSets.get(6), 99, 99, 99, 99, true);
-        MatchStadistics ms4_2 = new MatchStadistics(thirtySixSets.get(7), 78, 7, 9, 3, false);
+
+
+        MatchStadistics ms4_1 = new MatchStadistics(setsPadelSeven, 99, 99, 99, 99, false);
+        MatchStadistics ms4_2 = new MatchStadistics(setsPadelEight, 78, 7, 9, 3, true);
 
         Match match4 = new Match(true, LocalDate.of(2019, 10, 24), ms4_1, ms4_2, t2, t3);
 
         t2.updateTeamStatistics(ms4_1);
         t3.updateTeamStatistics(ms4_2);
 
-        MatchStadistics ms5_1 = new MatchStadistics(thirtySixSets.get(8), 23, 57, 50, 50, false);
-        MatchStadistics ms5_2 = new MatchStadistics(thirtySixSets.get(9), 23, 57, 50, 50, true);
+
+
+        MatchStadistics ms5_1 = new MatchStadistics(setsPadelNine, 23, 57, 50, 50, true);
+        MatchStadistics ms5_2 = new MatchStadistics(setsPadelTen, 23, 57, 50, 50, false);
 
         Match match5 = new Match(true, LocalDate.of(2019, 10, 25), ms5_1, ms5_2, t2, t4);
 
         t2.updateTeamStatistics(ms5_1);
         t4.updateTeamStatistics(ms5_2);
 
-        MatchStadistics ms6_1 = new MatchStadistics(thirtySixSets.get(10), 23, 57, 50, 50, true);
-        MatchStadistics ms6_2 = new MatchStadistics(thirtySixSets.get(11), 23, 57, 50, 50, false);
+
+
+        MatchStadistics ms6_1 = new MatchStadistics(setsPadelEleven, 23, 57, 50, 50, true);
+        MatchStadistics ms6_2 = new MatchStadistics(setsPadelTwelve, 23, 57, 50, 50, false);
 
         Match match6 = new Match(true, LocalDate.of(2019, 10, 26), ms6_1, ms6_2, t4, t3);
 
@@ -323,48 +385,48 @@ public class PadelversusApplication implements ApplicationRunner {
         tournamentRepository.save(tournament1);
 
         // Tournament 2
-        MatchStadistics ms7_1 = new MatchStadistics(thirtySixSets.get(12), 23, 57, 50, 50, false);
-        MatchStadistics ms7_2 = new MatchStadistics(thirtySixSets.get(13), 23, 57, 50, 50, true);
+        MatchStadistics ms7_1 = new MatchStadistics(setsPadelThirteen, 23, 57, 50, 50, true);
+        MatchStadistics ms7_2 = new MatchStadistics(setsPadelFourteen, 23, 57, 50, 50, false);
 
         Match match7 = new Match(true, LocalDate.of(2019, 11, 20), ms7_1, ms7_2, t4, t5);
 
         t4.updateTeamStatistics(ms7_1);
         t5.updateTeamStatistics(ms7_2);
 
-        MatchStadistics ms8_1 = new MatchStadistics(thirtySixSets.get(14), 23, 57, 50, 50, false);
-        MatchStadistics ms8_2 = new MatchStadistics(thirtySixSets.get(15), 23, 57, 50, 50, true);
+        MatchStadistics ms8_1 = new MatchStadistics(setsPadelFiveteen, 23, 57, 50, 50, false);
+        MatchStadistics ms8_2 = new MatchStadistics(setsPadelSixteen, 23, 57, 50, 50, true);
 
         Match match8 = new Match(true, LocalDate.of(2019, 11, 21), ms8_1, ms8_2, t4, t6);
 
         t4.updateTeamStatistics(ms8_1);
         t6.updateTeamStatistics(ms8_2);
 
-        MatchStadistics ms9_1 = new MatchStadistics(thirtySixSets.get(16), 23, 57, 50, 50, false);
-        MatchStadistics ms9_2 = new MatchStadistics(thirtySixSets.get(17), 23, 57, 50, 50, true);
+        MatchStadistics ms9_1 = new MatchStadistics(setsPadelSeventeen, 23, 57, 50, 50, false);
+        MatchStadistics ms9_2 = new MatchStadistics(setsPadelEighteen, 23, 57, 50, 50, true);
 
         Match match9 = new Match(true, LocalDate.of(2019, 11, 22), ms9_1, ms9_2, t4, t7);
 
         t4.updateTeamStatistics(ms9_1);
         t7.updateTeamStatistics(ms9_2);
 
-        MatchStadistics ms10_1 = new MatchStadistics(thirtySixSets.get(18), 23, 57, 50, 50, false);
-        MatchStadistics ms10_2 = new MatchStadistics(thirtySixSets.get(19), 23, 57, 50, 50, true);
+        MatchStadistics ms10_1 = new MatchStadistics(setsPadelNineteen, 23, 57, 50, 50, true);
+        MatchStadistics ms10_2 = new MatchStadistics(setsPadelTwenty, 23, 57, 50, 50, false);
 
         Match match10 = new Match(true, LocalDate.of(2019, 11, 23), ms10_1, ms10_2, t5, t6);
 
         t5.updateTeamStatistics(ms10_1);
         t6.updateTeamStatistics(ms10_2);
 
-        MatchStadistics ms11_1 = new MatchStadistics(thirtySixSets.get(20), 23, 57, 50, 50, false);
-        MatchStadistics ms11_2 = new MatchStadistics(thirtySixSets.get(21), 23, 57, 50, 50, true);
+        MatchStadistics ms11_1 = new MatchStadistics(setsPadelTwentyOne, 23, 57, 50, 50, true);
+        MatchStadistics ms11_2 = new MatchStadistics(setsPadelTwentyTwo, 23, 57, 50, 50, false);
 
         Match match11 = new Match(true, LocalDate.of(2019, 11, 24), ms11_1, ms11_2, t5, t7);
 
         t5.updateTeamStatistics(ms11_1);
         t7.updateTeamStatistics(ms11_2);
 
-        MatchStadistics ms12_1 = new MatchStadistics(thirtySixSets.get(34), 23, 57, 50, 50, false);
-        MatchStadistics ms12_2 = new MatchStadistics(thirtySixSets.get(35), 23, 57, 50, 50, true);
+        MatchStadistics ms12_1 = new MatchStadistics(setsPadelTwentyThree, 23, 57, 50, 50, false);
+        MatchStadistics ms12_2 = new MatchStadistics(setsPadelTwentyFour, 23, 57, 50, 50, true);
 
         Match match12 = new Match(true, LocalDate.of(2019, 11, 25), ms12_1, ms12_2, t7, t6);
 
@@ -395,48 +457,48 @@ public class PadelversusApplication implements ApplicationRunner {
         tournamentRepository.save(tournament2);
 
         // Tournament 3
-        MatchStadistics ms13_1 = new MatchStadistics(thirtySixSets.get(22), 23, 57, 50, 50, false);
-        MatchStadistics ms13_2 = new MatchStadistics(thirtySixSets.get(23), 23, 57, 50, 50, true);
+        MatchStadistics ms13_1 = new MatchStadistics(setsPadelTwentyFive, 23, 57, 50, 50, false);
+        MatchStadistics ms13_2 = new MatchStadistics(setsPadelTwentySix, 23, 57, 50, 50, true);
 
         Match match13 = new Match(true, LocalDate.of(2019, 10, 20), ms13_1, ms13_2, t8, t6);
 
         t8.updateTeamStatistics(ms13_1);
         t6.updateTeamStatistics(ms13_2);
 
-        MatchStadistics ms14_1 = new MatchStadistics(thirtySixSets.get(24), 23, 57, 50, 50, false);
-        MatchStadistics ms14_2 = new MatchStadistics(thirtySixSets.get(25), 23, 57, 50, 50, true);
+        MatchStadistics ms14_1 = new MatchStadistics(setsPadelTwentySeven, 23, 57, 50, 50, false);
+        MatchStadistics ms14_2 = new MatchStadistics(setsPadelTwentyEight, 23, 57, 50, 50, true);
 
         Match match14 = new Match(true, LocalDate.of(2019, 11, 22), ms14_1, ms14_2, t6, t9);
 
         t6.updateTeamStatistics(ms14_1);
         t9.updateTeamStatistics(ms14_2);
 
-        MatchStadistics ms15_1 = new MatchStadistics(thirtySixSets.get(26), 23, 57, 50, 50, false);
-        MatchStadistics ms15_2 = new MatchStadistics(thirtySixSets.get(27), 23, 57, 50, 50, true);
+        MatchStadistics ms15_1 = new MatchStadistics(setsPadelTwentyNine, 23, 57, 50, 50, false);
+        MatchStadistics ms15_2 = new MatchStadistics(setsPadelThirty, 23, 57, 50, 50, true);
 
         Match match15 = new Match(true, LocalDate.of(2019, 11, 23), ms15_1, ms15_2, t6, t10);
 
         t6.updateTeamStatistics(ms15_1);
         t10.updateTeamStatistics(ms15_2);
 
-        MatchStadistics ms16_1 = new MatchStadistics(thirtySixSets.get(28), 23, 57, 50, 50, false);
-        MatchStadistics ms16_2 = new MatchStadistics(thirtySixSets.get(29), 23, 57, 50, 50, true);
+        MatchStadistics ms16_1 = new MatchStadistics(setsPadelThirtyOne, 23, 57, 50, 50, true);
+        MatchStadistics ms16_2 = new MatchStadistics(setsPadelThirtyTwo, 23, 57, 50, 50, false);
 
         Match match16 = new Match(true, LocalDate.of(2019, 11, 24), ms16_1, ms16_2, t8, t9);
 
         t8.updateTeamStatistics(ms16_1);
         t9.updateTeamStatistics(ms16_2);
 
-        MatchStadistics ms17_1 = new MatchStadistics(thirtySixSets.get(30), 23, 57, 50, 50, false);
-        MatchStadistics ms17_2 = new MatchStadistics(thirtySixSets.get(31), 23, 57, 50, 50, true);
+        MatchStadistics ms17_1 = new MatchStadistics(setsPadelThirtyThree, 23, 57, 50, 50, true);
+        MatchStadistics ms17_2 = new MatchStadistics(setsPadelThirtyFour, 23, 57, 50, 50, false);
 
         Match match17 = new Match(true, LocalDate.of(2019, 11, 25), ms17_1, ms17_2, t8, t10);
 
         t8.updateTeamStatistics(ms17_1);
         t10.updateTeamStatistics(ms17_2);
 
-        MatchStadistics ms18_1 = new MatchStadistics(thirtySixSets.get(32), 23, 57, 50, 50, false);
-        MatchStadistics ms18_2 = new MatchStadistics(thirtySixSets.get(33), 23, 57, 50, 50, true);
+        MatchStadistics ms18_1 = new MatchStadistics(setsPadelThirtyFive, 23, 57, 50, 50, false);
+        MatchStadistics ms18_2 = new MatchStadistics(setsPadelThirtySix, 23, 57, 50, 50, true);
 
         Match match18 = new Match(true, LocalDate.of(2019, 11, 26), ms18_1, ms18_2, t9, t10);
 
