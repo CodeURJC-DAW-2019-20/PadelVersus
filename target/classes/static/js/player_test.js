@@ -66,7 +66,7 @@
             setSmallWrapper: function () {
                 var b = this.wrapperWidth;
                 var width = b + 82;
-                  this.wrapper.css({width: "10000px"});
+                this.wrapper.css({width: "10000px"});
                 var self = this;
                 var x = function () {
                     self.wrapper.css({width: width + "px"});
@@ -84,8 +84,6 @@
             }
 
         };
-
-
 
 
         $(window).on("load", function () {

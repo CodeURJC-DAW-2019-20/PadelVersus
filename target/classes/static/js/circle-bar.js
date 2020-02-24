@@ -1,24 +1,24 @@
 /**
- * This is jQuery plugin declaration 
+ * This is jQuery plugin declaration
  * @deps: jQuery, progressbar.js
  * @using: ./js/main.js
  * @author torbara  (https://themeforest.net/user/torbara)
  */
 
-(function($, ProgressBar){
-    
+(function ($, ProgressBar) {
+
     "use strict";
-    
+
     $.fn.teamCircleBar = function () {
-        
+
         var $el = $(this);
-        
-        if ( $el.length === 0 ) {
+
+        if ($el.length === 0) {
             throw new Error('teamCircleBar: target element not found');
         }
-        
+
         var id = $el.attr('id');
-        
+
         var circle = new ProgressBar.Circle('#' + id, {
             color: '#141414',
             strokeWidth: 4,
@@ -36,10 +36,10 @@
                 }
             }
         });
-        
+
         var percent = $el.attr('data-percent');
         circle.animate(percent / 100);
-        
+
     };
 
 })(jQuery, ProgressBar);

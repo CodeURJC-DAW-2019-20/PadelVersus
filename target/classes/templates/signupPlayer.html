@@ -3,56 +3,57 @@
 <head>
     <title>Padel Versus</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/favicon.ico"/>
+    <link href="/favicon.ico" rel="icon" type="image/png"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link href="/fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <link href="/vendor/animate/animate.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+    <link href="/vendor/animsition/css/animsition.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+    <link href="/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+    <link href="/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="/css/util.css" rel="stylesheet" type="text/css">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
 </head>
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('/images/bg-02.jpg');" >
+    <div class="container-login100" style="background-image: url('/images/bg-02.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form" action="/signupPlayer" method="post" enctype="multipart/form-data">
-                <input type="hidden" id="username" name="username" value="{{user_name}}">
+            <form action="/signupPlayer" class="login100-form validate-form" enctype="multipart/form-data"
+                  method="post">
+                <input id="username" name="username" type="hidden" value="{{user_name}}">
                 <span class="login100-form-title p-b-49">
 						Sign Up Player
 					</span>
                 Fill in the following information
 
                 {{#error_message}}
-                <div class="text-center p-t-6 p-b-31"style="color: red;" >
+                <div class="text-center p-t-6 p-b-31" style="color: red;">
                     You must enter and image
                 </div>
                 {{/error_message}}
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Age is required">
                     <span class="label-input100">Age:</span>
-                    <input class="input100 form-control" type="number" name="age" id="age" placeholder="Type your age"
-                           min="18" max="80">
+                    <input class="input100 form-control" id="age" max="80" min="18" name="age"
+                           placeholder="Type your age" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Country is required">
                     <span class="label-input100">Country:</span>
-                    <select id="country" name="countryBirth" class="form-control">
+                    <select class="form-control" id="country" name="countryBirth">
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
                         <option value="Albania">Albania</option>
@@ -308,61 +309,61 @@
                 </div>
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Endurance is required">
                     <span class="label-input100">Endurance (0-10)</span>
-                    <input class="input100 form-control" type="number" name="endurance" id="endurance"
-                           placeholder="Type your endurance" min="0" max="10">
+                    <input class="input100 form-control" id="endurance" max="10" min="0"
+                           name="endurance" placeholder="Type your endurance" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Height is required">
                     <span class="label-input100">Height</span>
-                    <input class="input100 form-control" type="number" name="height" id="height" min="1.00" step="0.01"
-                           max="2.00" placeholder="Type your height">
+                    <input class="input100 form-control" id="height" max="2.00" min="1.00" name="height" placeholder="Type your height"
+                           step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Weight is required">
                     <span class="label-input100 ">Weight</span>
-                    <input class="input100 form-control" type="number" name="weight" id="weight"
-                           placeholder="Type your weight" min="30" max="120">
+                    <input class="input100 form-control" id="weight" max="120" min="30"
+                           name="weight" placeholder="Type your weight" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Speed is required">
                     <span class="label-input100 ">Speed (0-10)</span>
-                    <input class="input100 form-control" type="number" name="speed" id="speed" step="0.01"
-                           placeholder="Type your speed" min="0" max="10">
+                    <input class="input100 form-control" id="speed" max="10" min="0" name="speed"
+                           placeholder="Type your speed" step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Accuracy is required">
                     <span class="label-input100 ">Accuracy (0-10)</span>
-                    <input class="input100 form-control" type="number" name="accuaracy" id="accuracy" step="0.01"
-                           placeholder="Type your accuracy" min="0" max="10">
+                    <input class="input100 form-control" id="accuracy" max="10" min="0" name="accuaracy"
+                           placeholder="Type your accuracy" step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Strength is required">
                     <span class="label-input100 ">Strength (0-10)</span>
-                    <input class="input100 form-control" type="number" name="strength" id="strength" step="0.01"
-                           placeholder="Type your strength" min="0" max="10">
+                    <input class="input100 form-control" id="strength" max="10" min="0" name="strength"
+                           placeholder="Type your strength" step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Aceleration is required">
                     <span class="label-input100 ">Aceleration (0-10)</span>
-                    <input class="input100 form-control" type="number" name="aceleration" id="aceleration" step="0.01"
-                           placeholder="Type your aceleration" min="0" max="10">
+                    <input class="input100 form-control" id="aceleration" max="10" min="0" name="aceleration"
+                           placeholder="Type your aceleration" step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Pace is required">
                     <span class="label-input100 ">Pace (0-10)</span>
-                    <input class="input100 form-control" type="number" name="pace" id="pace" step="0.01"
-                           placeholder="Type your pace" min="0" max="10">
+                    <input class="input100 form-control" id="pace" max="10" min="0" name="pace"
+                           placeholder="Type your pace" step="0.01" type="number">
                     <span class="focus-input100" data-symbol="&#xf2a1;"></span>
                 </div>
 
                 <span class="label-input100"></span>
-                <input type='file' name='imagenFile' accept=".jpg, .jpeg"/>
+                <input accept=".jpg, .jpeg" name='imagenFile' type='file'/>
 
                 <div class="text-right p-t-8 p-b-31"></div>
 
@@ -374,7 +375,7 @@
                         </button>
                     </div>
                 </div>
-                <input type="hidden" name="_csrf" value="{{token}}"/>
+                <input name="_csrf" type="hidden" value="{{token}}"/>
             </form>
 
         </div>

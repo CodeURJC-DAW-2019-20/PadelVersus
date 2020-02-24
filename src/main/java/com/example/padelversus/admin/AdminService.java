@@ -109,10 +109,6 @@ public class AdminService {
         Match match = new Match(false, LocalDate.of(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2])), team1, team2);
 
         matchRepository.save(match);
-        team1.addMatch(match);
-        team2.addMatch(match);
-        teamRepository.save(team1);
-        teamRepository.save(team2);
         tournament.get().addMatch(match);
         tournamentRepository.save(tournament.get()); //save the new match in tournament table
 

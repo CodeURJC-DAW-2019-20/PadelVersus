@@ -6,22 +6,22 @@
  * @author torbara  (https://themeforest.net/user/torbara)
  */
 
-(function($){
-    
+(function ($) {
+
     "use strict";
-    
+
     $.fn.teamStandings = function (doubleElimination) {
-        
+
         var $el = $(this);
-        
-        if ( $el.length === 0 ) {
+
+        if ($el.length === 0) {
             throw new Error('teamNewsLine: target element not found');
         }
-        
+
         var Standings = {
-            
-            build: function(){
-                
+
+            build: function () {
+
                 $el.bracket({
                     init: doubleElimination,
                     skipConsolationRound: true,
@@ -32,17 +32,17 @@
                     centerConnectors: true,
                     disableHighlight: true
                 });
-                
+
             },
-            
-            events: function (){
+
+            events: function () {
                 var self = this;
-                $el.on('show', function(){
+                $el.on('show', function () {
                     self.build();
                 });
             }
         };
-        
+
         Standings.build();
         Standings.events();
         return Standings;

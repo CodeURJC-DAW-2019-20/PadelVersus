@@ -3,28 +3,28 @@
 <head>
     <title>Padel Versus</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/favicon.ico"/>
+    <link href="/favicon.ico" rel="icon" type="image/png"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link href="/fonts/iconic/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <link href="/vendor/animate/animate.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+    <link href="/vendor/animsition/css/animsition.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+    <link href="/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+    <link href="/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="/css/util.css" rel="stylesheet" type="text/css">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -32,20 +32,20 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('/images/bg-02.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form" action="/login" method="post">
+            <form action="/login" class="login100-form validate-form" method="post">
 					<span class="login100-form-title p-b-49">
 						Log In
 					</span>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Username is required">
                     <span class="label-input100">Username</span>
-                    <input class="input100" type="text" name="username" placeholder="Type your username">
+                    <input class="input100" name="username" placeholder="Type your username" type="text">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="password" placeholder="Type your password">
+                    <input class="input100" name="password" placeholder="Type your password" type="password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
@@ -63,46 +63,46 @@
                         </button>
                     </div>
                 </div>
-                <input type="hidden" name="_csrf" value="{{token}}"/>
+                <input name="_csrf" type="hidden" value="{{token}}"/>
             </form>
-                <div class="txt1 text-center p-t-54 p-b-20">
+            <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
 							Or Log In Using
 						</span>
-                </div>
+            </div>
 
-                <div class="flex-c-m">
-                    <a href="#" class="login100-social-item bg1">
-                        <i class="fa fa-facebook"></i>
-                    </a>
+            <div class="flex-c-m">
+                <a class="login100-social-item bg1" href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
 
-                    <a href="#" class="login100-social-item bg2">
-                        <i class="fa fa-twitter"></i>
-                    </a>
+                <a class="login100-social-item bg2" href="#">
+                    <i class="fa fa-twitter"></i>
+                </a>
 
-                    <a href="#" class="login100-social-item bg3">
-                        <i class="fa fa-google"></i>
-                    </a>
-                </div>
+                <a class="login100-social-item bg3" href="#">
+                    <i class="fa fa-google"></i>
+                </a>
+            </div>
 
 
-                <div class="flex-col-c p-t-55">
+            <div class="flex-col-c p-t-55">
 						<span class="txt1 p-b-17">
 							Or Sign Up
 						</span>
 
-                    <a href="/signup" class="txt2">
-                        Sign Up
-                    </a>
+                <a class="txt2" href="/signup">
+                    Sign Up
+                </a>
+            </div>
+            <div class="container-login100-form-btn p-t-24">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn">
+                        <a href="/"> Continue as anonymous </a>
+                    </button>
                 </div>
-                <div class="container-login100-form-btn p-t-24">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
-                            <a href="/" > Continue as anonymous </a>
-                        </button>
-                    </div>
-                </div>
+            </div>
         </div>
     </div>
 </div>

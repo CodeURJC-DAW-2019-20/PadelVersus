@@ -68,4 +68,13 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
 
     @Query(value = "SELECT distinct date FROM games WHERE NOT played order by date", nativeQuery = true)
     List<Date> findAllNotPlayedDates();
+
+    @Query(value = "SELECT g.* " +
+            "FROM  padelversus.games_teams gt " +
+            "INNER JOIN padelversus.games g ON gt.match_id = g.id " +
+            "INNER JOIN padelversus.team t ON gt.teams_id = t.id " +
+            "WHERE g.played and t.id = ?1 " +
+            "ORDER by g.date desc " +
+            "LIMIT 4", nativeQuery = true)
+    List<Match> findLastFourMatchesPlayedByTeamId(Long id);
 }

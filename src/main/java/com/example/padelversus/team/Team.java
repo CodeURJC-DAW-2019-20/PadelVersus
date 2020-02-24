@@ -1,6 +1,6 @@
 package com.example.padelversus.team;
 
-import com.example.padelversus.match.Match;
+import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.teamstatistics.TeamStatistics;
 
@@ -23,9 +23,6 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     private TeamStatistics teamStatistics;
 
-    @ManyToMany
-    private List<Match> matches;
-
     public Team() {
     }
 
@@ -37,8 +34,6 @@ public class Team {
         this.name = name;
         this.players = aux;
         this.teamStatistics = new TeamStatistics();
-        this.matches = new ArrayList<>();
-        updateTeamStatistics();
     }
 
     public Long getId() {
@@ -73,19 +68,6 @@ public class Team {
         this.teamStatistics = teamStatistics;
     }
 
-    public List<Match> getMatches() {
-        return matches;
-    }
-
-    public void setMatches(List<Match> playedMatches) {
-        this.matches = playedMatches;
-    }
-
-    public void addMatch(Match m) {
-        this.matches.add(m);
-        updateTeamStatistics();
-    }
-
     public Team getTeam() {
         return this;
     }
@@ -100,17 +82,8 @@ public class Team {
                 '}';
     }
 
-    public void updateTeamStatistics() {
-        teamStatistics.resetStatistics();
-        for (Match m : matches) {
-            if (m.isPlayed()) {
-                if (id == m.getidTeam(1)) {
-                    teamStatistics.updateStatistics(m.getStadistics_1());
-                } else {
-                    teamStatistics.updateStatistics(m.getStadistics_2());
-                }
-            }
-        }
+    public void updateTeamStatistics(MatchStadistics stats){
+        this.teamStatistics.updateStatistics(stats);
     }
 
     public Player getMemberN(int n) {
@@ -121,29 +94,4 @@ public class Team {
         }
     }
 
-    public List<Match> getLastNMatches(int n) {
-
-        List<Match> lastmatches = new ArrayList<>();
-
-        List<Match> matchesPlayed = new ArrayList<>();
-        for (Match m : matches) {
-            matchesPlayed.add(m);
-        }
-
-        int counter = matchesPlayed.size() - 1;
-        if (matchesPlayed.size() >= n) {
-            for (int i = 0; i < n; i++) {
-                lastmatches.add(matches.get(counter));
-                counter--;
-            }
-        } else {
-            for (int i = 0; i < matchesPlayed.size(); i++) {
-                if (matches.get(counter).isPlayed()) {
-                    lastmatches.add(matches.get(counter));
-                    counter--;
-                }
-            }
-        }
-        return lastmatches;
-    }
 }

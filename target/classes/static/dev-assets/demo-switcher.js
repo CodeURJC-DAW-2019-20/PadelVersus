@@ -1,4 +1,3 @@
-
 (function ($, window) {
 
     "use strict";
@@ -18,9 +17,9 @@
         init: function () {
             if ($('#style-scheme-css').length === 0) {
                 $('<style id="style-scheme-css" type="text/css"></style>')
-                        .appendTo('head');
+                    .appendTo('head');
             }
-            
+
             var query_params = new URLSearchParams(window.location.search);
             var scheme = query_params.get('scheme');
             if (scheme) {
@@ -28,7 +27,7 @@
             } else {
                 this.changeDemo();
             }
-            
+
             this.events();
         },
 
@@ -97,7 +96,7 @@
 
         getCurrentDemo: function () {
             var demo = localStorage.getItem('team_html_demo');
-            
+
             if (!demo || demo === undefined || demo === 'undefined') {
                 return 'soccer';
             }
@@ -115,11 +114,10 @@
         }
     });
 
-    if (window.location.pathname !== "/sport-championship-landing.html" && 
+    if (window.location.pathname !== "/sport-championship-landing.html" &&
         window.location.pathname !== "/sport-team-landing.html" &&
         window.location.pathname !== "/esport-championship-landing.html" &&
-        window.location.pathname !== "/esport-team-landing.html")
-    {
+        window.location.pathname !== "/esport-team-landing.html") {
         DemoSwitcher.init();
     }
 
@@ -199,7 +197,7 @@
     };
 
     DemoSwithesMenu.initialize();
-    if ( document.referrer == null || document.referrer.indexOf(window.location.hostname) < 0 ) {
+    if (document.referrer == null || document.referrer.indexOf(window.location.hostname) < 0) {
         DemoSwithesMenu.open();
     }
 

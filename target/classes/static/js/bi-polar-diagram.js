@@ -7,7 +7,6 @@
  - */
 
 
-
 (function ($, Chartist) {
 
     "use strict";
@@ -23,13 +22,12 @@
         var id = $el.attr('id');
 
 
-
         Chartist.Line('#' + id, {
             labels: lines,
             series: series
         }, {
-            high:high,
-            low:low,
+            high: high,
+            low: low,
             showArea: showArea === undefined ? true : showArea,
             showLine: showLine === undefined ? true : showLine,
             showPoint: showPoint === undefined ? true : showPoint,

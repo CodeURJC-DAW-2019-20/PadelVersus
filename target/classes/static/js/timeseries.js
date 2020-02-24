@@ -30,14 +30,14 @@
         }
 
         Chartist.Line('#' + id, {
-            labels: lines,
-            series: series
-        }, {
-            axisY: axisY,
-            height: height === undefined ? '250px' : height,
-            lineSmooth: lineSmooth === undefined ? true : lineSmooth
+                labels: lines,
+                series: series
+            }, {
+                axisY: axisY,
+                height: height === undefined ? '250px' : height,
+                lineSmooth: lineSmooth === undefined ? true : lineSmooth
 
-        }
+            }
         );
 
     };

@@ -21,7 +21,6 @@
         var id = $el.attr('id');
 
 
-
         Chartist.Pie('#' + id, {
             series: series
         }, {
@@ -38,7 +37,6 @@
                     position: 'bottom'
                 })
             ]
-
 
 
         });
