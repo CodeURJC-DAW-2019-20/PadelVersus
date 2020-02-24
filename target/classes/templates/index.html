@@ -16,21 +16,6 @@
     <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
     <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/><link href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!--
-
-    Enable one styles which the you want
-    <link href="css-min/soccer.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/hockey.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/basketball.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/football.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/baseball.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/dota.min.css" rel="stylesheet" type="text/css" />
-    <link href="css-min/csgo.min.css" rel="stylesheet" type="text/css" />
-
-    All libraries included in this css, concating rules in /grunt/cssmin.js
-    Use grunt default task for creating this files
-
-    -->
 </head>
 
 <body>
@@ -83,14 +68,10 @@
 <!--MAIN MACTH SHEDULE BEGIN-->
 
 <section class="main-match-shedule">
-
     <div class="container">
         <div class="row">
-
             <div class="col-md-6 col-sm-12 col-xs-12">
-
                 <h6>Next matches</h6>
-
                 <div class="esport-championship-standings">
                     <div class="mySlides fade-standings">
                         {{#next_matches}}
@@ -107,14 +88,11 @@
                             <a class="team guest">
                                         <span class="info">
                                             <span class="name">{{nameTeamTwo}}</span>
-
                                         </span>
-                                <!--<span class="image"><img src="/images/soccer/team-logo2.png" alt="main-match"></span>-->
                             </a>
                             <div class="hour">{{localDate}}</div>
                         </div>
                         {{/next_matches}}
-
                     </div>
                 </div>
             </div>
@@ -122,14 +100,10 @@
 
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <h6>Latest matches</h6>
-
                 <div class="main-lates-matches">
                     {{#last_matches}}
                     <a class="item" href="/match/{{id}}">
-
                         <span class="championship">{{tournamentName}}</span>
-
-
                         {{#winsTeamOne}}
                         <span class="teams-wrap">
                         <span class="teamwinner">
@@ -141,11 +115,9 @@
                         <span class="team">
                             <span>{{nameTeamTwo}}</span>
                         </span>
-
                         <span class="score"><span>{{gamesPerSetTwo}}</span></span>
                     </span>
                         {{/winsTeamOne}}
-
                         {{^winsTeamOne}}
                         <span class="teams-wrap">
                         <span class="team">
@@ -167,8 +139,6 @@
             </div>
 
         </div>
-        <br>
-        <br>
         <br>
         <br>
         <div class="row">
@@ -203,7 +173,6 @@
 <script src="/js/library/jquery.sticky.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        console.log("patata");
         $(".carousel-inner > .item:first").addClass("active");
     })
 </script>
