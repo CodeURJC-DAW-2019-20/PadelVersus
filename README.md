@@ -218,8 +218,31 @@ As we said, all this page was done with mustache, html, css, java and javascript
 18. Go to matches and show the match is change from next matches to last matches, and go into the match overview and show that it have the data we have fill.
 19. Then go to the team and show that the statistics have change.
 20. Then go to the player we have created and show the statistics.
- ## Changes
+
+ ## Changes:
 ### Complementary technology
-API from GoogleCalendar to be able to show the matches loaded from the database has been changed by the generation of a pdf with the data of a tournament.
-### Advanced Algorithmic
-The ELO system has been replaced by the calculation of the ranking in each update made by the admin of the games played, and some advanced querys to fills the data.
+* API from GoogleCalendar to be able to show the matches loaded from the database has been changed by the generation of a pdf with the data of a tournament.
+* Emails sent to the players as a remainder of the game has been changed by an email sent when user create a new account.
+* Login with facebook, twitter or google changed by a twitter collection in main page.
+### Advanced Algorithms
+The ELO system has been replaced by the calculation of the ranking in each update made by the admin of the games played, and advanced querys to fill the data such as:
+```java
+   @Query(value = "SELECT m.* " +
+            "FROM tournament_matches AS tm " +
+            "INNER JOIN tournament t ON tm.tournament_id = t.id " +
+            "INNER JOIN(" +
+            "SELECT id, date, played, stadistics_1_id, stadistics_2_id " +
+            "FROM (" +
+            "SELECT t.name as team_name , g.id as match_id, g.* " +
+            "FROM games_teams AS gt " +
+            "INNER JOIN games g ON gt.match_id = g.id " +
+            "INNER JOIN team t ON gt.teams_id = t.id " +
+            "WHERE t.name=?1 OR t.name=?2 " +
+            "GROUP BY g.id " +
+            "HAVING count(g.id)>1 " +
+            ") AS joinned_table " +
+            ") m ON tm.matches_id = m.id " +
+            "WHERE NOT played and t.name = ?3 ",
+            nativeQuery = true)
+    Optional<Match> findIdByTeamsNameAndTournamentName(String t1, String t2, String tName);
+  ```
