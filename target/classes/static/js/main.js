@@ -573,6 +573,48 @@
             );
         }
 
+        var accuracy1 = parseInt($("#team1Stats > li#accuracy1").text());
+        var effectiveness1 = parseInt($("#team1Stats > li#effectiveness1").text());
+        var wins1 = parseInt($("#team1Stats > li#wins1").text());
+        var unferrors1 = parseInt($("#team1Stats > li#unferrors1").text());
+
+        if ($('#horizontalbarMatch1').length > 0) {
+            $('#horizontalbarMatch1').horizontalbar(
+                ['Accuracy', 'Effectiveness','wins','Unforced Errors'],
+                [
+                    [accuracy1, effectiveness1, wins1, unferrors1],
+                ],
+                10,
+                true,
+                true,
+                ['%'],
+                true,
+                'bottom',
+                120
+            );
+        }
+
+        var accuracy2 = parseInt($("#team2Stats > li#accuracy2").text());
+        var effectiveness2 = parseInt($("#team2Stats > li#effectiveness2").text());
+        var wins2 = parseInt($("#team2Stats > li#wins2").text());
+        var unferrors2 = parseInt($("#team2Stats > li#unferrors2").text());
+
+        if ($('#horizontalbarMatch2').length > 0) {
+            $('#horizontalbarMatch2').horizontalbar(
+                ['Accuracy', 'Effectiveness','wins','Unforced Errors'],
+                [
+                    [accuracy2, effectiveness2, wins2, unferrors2],
+                ],
+                10,
+                true,
+                true,
+                ['%'],
+                true,
+                'bottom',
+                120
+            );
+        }
+
         /**
          * Init and configuration main investors graph
          * @js: ./js/gauge-chart.js

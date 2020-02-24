@@ -42,14 +42,16 @@ public class MatchController {
                     score_t2 += 1;
                 }
             }
-            model.addAttribute("score_t1", score_t1);
-            model.addAttribute("score_t2", score_t2);
-            model.addAttribute("number-sets", nsets);
-            model.addAttribute("games-t1", gamest1);
-            model.addAttribute("games-t2", gamest2);
+
+
             model.addAttribute("team_1", teams.get(0).getName());
             model.addAttribute("team_2", teams.get(1).getName());
-            model.addAttribute("id", id);
+            model.addAttribute("score_t1", score_t1);
+            model.addAttribute("score_t2", score_t2);
+            //model.addAttribute("number-sets", nsets);
+            model.addAttribute("games-t1", gamest1);
+            model.addAttribute("games-t2", gamest2);
+            //model.addAttribute("id", id);
             model.addAttribute("accuracy_1", match.get().getStadistics_1().getAcurracy());
             model.addAttribute("accuracy_2", match.get().getStadistics_2().getAcurracy());
             model.addAttribute("effectiveness_1", match.get().getStadistics_1().getEffectiveness());
@@ -59,8 +61,8 @@ public class MatchController {
             model.addAttribute("unferrors_1", match.get().getStadistics_1().getUnforcedErrors());
             model.addAttribute("unferrors_2", match.get().getStadistics_1().getUnforcedErrors());
 
-            model.addAttribute("date", match.get().getDate());
-            return "overviewMatches";
+            //model.addAttribute("date", match.get().getDate());
+            return "matchResult";
         } else {
             return "404";
         }
