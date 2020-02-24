@@ -17,13 +17,17 @@ public class TeamxDisplay {
     public TeamxDisplay(Team team, List<Match> lastMatchesPlayed) {
         this.teamName = team.getName();
         this.players = team.getPlayers();
-
         this.lastMatches = new ArrayList<>();
+        /*
         List<Match> matches = team.getLastNMatches(LAST_MATCHES_SHOWN);
         for (Match m : matches) {
             if (m.isPlayed()) {
                 lastMatches.add(new LastMatchDisplay(m));
             }
+        }*/
+
+        for (Match m : lastMatchesPlayed) {
+            lastMatches.add(new LastMatchDisplay(m));
         }
 
         this.statisticsDisplay = new TeamStatisticsDisplay(team.getTeamStatistics());

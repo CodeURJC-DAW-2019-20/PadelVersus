@@ -42,9 +42,6 @@ public class TeamService {
 
     public TeamxDisplay createTeamxDisplay(Team team) {
         List<Match> lastMatchesPlayed = matchRepository.findLastFourMatchesPlayedByTeamId(team.getId());
-        for(Match m: lastMatchesPlayed){
-            System.out.println(m.toString());
-        }
         TeamxDisplay teamxDisplay = new TeamxDisplay(team, lastMatchesPlayed);
         loadPlayerImages(team);
         return teamxDisplay;
