@@ -101,12 +101,16 @@ public class TournamentController {
         Optional<User> user2 = userService.findUserByName(otherPlayer);
         Player player1 = playerService.getPlayerFromUser(user1.get());
         Player player2 = playerService.getPlayerFromUser(user2.get());
-        Team team = new Team(teamName, player1, player2);
-        teamService.saveTeam(team);
-        Tournament tournament = tournamentService.getTournamentByName(SelectedTournament).get();
-        tournament.getTeams().add(team);
-        tournamentService.saveTournament(tournament);
-        return "redirect:/";
+        if(!teamService.getTeamByName(teamName).isPresent()) {
+            Team team = new Team(teamName, player1, player2);
+            teamService.saveTeam(team);
+            Tournament tournament = tournamentService.getTournamentByName(SelectedTournament).get();
+            tournament.getTeams().add(team);
+            tournamentService.saveTournament(tournament);
+            return "redirect:/";
+        }else{
+            return "404";
+        }
     }
 
     @GetMapping("/pdf")
