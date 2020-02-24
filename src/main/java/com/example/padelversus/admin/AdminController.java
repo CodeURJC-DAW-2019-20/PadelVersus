@@ -41,18 +41,45 @@ public class AdminController {
         List<MatchAdmin> matchAdmins = (List<MatchAdmin>) lista.get(1);
         model.addAttribute("tournament-list", allTournamentDisplay);
         model.addAttribute("match-list", matchAdmins);
+        model.addAttribute("error", false);
         return "/adminPage";
     }
 
     @PostMapping("/saveMatch")
-    public String savematch(String selectedTournament, String t1_oficial, String t2_oficial, String date) {
+    public String savematch(String selectedTournament, String t1_oficial, String t2_oficial, String date, Model model) {
+        if(t1_oficial.equals(t2_oficial)){
+            List<Object> lista;
+            lista = adminService.adminPage();
+            List<TournamentDisplay> allTournamentDisplay = (List<TournamentDisplay>) lista.get(0);
+            List<MatchAdmin> matchAdmins = (List<MatchAdmin>) lista.get(1);
+            model.addAttribute("tournament-list", allTournamentDisplay);
+            model.addAttribute("match-list", matchAdmins);
+            model.addAttribute("error", true);
+            return "/adminPage";
+        }
         adminService.saveMatch(selectedTournament, t1_oficial, t2_oficial, date);
 
         return "redirect:/adminPage";
     }
 
     @PostMapping("/savetournament")
-    public String savetournament(String name) {
+    public String savetournament(String name, Model model) {
+        List<Object> lista;
+        lista = adminService.adminPage();
+        List<TournamentDisplay> allTournamentDisplay = (List<TournamentDisplay>) lista.get(0);
+        boolean equal = false;
+        for (TournamentDisplay tournamentDisplay : allTournamentDisplay) {
+            if(tournamentDisplay.getName().equals(name)){
+                equal = true;
+            }
+        }
+        if(equal){
+            List<MatchAdmin> matchAdmins = (List<MatchAdmin>) lista.get(1);
+            model.addAttribute("tournament-list", allTournamentDisplay);
+            model.addAttribute("match-list", matchAdmins);
+            model.addAttribute("error", true);
+            return "/adminPage";
+        }
         Tournament tournament = new Tournament(name);
         tournamentService.saveTournament(tournament);
 
@@ -63,7 +90,6 @@ public class AdminController {
     public String saveDatamatch(String matchSelect,
                                 String accuracy1,
                                 String effectiveness1,
-                                String games_wins1,
                                 String unforcedErrors1,
                                 String set1team1,
                                 String set2team1,
@@ -71,7 +97,6 @@ public class AdminController {
                                 String win1,
                                 String accuracy2,
                                 String effectiveness2,
-                                String games_wins2,
                                 String unforcedErrors2,
                                 String set1team2,
                                 String set2team2,
@@ -87,8 +112,8 @@ public class AdminController {
         Match matchDatabase = adminService.findMatchByTeams(team1.get(), team2.get(), tournament.get());
         if (matchDatabase != null) {
             matchDatabase.setPlayed(true);
-            MatchStadistics statsOne = adminService.calculateStats(accuracy1, effectiveness1, games_wins1, unforcedErrors1, set1team1, set2team1, set3team1, win1);
-            MatchStadistics statsTwo = adminService.calculateStats(accuracy2, effectiveness2, games_wins2, unforcedErrors2, set1team2, set2team2, set3team2, win2);
+            MatchStadistics statsOne = adminService.calculateStats(accuracy1, effectiveness1, "0", unforcedErrors1, set1team1, set2team1, set3team1, win1);
+            MatchStadistics statsTwo = adminService.calculateStats(accuracy2, effectiveness2, "0", unforcedErrors2, set1team2, set2team2, set3team2, win2);
             team1.get().updateTeamStatistics(statsOne);
             team2.get().updateTeamStatistics(statsTwo);
             matchDatabase.setStadistics_1(statsOne);
