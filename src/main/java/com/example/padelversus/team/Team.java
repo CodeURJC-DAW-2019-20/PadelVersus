@@ -121,29 +121,4 @@ public class Team {
         }
     }
 
-    public List<Match> getLastNMatches(int n) {
-
-        List<Match> lastmatches = new ArrayList<>();
-
-        List<Match> matchesPlayed = new ArrayList<>();
-        for (Match m : matches) {
-            matchesPlayed.add(m);
-        }
-
-        int counter = matchesPlayed.size() - 1;
-        if (matchesPlayed.size() >= n) {
-            for (int i = 0; i < n; i++) {
-                lastmatches.add(matches.get(counter));
-                counter--;
-            }
-        } else {
-            for (int i = 0; i < matchesPlayed.size(); i++) {
-                if (matches.get(counter).isPlayed()) {
-                    lastmatches.add(matches.get(counter));
-                    counter--;
-                }
-            }
-        }
-        return lastmatches;
-    }
 }
