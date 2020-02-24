@@ -173,6 +173,27 @@ Later, we will make the change from h2 to mysql, adding the dependency of mysql 
 Finally, if you want you can add CSRF to avoid this type of attacks, deleting in the security configuration class the line crsf.disable (); and adding in all html where there is a form the following: <input type = "hidden" name = "_ csrf" value = "{{token}}" />. In addition to a CSRF Handler class that handles the configuration. 
 As we said, all this page was done with mustache, html, css, java and javascript, in addition to spring boot and Maven. 
 
+## New templates
+### Registration For a Tournament
+![ResgistationTournament](WebImages/RegistrationTorunament.JPG)
+### SignUp Form
+![SignUp Form](WebImages/SignUpForm.JPG)
+### Admin Page
+![Admin Page](WebImages/AdminPage.JPG)
+### LogOut Page
+![LogOut Page](WebImages/LogOutPage.JPG)
+### Specific Team Page Update
+![Specific Team Page Update](WebImages/SpecificTeam.JPG)
+### 404 Page
+![404Error](WebImages/Error404.jpg)
+### Comming Soon
+![ComingSoon] (WebImages/CommingSoon.JPG)
+### Unexpected Error
+![UnexpectedError](WebImages/UnexpectedError.JPG)
+
+
+
+
 
 ## Navigation
 ![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
