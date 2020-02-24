@@ -48,7 +48,7 @@ public class AdminController {
     public String savematch(String selectedTournament, String t1_oficial, String t2_oficial, String date) {
         adminService.saveMatch(selectedTournament, t1_oficial, t2_oficial, date);
 
-        return "/adminPage";
+        return "redirect:/adminPage";
     }
 
     @PostMapping("/savetournament")
@@ -56,7 +56,7 @@ public class AdminController {
         Tournament tournament = new Tournament(name);
         tournamentService.saveTournament(tournament);
 
-        return "/adminPage";
+        return "redirect:/adminPage";
     }
 
     @PostMapping("/saveDataMatch")
@@ -96,7 +96,7 @@ public class AdminController {
             matchService.saveMatch(matchDatabase);
         }
 
-        return "/adminPage";
+        return "redirect:/adminPage";
     }
 
 
