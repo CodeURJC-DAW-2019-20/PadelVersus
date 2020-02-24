@@ -47,7 +47,7 @@ public class AdminController {
 
     @PostMapping("/saveMatch")
     public String savematch(String selectedTournament, String t1_oficial, String t2_oficial, String date, Model model) {
-        if(t1_oficial.equals(t2_oficial)){
+        if(t1_oficial.equals(t2_oficial) || date.isEmpty()){
             List<Object> lista;
             lista = adminService.adminPage();
             List<TournamentDisplay> allTournamentDisplay = (List<TournamentDisplay>) lista.get(0);
