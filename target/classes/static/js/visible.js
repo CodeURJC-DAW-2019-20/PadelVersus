@@ -1,5 +1,5 @@
 /**
- - This is jQuery plugin declaration for element visibility  check  
+ - This is jQuery plugin declaration for element visibility  check
  - @deps: jQuery,
  - @using: ./js/main.js
  - @author torbara (https://themeforest.net/user/torbara)
@@ -7,6 +7,7 @@
 
 (function ($, window, document) {
     "use strict";
+
     function isVisible(elem) {
 
         var coords = elem.getBoundingClientRect();

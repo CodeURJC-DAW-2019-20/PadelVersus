@@ -76,5 +76,5 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
             "WHERE g.played and t.id = ?1 " +
             "ORDER by g.date desc " +
             "LIMIT 4", nativeQuery = true)
-    public List<Match> findLastFourMatchesPlayedByTeamId(Long id);
+    List<Match> findLastFourMatchesPlayedByTeamId(Long id);
 }

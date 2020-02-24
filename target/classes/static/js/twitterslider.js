@@ -26,7 +26,6 @@
             dots: false
 
 
-
         });
 
         $(".nav-arrow.left-arrow").on('click', function (event) {

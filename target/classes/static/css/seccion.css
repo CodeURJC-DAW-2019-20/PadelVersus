@@ -1,27 +1,34 @@
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+}
 
 body {
     background: #111111;
     color: white;
-    font-family: "Helvetica, Arial, Sans-serif"; }
+    font-family: "Helvetica, Arial, Sans-serif";
+}
 
 a {
     color: white;
-    text-decoration: none; }
+    text-decoration: none;
+}
+
 a:hover {
-    text-decoration: underline; }
+    text-decoration: underline;
+}
 
 .wrap {
     width: 90%;
     max-width: 1000px;
-    margin: auto; }
+    margin: auto;
+}
 
 .main {
     width: 100%;
-    min-height: 1500px; }
+    min-height: 1500px;
+}
 
 .seccionToggle {
     display: none;
@@ -29,13 +36,19 @@ a:hover {
     background: #fff;
     color: #001F3F;
     padding: 50px 0;
-    text-align: center; }
+    text-align: center;
+}
+
 .seccionToggle h2 {
     font-size: 60px;
-    margin-top: 50px; }
+    margin-top: 50px;
+}
+
 .seccionToggle p {
     font-size: 20px;
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+}
+
 .seccionToggle button {
     background: none;
     font-size: 20px;
@@ -43,10 +56,13 @@ a:hover {
     padding: 20px 40px;
     display: inline-block;
     border: 5px solid #001F3F;
-    transition: 0.3s all ease; }
+    transition: 0.3s all ease;
+}
+
 .seccionToggle button:hover {
     border: 5px solid #0074D9;
-    color: #0074D9; }
+    color: #0074D9;
+}
 
 .btn-toggle {
     height: 50px;
@@ -56,16 +72,24 @@ a:hover {
     color: #000;
     display: block;
     background: #FFDC00;
-    text-align: center; }
+    text-align: center;
+}
+
 .btn-toggle:hover {
-    text-decoration: none; }
+    text-decoration: none;
+}
 
 @media screen and (max-width: 500px) {
     .seccionToggle h2 {
-        margin-top: 0; } }
+        margin-top: 0;
+    }
+}
+
 @media screen and (max-height: 550px) {
     .seccionToggle h2 {
         font-size: 40px;
-        margin-top: 0; } }
+        margin-top: 0;
+    }
+}
 
 /*# sourceMappingURL=estilos.css.map */

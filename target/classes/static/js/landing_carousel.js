@@ -1,5 +1,5 @@
 /**
- - This is jQuery plugin declaration for landing gallery 
+ - This is jQuery plugin declaration for landing gallery
  - @html: ./html-component/landing_sport_galery.html
  - @deps: jQuery
  - @using: ./js/main.js
@@ -20,7 +20,7 @@
             items: 4,
             loop: true,
             dots: true,
-            merge:true,
+            merge: true,
             margin: 1,
             responsive: {
                 0: {
@@ -36,7 +36,7 @@
                     items: 4
                 }
             }
-            
+
         });
     };
 

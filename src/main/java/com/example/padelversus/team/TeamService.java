@@ -1,6 +1,8 @@
 package com.example.padelversus.team;
 
 import com.example.padelversus.ImageService;
+import com.example.padelversus.match.Match;
+import com.example.padelversus.match.MatchRepository;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.display.TeamxDisplay;
 import com.example.padelversus.tournament.Tournament;
@@ -24,8 +26,10 @@ public class TeamService {
     @Autowired
     TeamRepository teamRepository;
     @Autowired
-    private ImageService imageService;
+    MatchRepository matchRepository;
 
+    @Autowired
+    private ImageService imageService;
     public Optional<Team> getTeam(Long id) {
         Optional<Team> team = teamRepository.findByid(id);
         return team;
@@ -37,7 +41,11 @@ public class TeamService {
     }
 
     public TeamxDisplay createTeamxDisplay(Team team) {
-        TeamxDisplay teamxDisplay = new TeamxDisplay(team);
+        List<Match> lastMatchesPlayed = matchRepository.findLastFourMatchesPlayedByTeamId(team.getId());
+        for(Match m: lastMatchesPlayed){
+            System.out.println(m.toString());
+        }
+        TeamxDisplay teamxDisplay = new TeamxDisplay(team, lastMatchesPlayed);
         loadPlayerImages(team);
         return teamxDisplay;
     }

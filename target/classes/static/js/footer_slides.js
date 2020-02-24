@@ -37,7 +37,6 @@
             slides[slideIndex - 1].style.display = "block";
 
 
-
         }
 
         $("div.header > span > a.arrow.left").on("click", function (event) {
@@ -53,7 +52,7 @@
             clearInterval(interval);
         });
 
-        var interval = setInterval(plusSlides,6000,1);
+        var interval = setInterval(plusSlides, 6000, 1);
 
 //body > div.esport-team-landing-footer > div > div > div.col-md-5 > div.header > span > a.arrow.rigth
     };
