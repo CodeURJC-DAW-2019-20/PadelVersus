@@ -201,4 +201,8 @@ As we said, all this page was done with mustache, html, css, java and javascript
 18. Go to matches and show the match is change from next matches to last matches, and go into the match overview and show that it have the data we have fill.
 19. Then go to the team and show that the statistics have change.
 20. Then go to the player we have created and show the statistics.
-
+ ## Changes
+### Complementary technology
+API from GoogleCalendar to be able to show the matches loaded from the database has been changed by the generation of a pdf with the data of a tournament.
+### Advanced Algorithmic
+The ELO system has been replaced by the calculation of the ranking in each update made by the admin of the games played, and some advanced querys to fills the data.
