@@ -66,7 +66,7 @@ public class TournamentController {
         List<TournamentDisplay> tournaments = tournamentService.getTournaments();
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (username.equals("admin")) {
-            return "/adminPage";
+            return "redirect:/adminPage";
         } else {
             Optional<User> user = userService.findUserByName(username);
             Player loggedPlayer = playerService.getPlayerFromUser(user.get());
