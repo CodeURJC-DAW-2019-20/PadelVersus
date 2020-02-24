@@ -263,7 +263,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match2 = new Match(true, LocalDate.of(2019, 10, 22), ms2_1, ms2_2, t1, t3);
 
         t1.updateTeamStatistics(ms2_1);
-        t3.addMatch(match2);
+        t3.updateTeamStatistics(ms2_2);
 
         MatchStadistics ms3_1 = new MatchStadistics(thirtySixSets.get(4), 23, 57, 50, 50, true);
         MatchStadistics ms3_2 = new MatchStadistics(thirtySixSets.get(5), 13, 17, +0, 0, false);
@@ -271,7 +271,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match3 = new Match(true, LocalDate.of(2019, 10, 23), ms3_1, ms3_2, t4, t1);
 
         t1.updateTeamStatistics(ms3_2);
-        t4.addMatch(match3);
+        t4.updateTeamStatistics(ms3_1);
 
         MatchStadistics ms4_1 = new MatchStadistics(thirtySixSets.get(6), 99, 99, 99, 99, true);
         MatchStadistics ms4_2 = new MatchStadistics(thirtySixSets.get(7), 78, 7, 9, 3, false);
@@ -279,7 +279,7 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match4 = new Match(true, LocalDate.of(2019, 10, 24), ms4_1, ms4_2, t2, t3);
 
         t2.updateTeamStatistics(ms4_1);
-        t3.addMatch(match4);
+        t3.updateTeamStatistics(ms4_2);
 
         MatchStadistics ms5_1 = new MatchStadistics(thirtySixSets.get(8), 23, 57, 50, 50, false);
         MatchStadistics ms5_2 = new MatchStadistics(thirtySixSets.get(9), 23, 57, 50, 50, true);
@@ -287,15 +287,15 @@ public class PadelversusApplication implements ApplicationRunner {
         Match match5 = new Match(true, LocalDate.of(2019, 10, 25), ms5_1, ms5_2, t2, t4);
 
         t2.updateTeamStatistics(ms5_1);
-        t4.addMatch(match5);
+        t4.updateTeamStatistics(ms5_2);
 
         MatchStadistics ms6_1 = new MatchStadistics(thirtySixSets.get(10), 23, 57, 50, 50, true);
         MatchStadistics ms6_2 = new MatchStadistics(thirtySixSets.get(11), 23, 57, 50, 50, false);
 
         Match match6 = new Match(true, LocalDate.of(2019, 10, 26), ms6_1, ms6_2, t4, t3);
 
-        t4.addMatch(match6);
-        t3.addMatch(match6);
+        t4.updateTeamStatistics(ms6_1);
+        t3.updateTeamStatistics(ms6_2);
 
         matchRepository.save(match1);
         matchRepository.save(match2);
@@ -328,48 +328,48 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match7 = new Match(true, LocalDate.of(2019, 11, 20), ms7_1, ms7_2, t4, t5);
 
-        t4.addMatch(match7);
-        t5.addMatch(match7);
+        t4.updateTeamStatistics(ms7_1);
+        t5.updateTeamStatistics(ms7_2);
 
         MatchStadistics ms8_1 = new MatchStadistics(thirtySixSets.get(14), 23, 57, 50, 50, false);
         MatchStadistics ms8_2 = new MatchStadistics(thirtySixSets.get(15), 23, 57, 50, 50, true);
 
         Match match8 = new Match(true, LocalDate.of(2019, 11, 21), ms8_1, ms8_2, t4, t6);
 
-        t4.addMatch(match8);
-        t6.addMatch(match8);
+        t4.updateTeamStatistics(ms8_1);
+        t6.updateTeamStatistics(ms8_2);
 
         MatchStadistics ms9_1 = new MatchStadistics(thirtySixSets.get(16), 23, 57, 50, 50, false);
         MatchStadistics ms9_2 = new MatchStadistics(thirtySixSets.get(17), 23, 57, 50, 50, true);
 
         Match match9 = new Match(true, LocalDate.of(2019, 11, 22), ms9_1, ms9_2, t4, t7);
 
-        t4.addMatch(match9);
-        t7.addMatch(match9);
+        t4.updateTeamStatistics(ms9_1);
+        t7.updateTeamStatistics(ms9_2);
 
         MatchStadistics ms10_1 = new MatchStadistics(thirtySixSets.get(18), 23, 57, 50, 50, false);
         MatchStadistics ms10_2 = new MatchStadistics(thirtySixSets.get(19), 23, 57, 50, 50, true);
 
         Match match10 = new Match(true, LocalDate.of(2019, 11, 23), ms10_1, ms10_2, t5, t6);
 
-        t5.addMatch(match10);
-        t6.addMatch(match10);
+        t5.updateTeamStatistics(ms10_1);
+        t6.updateTeamStatistics(ms10_2);
 
         MatchStadistics ms11_1 = new MatchStadistics(thirtySixSets.get(20), 23, 57, 50, 50, false);
         MatchStadistics ms11_2 = new MatchStadistics(thirtySixSets.get(21), 23, 57, 50, 50, true);
 
         Match match11 = new Match(true, LocalDate.of(2019, 11, 24), ms11_1, ms11_2, t5, t7);
 
-        t5.addMatch(match11);
-        t7.addMatch(match11);
+        t5.updateTeamStatistics(ms11_1);
+        t7.updateTeamStatistics(ms11_2);
 
         MatchStadistics ms12_1 = new MatchStadistics(thirtySixSets.get(34), 23, 57, 50, 50, false);
         MatchStadistics ms12_2 = new MatchStadistics(thirtySixSets.get(35), 23, 57, 50, 50, true);
 
         Match match12 = new Match(true, LocalDate.of(2019, 11, 25), ms12_1, ms12_2, t7, t6);
 
-        t7.addMatch(match12);
-        t6.addMatch(match12);
+        t7.updateTeamStatistics(ms12_1);
+        t6.updateTeamStatistics(ms12_2);
 
         matchRepository.save(match7);
         matchRepository.save(match8);
@@ -400,67 +400,55 @@ public class PadelversusApplication implements ApplicationRunner {
 
         Match match13 = new Match(true, LocalDate.of(2019, 10, 20), ms13_1, ms13_2, t8, t6);
 
-        t8.addMatch(match13);
-        t6.addMatch(match13);
+        t8.updateTeamStatistics(ms13_1);
+        t6.updateTeamStatistics(ms13_2);
 
         MatchStadistics ms14_1 = new MatchStadistics(thirtySixSets.get(24), 23, 57, 50, 50, false);
         MatchStadistics ms14_2 = new MatchStadistics(thirtySixSets.get(25), 23, 57, 50, 50, true);
 
         Match match14 = new Match(true, LocalDate.of(2019, 11, 22), ms14_1, ms14_2, t6, t9);
 
-        t6.addMatch(match14);
-        t9.addMatch(match14);
+        t6.updateTeamStatistics(ms14_1);
+        t9.updateTeamStatistics(ms14_2);
 
         MatchStadistics ms15_1 = new MatchStadistics(thirtySixSets.get(26), 23, 57, 50, 50, false);
         MatchStadistics ms15_2 = new MatchStadistics(thirtySixSets.get(27), 23, 57, 50, 50, true);
 
         Match match15 = new Match(true, LocalDate.of(2019, 11, 23), ms15_1, ms15_2, t6, t10);
 
-        t6.addMatch(match15);
-        t10.addMatch(match15);
+        t6.updateTeamStatistics(ms15_1);
+        t10.updateTeamStatistics(ms15_2);
 
         MatchStadistics ms16_1 = new MatchStadistics(thirtySixSets.get(28), 23, 57, 50, 50, false);
         MatchStadistics ms16_2 = new MatchStadistics(thirtySixSets.get(29), 23, 57, 50, 50, true);
 
         Match match16 = new Match(true, LocalDate.of(2019, 11, 24), ms16_1, ms16_2, t8, t9);
 
-        t8.addMatch(match16);
-        t9.addMatch(match16);
+        t8.updateTeamStatistics(ms16_1);
+        t9.updateTeamStatistics(ms16_2);
 
         MatchStadistics ms17_1 = new MatchStadistics(thirtySixSets.get(30), 23, 57, 50, 50, false);
         MatchStadistics ms17_2 = new MatchStadistics(thirtySixSets.get(31), 23, 57, 50, 50, true);
 
         Match match17 = new Match(true, LocalDate.of(2019, 11, 25), ms17_1, ms17_2, t8, t10);
 
-        t8.addMatch(match17);
-        t10.addMatch(match17);
+        t8.updateTeamStatistics(ms17_1);
+        t10.updateTeamStatistics(ms17_2);
 
         MatchStadistics ms18_1 = new MatchStadistics(thirtySixSets.get(32), 23, 57, 50, 50, false);
         MatchStadistics ms18_2 = new MatchStadistics(thirtySixSets.get(33), 23, 57, 50, 50, true);
 
         Match match18 = new Match(true, LocalDate.of(2019, 11, 26), ms18_1, ms18_2, t9, t10);
 
-        t9.addMatch(match18);
-        t10.addMatch(match18);
+        t9.updateTeamStatistics(ms18_1);
+        t10.updateTeamStatistics(ms18_2);
 
         Match match19 = new Match(false, LocalDate.of(2020, 3, 23), null, null, t1, t3);
-        //t1.addMatch(match19);
-        t3.addMatch(match19);
         Match match20 = new Match(false, LocalDate.of(2020, 10, 30), null, null, t2, t4);
-        //t2.addMatch(match20);
-        t4.addMatch(match20);
         Match match21 = new Match(false, LocalDate.of(2020, 11, 20), null, null, t6, t5);
-        t6.addMatch(match21);
-        t5.addMatch(match21);
         Match match22 = new Match(false, LocalDate.of(2020, 3, 10), null, null, t9, t8);
-        t9.addMatch(match22);
-        t8.addMatch(match22);
         Match match23 = new Match(false, LocalDate.of(2020, 3, 10), null, null, t10, t8);
-        t10.addMatch(match23);
-        t8.addMatch(match23);
         Match match24 = new Match(false, LocalDate.of(2020, 4, 15), null, null, t7, t8);
-        t7.addMatch(match24);
-        t8.addMatch(match24);
 
         matchRepository.save(match13);
         matchRepository.save(match14);
