@@ -89,6 +89,8 @@ public class AdminController {
             matchDatabase.setPlayed(true);
             MatchStadistics statsOne = adminService.calculateStats(accuracy1, effectiveness1, games_wins1, unforcedErrors1, set1team1, set2team1, set3team1, win1);
             MatchStadistics statsTwo = adminService.calculateStats(accuracy2, effectiveness2, games_wins2, unforcedErrors2, set1team2, set2team2, set3team2, win2);
+            team1.get().updateTeamStatistics(statsOne);
+            team2.get().updateTeamStatistics(statsTwo);
             matchDatabase.setStadistics_1(statsOne);
             matchDatabase.setStadistics_2(statsTwo);
             matchService.saveMatch(matchDatabase);
