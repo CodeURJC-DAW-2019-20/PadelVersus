@@ -185,15 +185,11 @@ As we said, all this page was done with mustache, html, css, java and javascript
 ### Specific Team Page Update
 ![Specific Team Page Update](WebImages/SpecificTeam.JPG)
 ### 404 Page
-![404Error](WebImages/Error404.jpg)
+![404Error](WebImages/Error404.JPG)
 ### Comming Soon
 ![ComingSoon] (WebImages/CommingSoon.JPG)
 ### Unexpected Error
 ![UnexpectedError](WebImages/UnexpectedError.JPG)
-
-
-
-
 
 ## Navigation
 ![FlowDiagramFase2](WebImages/FlowDiagramF2.png)
