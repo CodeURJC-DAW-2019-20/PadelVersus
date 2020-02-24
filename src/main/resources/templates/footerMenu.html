@@ -12,8 +12,16 @@
             </li>
             <li><a href="/tournament/"><span>Ranking</span></a></li>
             <li><a href="/html/coming-soon.html"><span>Calendar</span></a></li>
+            {{^admin}}
             <li><a href="/tournament/register"><span>Registration Tournament</span></a></li>
+            {{/admin}}
+            {{#admin}}
+            <li><a href="/adminPage"><span>Admin Page</span></a></li>
+            {{/admin}}
             {{#logged}}
+            {{#playerIdIsPresentFH}}
+            <li><a href="/player/{{playerIdFH}}"><span class="fa-address-book">My Profile</span></a></li>
+            {{/playerIdIsPresentFH}}
             <li><a href="/logout"><span>LOG OUT</span></a></li>
             {{/logged}}
             {{^logged}}
