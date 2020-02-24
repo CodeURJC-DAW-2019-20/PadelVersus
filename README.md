@@ -178,3 +178,24 @@ As we said, all this page was done with mustache, html, css, java and javascript
 ## Class/Template Diagram
 ![TemplateDiagram](WebImages/Template_Diagram.png)
 ## Demo Structure
+1. Open Index.html and show all in it
+2. Go to matches for consulting info of next matches
+3. Go to teams and show ajax functionality
+4. Go to Ranking and use save PDF
+5. Go to registration tournament
+6. Use sign up functionality and fill all the fields and upload a image
+7. Show email fuctionality.
+8. Log in.
+9. Go again to registration tournament an fill the fields.
+10. Show the ranking of the tournament.
+11. On the ranking select the first teams, to show the graphics.
+12. On the main bar, got to your profile, and change your image.
+13. Log out and log in with the admin password: adminpass
+14. Add a new match with the team we have made before.
+15. Go to matches and show the match have been added.
+16. Return to admin page and fill the data of that match.
+17. Go to the ranking and show the consecuences, thats our advance consulting.
+18. Go to matches and show the match is change from next matches to last matches, and go into the match overview and show that it have the data we have fill.
+19. Then go to the team and show that the statistics have change.
+20. Then go to the player we have created and show the statistics.
+
