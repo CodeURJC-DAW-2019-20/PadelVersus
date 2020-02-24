@@ -38,7 +38,12 @@
                         <option value="{{name}}">{{name}}</option>
                         {{/tournament-list}}
                     </select>
-                    <label>Team name</label>
+                    {{#error}}
+                    <div class="text-center p-t-6 p-b-31" style="color: red;">
+                        Error: Team name already in use
+                    </div>
+                    {{/error}}
+                    <label>Team Name</label>
                     <input class="form-control" name="teamName" placeholder="Team name" style="width: 75%" type="text">
                     <!--<label> Upload team Logo</label>
                     <input type="file" class="form-control-file" style="width: 75%">-->
