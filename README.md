@@ -187,7 +187,7 @@ As we said, all this page was done with mustache, html, css, java and javascript
 ### 404 Page
 ![404Error](WebImages/Error404.JPG)
 ### Comming Soon
-![ComingSoon] (WebImages/CommingSoon.JPG)
+![ComingSoon](WebImages/CommingSoon.JPG)
 ### Unexpected Error
 ![UnexpectedError](WebImages/UnexpectedError.JPG)
 
