@@ -34,6 +34,11 @@
         <div class="form-group">
             <div id="container-main">
                 <h1>Admin Page:</h1>
+                {{#error}}
+                <div class="text-left 15px p-t-6 p-b-31" style="color: red;">
+                    Wrong Data
+                </div>
+                {{/error}}
                 <div class="accordion-container">
                     <a class="accordion-titulo" href="#">Add New Matches<span class="toggle-icon"></span></a>
                     <div class="accordion-content">
@@ -63,7 +68,7 @@
                                     {{/tournament-list}}
                                 </div>
                                 <div id="selectTeam2">
-                                    <label for="blankSelect">Chose Team 2</label>
+                                    <label for="blankSelect1">Chose Team 2</label>
                                     <select class="form-control" id="blankSelect1" name="t2"
                                             style="width: 75%">
                                     </select>
@@ -116,15 +121,6 @@
                                         <input class="input100 form-control" id="effectiveness1" max="100"
                                                min="0" name="effectiveness1" placeholder="Type your effectiveness"
                                                type="number">
-
-                                    </div>
-
-                                    <div class="wrap-input100 validate-input m-b-23"
-                                         data-validate="Games_wins is required">
-                                        <span class="label-input100 ">Games_wins:</span>
-                                        <input class="input100 form-control" id="games_wins1" max="100"
-                                               min="0" name="games_wins1" placeholder="Type your games_wins" type="number">
-
                                     </div>
 
                                     <div class="wrap-input100 validate-input m-b-23"
@@ -173,14 +169,6 @@
                                         <input class="input100 form-control" id="effectiveness2" max="100"
                                                min="0" name="effectiveness2" placeholder="Type your effectiveness"
                                                type="number">
-
-                                    </div>
-
-                                    <div class="wrap-input100 validate-input m-b-23"
-                                         data-validate="Games_wins is required">
-                                        <span class="label-input100 ">Games_wins:</span>
-                                        <input class="input100 form-control" id="games_wins2" max="100"
-                                               min="0" name="games_wins2" placeholder="Type your games_wins" type="number">
 
                                     </div>
 
