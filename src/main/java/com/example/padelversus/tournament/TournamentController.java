@@ -35,7 +35,6 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/tournament")
 public class TournamentController {
-
     @Autowired
     TournamentService tournamentService;
 
@@ -86,6 +85,7 @@ public class TournamentController {
             model.addAttribute("actual_player_name", loggedPlayer.getUser().getName());
             model.addAttribute("actual_player_img", image_url);
             model.addAttribute("other_player_names", playerNames);
+            model.addAttribute("error", false);
             return "registerTournament";
         }
     }
@@ -95,18 +95,44 @@ public class TournamentController {
             @RequestParam String SelectedTournament,
             @RequestParam String username,
             @RequestParam String otherPlayer,
-            @RequestParam String teamName
-    ) {
+            @RequestParam String teamName,
+            Model model
+    ) throws IOException {
         Optional<User> user1 = userService.findUserByName(username);
         Optional<User> user2 = userService.findUserByName(otherPlayer);
         Player player1 = playerService.getPlayerFromUser(user1.get());
         Player player2 = playerService.getPlayerFromUser(user2.get());
-        Team team = new Team(teamName, player1, player2);
-        teamService.saveTeam(team);
-        Tournament tournament = tournamentService.getTournamentByName(SelectedTournament).get();
-        tournament.getTeams().add(team);
-        tournamentService.saveTournament(tournament);
-        return "redirect:/";
+        if (!teamService.getTeamByName(teamName).isPresent()) {
+            Team team = new Team(teamName, player1, player2);
+            teamService.saveTeam(team);
+            Tournament tournament = tournamentService.getTournamentByName(SelectedTournament).get();
+            tournament.getTeams().add(team);
+            tournamentService.saveTournament(tournament);
+            return "redirect:/";
+        } else {
+            List<TournamentDisplay> tournaments = tournamentService.getTournaments();
+
+            Optional<User> user = userService.findUserByName(username);
+            Player loggedPlayer = playerService.getPlayerFromUser(user.get());
+            BufferedImage playerImage = loggedPlayer.getBufferedImage();
+            String base_url = "/images_temp/Player/";
+            String image_name = imageService.saveImage("Player", loggedPlayer.getId(), playerImage);
+            String image_url = base_url + image_name;
+
+            List<Player> players = playerService.findAllPlayer();
+            List<String> playerNames = new ArrayList<>();
+            for (Player player : players) {
+                if (!player.getUser().getName().equals(username)) {
+                    playerNames.add(player.getUser().getName());
+                }
+            }
+            model.addAttribute("tournament-list", tournaments);
+            model.addAttribute("actual_player_name", loggedPlayer.getUser().getName());
+            model.addAttribute("actual_player_img", image_url);
+            model.addAttribute("other_player_names", playerNames);
+            model.addAttribute("error", true);
+            return "registerTournament";
+        }
     }
 
     @GetMapping("/pdf")
