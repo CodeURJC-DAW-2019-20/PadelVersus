@@ -24,9 +24,6 @@ public class Team {
     @OneToOne(cascade = CascadeType.ALL)
     private TeamStatistics teamStatistics;
 
-    @ManyToMany
-    private List<Match> matches;
-
     public Team() {
     }
 
@@ -38,8 +35,6 @@ public class Team {
         this.name = name;
         this.players = aux;
         this.teamStatistics = new TeamStatistics();
-        this.matches = new ArrayList<>();
-        updateTeamStatistics();
     }
 
     public Long getId() {
@@ -74,19 +69,6 @@ public class Team {
         this.teamStatistics = teamStatistics;
     }
 
-    public List<Match> getMatches() {
-        return matches;
-    }
-
-    public void setMatches(List<Match> playedMatches) {
-        this.matches = playedMatches;
-    }
-
-    public void addMatch(Match m) {
-        this.matches.add(m);
-        updateTeamStatistics();
-    }
-
     public Team getTeam() {
         return this;
     }
@@ -99,19 +81,6 @@ public class Team {
                 ", players=" + players +
                 ", teamStatistics=" + teamStatistics +
                 '}';
-    }
-
-    public void updateTeamStatistics() {
-        teamStatistics.resetStatistics();
-        for (Match m : matches) {
-            if (m.isPlayed()) {
-                if (id == m.getidTeam(1)) {
-                    teamStatistics.updateStatistics(m.getStadistics_1());
-                } else {
-                    teamStatistics.updateStatistics(m.getStadistics_2());
-                }
-            }
-        }
     }
 
     public void updateTeamStatistics(MatchStadistics stats){
