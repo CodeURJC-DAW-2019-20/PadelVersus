@@ -176,7 +176,7 @@ As we said, all this page was done with mustache, html, css, java and javascript
 ## Entity Diagram
 ![EntityDiagram](WebImages/entityDiagram.png)
 ## Class/Template Diagram
-![TemplateDiagram](WebImages/Template_Diagram.png)
+![TemplateDiagram](WebImages/TemplatesDiagram-Class.png)
 ## Demo Structure
 1. Open Index.html and show all in it
 2. Go to matches for consulting info of next matches
