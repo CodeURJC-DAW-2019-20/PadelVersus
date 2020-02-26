@@ -2,6 +2,8 @@ package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,16 +12,27 @@ import java.util.List;
 @Entity
 public class Tournament {
 
+    interface Basic{}
+    interface Matches{}
+    interface Teams{}
+
     @Id
+    @JsonView(Basic.class)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonView(Basic.class)
     private String name;
 
+    @JsonView(Basic.class)
     private String nonspacename;
+
     @OneToMany
+    @JsonView(Matches.class)
     private List<Match> matches;
+    
     @ManyToMany
+    @JsonView(Teams.class)
     private List<Team> teams;
 
     public Tournament() {

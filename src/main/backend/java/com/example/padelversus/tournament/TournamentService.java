@@ -13,9 +13,16 @@ public class TournamentService {
     @Autowired
     TournamentRepository tournamentRepository;
 
+    public Optional<Tournament> getTournamentById(Long id){
+        return tournamentRepository.findById(id);
+    }
+
+    public List<Tournament> getAllTournament(){
+        return tournamentRepository.findAll();
+    }
+
     public Optional<Tournament> getTournamentByName(String tName) {
-        Optional<Tournament> tournament = tournamentRepository.findByName(tName);
-        return tournament;
+        return tournamentRepository.findByName(tName);
     }
 
     //Order all team from a tournament by games won

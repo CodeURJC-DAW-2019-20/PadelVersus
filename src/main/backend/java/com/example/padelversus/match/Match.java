@@ -2,6 +2,7 @@ package com.example.padelversus.match;
 
 import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.team.Team;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,21 +13,28 @@ import java.util.List;
 @Table(name = "Games")
 public class Match {
 
+    public interface Basic {}
+    public interface Statistics{}
+
     @Id
+    @JsonView(Basic.class)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @JsonView(Basic.class)
     private LocalDate date;
 
+    @JsonView(Basic.class)
     private boolean played; //If the game has been played
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
+    @JsonView(Statistics.class)
     private MatchStadistics stadistics_1;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
+    @JsonView(Statistics.class)
     private MatchStadistics stadistics_2;
 
     @ManyToMany
