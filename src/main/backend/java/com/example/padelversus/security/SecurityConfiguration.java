@@ -18,6 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         // Public pages
+        // Web
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/match/{\\d+}").permitAll();
         http.authorizeRequests().antMatchers("/matches/").permitAll();
@@ -38,6 +39,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/images_temp/**").permitAll();
         http.authorizeRequests().antMatchers("/pdf_temp/**").permitAll();
         http.authorizeRequests().antMatchers("/tournament/pdf**").permitAll();
+
+        //Api
+        http.authorizeRequests().antMatchers("/api/tournament/{\\d+}").permitAll();
+        http.authorizeRequests().antMatchers("/api/tournaments/").permitAll();
+        http.authorizeRequests().regexMatchers("/api/tournament/.*").permitAll();
+
+        //Resources
         http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
 
         // Private pages (all other pages)
