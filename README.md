@@ -1,32 +1,4 @@
 # PadelVersus
-## Table of content
-- [PadelVersus](#padelversus)
-- [Fase 0](#fase-0)
-    + [Team members](#team-members)
-    + [Other tools used](#other-tools-used)
-    + [Sections description](#sections-description)
-      - [Entities](#entities)
-      - [Users and permissions](#users-and-permissions)
-      - [Images](#images)
-      - [Graphics](#graphics)
-      - [Complementary technology](#complementary-technology)
-      - [Advanced Algorithmic](#advanced-algorithmic)
-- [Fase 1](#fase-1)
-    + [Snapshots](#snapshots)
-    + [Flow Diagram](#flow-diagram)
-- [Fase 2](#fase-2)
-  * [Description of the Fase](#description-of-the-fase)
-  * [Top 5 Most Important Commits](#top-5-most-important-commits)
-  * [Files focused on](#files-focused-on)
-  * [Textual Description Of Work](#textual-description-of-work)
-  * [Steps for making the website:](#steps-for-making-the-website-)
-  * [New templates](#new-templates)
-  * [Navigation](#navigation)
-  * [Entity Diagram](#entity-diagram)
-  * [Class/Template Diagram](#class-template-diagram)
-  * [Demo Structure](#demo-structure)
-  * [Changes:](#changes-)
-
 # Fase 0
 ### Team members
 
