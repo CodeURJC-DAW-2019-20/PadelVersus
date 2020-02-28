@@ -2,11 +2,15 @@ package com.example.padelversus.match;
 
 import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.Tournament;
+import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.persistence.Basic;
 import java.time.LocalDate;
+
 
 public class MatchAdmin {
 
+    @JsonView(Basic.class)
     private String name;
 
     public MatchAdmin() {
