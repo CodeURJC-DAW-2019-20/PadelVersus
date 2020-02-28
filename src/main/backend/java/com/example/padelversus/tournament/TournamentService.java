@@ -2,7 +2,6 @@ package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
 import com.example.padelversus.team.Team;
-import com.example.padelversus.team.display.TeamDisplay;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +13,9 @@ public class TournamentService {
     @Autowired
     TournamentRepository tournamentRepository;
 
-    public Optional<Tournament> getTournamentById(Long id){
-        return tournamentRepository.findById(id);
-    }
-
-    public List<Tournament> getAllTournament(){
-        return tournamentRepository.findAll();
-    }
-
     public Optional<Tournament> getTournamentByName(String tName) {
-        return tournamentRepository.findByName(tName);
+        Optional<Tournament> tournament = tournamentRepository.findByName(tName);
+        return tournament;
     }
 
     //Order all team from a tournament by games won
@@ -72,36 +64,6 @@ public class TournamentService {
         return new int[]{won, played};
     }
 
-    public List<TeamDisplay> getOrderedTeams(Tournament tournament){
-        List<Team> tournamentTeams = tournament.getTeams();
-        List<TeamDisplay> orderedTeams = new ArrayList<>(tournamentTeams.size());
-        Team mostWin = null;
-        int wonMost = Integer.MIN_VALUE;
-        while(!tournamentTeams.isEmpty()){
-            int gamesPlayed = 0;
-            for(Team onCheckTeam: tournamentTeams){
-                int[] games_played_won = wonGames(tournament, onCheckTeam);
-                int gamesWon = games_played_won[0];
-                if (gamesWon > wonMost) {
-                    mostWin = onCheckTeam;
-                    wonMost = gamesWon;
-                    gamesPlayed = games_played_won[1];
-                }
-            }
-            // TeamDisplay(String name, int gamesWon, int gamesPlayed, int gamesLost, List<String> lastMatches, boolean hasLastMatches, Long id)
-
-            List<String> lastThreeMatches = lastThreeMatches(tournament, mostWin);
-            boolean hasLastMatches = lastThreeMatches != null;
-            TeamDisplay teamDisplay = new TeamDisplay(mostWin.getName(), wonMost, gamesPlayed, gamesPlayed-wonMost, lastThreeMatches, hasLastMatches, mostWin.getId());
-
-            orderedTeams.add(teamDisplay);
-
-            tournamentTeams.remove(mostWin);
-            wonMost = Integer.MIN_VALUE;
-        }
-        return orderedTeams;
-    }
-
     public List<String> lastThreeMatches(Tournament tournament, Team team) {
         List<String> lastThreeMatchesRepresentation = new ArrayList<>();
         TreeSet<Match> matchesOrdered = new TreeSet<>(Comparator.comparing(Match::getDate));
@@ -139,6 +101,9 @@ public class TournamentService {
             teamOrder(tournament);
             TournamentDisplay tournamentDisplay = new TournamentDisplay(tournament);
             for (Team team : tournament.getTeams()) {
+                if (team.getId() == 11) {
+                    System.out.println();
+                }
                 int[] wonPlayed = wonGames(tournament, team);
                 List<String> lastMatches = lastThreeMatches(tournament, team);
                 boolean hasLastMatches = lastMatches != null;
