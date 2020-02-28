@@ -283,7 +283,7 @@ Creating API services of our website, and use Docker to launch.
 [APIDocuments](API.md)
 
 ## Class/Template Diagram Updated
-![TemplateDiagram](WebImages/TemplatesDiagram-Class.png)
+
 ## Dockerized application execution instructions
 
 ## Demo Structure
