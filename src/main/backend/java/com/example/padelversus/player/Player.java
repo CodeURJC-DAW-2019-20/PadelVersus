@@ -50,6 +50,7 @@ public class Player {
     private byte[] image;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonView({User.class, MinInfo.class})
     private User user;
 
     public Player() {

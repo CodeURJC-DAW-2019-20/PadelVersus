@@ -1,6 +1,7 @@
 package com.example.padelversus.user;
 
 import com.example.padelversus.player.Player;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
@@ -11,12 +12,14 @@ import java.util.List;
 
 @Entity
 public class User {
+    public interface Username{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
+    @JsonView({Username.class})
     private String name;
 
     @NotNull

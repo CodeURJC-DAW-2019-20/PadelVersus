@@ -1,5 +1,6 @@
 package com.example.padelversus.team;
 import com.example.padelversus.player.Player;
+import com.example.padelversus.user.User;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ public class TeamxRestController {
 
     interface BasicMatchMatchStatisticsTeams
             extends
-            Team.Basic, Team.Players, Player.Basic {
+            Team.Basic, Team.Players, Player.MinInfo, User.Username{
     } //Also need player usernames and imagesUrl
 
     @Autowired
