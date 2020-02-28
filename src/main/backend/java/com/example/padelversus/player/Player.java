@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -14,41 +15,41 @@ import java.util.Arrays;
 public class Player {
 
     public interface Basic{}
+    public interface MinInfo{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @JsonView(Basic.class)
+    @JsonView({Basic.class, MinInfo.class})
     private int age;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class, MinInfo.class})
     private String countryBirth;
 
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double height;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double weight;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double speed;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double strength;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double endurance;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double pace;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double accuaracy;
-    @JsonView(Basic.class)
+    @JsonView({Basic.class})
     private double aceleration;
+    @JsonView({Basic.class, MinInfo.class})
     private String imageUrl;
 
     @Lob
     private byte[] image;
 
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonView()
     private User user;
 
     public Player() {
