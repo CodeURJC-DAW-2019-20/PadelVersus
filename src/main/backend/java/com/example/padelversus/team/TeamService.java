@@ -34,7 +34,6 @@ public class TeamService {
         Optional<Team> team = teamRepository.findByid(id);
         return team;
     }
-
     public Optional<Team> getTeamByName(String name) {
         Optional<Team> team = teamRepository.findByName(name);
         return team;
