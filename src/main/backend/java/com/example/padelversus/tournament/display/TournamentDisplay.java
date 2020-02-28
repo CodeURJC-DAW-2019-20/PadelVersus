@@ -3,13 +3,23 @@ package com.example.padelversus.tournament.display;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.team.display.TeamDisplay;
 import com.example.padelversus.tournament.Tournament;
+import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.persistence.Basic;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TournamentDisplay {
+
+    interface TeamDisplays{}
+
+    @JsonView(Basic.class)
     private String name;
+
+    @JsonView(Basic.class)
     private String nonspacename;
+
+    @JsonView(TeamDisplays.class)
     private List<TeamDisplay> teams;
 
     public TournamentDisplay(Tournament tournament) {

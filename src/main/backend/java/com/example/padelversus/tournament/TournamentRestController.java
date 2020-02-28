@@ -1,10 +1,12 @@
 package com.example.padelversus.tournament;
 
 import com.example.padelversus.match.Match;
+import com.example.padelversus.match.MatchAdmin;
 import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.team.Team;
+import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.team.display.TeamDisplay;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,7 @@ public class TournamentRestController {
             extends Tournament.Basic, Tournament.Matches, Tournament.Teams,
             Match.Basic, Match.Statistics,
             MatchStadistics.Basic,
-            Team.Basic {
-    }
+            Team.Basic {}
 
     @Autowired
     TournamentService tournamentService;
@@ -105,4 +106,19 @@ public class TournamentRestController {
         }
     }
 
+    @JsonView(BasicMatchMatchStatisticsTeams.class)
+    @PostMapping("/tournament/")
+    public ResponseEntity<Tournament> saveTournament(@RequestBody Tournament tournament ) {
+        String name = tournament.getName();
+        Optional<Tournament> optionalTournament = tournamentService.getTournamentByName(name);
+
+        if(optionalTournament.isPresent()){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        Tournament newTournament = new Tournament(name);
+        tournamentService.saveTournament(newTournament);
+        Tournament tour = tournamentService.getTournamentByName(name).get();
+        return new ResponseEntity<>(tour,HttpStatus.CREATED);
+
+    }
 }
