@@ -259,7 +259,7 @@ Creating API services of our website, and use Docker to launch.
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Alejandro Checa Folguera |--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|--------|
 |Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
@@ -280,7 +280,8 @@ Creating API services of our website, and use Docker to launch.
 ## Steps for use Docker: 
 
 ## API Documentation
-[APIDocuments](API.md)
+
+In the following link you can find everything related to the PadelVersus Rest API documentation [APIDocuments](API.md)
 
 ## Class/Template Diagram Updated
 
