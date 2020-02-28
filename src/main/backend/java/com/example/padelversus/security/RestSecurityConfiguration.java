@@ -60,7 +60,7 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin().failureUrl("/loginerror");
 
         // Logout
-        http.logout().logoutUrl("/api//logOut");
+        http.logout().logoutUrl("/api/logOut");
         http.logout().logoutSuccessUrl("/");
 
         http.headers().frameOptions().disable();
