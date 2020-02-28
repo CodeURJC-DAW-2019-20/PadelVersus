@@ -6,6 +6,7 @@ import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.team.Team;
+import com.example.padelversus.team.TeamService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.team.display.TeamDisplay;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -33,6 +34,9 @@ public class TournamentRestController {
     @Autowired
     PlayerService playerService;
 
+    @Autowired
+    TeamService teamService;
+
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @GetMapping("/tournament/{id}")
     public ResponseEntity<Tournament> getTournamentById(@PathVariable Long id) {
@@ -42,8 +46,11 @@ public class TournamentRestController {
 
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @GetMapping("/tournaments/")
-    public ResponseEntity<List<Tournament>> getTournamentByName(@RequestParam(required = false) String name, @RequestParam(required = false) Long playerId) {
-        if (name != null && playerId == null) {
+    public ResponseEntity<List<Tournament>> getTournamentByName(@RequestParam(required = false) String name,
+                                                                @RequestParam(required = false) Long playerId,
+                                                                @RequestParam(required = false) Long teamId
+    ) {
+        if (name != null && playerId == null  && teamId == null) { //Only name
             Optional<Tournament> tournamentOptional = tournamentService.getTournamentByName(name);
             if (tournamentOptional.isPresent()) {
                 ArrayList<Tournament> tournamentName = new ArrayList<>();
@@ -53,7 +60,7 @@ public class TournamentRestController {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         }
-        if (name == null && playerId != null) {
+        if (name == null && playerId != null && teamId == null) { //Only playerId
             Optional<Player> playerOptional = playerService.findPlayerById(playerId);
             if (!playerOptional.isPresent()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -61,7 +68,7 @@ public class TournamentRestController {
             List<Tournament> tournaments = playerService.findTournamentsOfPlayer(playerOptional.get());
             return new ResponseEntity<>(tournaments, HttpStatus.OK);
         }
-        if(name != null){
+        if(name != null && playerId != null && teamId == null){ //Name and playerId
             Optional<Player> playerOptional = playerService.findPlayerById(playerId);
             if (!playerOptional.isPresent()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -81,18 +88,45 @@ public class TournamentRestController {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         }
-        List<Tournament> tournaments = tournamentService.getAllTournament();
-        return new ResponseEntity<>(tournaments, HttpStatus.OK);
+        if(name == null && playerId == null && teamId != null){ //Only teamId
+            Optional<Team> teamOptional = teamService.getTeam(teamId);
+            if(!teamOptional.isPresent()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            List<Tournament> tournaments = tournamentService.findTournamentByTeamId(teamId);
+            if(tournaments == null ||tournaments.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(tournaments, HttpStatus.OK);
+        }
+        if(name != null && playerId == null && teamId != null){ //Name and teamID
+            Optional<Team> teamOptional = teamService.getTeam(teamId);
+            if(!teamOptional.isPresent()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            List<Tournament> tournaments = tournamentService.findTournamentByTeamId(teamId);
+            if(tournaments == null ||tournaments.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            Tournament tournament = null;
+            for (Tournament tournamentOnCheck : tournaments) {
+                if(tournamentOnCheck.getName().equals(name)){
+                    tournament = tournamentOnCheck;
+                }
+            }
+            if(tournament == null){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            List<Tournament> tournamentsName = new ArrayList<>();
+            tournamentsName.add(tournament);
+            return new ResponseEntity<>(tournamentsName, HttpStatus.OK);
+        }
+        if(name == null && playerId == null && teamId == null) {
+            List<Tournament> tournaments = tournamentService.getAllTournament();
+            return new ResponseEntity<>(tournaments, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
-
-
-
-    /*@JsonView(BasicMatchMatchStatisticsTeams.class)
-    @GetMapping("/tournaments/")
-    public ResponseEntity<List<Tournament>> getTournaments() {
-        List<Tournament> tournaments = tournamentService.getAllTournament();
-        return new ResponseEntity<>(tournaments, HttpStatus.OK);
-    }*/
 
     @GetMapping("/tournament/{id}/ranking")
     public ResponseEntity<List<TeamDisplay>> getTournamentRanking(@PathVariable Long id) {
