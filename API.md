@@ -1,4 +1,15 @@
 # API Documentation
+## Table of content
+  * [About our API](#about-our-api)
+  * [How to use our API](#how-to-use-our-api)
+  * [API requests](#api-requests)
+    + [Resources](#resources)
+  * [Match Related](#match-related)
+      - [Match info](#match-info)
+      - [Matches by played](#match-by-played)
+      - [Macthes by date](#macthes-by-date)
+      - [Matches from a Team](#matches-from-a-team)
+
 ## About our API
 In our REST API you can find all the features of the PadelVerus website, by consulting:
 1. Tournaments and tournament information
