@@ -1,6 +1,7 @@
 package com.example.padelversus.user;
 
 import com.example.padelversus.player.Player;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
@@ -12,17 +13,22 @@ import java.util.List;
 @Entity
 public class User {
 
+    public interface Name{}
+    public interface Email{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
+    @JsonView(Name.class)
     private String name;
 
     @NotNull
     private String passwordHash;
 
     @NotNull
+    @JsonView(Email.class)
     private String mail;
 
     @ElementCollection(fetch = FetchType.EAGER) //EAGER because the user is taken with the roles from the database
