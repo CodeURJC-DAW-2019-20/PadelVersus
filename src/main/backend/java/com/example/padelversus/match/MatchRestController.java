@@ -35,10 +35,9 @@ public class MatchRestController {
     @GetMapping("/matches/")
     public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played,
                                                            @RequestParam (required = false) String date,
-                                                           @RequestParam (required = false) String idJugador,
-                                                           @RequestParam (required = false) String nombreEquipo) {
+                                                           @RequestParam (required = false) Long teamId) {
         //Return matches by played
-        if(played!=null && date==null && idJugador==null && nombreEquipo==null){
+        if(played!=null && date==null && teamId==null){
             if(played){
                 List<Match> matchplayed = matchService.getAllPlayed();
                 if(matchplayed.isEmpty()){
@@ -53,7 +52,7 @@ public class MatchRestController {
             return new ResponseEntity<>(matchnotplayed, HttpStatus.OK);
         }
         //Return matches by future date
-        if(played==null && date!=null && idJugador==null && nombreEquipo==null){
+        if(played==null && date!=null && teamId==null){
             String[] parsedate = date.split("-");
             LocalDate localdate = LocalDate.of(Integer.parseInt(parsedate[0]),Integer.parseInt(parsedate[1]),Integer.parseInt(parsedate[2]));
             List<Match> matchnotplayed = matchService.findMatchByDateAndPlayedOrderByDate(localdate);
@@ -62,8 +61,14 @@ public class MatchRestController {
             }
             return new ResponseEntity<>(matchnotplayed,HttpStatus.OK);
         }
-        //Return matches by future date
-        if(played==null && date!=null && idJugador==null && nombreEquipo==null){
+        //Return matches played by a teamID
+        if(played==null && date==null && teamId!=null){
+            List<Match> matchforteam = matchService.findLastFourMatchesPlayedByTeamId(teamId);
+            if(matchforteam.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(matchforteam,HttpStatus.OK);
+        }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 }

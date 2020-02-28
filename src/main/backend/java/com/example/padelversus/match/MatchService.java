@@ -120,6 +120,10 @@ public class MatchService {
         Optional<Match> match = matchRepository.findById(id);
         return match;
     }
+    public List<Match>findLastFourMatchesPlayedByTeamId(Long id){
+    List<Match> lastFourMatchesByTeamId = matchRepository.findLastFourMatchesPlayedByTeamId(id);
+    return lastFourMatchesByTeamId;
+    }
 }
 
 
