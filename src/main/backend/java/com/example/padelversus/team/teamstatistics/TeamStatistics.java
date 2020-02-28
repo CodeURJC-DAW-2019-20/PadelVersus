@@ -2,6 +2,7 @@ package com.example.padelversus.team.teamstatistics;
 
 import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.team.teamstatistics.game.Game;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,19 +11,29 @@ import java.util.List;
 @Entity
 public class TeamStatistics {
 
+    public interface Basic{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonView(Basic.class)
     private int totalGames;
+    @JsonView(Basic.class)
     private int totalWins;
+    @JsonView(Basic.class)
     private int totalDefeats;
+    @JsonView(Basic.class)
     private int totalAcurracy;
+    @JsonView(Basic.class)
     private int totalEffectiveness;
+    @JsonView(Basic.class)
     private int totalGamesWon;
+    @JsonView(Basic.class)
     private int totalUnforcedErrors;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonView(Basic.class)
     private List<Game> gamesPerMatch;
 
     public TeamStatistics() {

@@ -15,6 +15,7 @@ public class Team {
 
     public interface Basic {}
     public interface Players {}
+    public interface TeamStatistic{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,7 @@ public class Team {
     private List<Player> players;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonView(TeamStatistic.class)
     private TeamStatistics teamStatistics;
 
     public Team() {
