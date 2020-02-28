@@ -19,9 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class PlayerRestController {
-    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email, Team
-
-            .Name {
+    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email {
 
     }
 
