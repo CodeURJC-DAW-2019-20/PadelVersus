@@ -1,6 +1,7 @@
 package com.example.padelversus.match;
 
 import com.example.padelversus.match.display.MatchesByDateDisplay;
+import com.example.padelversus.team.Team;
 import com.example.padelversus.team.display.LastMatchDisplay;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentRepository;
@@ -93,7 +94,14 @@ public class MatchService {
         }
         return matchesByDateDisplays;
     }
-
+    public List<Match> getAllNotPlayed (){
+        List<Match> matchnotplayed = matchRepository.findAllNotPlayed();
+        return matchnotplayed;
+    }
+    public List<Match> getAllPlayed (){
+        List<Match> matchplayed = matchRepository.findAllPlayed();
+        return matchplayed;
+    }
     public LocalDate getFirstDate() {
         LocalDate firstDate = matchRepository.findAllNotPlayedDates().get(0).toLocalDate();
         return firstDate;

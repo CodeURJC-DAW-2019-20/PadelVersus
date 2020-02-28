@@ -12,20 +12,23 @@ import java.util.List;
 
 @Entity
 public class User {
-    public interface Username{}
+  
+    public interface Name{}
+    public interface Email{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    @JsonView({Username.class})
+    @JsonView(Name.class)
     private String name;
 
     @NotNull
     private String passwordHash;
 
     @NotNull
+    @JsonView(Email.class)
     private String mail;
 
     @ElementCollection(fetch = FetchType.EAGER) //EAGER because the user is taken with the roles from the database

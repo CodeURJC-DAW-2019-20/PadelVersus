@@ -1,5 +1,6 @@
 package com.example.padelversus.player;
 
+import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.user.User;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -15,33 +16,42 @@ import java.util.Arrays;
 public class Player {
 
     public interface Basic{}
+    public interface UserPlayer{}
     public interface MinInfo{}
 
     @Id
+    @JsonView(Basic.class)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @JsonView({Basic.class, MinInfo.class})
     private int age;
+
     @JsonView({Basic.class, MinInfo.class})
     private String countryBirth;
 
-    @JsonView({Basic.class})
+    @JsonView(Basic.class)
     private double height;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double weight;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double speed;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double strength;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double endurance;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double pace;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double accuaracy;
-    @JsonView({Basic.class})
+
+    @JsonView(Basic.class)
     private double aceleration;
 
     private String imageUrl;
@@ -50,7 +60,7 @@ public class Player {
     private byte[] image;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonView({User.class, MinInfo.class})
+    @JsonView(UserPlayer.class, MinInfo.class)
     private User user;
 
     public Player() {

@@ -1,5 +1,6 @@
 package com.example.padelversus.match;
 
+import com.example.padelversus.team.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -77,4 +78,10 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
             "ORDER by g.date desc " +
             "LIMIT 4", nativeQuery = true)
     List<Match> findLastFourMatchesPlayedByTeamId(Long id);
+
+    @Query(value = "SELECT * FROM games WHERE NOT played order by date", nativeQuery = true)
+    List<Match> findAllNotPlayed();
+
+    @Query(value = "SELECT * FROM games WHERE played order by date", nativeQuery = true)
+    List<Match> findAllPlayed();
 }
