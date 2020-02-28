@@ -85,7 +85,7 @@ Contains one calendar with the matches of each month.
 
 # Fase 2
 ## Description of the Fase
-
+Implements web app with Spring Boot, moustache for templating, MySQL for data base.
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
@@ -245,3 +245,45 @@ The ELO system has been replaced by the calculation of the ranking in each updat
             nativeQuery = true)
     Optional<Match> findIdByTeamsNameAndTournamentName(String t1, String t2, String tName);
   ```
+# Fase 3
+## Description of the Fase
+Creating API services of our website, and use Docker to launch.
+## Top 5 Most Important Commits
+| Name | Github user | Most Important | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+## Files focused on
+| Name | Github user | 1 | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera |--------|--------|--------|--------|--------|
+|Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+
+## Textual Description Of Work
+| Name | Github user | Description |
+|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|
+|Iván Martín Sanz|  i100van |--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|
+|Lucas Gómez Torres |  LucasGomezTorres |--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|
+
+## Steps for making the API: 
+
+
+## Steps for use Docker: 
+
+## API Documentation
+[APIDocuments](API.md)
+
+## Class/Template Diagram Updated
+![TemplateDiagram](WebImages/TemplatesDiagram-Class.png)
+## Dockerized application execution instructions
+
+## Demo Structure
