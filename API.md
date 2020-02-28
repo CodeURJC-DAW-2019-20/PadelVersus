@@ -24,12 +24,12 @@ In our REST API you can find all the features of the PadelVerus website, by cons
 2. You only can send GET, POST, PUT requests.
 
 ## API requests
-1. [Match related API] (#Match Related)
+**All API queries have been preceded by /api**
 ### Resources
 The resource API has GET, POST, PUT methods.
 http: // localhost: 8443 followed by the containt request URL.
 
-**All API queries have been preceded by /api**
+
 
 ## Match Related
 
