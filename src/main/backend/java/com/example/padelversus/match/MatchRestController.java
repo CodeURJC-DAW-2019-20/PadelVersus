@@ -31,16 +31,21 @@ public class MatchRestController {
     }
 
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
-    @GetMapping("/match/")
-    public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam Boolean jugado) {
-        if(jugado){
-            List<Match> played = matchService.getAllPlayed();
-            return new ResponseEntity<>(played,HttpStatus.OK);
+    @GetMapping("/matches/")
+    public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played, @RequestParam) {
+        if(played!=null){
+            if(played){
+                List<Match> matchplayed = matchService.getAllPlayed();
+                if(matchplayed.isEmpty()){
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+                return new ResponseEntity<>(matchplayed,HttpStatus.OK);
+            }
+            List<Match> matchnotplayed = matchService.getAllNotPlayed();
+            if(matchnotplayed.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(matchnotplayed, HttpStatus.OK);
         }
-        if(!jugado){
-            List<Match> notplayed = matchService.getAllNotPlayed();
-            return new ResponseEntity<>(notplayed, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
