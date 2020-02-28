@@ -50,6 +50,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/player/{\\d+}").permitAll();
 
 
+        http.authorizeRequests().antMatchers("/api/teamx/{\\d+}").permitAll();
+
+        http.authorizeRequests().regexMatchers("/api/teams/.*").permitAll();
+
         //Resources
         http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
 

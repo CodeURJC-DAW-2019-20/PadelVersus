@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -14,18 +15,19 @@ import java.util.Arrays;
 @Entity
 public class Player {
 
-    interface Basic{}
-    interface UserPlayer{}
+    public interface Basic{}
+    public interface UserPlayer{}
+    public interface MinInfo{}
 
     @Id
     @JsonView(Basic.class)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonView(Basic.class)
+    @JsonView({Basic.class, MinInfo.class})
     private int age;
 
-    @JsonView(Basic.class)
+    @JsonView({Basic.class, MinInfo.class})
     private String countryBirth;
 
     @JsonView(Basic.class)
@@ -54,13 +56,11 @@ public class Player {
 
     private String imageUrl;
 
-
     @Lob
     private byte[] image;
 
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonView(UserPlayer.class)
+    @JsonView(UserPlayer.class, MinInfo.class)
     private User user;
 
     public Player() {

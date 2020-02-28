@@ -12,7 +12,7 @@ import java.util.List;
 
 @Entity
 public class User {
-
+  
     public interface Name{}
     public interface Email{}
 

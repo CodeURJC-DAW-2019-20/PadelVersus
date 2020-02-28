@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/apiTeams")
+@RequestMapping("/api")
 public class TeamsRestController {
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/")
+    @GetMapping("/teams/")
     public List<String[]> returnAllTeams(Pageable page) {
         Page<Team> pages = teamService.getPages(page);
         List<String[]> pageTeamNames = teamService.getPageTeamNames(pages);
