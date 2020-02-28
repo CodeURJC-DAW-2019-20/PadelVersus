@@ -15,6 +15,7 @@ public class Match {
 
     public interface Basic {}
     public interface Statistics{}
+    public interface Teams{}
 
     @Id
     @JsonView(Basic.class)
@@ -38,6 +39,7 @@ public class Match {
     private MatchStadistics stadistics_2;
 
     @ManyToMany
+    @JsonView(Teams.class)
     private List<Team> teams;
 
     public Match() {
