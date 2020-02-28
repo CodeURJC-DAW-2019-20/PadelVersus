@@ -264,7 +264,7 @@ Allows a anonymous user to see info of matches given a teamid
 
 * ##### URL:
 
-	< /matches/?teamid={id} >
+	< /matches/?teamid={Long} >
 
 * ##### Method:
 
