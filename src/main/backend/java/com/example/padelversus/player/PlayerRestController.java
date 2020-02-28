@@ -3,7 +3,6 @@ package com.example.padelversus.player;
 import com.example.padelversus.ImageService;
 import com.example.padelversus.team.Team;
 import com.example.padelversus.tournament.Tournament;
-import com.example.padelversus.tournament.TournamentRestController;
 import com.example.padelversus.user.User;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
