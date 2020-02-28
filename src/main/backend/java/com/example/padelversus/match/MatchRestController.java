@@ -39,36 +39,28 @@ public class MatchRestController {
         //Return matches by played
         if(played!=null && date==null && teamId==null){
             if(played){
-                List<Match> matchplayed = matchService.getAllPlayed();
-                if(matchplayed.isEmpty()){
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-                }
-                return new ResponseEntity<>(matchplayed,HttpStatus.OK);
+                return getListResponseEntity(matchService.getAllPlayed());
             }
-            List<Match> matchnotplayed = matchService.getAllNotPlayed();
-            if(matchnotplayed.isEmpty()){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-            return new ResponseEntity<>(matchnotplayed, HttpStatus.OK);
+            return getListResponseEntity(matchService.getAllNotPlayed());
         }
         //Return matches by future date
         if(played==null && date!=null && teamId==null){
             String[] parsedate = date.split("-");
             LocalDate localdate = LocalDate.of(Integer.parseInt(parsedate[0]),Integer.parseInt(parsedate[1]),Integer.parseInt(parsedate[2]));
-            List<Match> matchnotplayed = matchService.findMatchByDateAndPlayedOrderByDate(localdate);
-            if(matchnotplayed.isEmpty()){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-            return new ResponseEntity<>(matchnotplayed,HttpStatus.OK);
+            return getListResponseEntity(matchService.findMatchByDateAndPlayedOrderByDate(localdate));
         }
-        //Return matches played by a teamID
+        //Return past matches played by a teamID
         if(played==null && date==null && teamId!=null){
-            List<Match> matchforteam = matchService.findLastFourMatchesPlayedByTeamId(teamId);
-            if(matchforteam.isEmpty()){
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-            return new ResponseEntity<>(matchforteam,HttpStatus.OK);
+            return getListResponseEntity(matchService.findLastFourMatchesPlayedByTeamId(teamId));
         }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+    private ResponseEntity<List<Match>> getListResponseEntity(List<Match> lastFourMatchesPlayedByTeamId) {
+        List<Match> matchforteam = lastFourMatchesPlayedByTeamId;
+        if (matchforteam.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(matchforteam, HttpStatus.OK);
     }
 }
