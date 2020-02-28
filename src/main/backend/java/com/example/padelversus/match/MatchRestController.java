@@ -30,6 +30,7 @@ public class MatchRestController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    /*
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @GetMapping("/matches/")
     public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played, @RequestParam) {
@@ -48,4 +49,5 @@ public class MatchRestController {
             return new ResponseEntity<>(matchnotplayed, HttpStatus.OK);
         }
     }
+    */
 }
