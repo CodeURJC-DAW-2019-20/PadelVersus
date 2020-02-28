@@ -17,15 +17,16 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class TeamxRestController {
 
-    interface BasicMatchMatchStatisticsTeams
-            extends
-            Team.Basic, Team.Players, Player.MinInfo, User.Username, Team.TeamStatistic, TeamStatistics.Basic, Game.Basic {
-    }
+    interface TeamPlayersAndStatistics extends
+            Team.Basic, Team.Players, Team.TeamStatistic,
+            Player.MinInfo, User.Username,
+            TeamStatistics.Basic, Game.Basic {
+    }//Need to get imageUrl somehow
 
     @Autowired
     private TeamService teamService;
 
-    @JsonView(BasicMatchMatchStatisticsTeams.class)
+    @JsonView(TeamPlayersAndStatistics.class)
     @RequestMapping("/teamx/{id}")
     public ResponseEntity<Team> getTeam(@PathVariable Long id){
         Optional<Team> teamOptional = teamService.getTeam(id);
