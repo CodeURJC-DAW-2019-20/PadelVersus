@@ -96,6 +96,14 @@ public class TeamService {
         return pageTeamNames;
     }
 
+    public List<Team> getTeamsByPlayerId(Long id){
+        return this.teamRepository.findTeamByPlayerId(id);
+    }
+
+    public List<Team> getAllTeams(){
+        return teamRepository.findAll();
+    }
+
     public void saveTeam(Team team) {
         teamRepository.save(team);
     }
