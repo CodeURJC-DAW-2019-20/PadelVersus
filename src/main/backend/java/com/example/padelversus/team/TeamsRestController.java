@@ -42,16 +42,18 @@ public class TeamsRestController {
 
     @JsonView(TeamsRestController.BasicTeam.class)
     @GetMapping("/teams/")
-    public ResponseEntity<List<Team>> getTournamentByName(@RequestParam(required = false) Long playerId){
+    public ResponseEntity<List<Team>> getTeamsByPlayerId(@RequestParam(required = false) Long playerId){
         if (playerId != null) {
             Optional<Player> playerOpt = playerService.findPlayerById(playerId);
             if(playerOpt.isPresent()) {
                 List<Team> teams = teamService.getTeamsByPlayerId(playerOpt.get().getId());
                 return new ResponseEntity<>(teams, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         }else {
-            List<Team> allTeams = teamService.
-            return ;
+            List<Team> allTeams = teamService.getAllTeams();
+            return new ResponseEntity<>(allTeams, HttpStatus.OK);
         }
     }
 }
