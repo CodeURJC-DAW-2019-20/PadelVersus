@@ -45,6 +45,8 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/tournament/{\\d+}").permitAll();
         http.authorizeRequests().antMatchers("/api/tournaments/").permitAll();
         http.authorizeRequests().regexMatchers("/api/tournament/.*").permitAll();
+        http.authorizeRequests().regexMatchers("/api/teams/.*").permitAll();
+        http.authorizeRequests().antMatchers("/api/teams/.*").permitAll();
 
         //Resources
         //http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
