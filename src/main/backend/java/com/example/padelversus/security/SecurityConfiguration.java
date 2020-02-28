@@ -44,6 +44,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/tournament/{\\d+}").permitAll();
         http.authorizeRequests().antMatchers("/api/tournaments/").permitAll();
         http.authorizeRequests().regexMatchers("/api/tournament/.*").permitAll();
+        http.authorizeRequests().antMatchers("/api/match/{\\d+}").permitAll();
+        http.authorizeRequests().regexMatchers("/api/matches/.*").permitAll();
+
+        http.authorizeRequests().antMatchers("/api/player/{\\d+}").permitAll();
+
+
+        http.authorizeRequests().antMatchers("/api/teamx/{\\d+}").permitAll();
+
+        http.authorizeRequests().regexMatchers("/api/teams/.*").permitAll();
 
         //Resources
         http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
