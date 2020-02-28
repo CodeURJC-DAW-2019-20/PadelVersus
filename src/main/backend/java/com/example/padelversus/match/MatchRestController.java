@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,10 @@ public class MatchRestController {
 
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @GetMapping("/matches/")
-    public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played, @RequestParam) {
+    public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played,
+                                                           @RequestParam (required = false) LocalDate date,
+                                                           @RequestParam (required = false) int idJugador,
+                                                           @RequestParam (required = false) String nombreEquipo) {
         if(played!=null){
             if(played){
                 List<Match> matchplayed = matchService.getAllPlayed();
