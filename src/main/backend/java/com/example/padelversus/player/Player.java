@@ -43,7 +43,7 @@ public class Player {
     private double accuaracy;
     @JsonView({Basic.class})
     private double aceleration;
-    @JsonView({Basic.class, MinInfo.class})
+
     private String imageUrl;
 
     @Lob
