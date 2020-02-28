@@ -1,32 +1,18 @@
 package com.example.padelversus.match.stadistics;
 
-import com.example.padelversus.tournament.Tournament;
-import com.fasterxml.jackson.annotation.JsonView;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class MatchStadistics {
-    public interface Basic{}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonView(Basic.class)
     private int acurracy;
-
-    @JsonView(Basic.class)
     private int effectiveness;
-
-    @JsonView(Basic.class)
     private int games_wins;
-
-    @JsonView(Basic.class)
     private int unforcedErrors;
-
-    @JsonView(Basic.class)
     private boolean win;
 
     @OneToMany(cascade = CascadeType.MERGE)

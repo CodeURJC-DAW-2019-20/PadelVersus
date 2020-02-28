@@ -18,7 +18,7 @@
       <configuration>
         <webroots />
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/backend/java" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
@@ -52,7 +52,6 @@
     <orderEntry type="library" name="jquery-ui" level="application" />
     <orderEntry type="library" name="jquery-1.12.4" level="application" />
     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.0" level="project" />
-    <orderEntry type="library" name="widgets" level="application" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.5" level="project" />
@@ -182,5 +181,6 @@
     <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:2.0.15" level="project" />
     <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:2.0.15" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="widgets" level="application" />
   </component>
 </module>

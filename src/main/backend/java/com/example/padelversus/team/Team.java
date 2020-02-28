@@ -3,8 +3,6 @@ package com.example.padelversus.team;
 import com.example.padelversus.match.stadistics.MatchStadistics;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.team.teamstatistics.TeamStatistics;
-import com.example.padelversus.tournament.Tournament;
-import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,19 +11,13 @@ import java.util.List;
 @Entity
 public class Team {
 
-    public interface Basic {}
-    public interface Players {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(Basic.class)
     private Long id;
 
-    @JsonView(Basic.class)
     private String name;
 
     @ManyToMany
-    @JsonView(Players.class)
     private List<Player> players;
 
     @OneToOne(cascade = CascadeType.ALL)
