@@ -94,6 +94,10 @@ public class MatchService {
         }
         return matchesByDateDisplays;
     }
+    public List<Match> findMatchByDateAndPlayedOrderByDate(LocalDate date){
+        List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date.toString());
+        return matchOnDateOrdered;
+    }
     public List<Match> getAllNotPlayed (){
         List<Match> matchnotplayed = matchRepository.findAllNotPlayed();
         return matchnotplayed;
@@ -102,6 +106,7 @@ public class MatchService {
         List<Match> matchplayed = matchRepository.findAllPlayed();
         return matchplayed;
     }
+
     public LocalDate getFirstDate() {
         LocalDate firstDate = matchRepository.findAllNotPlayedDates().get(0).toLocalDate();
         return firstDate;
