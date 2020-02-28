@@ -1,6 +1,7 @@
 package com.example.padelversus.player;
 
 import com.example.padelversus.user.User;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
@@ -12,22 +13,33 @@ import java.util.Arrays;
 @Entity
 public class Player {
 
+    public interface Basic{}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
+    @JsonView(Basic.class)
     private int age;
+    @JsonView(Basic.class)
     private String countryBirth;
 
-
+    @JsonView(Basic.class)
     private double height;
+    @JsonView(Basic.class)
     private double weight;
+    @JsonView(Basic.class)
     private double speed;
+    @JsonView(Basic.class)
     private double strength;
+    @JsonView(Basic.class)
     private double endurance;
+    @JsonView(Basic.class)
     private double pace;
+    @JsonView(Basic.class)
     private double accuaracy;
+    @JsonView(Basic.class)
     private double aceleration;
     private String imageUrl;
 
@@ -36,6 +48,7 @@ public class Player {
 
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonView()
     private User user;
 
     public Player() {

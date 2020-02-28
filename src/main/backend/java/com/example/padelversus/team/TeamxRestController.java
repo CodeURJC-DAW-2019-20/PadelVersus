@@ -1,5 +1,6 @@
 package com.example.padelversus.team;
-
+import com.example.padelversus.player.Player;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,15 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class TeamxRestController {
 
+    interface BasicMatchMatchStatisticsTeams
+            extends
+            Team.Basic, Team.Players, Player.Basic {
+    } //Also need player usernames and imagesUrl
+
     @Autowired
     private TeamService teamService;
 
+    @JsonView(BasicMatchMatchStatisticsTeams.class)
     @RequestMapping("/teamx/{id}")
     public ResponseEntity<Team> getTeam(@PathVariable Long id){
         Optional<Team> teamOptional = teamService.getTeam(id);
