@@ -1,4 +1,44 @@
 # PadelVersus
+## Table of content
+- [PadelVersus](#padelversus)
+- [Fase 0](#fase-0)
+    + [Team members](#team-members)
+    + [Other tools used](#other-tools-used)
+    + [Sections description](#sections-description)
+      - [Entities](#entities)
+      - [Users and permissions](#users-and-permissions)
+      - [Images](#images)
+      - [Graphics](#graphics)
+      - [Complementary technology](#complementary-technology)
+      - [Advanced Algorithmic](#advanced-algorithmic)
+- [Fase 1](#fase-1)
+    + [Snapshots](#snapshots)
+    + [Flow Diagram](#flow-diagram)
+- [Fase 2](#fase-2)
+  * [Description of the Fase](#description-of-the-fase)
+  * [Top 5 Most Important Commits](#top-5-most-important-commits)
+  * [Files focused on](#files-focused-on)
+  * [Textual Description Of Work](#textual-description-of-work)
+  * [Steps for making the website:](#steps-for-making-the-website-)
+  * [New templates](#new-templates)
+  * [Navigation](#navigation)
+  * [Entity Diagram](#entity-diagram)
+  * [Class/Template Diagram](#class-template-diagram)
+  * [Demo Structure](#demo-structure)
+  * [Changes:](#changes-)
+    + [Complementary technology](#complementary-technology-1)
+    + [Advanced Algorithms](#advanced-algorithms)
+- [Fase 3](#fase-3)
+  * [Description of the Fase](#description-of-the-fase-1)
+  * [Top 5 Most Important Commits](#top-5-most-important-commits-1)
+  * [Files focused on](#files-focused-on-1)
+  * [Textual Description Of Work](#textual-description-of-work-1)
+  * [Steps for making the API:](#steps-for-making-the-api-)
+  * [Steps for use Docker:](#steps-for-use-docker-)
+  * [API Documentation](#api-documentation)
+  * [Class/Template Diagram Updated](#class-template-diagram-updated)
+  * [Dockerized application execution instructions](#dockerized-application-execution-instructions)
+  * [Demo Structure](#demo-structure-1)
 
 # Fase 0
 ### Team members
@@ -85,7 +125,7 @@ Contains one calendar with the matches of each month.
 
 # Fase 2
 ## Description of the Fase
-
+Implements web app with Spring Boot, moustache for templating, MySQL for data base.
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
@@ -245,3 +285,46 @@ The ELO system has been replaced by the calculation of the ranking in each updat
             nativeQuery = true)
     Optional<Match> findIdByTeamsNameAndTournamentName(String t1, String t2, String tName);
   ```
+# Fase 3
+## Description of the Fase
+Creating API services of our website, and use Docker to launch.
+## Top 5 Most Important Commits
+| Name | Github user | Most Important | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+## Files focused on
+| Name | Github user | 1 | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|--------|
+|Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
+|Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+
+## Textual Description Of Work
+| Name | Github user | Description |
+|--------|--------|--------|
+|Alejandro Checa Folguera | AlexCh98 |--------|
+|Iván Martín Sanz|  i100van |--------|
+|José Luis Lavado Sánchez | lujoselu98 |--------|
+|Lucas Gómez Torres |  LucasGomezTorres |--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |--------|
+
+## Steps for making the API: 
+
+
+## Steps for use Docker: 
+
+## API Documentation
+
+In the following link you can find everything related to the PadelVersus Rest API documentation [APIDocuments](API.md)
+
+## Class/Template Diagram Updated
+
+## Dockerized application execution instructions
+
+## Demo Structure

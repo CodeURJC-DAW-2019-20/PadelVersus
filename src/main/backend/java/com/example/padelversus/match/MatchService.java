@@ -94,6 +94,10 @@ public class MatchService {
         }
         return matchesByDateDisplays;
     }
+    public List<Match> findMatchByDateAndPlayedOrderByDate(LocalDate date){
+        List<Match> matchOnDateOrdered = matchRepository.findMatchByDateAndPlayedOrderByDate(date.toString());
+        return matchOnDateOrdered;
+    }
     public List<Match> getAllNotPlayed (){
         List<Match> matchnotplayed = matchRepository.findAllNotPlayed();
         return matchnotplayed;
@@ -102,6 +106,7 @@ public class MatchService {
         List<Match> matchplayed = matchRepository.findAllPlayed();
         return matchplayed;
     }
+
     public LocalDate getFirstDate() {
         LocalDate firstDate = matchRepository.findAllNotPlayedDates().get(0).toLocalDate();
         return firstDate;
@@ -115,6 +120,7 @@ public class MatchService {
         Optional<Match> match = matchRepository.findById(id);
         return match;
     }
+  
     public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
         Optional<Match> match = matchRepository.findIdByTeamsNameAndTournamentName(teamOne.getName(), teamTwo.getName(), tournament.getName());
         return match.orElse(null);
@@ -125,6 +131,11 @@ public class MatchService {
         matchRepository.save(match);
         tournament.get().addMatch(match);
         tournamentRepository.save(tournament.get()); //save the new match in tournament table
+    }
+
+    public List<Match>findLastFourMatchesPlayedByTeamId(Long id){
+    List<Match> lastFourMatchesByTeamId = matchRepository.findLastFourMatchesPlayedByTeamId(id);
+    return lastFourMatchesByTeamId;
 
     }
 }

@@ -19,7 +19,7 @@ public class TeamxRestController {
 
     interface TeamPlayersAndStatistics extends
             Team.Basic, Team.Players, Team.TeamStatistic,
-            Player.MinInfo, User.Name,
+            Player.MinInfo, User.Name,  
             TeamStatistics.Basic, Game.Basic {
     }//Need to get imageUrl somehow
 

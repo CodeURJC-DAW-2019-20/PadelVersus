@@ -190,7 +190,7 @@
         if (ajax) {
             $("#loadSpinner").show();
             $.ajax({
-                url: 'https://localhost:8443/api/teams/?page=' + actual_page + '&size=' + size,
+                url: 'https://localhost:8443/api/teamsList/?page=' + actual_page + '&size=' + size,
                 success: function (data) {
                     setTimeout(function () {
                         $.each(data, function (index, value) {

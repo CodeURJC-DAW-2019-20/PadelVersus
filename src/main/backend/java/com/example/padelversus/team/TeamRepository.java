@@ -24,4 +24,5 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
             " WHERE p.id = ?1",
             nativeQuery = true)
     List<Team> findTeamByPlayerId(Long id);
+
 }

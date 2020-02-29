@@ -14,6 +14,11 @@ public class TournamentService {
     @Autowired
     TournamentRepository tournamentRepository;
 
+    public List<Tournament> findTournamentByTeamId(Long teamId){
+        return tournamentRepository.findTournamentByTeamId(teamId);
+    }
+
+
     public Optional<Tournament> getTournamentById(Long id){
         return tournamentRepository.findById(id);
     }
