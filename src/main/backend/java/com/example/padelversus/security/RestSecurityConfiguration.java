@@ -54,7 +54,7 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/match/{\\d+}").permitAll();
         http.authorizeRequests().regexMatchers("/api/matches/.*").permitAll();
         http.authorizeRequests().regexMatchers("/api/teamsList/.*").permitAll();
-
+        http.authorizeRequests().regexMatchers("/api/logIn").permitAll();
 
         //Resources
         //http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
@@ -63,15 +63,15 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().authenticated();
 
         // Login form
-        http.formLogin().loginPage("/api/logIn");
-        http.formLogin().usernameParameter("username");
-        http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/");
-        http.formLogin().failureUrl("/loginerror");
+        // http.formLogin().loginPage("/api/logIn");
+        // http.formLogin().usernameParameter("username");
+        // http.formLogin().passwordParameter("password");
+        // http.formLogin().defaultSuccessUrl("/");
+        // http.formLogin().failureUrl("/loginerror");
 
         // Logout
-        http.logout().logoutUrl("/api/logOut");
-        http.logout().logoutSuccessUrl("/");
+        // http.logout().logoutUrl("/api/logOut");
+        // http.logout().logoutSuccessUrl("/");
 
         http.headers().frameOptions().disable();
 
