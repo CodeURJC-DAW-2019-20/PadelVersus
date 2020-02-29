@@ -21,26 +21,33 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserComponent userComponent;
+
     @Override
     public Authentication authenticate(Authentication auth) throws AuthenticationException {
 
-        Optional<User> user = userRepository.findByName(auth.getName()); //User from BBDD
+        Optional<User> optionalUser = userRepository.findByName(auth.getName()); //User from BBDD
 
-        if (!user.isPresent()) {
+        if (!optionalUser.isPresent()) {
             throw new BadCredentialsException("User not found");
         }
 
         String password = (String) auth.getCredentials();
-        if (!new BCryptPasswordEncoder().matches(password, user.get().getPasswordHash())) {
+        if (!new BCryptPasswordEncoder().matches(password, optionalUser.get().getPasswordHash())) {
             throw new BadCredentialsException("Wrong password");
         }
+        User user = optionalUser.get();
+        userComponent.setLoggedUser(user);
 
         List<GrantedAuthority> roles = new ArrayList<>();
-        for (String role : user.get().getRoles()) {
+        for (String role : optionalUser.get().getRoles()) {
             roles.add(new SimpleGrantedAuthority(role));
         }
 
-        return new UsernamePasswordAuthenticationToken(user.get().getName(), password, roles); //If user exists and pass is correct we create an objetct with the roles
+        userComponent.setLoggedUser(user);
+
+        return new UsernamePasswordAuthenticationToken(optionalUser.get().getName(), password, roles); //If user exists and pass is correct we create an objetct with the roles
     }
 
     @Override

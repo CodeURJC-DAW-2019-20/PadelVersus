@@ -18,6 +18,7 @@
       <configuration>
         <webroots />
         <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/backend/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>

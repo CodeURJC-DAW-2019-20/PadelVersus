@@ -21,4 +21,8 @@ public class UserComponent {
         return this.user != null;
     }
 
+    public boolean isAdmin() {
+        return user.getRoles().contains("ROLE_ADMIN");
+    }
+
 }

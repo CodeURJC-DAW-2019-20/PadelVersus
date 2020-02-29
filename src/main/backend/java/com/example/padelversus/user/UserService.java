@@ -14,6 +14,10 @@ public class UserService {
     @Autowired
     private NotificationService notificationService;
 
+    public void saveUser(User user){
+        userRepository.save(user);
+    }
+
     //Saves a (copy with ROLE_USER) user if succes return user name if not return null (user already exists)
     public String saveUser(String name, String mail, String pass) {
         Optional<User> u = userRepository.findByName(name);
