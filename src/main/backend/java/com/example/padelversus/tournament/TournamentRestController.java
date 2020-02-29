@@ -151,8 +151,11 @@ public class TournamentRestController {
         }
         Tournament newTournament = new Tournament(name);
         tournamentService.saveTournament(newTournament);
-        Tournament tour = tournamentService.getTournamentByName(name).get();
-        return new ResponseEntity<>(tour,HttpStatus.CREATED);
+        Optional<Tournament> tour = tournamentService.getTournamentByName(name);
+        if(tour.isPresent()) {
+            return new ResponseEntity<>(tour.get(), HttpStatus.CREATED);
+        }else
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
 
     }
 }

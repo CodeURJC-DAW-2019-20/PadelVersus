@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class MatchStadistics {
     public interface Basic{}
-
+    public interface SetP{}
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +29,7 @@ public class MatchStadistics {
     @JsonView(Basic.class)
     private boolean win;
 
+    @JsonView(SetP.class)
     @OneToMany(cascade = CascadeType.MERGE)
     private List<SetPadel> sets; //Sets with their games on each set
 

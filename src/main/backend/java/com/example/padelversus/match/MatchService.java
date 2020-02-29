@@ -120,9 +120,23 @@ public class MatchService {
         Optional<Match> match = matchRepository.findById(id);
         return match;
     }
+  
+    public Match findMatchByTeams(Team teamOne, Team teamTwo, Tournament tournament) {
+        Optional<Match> match = matchRepository.findIdByTeamsNameAndTournamentName(teamOne.getName(), teamTwo.getName(), tournament.getName());
+        return match.orElse(null);
+    }
+    public void saveApiMatch(Match match, Tournament selectedTournament) {
+        Optional<Tournament> tournament = tournamentRepository.findByName(selectedTournament.getName());
+
+        matchRepository.save(match);
+        tournament.get().addMatch(match);
+        tournamentRepository.save(tournament.get()); //save the new match in tournament table
+    }
+
     public List<Match>findLastFourMatchesPlayedByTeamId(Long id){
     List<Match> lastFourMatchesByTeamId = matchRepository.findLastFourMatchesPlayedByTeamId(id);
     return lastFourMatchesByTeamId;
+
     }
 }
 
