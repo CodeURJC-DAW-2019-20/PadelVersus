@@ -527,9 +527,9 @@ Allows an admin save new tournament
 	
 	
 	
-## tournament-related
+## Tournament related
 
-#### tournament-info-by-teamId
+#### Tournament info by teamId
 Allows a anonymous user to see info of the tournaments by teamID
 * ##### URL: </api/tournaments/?teamId=Long>
 
@@ -730,7 +730,7 @@ Allows a anonymous user to see info of the tournaments by teamID
 
 
 
-#### tournament-info-by-playerId
+#### Tournament info by player Id
 Allows a anonymous user to see info of the tournaments by playerID
 * ##### URL: </api/tournaments/?playerId=Long>
 
