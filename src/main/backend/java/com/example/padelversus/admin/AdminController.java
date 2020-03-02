@@ -42,7 +42,7 @@ public class AdminController {
         model.addAttribute("tournament-list", allTournamentDisplay);
         model.addAttribute("match-list", matchAdmins);
         model.addAttribute("error", false);
-        return "/adminPage";
+        return "adminPage";
     }
 
     @PostMapping("/saveMatch")
@@ -55,7 +55,7 @@ public class AdminController {
             model.addAttribute("tournament-list", allTournamentDisplay);
             model.addAttribute("match-list", matchAdmins);
             model.addAttribute("error", true);
-            return "/adminPage";
+            return "adminPage";
         }
         adminService.saveMatch(selectedTournament, t1_oficial, t2_oficial, date);
 
@@ -78,7 +78,7 @@ public class AdminController {
             model.addAttribute("tournament-list", allTournamentDisplay);
             model.addAttribute("match-list", matchAdmins);
             model.addAttribute("error", true);
-            return "/adminPage";
+            return "adminPage";
         }
         Tournament tournament = new Tournament(name);
         tournamentService.saveTournament(tournament);
