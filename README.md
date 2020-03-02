@@ -292,7 +292,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
-|Iván Martín Sanz| i100van |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i100van |[MatchApiCompleted](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/8b181b23047ed1e425f16184113674d3e20602a5)|[APIDocumentation](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/e52337d6253793b567b5a8a83db6bd69628e74b1)|[FutureMatches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/6af0abe4de17dae0bde2c87c8c62ab9a7a9d08f1)|[ConcreteMatchAndAllMacthes](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/e666e13a0070bead8f55f21706a986917e5e39c6)|[MatchAPISimplified](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/cf9102316519b6b910a471f5e7c14cf328316953)|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
@@ -300,7 +300,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|--------|
-|Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
+|Iván Martín Sanz | i100van |MatchRestControler.java|Match.java|MatchStatistics.java|API.md|MatchService.java|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
@@ -309,7 +309,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | Description |
 |--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|
-|Iván Martín Sanz|  i100van |--------|
+|Iván Martín Sanz|  i100van |Focus on all related to matches API for API Rest service of PadelVersus,obtaining all the necessary information of the matches in Postman, document and prepare all related with the readme.md and API.md |
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|
@@ -318,6 +318,75 @@ Creating API services of our website, and use Docker to launch.
 
 
 ## Steps for use Docker: 
+1. As we are going to use a network with two dockers that communicate with each other app and database we need a docker network
+```
+    docker network create padelVersus-network 
+```
+2. Download and run the mysql:8 docker container 
+```
+    docker container run --name mysqldb --network padelVersus-network -e MYSQL_ROOT_PASSWORD=123456789 -e MYSQL_DATABASE=padelversus -d     mysql:8
+```
+
+To check that everything went well: 
+```
+    docker container logs -f mysqldb 
+```
+(If everything goes well put Initializaing database ... and more)
+```
+    docker container exec -it mysqldb bash
+```
+You open a bash console in the mysql base let's see that the schema has been created well
+```
+    mysql -uroot -p123456789
+```
+show databases;
+(See that padelversus comes out as schema to exit and then logout)
+
+3. Go to the intellij and change in the application.properties 
+```
+    spring.datasource.url=jdbc:mysql://localhost:3306/padelversus?           useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+```
+by
+```
+    spring.datasource.url=jdbc:mysql://mysqldb:3306/padelversus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+```
+and in the pom.xl+
+```
+    <properties>
+            <java.version>1.8</java.version>
+    </properties>
+
+    <properties>
+            <java.version>11</java.version>
+            <start-class>com.example.padelversus.PadelversusApplication</start-class>
+    </properties>
+```
+Go to the maven menu and running the install step creates a .jar in target to move it to a folder to organize the docker and rename it topadelverus.jar
+
+4. Create Dockerfile
+In the folder where we moved the jar create a file called Dockerfile with 
+From openjdk:11
+```
+    copy ./padelversus.jar padelversus.jar
+    CMD ["java","-jar","padelversus.jar"]
+```
+5. Mount the new container with from cmd (terminal) in the folder where the Dockerfile and the jar are
+```
+    docker image build -t padelversus -f Dockerfile .
+```
+6. Run the container with
+```
+    docker container run --network padelVersus-network --name padelversus-container -p 8443:8443 -d padelversus
+```
+To see that everything works 
+```
+    docker container logs -f padelVersus-network
+```
+(You have to see the typical start the spring but without colors)
+
+Everything is ready to try, go **https: // localhost: 8443 /** and see what the page is going
+
+And now why have to deploy Doker Compose:
 
 ## API Documentation
 

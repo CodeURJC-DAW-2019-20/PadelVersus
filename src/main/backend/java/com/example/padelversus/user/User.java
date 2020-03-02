@@ -15,6 +15,8 @@ public class User {
   
     public interface Name{}
     public interface Email{}
+    public interface PlayerView{}
+    public interface Roles{}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,9 +34,11 @@ public class User {
     private String mail;
 
     @ElementCollection(fetch = FetchType.EAGER) //EAGER because the user is taken with the roles from the database
+    @JsonView(Roles.class)
     private List<String> roles;   //Role ROLE_ADMIN/ ROLE_USER...
 
     @OneToOne(mappedBy = "user")
+    @JsonView(PlayerView.class)
     private Player player;
 
     public User() {

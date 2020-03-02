@@ -3,11 +3,13 @@ package com.example.padelversus.player;
 import com.example.padelversus.ImageService;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserService;
+import com.example.padelversus.user.UserComponent;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,7 +25,7 @@ import static org.springframework.http.MediaType.IMAGE_JPEG;
 @RestController
 @RequestMapping("/api")
 public class PlayerRestController {
-    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email {
+    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name {
     }
     public static class PlayerApi{
 
@@ -159,6 +161,9 @@ public class PlayerRestController {
     @Autowired
     private PlayerService playerService;
 
+    @Autowired
+    private UserComponent userOnline;
+
     @JsonView(BasicPlayerUser.class)
     @GetMapping("/player/{id}")
     public ResponseEntity<Player> getPlayerById(@PathVariable Long id) {
@@ -180,9 +185,13 @@ public class PlayerRestController {
         Optional<Player> playerOptional = playerService.findPlayerById(id);
         if (!playerOptional.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         Player player = playerOptional.get();
-        player.setImage(image.getBytes());
-        playerService.savePlayer(player);
-        return new ResponseEntity<>(player.getImage(), HttpStatus.OK);
+        if(userOnline.isLoggedUser() && userOnline.getLoggedUser().getPlayer().getId() == id) {
+            player.setImage(image.getBytes());
+            playerService.savePlayer(player);
+            return new ResponseEntity<>(player.getImage(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @PostMapping(path = "/player/savePlayer",consumes = {MediaType.APPLICATION_JSON_VALUE})
