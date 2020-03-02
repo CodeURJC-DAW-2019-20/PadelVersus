@@ -292,7 +292,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|--------|--------|--------|--------|
-|Iván Martín Sanz| i100van |--------|--------|--------|--------|--------|
+|Iván Martín Sanz| i100van |[MatchApiCompleted](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/8b181b23047ed1e425f16184113674d3e20602a5)|[APIDocumentation](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/e52337d6253793b567b5a8a83db6bd69628e74b1)|[FutureMatches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/6af0abe4de17dae0bde2c87c8c62ab9a7a9d08f1)|[ConcreteMatchAndAllMacthes](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/e666e13a0070bead8f55f21706a986917e5e39c6)|[MatchAPISimplified](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/cf9102316519b6b910a471f5e7c14cf328316953)|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
@@ -300,7 +300,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98|--------|--------|--------|--------|--------|
-|Iván Martín Sanz | i100van |--------|--------|--------|--------|--------|
+|Iván Martín Sanz | i100van |MatchRestControler.java|Match.java|MatchStatistics.java|API.md|MatchService.java|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
@@ -309,7 +309,8 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | Description |
 |--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|
-|Iván Martín Sanz|  i100van |--------|
+|Iván Martín Sanz|  i100van |Focus on all related to matches API for API Rest service of PadelVersus,
+obtaining all the necessary information of the matches in Postman, document and prepare all related with the readme.md and API.md |
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|
