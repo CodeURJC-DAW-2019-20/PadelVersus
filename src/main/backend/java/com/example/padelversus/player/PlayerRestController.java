@@ -20,7 +20,7 @@ import static org.springframework.http.MediaType.IMAGE_JPEG;
 @RestController
 @RequestMapping("/api")
 public class PlayerRestController {
-    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email {
+    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name {
     }
 
     @Autowired
@@ -32,6 +32,13 @@ public class PlayerRestController {
     @JsonView(BasicPlayerUser.class)
     @GetMapping("/player/{id}")
     public ResponseEntity<Player> getPlayerById(@PathVariable Long id) {
+        Optional<Player> playerOptional = playerService.findPlayerById(id);
+        return playerOptional.map(player -> new ResponseEntity<>(player, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+
+    @GetMapping("/player/self")
+    public ResponseEntity<Player> getSelfPlayer(@PathVariable Long id) {
         Optional<Player> playerOptional = playerService.findPlayerById(id);
         return playerOptional.map(player -> new ResponseEntity<>(player, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
