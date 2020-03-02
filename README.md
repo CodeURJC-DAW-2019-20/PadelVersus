@@ -309,8 +309,7 @@ Creating API services of our website, and use Docker to launch.
 | Name | Github user | Description |
 |--------|--------|--------|
 |Alejandro Checa Folguera | AlexCh98 |--------|
-|Iván Martín Sanz|  i100van |Focus on all related to matches API for API Rest service of PadelVersus,
-obtaining all the necessary information of the matches in Postman, document and prepare all related with the readme.md and API.md |
+|Iván Martín Sanz|  i100van |Focus on all related to matches API for API Rest service of PadelVersus,obtaining all the necessary information of the matches in Postman, document and prepare all related with the readme.md and API.md |
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
 |Daniel Carmona Pedrajas | Dacarpe03 |--------|
