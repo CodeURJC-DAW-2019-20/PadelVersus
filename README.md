@@ -323,52 +323,68 @@ Creating API services of our website, and use Docker to launch.
     docker network create padelVersus-network 
 ```
 2. Download and run the mysql:8 docker container 
-docker container run --name mysqldb --network padelVersus-network -e MYSQL_ROOT_PASSWORD=123456789 -e MYSQL_DATABASE=padelversus -d mysql:8
+```
+    docker container run --name mysqldb --network padelVersus-network -e MYSQL_ROOT_PASSWORD=123456789 -e MYSQL_DATABASE=padelversus -d     mysql:8
+```
 
 To check that everything went well: 
-docker container logs -f mysqldb 
+```
+    docker container logs -f mysqldb 
+```
 (If everything goes well put Initializaing database ... and more)
-
-docker container exec -it mysqldb bash
+```
+    docker container exec -it mysqldb bash
+```
 You open a bash console in the mysql base let's see that the schema has been created well
-mysql -uroot -p123456789
+```
+    mysql -uroot -p123456789
+```
 show databases;
 (See that padelversus comes out as schema to exit and then logout)
 
 3. Go to the intellij and change in the application.properties 
-spring.datasource.url=jdbc:mysql://localhost:3306/padelversus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+```
+    spring.datasource.url=jdbc:mysql://localhost:3306/padelversus?           useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+```
 by
-spring.datasource.url=jdbc:mysql://mysqldb:3306/padelversus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-
+```
+    spring.datasource.url=jdbc:mysql://mysqldb:3306/padelversus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+```
 and in the pom.xl+
-<properties>
-        <java.version>1.8</java.version>
-</properties>
+```
+    <properties>
+            <java.version>1.8</java.version>
+    </properties>
 
-<properties>
-        <java.version>11</java.version>
-        <start-class>com.example.padelversus.PadelversusApplication</start-class>
-</properties>
-
+    <properties>
+            <java.version>11</java.version>
+            <start-class>com.example.padelversus.PadelversusApplication</start-class>
+    </properties>
+```
 Go to the maven menu and running the install step creates a .jar in target to move it to a folder to organize the docker and rename it topadelverus.jar
 
 4. Create Dockerfile
 In the folder where we moved the jar create a file called Dockerfile with 
 From openjdk:11
-copy ./padelversus.jar padelversus.jar
-CMD ["java","-jar","padelversus.jar"]
-
+```
+    copy ./padelversus.jar padelversus.jar
+    CMD ["java","-jar","padelversus.jar"]
+```
 5. Mount the new container with from cmd (terminal) in the folder where the Dockerfile and the jar are
-docker image build -t padelversus -f Dockerfile .
-
+```
+    docker image build -t padelversus -f Dockerfile .
+```
 6. Run the container with
-docker container run --network padelVersus-network --name padelversus-container -p 8443:8443 -d padelversus
-
+```
+    docker container run --network padelVersus-network --name padelversus-container -p 8443:8443 -d padelversus
+```
 To see that everything works 
-docker container logs -f padelVersus-network 
+```
+    docker container logs -f padelVersus-network
+```
 (You have to see the typical start the spring but without colors)
 
-Everything is ready to try, go https: // localhost: 8443 / and see what the page is going
+Everything is ready to try, go **https: // localhost: 8443 /** and see what the page is going
 
 And now why have to deploy Doker Compose:
 
