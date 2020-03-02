@@ -9,9 +9,9 @@
       - [Matches by played](#match-by-played)
       - [Macthes by date](#macthes-by-date)
       - [Matches from a Team](#matches-from-a-team)
-   * [Tournament Related](#Tournament Related)
-      - [Tournament info By TeamId](#Tournament info By TeamId)    
-      - [Tournament info By PlayerId](#Tournament info By PlayerId) 
+   * [Tournament Related](#tournament-related)
+      - [Tournament info By TeamId](#tournament-info-by-teamId)    
+      - [Tournament info By PlayerId](#tournament-info-by-playerId) 
   
   * [Player Related](#player-related)
       - [Player info](#player-info)
@@ -527,9 +527,9 @@ Allows an admin save new tournament
 	
 	
 	
-## Tournament Related
+## tournament-related
 
-#### Tournament info By TeamId
+#### tournament-info-by-teamId
 Allows a anonymous user to see info of the tournaments by teamID
 * ##### URL: </api/tournaments/?teamId=Long>
 
@@ -730,7 +730,7 @@ Allows a anonymous user to see info of the tournaments by teamID
 
 
 
-#### Tournament info By PlayerId
+#### tournament-info-by-playerId
 Allows a anonymous user to see info of the tournaments by playerID
 * ##### URL: </api/tournaments/?playerId=Long>
 
