@@ -9,6 +9,8 @@ import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamService;
 import com.example.padelversus.tournament.display.TournamentDisplay;
 import com.example.padelversus.team.display.TeamDisplay;
+import com.example.padelversus.user.User;
+import com.example.padelversus.user.UserComponent;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +38,9 @@ public class TournamentRestController {
 
     @Autowired
     TeamService teamService;
+
+    @Autowired
+    UserComponent userComponent;
 
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @GetMapping("/tournament/{id}")
@@ -157,5 +162,37 @@ public class TournamentRestController {
         }else
             return new ResponseEntity<>(HttpStatus.CONFLICT);
 
+    }
+
+    @JsonView(BasicMatchMatchStatisticsTeams.class)
+    @PutMapping("/tournamneant/{id}")
+    public ResponseEntity<Tournament> saveTournamnt(@PathVariable Long id,
+                                                    @RequestParam(value = "player") Player player,
+                                                    @RequestParam(value = "teamName") String teamName){
+        if(userComponent.isLoggedUser()){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        if(userComponent.isAdmin()){
+            return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        }
+        Optional<Tournament> optionalTournament = tournamentService.getTournamentById(id);
+        if(!optionalTournament.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Tournament tournament = optionalTournament.get();
+
+        Optional<Team> teamOptional = teamService.getTeamByName(teamName);
+        if(teamOptional.isPresent()){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        User userLogged = userComponent.getLoggedUser();
+        Player playerUserLogged = userLogged.getPlayer();
+
+        Team team = new Team(teamName, player, playerUserLogged);
+        teamService.saveTeam(team);
+
+        tournament.getTeams().add(team);
+        tournamentService.saveTournament(tournament);
+        return new ResponseEntity<>(tournament, HttpStatus.CREATED);
     }
 }
