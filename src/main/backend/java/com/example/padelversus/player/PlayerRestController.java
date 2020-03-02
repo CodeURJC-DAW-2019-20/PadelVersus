@@ -36,13 +36,6 @@ public class PlayerRestController {
         return playerOptional.map(player -> new ResponseEntity<>(player, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-
-    @GetMapping("/player/self")
-    public ResponseEntity<Player> getSelfPlayer(@PathVariable Long id) {
-        Optional<Player> playerOptional = playerService.findPlayerById(id);
-        return playerOptional.map(player -> new ResponseEntity<>(player, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
     @GetMapping(value = "/player/{id}/image", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<byte[]> getPlayerImage(@PathVariable Long id) {
         Optional<Player> playerOptional = playerService.findPlayerById(id);
