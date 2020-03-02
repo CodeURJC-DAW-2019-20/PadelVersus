@@ -1393,3 +1393,72 @@ Allows a anonymous user to see info of one teamID given one tournament
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+
+## New Player and User
+
+#### Save New User
+Allows a anonymous user create an account
+
+* ##### URL:
+
+	< /user/saveUser >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### Success Response:
+  
+  	```
+		{
+		    "id": 22,
+		    "name": "lucas",
+		    "passwordHash": "$2a$10$gXUlEZ079uVejZ9A5Rxey.t769zEysx/ESpEViQnzfUUDOe9y4vsq",
+		    "mail": "procesosoftg1@gmail.com",
+		    "roles": [
+			"ROLE_USER"
+		    ],
+		    "player": null
+		}
+	```
+  
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+	
+
+#### Save New Player
+when a user is created, a player is created
+
+* ##### URL:
+
+	< /player/savePlayer >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### Success Response:
+  
+  	```
+		{
+		    "id": 21,
+		    "age": 48,
+		    "countryBirth": "France",
+		    "height": 1.9,
+		    "weight": 45.0,
+		    "speed": 10.0,
+		    "strength": 1.3,
+		    "endurance": 3.4,
+		    "pace": 5.6,
+		    "accuaracy": 5.0,
+		    "aceleration": 6.7,
+		    "user": {
+			"name": "lucas"
+		    }
+		}
+	```
+  
+* ##### Error response:
+
+	**Code**: NOT.FOUND
