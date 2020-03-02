@@ -730,7 +730,7 @@ Allows a anonymous user to see info of the tournaments by teamID
 
 
 
-#### Tournament info by player Id
+#### Tournament info by playerId
 Allows a anonymous user to see info of the tournaments by playerID
 * ##### URL: </api/tournaments/?playerId=Long>
 
