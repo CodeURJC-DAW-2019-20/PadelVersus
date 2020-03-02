@@ -35,7 +35,7 @@ public class UserRestController{
 
     }
 
-    @PostMapping(value = "/saveUser" )
+    @PostMapping(value = "" )
     public ResponseEntity<User> saveUser(@RequestBody User user){
         Optional<User> optionalUser = userService.findUserByName(user.getName());
         if(optionalUser.isPresent()){

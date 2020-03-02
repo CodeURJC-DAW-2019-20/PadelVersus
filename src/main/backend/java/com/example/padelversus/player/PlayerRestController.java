@@ -194,7 +194,7 @@ public class PlayerRestController {
         }
     }
 
-    @PostMapping(path = "/player/savePlayer",consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path = "/player",consumes = {MediaType.APPLICATION_JSON_VALUE})
     @JsonView(BasicPlayerUser.class)
     public ResponseEntity<Player> savePlayer (@RequestBody PlayerApi player) {
         Player playerPojo = player.getPlayer();
