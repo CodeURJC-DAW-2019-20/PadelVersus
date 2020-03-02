@@ -14,6 +14,7 @@ import com.example.padelversus.user.UserComponent;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -164,12 +165,41 @@ public class TournamentRestController {
 
     }
 
+    public static class RegisterTournamentParams{
+        private Long playerId;
+        private String teamName;
+
+        public RegisterTournamentParams(Long playerId, String teamName) {
+            this.playerId = playerId;
+            this.teamName = teamName;
+        }
+
+        public Long getPlayerId() {
+            return playerId;
+        }
+
+        public void setPlayerId(Long id) {
+            this.playerId = id;
+        }
+
+        public String getTeamName() {
+            return teamName;
+        }
+
+        public void setTeamName(String teamName) {
+            this.teamName = teamName;
+        }
+    }
+
+
     @JsonView(BasicMatchMatchStatisticsTeams.class)
-    @PutMapping("/tournamneant/{id}")
-    public ResponseEntity<Tournament> saveTournamnt(@PathVariable Long id,
-                                                    @RequestParam(value = "player") Player player,
-                                                    @RequestParam(value = "teamName") String teamName){
-        if(userComponent.isLoggedUser()){
+    @PutMapping(value = "/tournament/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Tournament> registerTournamnent(@PathVariable Long id, @RequestBody RegisterTournamentParams params){
+
+        Long playerId = params.getPlayerId();
+        String teamName = params.getTeamName();
+
+        if(!userComponent.isLoggedUser()){
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         if(userComponent.isAdmin()){
@@ -180,6 +210,12 @@ public class TournamentRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         Tournament tournament = optionalTournament.get();
+
+        Optional<Player> optionalPlayer = playerService.findPlayerById(playerId);
+        if(!optionalPlayer.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Player player = optionalPlayer.get();
 
         Optional<Team> teamOptional = teamService.getTeamByName(teamName);
         if(teamOptional.isPresent()){
