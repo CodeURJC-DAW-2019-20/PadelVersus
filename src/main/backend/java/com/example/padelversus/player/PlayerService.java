@@ -46,7 +46,10 @@ public class PlayerService {
     public void savePlayer(Player player) {
         playerRepository.save(player);
     }
-
+    public Optional<Player> findPlayerByName(String name){
+        Optional<Player> player = playerRepository.findByUserName(name);
+        return player;
+    }
     //Save (a copy) of a player joined with the user passed in username param if not possible return null
     public boolean savePlayer(Player player, String username, MultipartFile imagenFile) throws IOException {
         Optional<User> relatedUser = userRepository.findByName(username);
