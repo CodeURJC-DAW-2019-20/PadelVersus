@@ -28,10 +28,13 @@ hs_err_pid*
 
 # Temp Images
 images_temp/*
-images_temp/
-!images/.gitkeep
+!images_temp/.gitkeep
 
 # Temp pdf
 pdf_temp/*
-pdf_temp/
+!pdf_temp/.gitkeep
 
+
+# Docker
+Docker/DemoImages
+Docker/PadelVersus.jar
