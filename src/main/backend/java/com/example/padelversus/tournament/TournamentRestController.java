@@ -194,7 +194,8 @@ public class TournamentRestController {
 
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @PutMapping(value = "/tournament/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Tournament> registerTournamnent(@PathVariable Long id, @RequestBody RegisterTournamentParams params){
+    public ResponseEntity<Tournament> registerTournamnent(@PathVariable Long id,
+                                                          @RequestBody RegisterTournamentParams params){
 
         Long playerId = params.getPlayerId();
         String teamName = params.getTeamName();
