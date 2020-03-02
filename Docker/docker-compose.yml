@@ -1,0 +1,30 @@
+version: "3"
+services:
+  padelversus:
+    image: padelversus
+    restart: always
+    ports:
+      - "8443:8443"
+    networks:
+      - padelVersus-network
+    environment:
+      WAIT_HOSTS: mysql:3306
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    restart: on-failure
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=123456789--execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    networks:
+      - padelVersus-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=padelversus  
+
+networks:
+  padelVersus-network: 

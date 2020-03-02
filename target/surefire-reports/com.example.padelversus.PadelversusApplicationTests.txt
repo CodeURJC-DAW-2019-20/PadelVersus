@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.padelversus.PadelversusApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.838 s <<< FAILURE! - in com.example.padelversus.PadelversusApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/example/padelversus/user/User
+Caused by: java.lang.ClassNotFoundException: com.example.padelversus.user.User
+
