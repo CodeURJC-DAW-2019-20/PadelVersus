@@ -741,148 +741,331 @@ Allows a anonymous user to see info of the tournaments by playerID
 * ##### Success Response:
   
   
-  	```
-		 {
-        "id": 1,
-        "name": "Tournament 1",
-        "nonspacename": "Tournament1",
-        "matches": [
-            {
-                "id": 1,
-                "date": "2019-10-20",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 16,
-                    "unforcedErrors": 50,
-                    "win": true
-                },
-                "stadistics_2": {
-                    "acurracy": 13,
-                    "effectiveness": 17,
-                    "games_wins": 13,
-                    "unforcedErrors": 0,
-                    "win": false
-                }
-            },
-            {
-                "id": 2,
-                "date": "2019-10-21",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 15,
-                    "unforcedErrors": 50,
-                    "win": true
-                },
-                "stadistics_2": {
-                    "acurracy": 13,
-                    "effectiveness": 17,
-                    "games_wins": 9,
-                    "unforcedErrors": 0,
-                    "win": false
-                }
-            },
-            {
-                "id": 3,
-                "date": "2019-10-22",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 9,
-                    "unforcedErrors": 50,
-                    "win": false
-                },
-                "stadistics_2": {
-                    "acurracy": 13,
-                    "effectiveness": 17,
-                    "games_wins": 16,
-                    "unforcedErrors": 0,
-                    "win": true
-                }
-            },
-            {
-                "id": 4,
-                "date": "2019-10-23",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 99,
-                    "effectiveness": 99,
-                    "games_wins": 8,
-                    "unforcedErrors": 99,
-                    "win": false
-                },
-                "stadistics_2": {
-                    "acurracy": 78,
-                    "effectiveness": 7,
-                    "games_wins": 15,
-                    "unforcedErrors": 3,
-                    "win": true
-                }
-            },
-            {
-                "id": 5,
-                "date": "2019-10-24",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 13,
-                    "unforcedErrors": 50,
-                    "win": true
-                },
-                "stadistics_2": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 10,
-                    "unforcedErrors": 50,
-                    "win": false
-                }
-            },
-            {
-                "id": 6,
-                "date": "2019-10-25",
-                "played": true,
-                "stadistics_1": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 14,
-                    "unforcedErrors": 50,
-                    "win": true
-                },
-                "stadistics_2": {
-                    "acurracy": 23,
-                    "effectiveness": 57,
-                    "games_wins": 10,
-                    "unforcedErrors": 50,
-                    "win": false
-                }
-            }
-        ],
-        "teams": [
-            {
-                "id": 1,
-                "name": "Madrid PT"
-            },
-            {
-                "id": 2,
-                "name": "Atletico PT"
-            },
-            {
-                "id": 3,
-                "name": "Barcelona PT"
-            },
-            {
-                "id": 4,
-                "name": "Leones"
-            }
-        ]
-    
-    
-    
+ 		```
+				[
+		    {
+			"id": 2,
+			"name": "Tournament 2",
+			"nonspacename": "Tournament2",
+			"matches": [
+			    {
+				"id": 7,
+				"date": "2019-11-19",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 15,
+				    "unforcedErrors": 50,
+				    "win": true
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 10,
+				    "unforcedErrors": 50,
+				    "win": false
+				}
+			    },
+			    {
+				"id": 8,
+				"date": "2019-11-20",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 10,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 9,
+				"date": "2019-11-21",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 16,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 10,
+				"date": "2019-11-22",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 8,
+				    "unforcedErrors": 50,
+				    "win": false
+				}
+			    },
+			    {
+				"id": 11,
+				"date": "2019-11-23",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 15,
+				    "unforcedErrors": 50,
+				    "win": true
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 8,
+				    "unforcedErrors": 50,
+				    "win": false
+				}
+			    },
+			    {
+				"id": 12,
+				"date": "2019-11-24",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    }
+			],
+			"teams": [
+			    {
+				"id": 4,
+				"name": "Leones"
+			    },
+			    {
+				"id": 5,
+				"name": "Tigres"
+			    },
+			    {
+				"id": 6,
+				"name": "Donuts"
+			    },
+			    {
+				"id": 7,
+				"name": "Valencia PT"
+			    }
+			]
+		    },
+		    {
+			"id": 3,
+			"name": "Tournament 3",
+			"nonspacename": "Tournament3",
+			"matches": [
+			    {
+				"id": 13,
+				"date": "2019-10-19",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 14,
+				"date": "2019-11-21",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 16,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 15,
+				"date": "2019-11-22",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 15,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 16,
+				"date": "2019-11-23",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 13,
+				    "unforcedErrors": 50,
+				    "win": true
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 10,
+				    "unforcedErrors": 50,
+				    "win": false
+				}
+			    },
+			    {
+				"id": 17,
+				"date": "2019-11-24",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 9,
+				    "unforcedErrors": 50,
+				    "win": false
+				}
+			    },
+			    {
+				"id": 18,
+				"date": "2019-11-25",
+				"played": true,
+				"stadistics_1": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 10,
+				    "unforcedErrors": 50,
+				    "win": false
+				},
+				"stadistics_2": {
+				    "acurracy": 23,
+				    "effectiveness": 57,
+				    "games_wins": 14,
+				    "unforcedErrors": 50,
+				    "win": true
+				}
+			    },
+			    {
+				"id": 19,
+				"date": "2020-03-22",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    },
+			    {
+				"id": 20,
+				"date": "2020-10-29",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    },
+			    {
+				"id": 21,
+				"date": "2020-11-19",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    },
+			    {
+				"id": 22,
+				"date": "2020-03-09",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    },
+			    {
+				"id": 23,
+				"date": "2020-03-09",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    },
+			    {
+				"id": 24,
+				"date": "2020-04-14",
+				"played": false,
+				"stadistics_1": null,
+				"stadistics_2": null
+			    }
+			],
+			"teams": [
+			    {
+				"id": 6,
+				"name": "Donuts"
+			    },
+			    {
+				"id": 8,
+				"name": "VersusTeam"
+			    },
+			    {
+				"id": 9,
+				"name": "Las palmas PT"
+			    },
+			    {
+				"id": 10,
+				"name": "Getafe PT"
+			    }
+			]
+		    }
+		]
+
+
 	```
 * ##### Error response:
 
