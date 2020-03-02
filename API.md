@@ -9,9 +9,9 @@
       - [Matches by played](#match-by-played)
       - [Macthes by date](#macthes-by-date)
       - [Matches from a Team](#matches-from-a-team)
-   * [Tournament Related](#tournament-related)
-      - [Tournament info By TeamId](#tournament-info-team)    
-      - [Tournament info By PlayerId](#tournament-info-player) 
+   * [Tournament Related](#Tournament Related)
+      - [Tournament info By TeamId](#Tournament info By TeamId)    
+      - [Tournament info By PlayerId](#Tournament info By PlayerId) 
   
   * [Player Related](#player-related)
       - [Player info](#player-info)
