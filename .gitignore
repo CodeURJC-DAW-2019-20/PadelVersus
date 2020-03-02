@@ -34,7 +34,9 @@ images_temp/*
 pdf_temp/*
 !pdf_temp/.gitkeep
 
-
 # Docker
 Docker/DemoImages
 Docker/PadelVersus.jar
+
+# Target
+Target
