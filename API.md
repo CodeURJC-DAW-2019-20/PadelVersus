@@ -13,7 +13,7 @@
       - [Tournaments info By TeamId](#tournaments-info-by-teamId)    
       - [Tournaments info By PlayerId](#tournaments-info-by-playerId) 
       - [Tournament info By PlayerId](#tournament-info-by-playerId) 
-      - [Tournament info By PlayerId](#tournament-info-by-playerId) 
+      - [Tournament info By TeamId](#tournament-info-by-teamId) 
       
   
   * [Player Related](#player-related)
