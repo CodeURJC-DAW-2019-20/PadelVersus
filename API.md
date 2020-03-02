@@ -367,3 +367,152 @@ Allows a anonymous user to see info of matches given a teamid
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+
+## Admin Related
+
+#### Save New Match
+Allows an admin save a new match in a tournament
+
+* ##### URL:
+
+	< /api/match/{tournament} >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### Success Response:
+  
+  	```
+		{
+		    "id": 25,
+		    "date": "2019-03-06",
+		    "played": false,
+		    "stadistics_1": null,
+		    "stadistics_2": null,
+		    "teams": [
+			{
+			    "id": 1,
+			    "name": "Madrid PT"
+			},
+			{
+			    "id": 2,
+			    "name": "Atletico PT"
+			}
+		    ]
+		}
+	```
+  
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+	
+#### Save Stadistics Match
+Allows an admin save stadistics from a match
+
+* ##### URL:
+
+	< /api/match/{id} >
+
+* ##### Method:
+
+	`PUT`
+	
+* ##### Success Response:
+  
+  	```
+		{
+		    "id": 19,
+		    "date": "2020-03-22",
+		    "played": false,
+		    "stadistics_1": {
+			"acurracy": 5,
+			"effectiveness": 10,
+			"games_wins": 30,
+			"unforcedErrors": 4,
+			"win": false,
+			"sets": [
+			    {
+				"id": 109,
+				"games": 6,
+				"setNumber": 1
+			    },
+			    {
+				"id": 110,
+				"games": 6,
+				"setNumber": 1
+			    },
+			    {
+				"id": 111,
+				"games": 6,
+				"setNumber": 1
+			    }
+			]
+		    },
+		    "stadistics_2": {
+			"acurracy": 5,
+			"effectiveness": 10,
+			"games_wins": 30,
+			"unforcedErrors": 4,
+			"win": true,
+			"sets": [
+			    {
+				"id": 112,
+				"games": 6,
+				"setNumber": 1
+			    },
+			    {
+				"id": 113,
+				"games": 6,
+				"setNumber": 1
+			    },
+			    {
+				"id": 114,
+				"games": 6,
+				"setNumber": 1
+			    }
+			]
+		    },
+		    "teams": [
+			{
+			    "id": 1,
+			    "name": "Madrid PT"
+			},
+			{
+			    "id": 3,
+			    "name": "Barcelona PT"
+			}
+		    ]
+		}
+	```
+  
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
+#### Save New Tournament
+Allows an admin save new tournament
+
+* ##### URL:
+
+	< /api/tournament/ >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### Success Response:
+  
+  	```
+		{
+		    "id": 4,
+		    "name": "Tournament 4",
+		    "nonspacename": "Tournament4",
+		    "matches": [],
+		    "teams": []
+		}
+	```
+  
+* ##### Error response:
+
+	**Code**: NOT.FOUND
