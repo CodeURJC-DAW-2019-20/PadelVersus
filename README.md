@@ -319,8 +319,9 @@ Creating API services of our website, and use Docker to launch.
 
 ## Steps for use Docker: 
 1. As we are going to use a network with two dockers that communicate with each other app and database we need a docker network
-docker network create padelVersus-network 
-
+```
+    docker network create padelVersus-network 
+```
 2. Download and run the mysql:8 docker container 
 docker container run --name mysqldb --network padelVersus-network -e MYSQL_ROOT_PASSWORD=123456789 -e MYSQL_DATABASE=padelversus -d mysql:8
 
