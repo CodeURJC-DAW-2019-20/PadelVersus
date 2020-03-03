@@ -461,8 +461,11 @@ Now, to prepare the folder with the necessary files to do the docker-compose up,
 
 ## API Documentation
 
-In the following link you can find everything related to the PadelVersus Rest API documentation [APIDocuments](API.md)
-You can also see some examples at [Postman PadelVersus Colection] ()
+In the following link you can find everything related to the PadelVersus Rest API documentation [APIDocuments](API.md).
+
+You can also see some examples at [Postman PadelVersus Colection] (DAW.postman_collection.json)
+
+And if you want to se documents in postamn format: [Postman Documentation](DAW.postman_collection.jsohttps://documenter.getpostman.com/view/10553995/SzKbNFpr?version=latest)
 
 ## Class/Template Diagram Updated
 
