@@ -391,7 +391,7 @@ And now why have to deploy Doker Compose:
     version: "3"
 services:
   padelversus:
-    image: padelversus
+    image: i100van/padelversus:latest
     restart: always
     ports:
       - "8443:8443"
