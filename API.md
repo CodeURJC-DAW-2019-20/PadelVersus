@@ -75,6 +75,7 @@
         * [Example Body](#example-body)
         * [Success Response:](#success-response--13)
         * [Error response:](#error-response--13)
+  * [Team Related](#team-related)
   * [User related](#user-related)
       - [Save New User](#save-new-user)
         * [URL:](#url--7)
@@ -1901,6 +1902,64 @@ Allows a logged player to register into a tournament with a team.
 	**Code**: UNAUTHORIZED
 	**Code**: NOT_IMPLEMENTED
 
+
+## Team Related
+
+#### Team Info By TeamId
+Allows a anonymous user to see info of one team by teamID
+* ##### URL: </api/teamx/Long>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+```
+{
+    "id": 2,
+    "name": "Atletico PT",
+    "players": [
+        {
+            "age": 23,
+            "countryBirth": "Netherland",
+            "user": {
+                "name": "Pepe Dominguez"
+            }
+        },
+        {
+            "age": 24,
+            "countryBirth": "Spain",
+            "user": {
+                "name": "Baltasar Cardiel"
+            }
+        }
+    ],
+    "teamStatistics": {
+        "totalGames": 3,
+        "totalWins": 1,
+        "totalDefeats": 2,
+        "totalAcurracy": 135,
+        "totalEffectiveness": 173,
+        "totalGamesWon": 34,
+        "totalUnforcedErrors": 149,
+        "gamesPerMatch": [
+            {
+                "games": 13
+            },
+            {
+                "games": 8
+            },
+            {
+                "games": 13
+            }
+        ]
+    }
+}
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+	
 
 ## User related
 
