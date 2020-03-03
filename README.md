@@ -45,7 +45,7 @@
   * [Entity Diagram](#entity-diagram)
   * [Class/Template Diagram](#classtemplate-diagram)
   * [Demo Structure](#demo-structure)
-  * [Changes:](#changes-)
+  * [Changes:](#changes)
     + [Complementary technology](#complementary-technology-1)
     + [Advanced Algorithms](#advanced-algorithms)
 - [Fase 3](#fase-3)
