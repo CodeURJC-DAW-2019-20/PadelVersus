@@ -9,12 +9,12 @@
       - [Matches by played](#match-by-played)
       - [Macthes by date](#macthes-by-date)
       - [Matches from a Team](#matches-from-a-team)
-   * [Tournament Related](#tournament-related)
+  * [Tournament Related](#tournament-related)
       - [Tournaments info By TeamId](#tournaments-info-by-teamId)    
       - [Tournaments info By PlayerId](#tournaments-info-by-playerId) 
       - [Tournament info By PlayerId](#tournament-info-by-playerId) 
       - [Tournament info By TeamId](#tournament-info-by-teamId) 
-      
+  * [Team Related](#team-related)    
   
   * [Player Related](#player-related)
       - [Player info](#player-info-by-playerId)
@@ -1829,7 +1829,7 @@ Allows a logged player to register into a tournament with a team.
 	**Code**: NOT_IMPLEMENTED
 
 
-## New Player and User
+## User related
 
 #### Save New User
 Allows a anonymous user create an account
@@ -1861,8 +1861,7 @@ Allows a anonymous user create an account
 
 	**Code**: NOT.FOUND
 
-
-
+##Player Related
 
 #### Save New Player
 when a user is created, a player is created
@@ -1900,8 +1899,6 @@ when a user is created, a player is created
 
 	**Code**: NOT.FOUND
 
-## Player Related
-
 #### Player Info By PlayerId
 Allows a anonymous user to see info of one player by playerID
 * ##### URL: </api/player/Long>
@@ -1937,6 +1934,7 @@ Allows a anonymous user to see info of one player by playerID
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+	
 
 
 
