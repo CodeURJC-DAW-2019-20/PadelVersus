@@ -2,7 +2,7 @@
 # Execution without log
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1
 # Execution with log
-# C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $false
+# C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $true
 
 # Clean and packge using local .m2 repository to do not download already gotten libraries
 docker run -it --rm -v "$(pwd):/usr/src/project" `
@@ -32,18 +32,7 @@ cd Docker
 docker rmi padelversus
 
 # We build the app image
-docker image build -t padelversus -f .Dockerfile .
-
-# We use docker-compose to create, connect and set healthcheck containers
-if(!($args[0])){
-    docker-compose up -d
-}else{
-    docker-compose up
-}
-
-# We wait for a key pressed to stop and remove containers with docker-compose down
-read-host  "Press enter to run docker-compose down and stop execution"
-docker-compose down
+docker image build -t i100van/padelversus -f .Dockerfile .
 
 # We reutrned to the started directory
 cd ..
