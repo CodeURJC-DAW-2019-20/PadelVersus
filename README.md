@@ -43,7 +43,7 @@
     + [Unexpected Error](#unexpected-error)
   * [Navigation](#navigation)
   * [Entity Diagram](#entity-diagram)
-  * [Class/Template Diagram](##classtemplate-diagram)
+  * [Class/Template Diagram](#classtemplate-diagram)
   * [Demo Structure](#demo-structure)
   * [Changes:](#changes-)
     + [Complementary technology](#complementary-technology-1)
