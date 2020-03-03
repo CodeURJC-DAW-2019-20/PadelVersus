@@ -391,7 +391,7 @@ And now why have to deploy Doker Compose:
     version: "3"
 services:
   padelversus:
-    image: i100van/padelversus:latest
+    image: teampina/padelversus:latest
     restart: always
     ports:
       - "8443:8443"
@@ -421,56 +421,71 @@ networks:
 ```
 Now, to prepare the folder with the necessary files to do the docker-compose up, we will use a Power Shell Script with the following commands:
 ```
-    # Clean and packge using local .m2 repository to do not download already gotten libraries
-    docker run -it --rm -v "$(pwd):/usr/src/project" `
-                        -v"$HOME/.m2:/root/.m2" `
-                        -w /usr/src/project maven:alpine mvn clean package
+        # Clean and packge using local .m2 repository to do not download already gotten libraries
+        docker run -it --rm -v "$(pwd):/usr/src/project" `
+                            -v"$HOME/.m2:/root/.m2" `
+                            -w /usr/src/project maven:alpine mvn clean package
 
-    # If there is any problem in compilation we move and rename the .jar
-    if(Test-Path ./target/padelversus-0.0.1-SNAPSHOT.jar -PathType Leaf){
-        Copy-Item -Path ./target/padelversus-0.0.1-SNAPSHOT.jar -Destination ./Docker/PadelVersus.jar -force
-    }else{
-        echo "Maven compilation fail"
-        exit
-    }
+        # If there is any problem in compilation we move and rename the .jar
+        if(Test-Path ./target/padelversus-0.0.1-SNAPSHOT.jar -PathType Leaf){
+            Copy-Item -Path ./target/padelversus-0.0.1-SNAPSHOT.jar -Destination ./Docker/PadelVersus.jar -force
+        }else{
+            echo "Maven compilation fail"
+            exit
+        }
 
-    # If there is not already moved we copy recursive the folder with images needed for the demo
-    if (!(Test-Path ./Docker/DemoImages -PathType Any)){
-        Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
-    }else{
-        Remove-Item -Recurse -Force ./Docker/DemoImages
-        Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
-    }
+        # If there is not already moved we copy recursive the folder with images needed for the demo
+        if (!(Test-Path ./Docker/DemoImages -PathType Any)){
+            Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
+        }else{
+            Remove-Item -Recurse -Force ./Docker/DemoImages
+            Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
+        }
 
-    # We move into the folder were the .Dockerfile and docker-compose.yml is
-    cd Docker
+        # We move into the folder were the .Dockerfile and docker-compose.yml is
+        cd Docker
 
-    # We remove the image in case we have done changes in .Dockerfile
-    docker rmi padelversus
+        # We remove the image in case we have done changes in .Dockerfile
+        docker rmi teampina/padelversus
 
-    # We build the app image
-    docker image build -t padelversus -f .Dockerfile .
+        # We build the app image
+        docker image build -t teampina/padelversus -f .Dockerfile .
 
-    # We reutrned to the started directory
-    cd ..
+        # We push the image to docker hub
+        docker push teampina/padelversus
 
+        # We reutrned to the started directory
+        cd ..
 
 ```
 
 ## API Documentation
 
 In the following link you can find everything related to the PadelVersus Rest API documentation [APIDocuments](API.md)
-You can see also some examples at [Postman PadelVersus Colection] ()
+You can also see some examples at [Postman PadelVersus Colection] ()
 
 ## Class/Template Diagram Updated
 
 ## Dockerized application execution instructions
-To run the application in docker containers, you just have to launch the Power Shell script, this will be responsible for executing the container with maven that is responsible for the construction of the jar, then moves to the Docker folder, and there we create the image, and the docker composes with the created image, a contain mySQL and the resources of images necessary for the correct operation
+To run the application in docker containers, you just have to launch the Power Shell script, this will be responsible for executing the container with maven that is responsible for the construction of the jar, then moves to the Docker folder, and there we create the image, and push to the repository on docker hub.
+To run the script on Windows standard cmd:
 ```
-   C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File <rutaproyecto>/Script.ps1
+   C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File <ProjectPath>/Script.ps1
+```
+If you wanted to run for other os, install powershell, run pwsh, go to the project path and run the script: 
+```
+   ./Script.ps1
 ```
 If you want to get the image:
 ```
-  docker push i100van/padelversus:tagname
+  docker push teampina/padelversus:latest
+```
+To run application (daemon mode of docker):
+```
+  docker-compose up -d
+```
+To stop the application and remove containers and network (it does not remove the images).
+```
+  docker-compose down
 ```
 ## Demo Structure
