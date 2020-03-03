@@ -50,7 +50,7 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().regexMatchers("/api/match/.*").permitAll();
 
         http.authorizeRequests().antMatchers("/api/player/{\\d+}").permitAll();
-        http.authorizeRequests().antMatchers("/api/player/{\\d+}/image").permitAll();
+        http.authorizeRequests().antMatchers("/api/player/{\\d+}/image").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/api/teamx/{\\d+}").permitAll();
         http.authorizeRequests().regexMatchers("/api/teams/.*").permitAll();
         http.authorizeRequests().antMatchers("/api/teams/.*").permitAll();
@@ -58,12 +58,11 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().regexMatchers("/api/matches/.*").permitAll();
         http.authorizeRequests().regexMatchers("/api/teamsList/.*").permitAll();
         http.authorizeRequests().regexMatchers("/api/logIn").permitAll();
-        http.authorizeRequests().regexMatchers("/api/user").permitAll();
-        http.authorizeRequests().regexMatchers("/api/player").permitAll();
+        http.authorizeRequests().regexMatchers("/api/user").hasAnyRole("ADMIN");
+        http.authorizeRequests().regexMatchers("/api/player").hasAnyRole("ADMIN");
+        http.authorizeRequests().regexMatchers("/api/tournament/").hasAnyRole("ADMIN");
 
 
-        //Resources
-        //http.authorizeRequests().antMatchers("/css-min/**", "/css/main.css", "/css/**", "/js/**", "/images/**", "/fonts/**", "/dev-assets/**", "/vendor/**", "/html/**").permitAll();
 
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();
