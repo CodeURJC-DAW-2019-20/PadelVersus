@@ -1959,8 +1959,162 @@ Allows a anonymous user to see info of one team by teamID
 * ##### Error response:
 
 	**Code**: NOT.FOUND
-	
 
+#### Get all teams basic info
+Allows a anonymous user to see a list of team names
+* ##### URL: </api/teamsList/>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+```
+[
+    [
+        "1",
+        "Madrid PT"
+    ],
+    [
+        "2",
+        "Atletico PT"
+    ],
+    [
+        "3",
+        "Barcelona PT"
+    ],
+    [
+        "4",
+        "Leones"
+    ],
+    [
+        "5",
+        "Tigres"
+    ],
+    [
+        "6",
+        "Donuts"
+    ],
+    [
+        "7",
+        "Valencia PT"
+    ],
+    [
+        "8",
+        "VersusTeam"
+    ],
+    [
+        "9",
+        "Las palmas PT"
+    ],
+    [
+        "10",
+        "Getafe PT"
+    ]
+]
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+	
+#### Get Teams Info by PlayerId
+Allows a anonymous user to see a list of teams which have a player as a member
+The playerId parameter is not required, if its empty then the requests allows to see the list of all the teams
+* ##### URL: </api/teams/?playerId={Long}>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+```
+[
+    {
+        "id": 9,
+        "name": "Las palmas PT",
+        "players": [
+            {
+                "age": 29,
+                "countryBirth": "Spain",
+                "user": {
+                    "name": "Jordi Hurtado"
+                }
+            },
+            {
+                "age": 21,
+                "countryBirth": "Spain",
+                "user": {
+                    "name": "Marco Gutierrez"
+                }
+            }
+        ],
+        "teamStatistics": {
+            "totalGames": 3,
+            "totalWins": 1,
+            "totalDefeats": 2,
+            "totalAcurracy": 69,
+            "totalEffectiveness": 171,
+            "totalGamesWon": 36,
+            "totalUnforcedErrors": 150,
+            "gamesPerMatch": [
+                {
+                    "games": 16
+                },
+                {
+                    "games": 10
+                },
+                {
+                    "games": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "name": "Getafe PT",
+        "players": [
+            {
+                "age": 21,
+                "countryBirth": "Spain",
+                "user": {
+                    "name": "Marco Gutierrez"
+                }
+            },
+            {
+                "age": 40,
+                "countryBirth": "United Kindgdom",
+                "user": {
+                    "name": "Baldwin Carillo"
+                }
+            }
+        ],
+        "teamStatistics": {
+            "totalGames": 3,
+            "totalWins": 2,
+            "totalDefeats": 1,
+            "totalAcurracy": 69,
+            "totalEffectiveness": 171,
+            "totalGamesWon": 38,
+            "totalUnforcedErrors": 150,
+            "gamesPerMatch": [
+                {
+                    "games": 15
+                },
+                {
+                    "games": 9
+                },
+                {
+                    "games": 14
+                }
+            ]
+        }
+    }
+]
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+	
 ## User related
 
 #### Save New User
