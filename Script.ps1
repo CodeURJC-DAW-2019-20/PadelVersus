@@ -29,10 +29,13 @@ if (!(Test-Path ./Docker/DemoImages -PathType Any)){
 cd Docker
 
 # We remove the image in case we have done changes in .Dockerfile
-docker rmi padelversus
+docker rmi teampina/padelversus
 
 # We build the app image
-docker image build -t i100van/padelversus -f .Dockerfile .
+docker image build -t teampina/padelversus -f .Dockerfile .
+
+# We push the image to docker hub
+docker push teampina/padelversus
 
 # We reutrned to the started directory
 cd ..
