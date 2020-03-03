@@ -1077,7 +1077,7 @@ Allows a anonymous user to see info of the tournaments by playerID
 
 
 #### Tournament Info By PlayerId
-Allows a anonymous user to see info of one playerID given one tournament
+Allows a anonymous user to see info of one tournament given one playerId and tournament name
 * ##### URL: </api/tournaments/?playerId=Long&name=String>
 
 * ##### Method:
@@ -1236,7 +1236,7 @@ Allows a anonymous user to see info of one playerID given one tournament
 	
 
 #### Tournament Info By TeamId
-Allows a anonymous user to see info of one teamID given one tournament
+Allows a anonymous user to see info of one tournament given one teamId and tournament name
 * ##### URL: </api/tournaments/?teamId=Long&name=String>
 
 * ##### Method:
