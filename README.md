@@ -468,5 +468,8 @@ To run the application in docker containers, you just have to launch the Power S
 ```
    C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File <rutaproyecto>/Script.ps1
 ```
-
+If you want to get the image:
+```
+  docker push i100van/padelversus:tagname
+```
 ## Demo Structure
