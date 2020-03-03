@@ -70,30 +70,82 @@ public class MatchRestController {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
+    public static class MatchCreate {
+        private String t1;
+        private String t2;
+        private LocalDate date;
+
+        public MatchCreate(String t1, String t2, LocalDate date) {
+            this.t1 = t1;
+            this.t2 = t2;
+            this.date = date;
+        }
+
+        public String getT1() {
+            return t1;
+        }
+
+        public void setT1(String t1) {
+            this.t1 = t1;
+        }
+
+        public String getT2() {
+            return t2;
+        }
+
+        public void setT2(String t2) {
+            this.t2 = t2;
+        }
+
+        public LocalDate getDate() {
+            return date;
+        }
+
+        public void setDate(LocalDate date) {
+            this.date = date;
+        }
+    }
 
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
-    @RequestMapping(value = "/match/{tournament}", method = RequestMethod.POST)
-    public ResponseEntity<Match> saveMatch(@PathVariable String tournament, @RequestBody MatchCreate match) {
+    @RequestMapping(value = "/match/{tournamentName}", method = RequestMethod.POST)
+    public ResponseEntity<Match> saveMatch(@PathVariable String tournamentName, @RequestBody MatchCreate match) {
+
         if (!userComponent.isAdmin()) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-        Optional<Tournament> tournament1 = tournamentService.getTournamentByName(tournament);
-        Optional<Team> optionalTeam1 = teamService.getTeamByName(match.t1);
-        Optional<Team> optionalTeam2 = teamService.getTeamByName(match.t2);
-        if (optionalTeam1.isPresent() && optionalTeam2.isPresent() && tournament1.isPresent()) {
+        // Parse params on Request Body
+        String t1_name = match.getT1();
+        String t2_name = match.getT1();
+        LocalDate date = match.getDate();
+
+
+        Optional<Tournament> tournamentOptional = tournamentService.getTournamentByName(tournamentName);
+
+        Optional<Team> optionalTeam1 = teamService.getTeamByName(t1_name);
+
+        Optional<Team> optionalTeam2 = teamService.getTeamByName(t2_name);
+
+        if (optionalTeam1.isPresent() && optionalTeam2.isPresent() && tournamentOptional.isPresent()) {
+
             Team team1 = optionalTeam1.get();
             Team team2 = optionalTeam2.get();
 
-            Match optionalMatch = matchService.findMatchByTeams(team1, team2, tournament1.get());
+            Tournament tournament = tournamentOptional.get();
+
+            Match optionalMatch = matchService.findMatchByTeams(team1, team2, tournament);
+
             if (optionalMatch != null) {
                 return new ResponseEntity<>(HttpStatus.CONFLICT);
             }
-            Match matchOf = new Match(false, match.getDate(), team1, team2);
-            matchService.saveApiMatch(matchOf, tournament1.get());
-            Match matchOficial = matchService.findMatchByTeams(team1, team2, tournament1.get());
+
+            Match matchOf = new Match(false, date, team1, team2);
+            matchService.saveApiMatch(matchOf, tournamentOptional.get());
+
+            Match matchOficial = matchService.findMatchByTeams(team1, team2, tournament);
             return new ResponseEntity<>(matchOficial, HttpStatus.CREATED);
-        } else
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)

@@ -36,8 +36,8 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
             "INNER JOIN games g ON gt.match_id = g.id " +
             "INNER JOIN team t ON gt.teams_id = t.id " +
             "WHERE t.name=?1 OR t.name=?2 " +
-            "GROUP BY g.id " +
-            "HAVING count(g.id)>1 " +
+            //"GROUP BY g.id " +
+            //"HAVING count(g.id)>1 " +
             ") AS joinned_table " +
             ") m ON tm.matches_id = m.id " +
             "WHERE NOT played and t.name = ?3 ",
