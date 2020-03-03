@@ -17,7 +17,8 @@
       
   
   * [Player Related](#player-related)
-      - [Player info](#player-info)
+      - [Player info](#player-info-by-playerId)
+
     
 
 ## About our API
@@ -1706,3 +1707,44 @@ when a user is created, a player is created
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+
+## Player Related
+
+#### Player Info By PlayerId
+Allows a anonymous user to see info of one player by playerID
+* ##### URL: </api/player/Long>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+  
+  
+ ```
+	{
+    "id": 18,
+    "age": 21,
+    "countryBirth": "Spain",
+    "height": 1.7,
+    "weight": 70.0,
+    "speed": 8.0,
+    "strength": 5.6,
+    "endurance": 5.9,
+    "pace": 3.4,
+    "accuaracy": 8.0,
+    "aceleration": 4.5,
+    "user": {
+        "name": "Marco Gutierrez",
+        "mail": "marcogutierrez@gmail.com"
+    }
+}
+    
+    
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
+
+
