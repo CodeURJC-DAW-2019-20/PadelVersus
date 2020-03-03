@@ -25,7 +25,7 @@ import static org.springframework.http.MediaType.IMAGE_JPEG;
 @RestController
 @RequestMapping("/api")
 public class PlayerRestController {
-    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name {
+    interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email {
     }
     public static class PlayerApi{
 
