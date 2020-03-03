@@ -465,7 +465,7 @@ In the following link you can find everything related to the PadelVersus Rest AP
 
 You can also see some examples at [Postman PadelVersus Colection] (DAW.postman_collection.json)
 
-And if you want to se documents in postamn format: [Postman Documentation](DAW.postman_collection.jsohttps://documenter.getpostman.com/view/10553995/SzKbNFpr?version=latest)
+And if you want to se documents in postamn format: [Postman Documentation] (DAW.postman_collection.jsohttps://documenter.getpostman.com/view/10553995/SzKbNFpr?version=latest)
 
 ## Class/Template Diagram Updated
 
