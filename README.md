@@ -1,9 +1,9 @@
 # PadelVersus
 ## Table of content
-- [PadelVersus](#padelversus)
 - [Fase 0](#fase-0)
     + [Team members](#team-members)
     + [Other tools used](#other-tools-used)
+      - [Trello](#trello)
     + [Sections description](#sections-description)
       - [Entities](#entities)
       - [Users and permissions](#users-and-permissions)
@@ -13,6 +13,16 @@
       - [Advanced Algorithmic](#advanced-algorithmic)
 - [Fase 1](#fase-1)
     + [Snapshots](#snapshots)
+      - [Home](#home)
+      - [Loggin](#loggin)
+      - [SignUp](#signup)
+      - [Matches](#matches)
+      - [SpecificMatch](#specificmatch)
+      - [Teams](#teams)
+      - [SpecificTeam](#specificteam)
+      - [Player/User](#player-user)
+      - [Registration Tournament](#registration-tournament)
+      - [Calendar](#calendar)
     + [Flow Diagram](#flow-diagram)
 - [Fase 2](#fase-2)
   * [Description of the Fase](#description-of-the-fase)
@@ -20,7 +30,17 @@
   * [Files focused on](#files-focused-on)
   * [Textual Description Of Work](#textual-description-of-work)
   * [Steps for making the website:](#steps-for-making-the-website-)
+    + [We start with the player class:](#we-start-with-the-player-class-)
+    + [Highlighting the creation of security:](#highlighting-the-creation-of-security-)
   * [New templates](#new-templates)
+    + [Registration For a Tournament](#registration-for-a-tournament)
+    + [SignUp Form](#signup-form)
+    + [Admin Page](#admin-page)
+    + [LogOut Page](#logout-page)
+    + [Specific Team Page Update](#specific-team-page-update)
+    + [404 Page](#404-page)
+    + [Comming Soon](#comming-soon)
+    + [Unexpected Error](#unexpected-error)
   * [Navigation](#navigation)
   * [Entity Diagram](#entity-diagram)
   * [Class/Template Diagram](#class-template-diagram)
@@ -39,7 +59,6 @@
   * [Class/Template Diagram Updated](#class-template-diagram-updated)
   * [Dockerized application execution instructions](#dockerized-application-execution-instructions)
   * [Demo Structure](#demo-structure-1)
-
 # Fase 0
 ### Team members
 
