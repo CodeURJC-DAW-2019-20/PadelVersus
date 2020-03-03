@@ -387,6 +387,86 @@ To see that everything works
 Everything is ready to try, go **https: // localhost: 8443 /** and see what the page is going
 
 And now why have to deploy Doker Compose:
+```
+    version: "3"
+services:
+  padelversus:
+    image: padelversus
+    restart: always
+    ports:
+      - "8443:8443"
+    networks:
+      - padelVersus-network
+    environment:
+      WAIT_HOSTS: mysql:3306
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    restart: on-failure
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=123456789--execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    networks:
+      - padelVersus-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=padelversus  
+
+networks:
+  padelVersus-network: 
+```
+Now, to prepare the folder with the necessary files to do the docker-compose up, we will use a Power Shell Script with the following commands:
+```
+    # Clean and packge using local .m2 repository to do not download already gotten libraries
+    docker run -it --rm -v "$(pwd):/usr/src/project" `
+                        -v"$HOME/.m2:/root/.m2" `
+                        -w /usr/src/project maven:alpine mvn clean package
+
+    # If there is any problem in compilation we move and rename the .jar
+    if(Test-Path ./target/padelversus-0.0.1-SNAPSHOT.jar -PathType Leaf){
+        Copy-Item -Path ./target/padelversus-0.0.1-SNAPSHOT.jar -Destination ./Docker/PadelVersus.jar -force
+    }else{
+        echo "Maven compilation fail"
+        exit
+    }
+
+    # If there is not already moved we copy recursive the folder with images needed for the demo
+    if (!(Test-Path ./Docker/DemoImages -PathType Any)){
+        Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
+    }else{
+        Remove-Item -Recurse -Force ./Docker/DemoImages
+        Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
+    }
+
+    # We move into the folder were the .Dockerfile and docker-compose.yml is
+    cd Docker
+
+    # We remove the image in case we have done changes in .Dockerfile
+    docker rmi padelversus
+
+    # We build the app image
+    docker image build -t padelversus -f .Dockerfile .
+
+    # We use docker-compose to create, connect and set healthcheck containers
+    if(!($args[0])){
+        docker-compose up -d
+    }else{
+        docker-compose up
+    }
+
+    # We wait for a key pressed to stop and remove containers with docker-compose down
+    read-host  "Press enter to run docker-compose down and stop execution"
+    docker-compose down
+
+    # We reutrned to the started directory
+    cd ..
+
+
+```
 
 ## API Documentation
 
@@ -395,5 +475,6 @@ In the following link you can find everything related to the PadelVersus Rest AP
 ## Class/Template Diagram Updated
 
 ## Dockerized application execution instructions
+To run the application in docker containers, you just have to launch the Power Shell script, this will be responsible for executing the container with maven that is responsible for the construction of the jar, then moves to the Docker folder, and there we create the image, and the docker composes with the created image, a contain mySQL and the resources of images necessary for the correct operation
 
 ## Demo Structure
