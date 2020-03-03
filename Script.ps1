@@ -32,7 +32,7 @@ cd Docker
 docker rmi padelversus
 
 # We build the app image
-docker image build -t padelversus -f .Dockerfile .
+docker image build -t i100van/padelversus -f .Dockerfile .
 
 # We reutrned to the started directory
 cd ..
