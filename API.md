@@ -1621,20 +1621,212 @@ Allows a anonymous user to see info of the tournament its matches and its teams
 
 	**Code**: NOT.FOUND
 
-Allows a anonymous user to see info of the tournament its matches and its teams 	 	 
+Allows a logged player to register into a tournament with a team.
 * ##### URL: </api/tournament/{id}>
 
 * ##### Method:
 
 	`PUT`
 * ##### Example Body
-
+```
+{
+	"playerId": 8,
+	"teamName": "ElEquipoDeDani"
+}
+```
 * ##### Success Response:
 ```
+{
+    "id": 3,
+    "name": "Tournament 3",
+    "nonspacename": "Tournament3",
+    "matches": [
+        {
+            "id": 13,
+            "date": "2019-10-20",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 9,
+                "unforcedErrors": 50,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 14,
+                "unforcedErrors": 50,
+                "win": true
+            }
+        },
+        {
+            "id": 14,
+            "date": "2019-11-22",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 9,
+                "unforcedErrors": 50,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 16,
+                "unforcedErrors": 50,
+                "win": true
+            }
+        },
+        {
+            "id": 15,
+            "date": "2019-11-23",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 9,
+                "unforcedErrors": 50,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 15,
+                "unforcedErrors": 50,
+                "win": true
+            }
+        },
+        {
+            "id": 16,
+            "date": "2019-11-24",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 13,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 10,
+                "unforcedErrors": 50,
+                "win": false
+            }
+        },
+        {
+            "id": 17,
+            "date": "2019-11-25",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 14,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 9,
+                "unforcedErrors": 50,
+                "win": false
+            }
+        },
+        {
+            "id": 18,
+            "date": "2019-11-26",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 10,
+                "unforcedErrors": 50,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 14,
+                "unforcedErrors": 50,
+                "win": true
+            }
+        },
+        {
+            "id": 19,
+            "date": "2020-03-23",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        },
+        {
+            "id": 20,
+            "date": "2020-10-30",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        },
+        {
+            "id": 21,
+            "date": "2020-11-20",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        },
+        {
+            "id": 22,
+            "date": "2020-03-10",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        },
+        {
+            "id": 23,
+            "date": "2020-03-10",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        },
+        {
+            "id": 24,
+            "date": "2020-04-15",
+            "played": false,
+            "stadistics_1": null,
+            "stadistics_2": null
+        }
+    ],
+    "teams": [
+        {
+            "id": 6,
+            "name": "Donuts"
+        },
+        {
+            "id": 8,
+            "name": "VersusTeam"
+        },
+        {
+            "id": 9,
+            "name": "Las palmas PT"
+        },
+        {
+            "id": 10,
+            "name": "Getafe PT"
+        },
+        {
+            "id": 12,
+            "name": "ElEquipoDeDani"
+        }
+    ]
+} 
 ```
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+	**Code**: UNAUTHORIZED
+	**Code**: NOT_IMPLEMENTED
 
 
 ## New Player and User
