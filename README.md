@@ -451,17 +451,6 @@ Now, to prepare the folder with the necessary files to do the docker-compose up,
     # We build the app image
     docker image build -t padelversus -f .Dockerfile .
 
-    # We use docker-compose to create, connect and set healthcheck containers
-    if(!($args[0])){
-        docker-compose up -d
-    }else{
-        docker-compose up
-    }
-
-    # We wait for a key pressed to stop and remove containers with docker-compose down
-    read-host  "Press enter to run docker-compose down and stop execution"
-    docker-compose down
-
     # We reutrned to the started directory
     cd ..
 
