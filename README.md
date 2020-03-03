@@ -20,7 +20,7 @@
       - [SpecificMatch](#specificmatch)
       - [Teams](#teams)
       - [SpecificTeam](#specificteam)
-      - [Player/User](#player-user)
+      - [Player/User](#playeruser)
       - [Registration Tournament](#registration-tournament)
       - [Calendar](#calendar)
     + [Flow Diagram](#flow-diagram)
