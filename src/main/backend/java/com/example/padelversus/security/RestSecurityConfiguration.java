@@ -19,29 +19,39 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         // Public pages //Api
         http.antMatcher("/api/**");
-        http.authorizeRequests().antMatchers("/api/tournament/{\\d+}").permitAll();
-        http.authorizeRequests().antMatchers("/api/tournaments/").permitAll();
-        http.authorizeRequests().regexMatchers("/api/tournaments/.*").permitAll();
-        http.authorizeRequests().regexMatchers("/api/tournament/.*").permitAll();
 
-        http.authorizeRequests().regexMatchers("/api/match/.*").permitAll();
-
-        http.authorizeRequests().antMatchers("/api/player/{\\d+}").permitAll();
-        http.authorizeRequests().antMatchers("/api/player/{\\d+}/image").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/api/teamx/{\\d+}").permitAll();
-        http.authorizeRequests().regexMatchers("/api/teams/.*").permitAll();
-        http.authorizeRequests().antMatchers("/api/teams/.*").permitAll();
+        // Matches
         http.authorizeRequests().antMatchers("/api/match/{\\d+}").permitAll();
         http.authorizeRequests().regexMatchers("/api/matches/.*").permitAll();
+        http.authorizeRequests().regexMatchers("/api/match/.*").permitAll();
+
+        // Player
+        http.authorizeRequests().antMatchers("/api/player/{\\d+}").permitAll();
+        http.authorizeRequests().antMatchers("/api/player/{\\d+}/image").permitAll();
+        http.authorizeRequests().antMatchers("/api/player/").permitAll();
+
+        // Team
         http.authorizeRequests().regexMatchers("/api/teamsList/.*").permitAll();
-        http.authorizeRequests().regexMatchers("/api/logIn").permitAll();
-        http.authorizeRequests().regexMatchers("/api/user").hasAnyRole("ADMIN");
-        http.authorizeRequests().regexMatchers("/api/player").hasAnyRole("ADMIN");
-        http.authorizeRequests().regexMatchers("/api/tournament/").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers("/api/teams/").permitAll();
+        http.authorizeRequests().antMatchers("/api/teams/{\\d+}").permitAll();
+        http.authorizeRequests().antMatchers("/api/teamx/{\\d+}").permitAll();
 
+        // Tournament
+        http.authorizeRequests().antMatchers("/api/tournament/{\\d+}").permitAll();
+        http.authorizeRequests().regexMatchers("/api/tournaments/.*").permitAll();
+        http.authorizeRequests().antMatchers("/api/tournament/{\\d+}/ranking").permitAll();
+        http.authorizeRequests().antMatchers("/api/tournament/").permitAll();
 
+        // User
+        http.authorizeRequests().antMatchers("/api/user/login").permitAll();
+        http.authorizeRequests().antMatchers("/api/user").permitAll();
+        http.authorizeRequests().antMatchers("/api/user/logout").permitAll();
 
-        // Private pages (all other pages)
+        // Log
+        http.authorizeRequests().antMatchers("/api/logIn").permitAll();
+        http.authorizeRequests().antMatchers("/api/logOut").permitAll();
+
+        // Private pages (all other pages) (not really needed)
         http.authorizeRequests().anyRequest().authenticated();
 
         http.headers().frameOptions().disable();
