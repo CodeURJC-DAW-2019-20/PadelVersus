@@ -2221,6 +2221,44 @@ Allows a anonymous user to see info of one player by playerID
 
 	**Code**: NOT.FOUND
 	
+#### Get Player Image
+Allows a anonymous user to see the image of a player
+* ##### URL: </api/player/Long/image>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+  
+  
+```
+ The image of the player 
+    
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
+#### Set Player Image
+Allows a logged player to change its image
+* ##### URL: </api/player/Long/image>
+
+* ##### Method:
+
+	`GET`
+* ##### Body:
+	`Key: image| Value (file): image File Desired` 
+* ##### Success Response:
+  
+  
+```
+ The new image of the player
+```
+* ##### Error response:
+
+	**Code**: UNAUTHORIZED
+	
 
 
 
