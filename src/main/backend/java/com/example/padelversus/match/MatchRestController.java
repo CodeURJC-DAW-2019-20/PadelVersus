@@ -6,11 +6,13 @@ import com.example.padelversus.team.Team;
 import com.example.padelversus.team.TeamService;
 import com.example.padelversus.tournament.Tournament;
 import com.example.padelversus.tournament.TournamentService;
+import com.example.padelversus.user.UserComponent;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +23,9 @@ public class MatchRestController {
     interface CompleteInfoForAMatch extends Match.Basic, Match.Statistics, MatchStadistics.Basic, Match.Teams, MatchStadistics.SetP, SetPadel.Basic,
             Team.Basic {
     }
+
+    @Autowired
+    UserComponent userComponent;
 
     @Autowired
     MatchService matchService;
@@ -39,37 +44,39 @@ public class MatchRestController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @GetMapping("/matches/")
     public ResponseEntity<List<Match>> getMatchesNotPlayed(@RequestParam(required = false) Boolean played,
-                                                           @RequestParam (required = false) String date,
-                                                           @RequestParam (required = false) Long teamId) {
+                                                           @RequestParam(required = false) String date,
+                                                           @RequestParam(required = false) Long teamId) {
         //Return matches by played
-        if(played!=null && date==null && teamId==null){
-            if(played){
+        if (played != null && date == null && teamId == null) {
+            if (played) {
                 return getListResponseEntity(matchService.getAllPlayed());
             }
             return getListResponseEntity(matchService.getAllNotPlayed());
         }
         //Return matches by future date
-        if(played==null && date!=null && teamId==null){
+        if (played == null && date != null && teamId == null) {
             String[] parsedate = date.split("-");
-            LocalDate localdate = LocalDate.of(Integer.parseInt(parsedate[0]),Integer.parseInt(parsedate[1]),Integer.parseInt(parsedate[2]));
+            LocalDate localdate = LocalDate.of(Integer.parseInt(parsedate[0]), Integer.parseInt(parsedate[1]), Integer.parseInt(parsedate[2]));
             return getListResponseEntity(matchService.findMatchByDateAndPlayedOrderByDate(localdate));
         }
         //Return past matches played by a teamID
-        if(played==null && date==null && teamId!=null){
+        if (played == null && date == null && teamId != null) {
             return getListResponseEntity(matchService.findLastFourMatchesPlayedByTeamId(teamId));
         }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
 
-
-
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @RequestMapping(value = "/match/{tournament}", method = RequestMethod.POST)
     public ResponseEntity<Match> saveMatch(@PathVariable String tournament, @RequestBody MatchCreate match) {
+        if (!userComponent.isAdmin()) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
         Optional<Tournament> tournament1 = tournamentService.getTournamentByName(tournament);
         Optional<Team> optionalTeam1 = teamService.getTeamByName(match.t1);
         Optional<Team> optionalTeam2 = teamService.getTeamByName(match.t2);
@@ -92,6 +99,9 @@ public class MatchRestController {
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @RequestMapping(value = "/match/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Match> saveStatsMatch(@PathVariable Long id, @RequestBody List<MatchStadistics> matchStadistics) {
+        if (!userComponent.isAdmin()) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
         Optional<Match> match = matchService.findMatchById(id);
         if (match.isPresent()) {
             Match matchOficial = match.get();
