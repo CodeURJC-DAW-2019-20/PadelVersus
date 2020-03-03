@@ -476,5 +476,8 @@ In the following link you can find everything related to the PadelVersus Rest AP
 
 ## Dockerized application execution instructions
 To run the application in docker containers, you just have to launch the Power Shell script, this will be responsible for executing the container with maven that is responsible for the construction of the jar, then moves to the Docker folder, and there we create the image, and the docker composes with the created image, a contain mySQL and the resources of images necessary for the correct operation
+```
+   C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File <rutaproyecto>/Script.ps1
+```
 
 ## Demo Structure
