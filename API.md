@@ -1077,7 +1077,7 @@ Allows a anonymous user to see info of the tournaments by playerID
 
 #### Tournament Info By PlayerId
 Allows a anonymous user to see info of one playerID given one tournament
-* ##### URL: </api/tournaments/?playerId=Long&name= "nameTournament">
+* ##### URL: </api/tournaments/?playerId=Long&name=String>
 
 * ##### Method:
 
@@ -1236,7 +1236,7 @@ Allows a anonymous user to see info of one playerID given one tournament
 
 #### Tournament Info By TeamId
 Allows a anonymous user to see info of one teamID given one tournament
-* ##### URL: </api/tournaments/?teamId= numberTeam&name= "nameTournament">
+* ##### URL: </api/tournaments/?teamId=Long&name=String>
 
 * ##### Method:
 
@@ -1393,6 +1393,77 @@ Allows a anonymous user to see info of one teamID given one tournament
 * ##### Error response:
 
 	**Code**: NOT.FOUND
+
+Allows a anonymous user to see info of the ranking of a tournament
+* ##### URL: </api/tournament/{id}/ranking>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+  
+  
+ ```
+ [
+    {
+        "id": 1,
+        "name": "Madrid PT",
+        "gamesWon": 3,
+        "gamesPlayed": 3,
+        "gamesLost": 0,
+        "hasLastMatches": true,
+        "lastMatches": [
+            "w",
+            "w",
+            "w"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Atletico PT",
+        "gamesWon": 1,
+        "gamesPlayed": 3,
+        "gamesLost": 2,
+        "hasLastMatches": true,
+        "lastMatches": [
+            "l",
+            "l",
+            "w"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Barcelona PT",
+        "gamesWon": 1,
+        "gamesPlayed": 3,
+        "gamesLost": 2,
+        "hasLastMatches": true,
+        "lastMatches": [
+            "l",
+            "w",
+            "l"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Leones",
+        "gamesWon": 1,
+        "gamesPlayed": 3,
+        "gamesLost": 2,
+        "hasLastMatches": true,
+        "lastMatches": [
+            "l",
+            "l",
+            "w"
+        ]
+    }
+]
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
 
 ## New Player and User
 
