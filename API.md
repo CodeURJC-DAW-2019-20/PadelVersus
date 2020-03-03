@@ -1465,6 +1465,177 @@ Allows a anonymous user to see info of the ranking of a tournament
 	**Code**: NOT.FOUND
 
 
+Allows a anonymous user to see info of the tournament its matches and its teams 	 	 
+* ##### URL: </api/tournament/{id}>
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+  
+  
+ ```
+ {
+    "id": 1,
+    "name": "Tournament 1",
+    "nonspacename": "Tournament1",
+    "matches": [
+        {
+            "id": 1,
+            "date": "2019-10-20",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 16,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 13,
+                "effectiveness": 17,
+                "games_wins": 13,
+                "unforcedErrors": 0,
+                "win": false
+            }
+        },
+        {
+            "id": 2,
+            "date": "2019-10-21",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 15,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 13,
+                "effectiveness": 17,
+                "games_wins": 9,
+                "unforcedErrors": 0,
+                "win": false
+            }
+        },
+        {
+            "id": 3,
+            "date": "2019-10-22",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 9,
+                "unforcedErrors": 50,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 13,
+                "effectiveness": 17,
+                "games_wins": 16,
+                "unforcedErrors": 0,
+                "win": true
+            }
+        },
+        {
+            "id": 4,
+            "date": "2019-10-23",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 99,
+                "effectiveness": 99,
+                "games_wins": 8,
+                "unforcedErrors": 99,
+                "win": false
+            },
+            "stadistics_2": {
+                "acurracy": 78,
+                "effectiveness": 7,
+                "games_wins": 15,
+                "unforcedErrors": 3,
+                "win": true
+            }
+        },
+        {
+            "id": 5,
+            "date": "2019-10-24",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 13,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 10,
+                "unforcedErrors": 50,
+                "win": false
+            }
+        },
+        {
+            "id": 6,
+            "date": "2019-10-25",
+            "played": true,
+            "stadistics_1": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 14,
+                "unforcedErrors": 50,
+                "win": true
+            },
+            "stadistics_2": {
+                "acurracy": 23,
+                "effectiveness": 57,
+                "games_wins": 10,
+                "unforcedErrors": 50,
+                "win": false
+            }
+        }
+    ],
+    "teams": [
+        {
+            "id": 1,
+            "name": "Madrid PT"
+        },
+        {
+            "id": 2,
+            "name": "Atletico PT"
+        },
+        {
+            "id": 3,
+            "name": "Barcelona PT"
+        },
+        {
+            "id": 4,
+            "name": "Leones"
+        }
+    ]
+}
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
+Allows a anonymous user to see info of the tournament its matches and its teams 	 	 
+* ##### URL: </api/tournament/{id}>
+
+* ##### Method:
+
+	`PUT`
+* ##### Example Body
+
+* ##### Success Response:
+```
+```
+* ##### Error response:
+
+	**Code**: NOT.FOUND
+
+
 ## New Player and User
 
 #### Save New User
@@ -1496,7 +1667,9 @@ Allows a anonymous user create an account
 * ##### Error response:
 
 	**Code**: NOT.FOUND
-	
+
+
+
 
 #### Save New Player
 when a user is created, a player is created
