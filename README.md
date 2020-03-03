@@ -468,6 +468,7 @@ You can also see some examples at [Postman PadelVersus Colection](DAW.postman_co
 And if you want to se documents in postamn format: [Postman Documentation](https://documenter.getpostman.com/view/10553995/SzKbNFpr?version=latest)
 
 ## Class/Template Diagram Updated
+![Fase3_Diagram](WebImages/Fase3_Diagram.png)
 
 ## Dockerized application execution instructions
 To run the application in docker containers, you just have to launch the Power Shell script, this will be responsible for executing the container with maven that is responsible for the construction of the jar, then moves to the Docker folder, and there we create the image, and push to the repository on docker hub.
