@@ -53,10 +53,10 @@
   * [Top 5 Most Important Commits](#top-5-most-important-commits-1)
   * [Files focused on](#files-focused-on-1)
   * [Textual Description Of Work](#textual-description-of-work-1)
-  * [Steps for making the API:](#steps-for-making-the-api-)
-  * [Steps for use Docker:](#steps-for-use-docker-)
+  * [Steps for making the API:](#steps-for-making-the-api)
+  * [Steps for use Docker:](#steps-for-use-docker)
   * [API Documentation](#api-documentation)
-  * [Class/Template Diagram Updated](#class-template-diagram-updated)
+  * [Class/Template Diagram Updated](#classtemplate-diagram-updated)
   * [Dockerized application execution instructions](#dockerized-application-execution-instructions)
   * [Demo Structure](#demo-structure-1)
 # Fase 0
