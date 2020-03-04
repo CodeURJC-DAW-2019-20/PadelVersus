@@ -20,7 +20,7 @@ public class Player {
     public interface MinInfo{}
 
     @Id
-    @JsonView(Basic.class)
+    @JsonView({Basic.class, MinInfo.class})
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

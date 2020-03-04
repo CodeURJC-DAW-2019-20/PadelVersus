@@ -3,6 +3,7 @@ package com.example.padelversus.tournament;
 import com.example.padelversus.match.Match;
 import com.example.padelversus.match.MatchAdmin;
 import com.example.padelversus.match.stadistics.MatchStadistics;
+import com.example.padelversus.pdf.PdfService;
 import com.example.padelversus.player.Player;
 import com.example.padelversus.player.PlayerService;
 import com.example.padelversus.team.Team;
@@ -12,12 +13,17 @@ import com.example.padelversus.team.display.TeamDisplay;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserComponent;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +48,9 @@ public class TournamentRestController {
 
     @Autowired
     UserComponent userComponent;
+
+    @Autowired
+    PdfService pdfService;
 
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @GetMapping("/tournament/{id}")
@@ -149,6 +158,10 @@ public class TournamentRestController {
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @PostMapping("/tournament/")
     public ResponseEntity<Tournament> saveTournament(@RequestBody Tournament tournament ) {
+        if(!userComponent.isAdmin()){
+            new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
         String name = tournament.getName();
         Optional<Tournament> optionalTournament = tournamentService.getTournamentByName(name);
 
@@ -231,5 +244,18 @@ public class TournamentRestController {
         tournament.getTeams().add(team);
         tournamentService.saveTournament(tournament);
         return new ResponseEntity<>(tournament, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/tournaments/pdf")
+    public ResponseEntity<byte[]> generatePdf() throws IOException, DocumentException {
+        List<TournamentDisplay> tournamentList = tournamentService.getTournaments();
+        Path pdfPath = pdfService.createPdf(tournamentList);
+        String filename = pdfPath.toFile().getName();
+        byte[] content = Files.readAllBytes(pdfPath);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(content, headers, HttpStatus.OK);
     }
 }
