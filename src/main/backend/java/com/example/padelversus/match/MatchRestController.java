@@ -115,7 +115,7 @@ public class MatchRestController {
         }
         // Parse params on Request Body
         String t1_name = match.getT1();
-        String t2_name = match.getT1();
+        String t2_name = match.getT2();
         LocalDate date = match.getDate();
 
 
@@ -133,6 +133,12 @@ public class MatchRestController {
             Tournament tournament = tournamentOptional.get();
 
             Match optionalMatch = matchService.findMatchByTeams(team1, team2, tournament);
+
+            if (optionalMatch != null) {
+                return new ResponseEntity<>(HttpStatus.CONFLICT);
+            }
+
+            optionalMatch = matchService.findMatchByTeams(team2, team1, tournament);
 
             if (optionalMatch != null) {
                 return new ResponseEntity<>(HttpStatus.CONFLICT);

@@ -22,7 +22,7 @@ public class UserComponent {
     }
 
     public boolean isAdmin() {
-        return user.getRoles().contains("ROLE_ADMIN");
+        return user != null && user.getRoles() != null && user.getRoles().contains("ROLE_ADMIN");
     }
 
 }
