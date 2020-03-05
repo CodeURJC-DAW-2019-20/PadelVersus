@@ -855,19 +855,19 @@
 	],
 	"variable": [
 		{
-			"id": "1e7843b5-6d96-464b-a258-43392561c926",
+			"id": "785fe869-329a-4760-85a0-da654eeb9edb",
 			"key": "played",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "48447beb-a99d-47b2-bb75-361e58f4ef76",
+			"id": "8e6efb22-c039-4dfe-866a-b4933c0e102b",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "cd88025a-1f23-4116-bc52-03a192d3ac6f",
+			"id": "7ea58dd2-b252-4814-8b0d-6b8bb60e4e3b",
 			"key": "teamid",
 			"value": "",
 			"type": "string"
