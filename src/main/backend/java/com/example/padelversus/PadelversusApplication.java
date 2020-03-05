@@ -505,12 +505,9 @@ public class PadelversusApplication implements ApplicationRunner {
         t9.updateTeamStatistics(ms18_1);
         t10.updateTeamStatistics(ms18_2);
 
-        Match match19 = new Match(false, LocalDate.of(2020, 3, 23), null, null, t1, t3);
-        Match match20 = new Match(false, LocalDate.of(2020, 10, 30), null, null, t2, t4);
-        Match match21 = new Match(false, LocalDate.of(2020, 11, 20), null, null, t6, t5);
         Match match22 = new Match(false, LocalDate.of(2020, 3, 10), null, null, t9, t8);
         Match match23 = new Match(false, LocalDate.of(2020, 3, 10), null, null, t10, t8);
-        Match match24 = new Match(false, LocalDate.of(2020, 4, 15), null, null, t7, t8);
+        Match match24 = new Match(false, LocalDate.of(2020, 4, 15), null, null, t6, t8);
 
         matchRepository.save(match13);
         matchRepository.save(match14);
@@ -519,9 +516,7 @@ public class PadelversusApplication implements ApplicationRunner {
         matchRepository.save(match17);
         matchRepository.save(match18);
 
-        matchRepository.save(match19);
-        matchRepository.save(match20);
-        matchRepository.save(match21);
+        //Not Played
         matchRepository.save(match22);
         matchRepository.save(match23);
         matchRepository.save(match24);
@@ -534,9 +529,6 @@ public class PadelversusApplication implements ApplicationRunner {
         tournament3_matches.add(match16);
         tournament3_matches.add(match17);
         tournament3_matches.add(match18);
-        tournament3_matches.add(match19);
-        tournament3_matches.add(match20);
-        tournament3_matches.add(match21);
         tournament3_matches.add(match22);
         tournament3_matches.add(match23);
         tournament3_matches.add(match24);
