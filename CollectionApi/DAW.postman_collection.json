@@ -934,23 +934,94 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "All Tournaments Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"false\",\n        \"sets\": [\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n    },\n     {\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"true\",\n        \"sets\": [\n        \t{\n        \t    \"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n}]\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tournaments/?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournaments",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RequestTournamentsPdf(SaveandDown)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tournaments/pdf",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournaments",
+						"pdf"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "0b34bad9-bc38-4d68-a08f-ca0f5f117ead",
+			"id": "7b8b7c69-53bb-44df-ab8b-003f67099921",
 			"key": "played",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5d3c3ce9-f784-412e-a38e-6e9d1ed74059",
+			"id": "777aef83-8010-4230-ae30-667565a8e71f",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "18741050-83f5-47e0-8d17-6ac1e2eb1b2f",
+			"id": "8dc6e43f-7a14-4dd9-aa39-4ee668717ea8",
 			"key": "teamid",
 			"value": "",
 			"type": "string"
