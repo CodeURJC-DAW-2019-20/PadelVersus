@@ -138,6 +138,10 @@ public class MatchService {
     return lastFourMatchesByTeamId;
 
     }
+
+    public List<Match> findAll() {
+        return matchRepository.findAll();
+    }
 }
 
 

@@ -1,7 +1,9 @@
 package com.example.padelversus.security;
 
+import com.example.padelversus.player.Player;
 import com.example.padelversus.user.User;
 import com.example.padelversus.user.UserComponent;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +16,15 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 public class RestLoginCotroller {
-
+    interface UserPlayer extends User.Identifier, User.Roles, User.Name, User.Email, User.PlayerView, Player.Basic {
+    }
     private static final Logger log = LoggerFactory.getLogger(RestLoginCotroller.class);
 
     @Autowired
     private UserComponent userComponent;
 
     @RequestMapping("/api/logIn")
+    @JsonView(UserPlayer.class)
     public ResponseEntity<User> logIn() {
 
         if (!userComponent.isLoggedUser()) {
