@@ -718,6 +718,43 @@
 			"response": []
 		},
 		{
+			"name": "Pageable Teams",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AndreaCarion",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Andrea Carion",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/teamsList/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"teamsList",
+						""
+					]
+				},
+				"description": "https://localhost:8443/api/teamsList/"
+			},
+			"response": []
+		},
+		{
 			"name": "PlayerImage",
 			"request": {
 				"auth": {
@@ -851,23 +888,69 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "New User Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lucas\",\r\n    \"passwordHash\": \"$2a$10$t9Zc.ULj6yK0UxZuvPdMsufJZHRLNPUQu0K0ActHUQOs50NDHSLUG\",\r\n    \"mail\": \"procesosoftg1@gmail.com\",\r\n    \"roles\": [\r\n        \"ROLE_USER\"\r\n    ],\r\n    \"player\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/user?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "785fe869-329a-4760-85a0-da654eeb9edb",
+			"id": "0b34bad9-bc38-4d68-a08f-ca0f5f117ead",
 			"key": "played",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8e6efb22-c039-4dfe-866a-b4933c0e102b",
+			"id": "5d3c3ce9-f784-412e-a38e-6e9d1ed74059",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7ea58dd2-b252-4814-8b0d-6b8bb60e4e3b",
+			"id": "18741050-83f5-47e0-8d17-6ac1e2eb1b2f",
 			"key": "teamid",
 			"value": "",
 			"type": "string"
