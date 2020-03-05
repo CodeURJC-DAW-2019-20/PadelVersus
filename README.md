@@ -512,3 +512,20 @@ To stop the application and remove containers and network (it does not remove th
   docker-compose down
 ```
 ## Demo Structure
+1. First, show fuctionality of Teams and matches, notice that you dont have to be logged.
+2. Make the pageable request.
+3. Try to register on a tournament.
+4. Notice that you need to be logged.
+5. Create new user.
+6. Register for a tournament.
+7. Request to see tournament info.
+8. Request the player info.
+9. Request the player image.
+10. Try to change the image of another player different from the logged user.
+11. Change the image from logged player
+12. Log out.
+13. Log in as admin (Clean cookies first)
+14. Post request to create new match with the team we have made before.
+15. Request that match to see info
+16. Put request to update match statistics
+17. Get request to se tournament info
