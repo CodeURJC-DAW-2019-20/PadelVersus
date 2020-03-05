@@ -163,6 +163,7 @@ public class MatchRestController {
         Optional<Match> match = matchService.findMatchById(id);
         if (match.isPresent()) {
             Match matchOficial = match.get();
+            matchOficial.setPlayed(true);
             matchOficial.setStadistics_1(matchStadistics.get(0));
             matchOficial.setStadistics_2(matchStadistics.get(1));
             matchOficial.getTeams().get(0).updateTeamStatistics(matchStadistics.get(0));
