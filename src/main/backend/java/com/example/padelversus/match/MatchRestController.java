@@ -67,7 +67,11 @@ public class MatchRestController {
         if (played == null && date == null && teamId != null) {
             return getListResponseEntity(matchService.findLastFourMatchesPlayedByTeamId(teamId));
         }
+        if (played == null && date == null && teamId == null) {
+            return getListResponseEntity(matchService.findAll());
+        }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
     }
 
     public static class MatchCreate {
