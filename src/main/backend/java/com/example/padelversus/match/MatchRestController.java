@@ -110,9 +110,7 @@ public class MatchRestController {
     @RequestMapping(value = "/match/{tournamentName}", method = RequestMethod.POST)
     public ResponseEntity<Match> saveMatch(@PathVariable String tournamentName, @RequestBody MatchCreate match) {
 
-        if (!userComponent.isAdmin()) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
+
         // Parse params on Request Body
         String t1_name = match.getT1();
         String t2_name = match.getT2();
@@ -157,9 +155,7 @@ public class MatchRestController {
     @JsonView(MatchRestController.CompleteInfoForAMatch.class)
     @RequestMapping(value = "/match/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Match> saveStatsMatch(@PathVariable Long id, @RequestBody List<MatchStadistics> matchStadistics) {
-        if (!userComponent.isAdmin()) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
+
         Optional<Match> match = matchService.findMatchById(id);
         if (match.isPresent()) {
             Match matchOficial = match.get();
