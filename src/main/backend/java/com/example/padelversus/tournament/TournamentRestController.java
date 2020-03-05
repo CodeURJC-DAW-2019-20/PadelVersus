@@ -158,9 +158,6 @@ public class TournamentRestController {
     @JsonView(BasicMatchMatchStatisticsTeams.class)
     @PostMapping("/tournament/")
     public ResponseEntity<Tournament> saveTournament(@RequestBody Tournament tournament ) {
-        if(!userComponent.isAdmin()){
-            new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
 
         String name = tournament.getName();
         Optional<Tournament> optionalTournament = tournamentService.getTournamentByName(name);
@@ -213,12 +210,10 @@ public class TournamentRestController {
         Long playerId = params.getPlayerId();
         String teamName = params.getTeamName();
 
-        if(!userComponent.isLoggedUser()){
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
         if(userComponent.isAdmin()){
             return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
         }
+
         Optional<Tournament> optionalTournament = tournamentService.getTournamentById(id);
         if(!optionalTournament.isPresent()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

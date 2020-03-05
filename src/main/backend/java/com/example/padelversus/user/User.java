@@ -17,8 +17,10 @@ public class User {
     public interface Email{}
     public interface PlayerView{}
     public interface Roles{}
+    public interface Identifier{}
 
     @Id
+    @JsonView(Identifier.class)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
