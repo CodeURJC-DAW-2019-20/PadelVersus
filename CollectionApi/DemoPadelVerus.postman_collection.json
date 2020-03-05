@@ -214,6 +214,27 @@
 			"response": []
 		},
 		{
+			"name": "RequestTournamentsPdf(SaveandDown)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tournaments/pdf",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournaments",
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Show Page of 4 Teams",
 			"request": {
 				"auth": {
