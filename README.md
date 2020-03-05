@@ -322,7 +322,7 @@ Creating API services of our website, and use Docker to launch.
 |Iván Martín Sanz | i100van |MatchRestControler.java|Match.java|MatchStatistics.java|API.md|MatchService.java|
 |José Luis Lavado Sánchez | lujoselu98 |--------|--------|--------|--------|--------|
 |Lucas Gómez Torres | LucasGomezTorres |--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |--------|--------|--------|--------|--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |TeamxRestController.java|TeamsRestController.java|PlayerRestController.java|RestSecurityConfiguration.java|API.md|
 
 ## Textual Description Of Work
 | Name | Github user | Description |
@@ -331,7 +331,7 @@ Creating API services of our website, and use Docker to launch.
 |Iván Martín Sanz|  i100van |Focus on all related to matches API for API Rest service of PadelVersus,obtaining all the necessary information of the matches in Postman, document and prepare all related with the readme.md and API.md |
 |José Luis Lavado Sánchez | lujoselu98 |--------|
 |Lucas Gómez Torres |  LucasGomezTorres |--------|
-|Daniel Carmona Pedrajas | Dacarpe03 |--------|
+|Daniel Carmona Pedrajas | Dacarpe03 |Mainly tasks related to team API, also helped on PlayerRestController to control the image editing of an unauthorized user. Requests on Postman related to team API and player images.|
 
 ## Steps for making the API: 
 
