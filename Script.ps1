@@ -3,7 +3,7 @@
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1
 # Execution with log
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $true
-
+cd Backend
 # Clean and packge using local .m2 repository to do not download already gotten libraries
 docker run -it --rm -v "$(pwd):/usr/src/project" `
                     -v"$HOME/.m2:/root/.m2" `
@@ -11,12 +11,12 @@ docker run -it --rm -v "$(pwd):/usr/src/project" `
 
 # If there is any problem in compilation we move and rename the .jar
 if(Test-Path ./target/padelversus-0.0.1-SNAPSHOT.jar -PathType Leaf){
-    Copy-Item -Path ./target/padelversus-0.0.1-SNAPSHOT.jar -Destination ./Docker/PadelVersus.jar -force
+    Copy-Item -Path ./target/padelversus-0.0.1-SNAPSHOT.jar -Destination ../Docker/PadelVersus.jar -force
 }else{
     echo "Maven compilation fail"
     exit
 }
-
+cd ..
 # If there is not already moved we copy recursive the folder with images needed for the demo
 if (!(Test-Path ./Docker/DemoImages -PathType Any)){
     Copy-Item -Path ./DemoImages -Destination ./Docker/DemoImages -Recurse
