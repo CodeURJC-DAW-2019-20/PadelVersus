@@ -1,0 +1,985 @@
+{
+	"info": {
+		"_postman_id": "31bec2c0-3f4f-422d-9b21-8e98dfa88034",
+		"name": "DemoPadelVerus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Show Match by Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/matches/?date=2020-03-10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"matches",
+						""
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-03-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Match by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/match/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"match",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Matches Played",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/matches/?played=false",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"matches",
+						""
+					],
+					"query": [
+						{
+							"key": "played",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Matches by TeamID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/matches/?teamId=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"matches",
+						""
+					],
+					"query": [
+						{
+							"key": "teamId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Team by ID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/teamx/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"teamx",
+						"2"
+					]
+				},
+				"description": "https://localhost:8443/api/teamx/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Team by PlayerID",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/teams/?playerId=18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"teams",
+						""
+					],
+					"query": [
+						{
+							"key": "playerId",
+							"value": "18"
+						}
+					]
+				},
+				"description": "https://localhost:8443/api/teams/?playerId=18"
+			},
+			"response": []
+		},
+		{
+			"name": "Show All Tournaments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"false\",\n        \"sets\": [\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n    },\n     {\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"true\",\n        \"sets\": [\n        \t{\n        \t    \"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n}]\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tournaments/?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournaments",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RequestTournamentsPdf(SaveandDown)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tournaments/pdf",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournaments",
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Page of 4 Teams",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/teamsList/?page=1&size=4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"teamsList",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "4"
+						}
+					]
+				},
+				"description": "https://localhost:8443/api/teamsList/"
+			},
+			"response": []
+		},
+		{
+			"name": "Try to Register on a Tournament",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerId\": 3,\n\t\"teamName\": \"ElEquipoDeJose\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tournament/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournament",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lucas\",\r\n    \"passwordHash\": \"lucas\",\r\n    \"mail\": \"procesosoftg1@gmail.com\",\r\n    \"roles\": [\r\n        \"ROLE_USER\"\r\n    ],\r\n    \"player\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/user?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log in as Lucas",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "lucas",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "lucas",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logIn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Player Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t    \"age\": 48,\r\n\t    \"countryBirth\": \"France\",\r\n\t    \"height\": 1.9,\r\n\t    \"weight\": 45.0,\r\n\t    \"speed\": 10.0,\r\n\t    \"strength\": 1.3,\r\n\t    \"endurance\": 3.4,\r\n\t    \"pace\": 5.6,\r\n\t    \"accuaracy\": 5.0,\r\n\t    \"aceleration\": 6.7,\r\n\t    \"idUser\": 22\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/player?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register on a Tournament with Lucas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"playerId\": 3,\n\t\"teamName\": \"ElEquipoQueAcabasDeCrear\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tournament/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournament",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Lucas info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/player/21",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Baruj Image",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/player/6/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"6",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to show Lucas Image (isEmpty)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/player/22/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"22",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log out",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logOut",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log in as Andrea",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Andrea Carion",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "AndreaCarion",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logIn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to Post Lucas image logged Andrea",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/i100v/Pictures/Player_21.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/player/21/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"21",
+						"image"
+					]
+				},
+				"description": "Needs an image in form-data field and you need to be logged as the player you want to change its photo\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Log out",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logOut",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log in as Lucas",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "lucas",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "lucas",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logIn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Lucas image logged Lucas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/i100v/Pictures/Player_21.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/player/21/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"21",
+						"image"
+					]
+				},
+				"description": "Needs an image in form-data field and you need to be logged as the player you want to change its photo\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Lucas Image Updated",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "AndreaCarion",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Andrea Carion",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/player/7/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"player",
+						"7",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log out",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logOut",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log in as Admin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "adminpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/logIn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "As Admin Create a Tournament",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":  \"Tournament 4\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/tournament/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournament",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Save New Match",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"t1\": \"Madrid PT\",\n    \"t2\": \"ElEquipoQueAcabasDeCrear\",\n    \"date\": \"2020-03-06\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/match/Tournament 1?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"match",
+						"Tournament 1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Save Match Stadistics",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"false\",\n        \"sets\": [\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n    },\n     {\n        \"acurracy\": 5,\n        \"effectiveness\": 10,\n        \"unforcedErrors\": 4,\n        \"win\": \"true\",\n        \"sets\": [\n        \t{\n        \t    \"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t},\n        \t{\n        \t\t\"games\": 6,\n        \t\t\"setNumber\": 1\n        \t}\n        ],\n        \"games_wins\": \"30\"\n}]\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/match/22?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"match",
+						"22"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Tournament info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/tournament/1/ranking",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"tournament",
+						"1",
+						"ranking"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,8 @@
+<h2>Index</h2>
+<ul id="nextMatches">
+  <li *ngFor="let NextMatch of getNextMatches()">
+    <p>id: </p><p>{{NextMatch.id}}</p>
+    <p>Date: </p><p>{{NextMatch.date}}</p>
+    <p>Played: </p><p>{{NextMatch.played}}</p>
+  </li>
+</ul>
