@@ -93,7 +93,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src/main/backend/java</sourceDirectory>
+        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
