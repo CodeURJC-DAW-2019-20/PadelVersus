@@ -1,0 +1,70 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title *ngFor="let Team of getMatch().teams" class="card-title">
+      {{Team.name}}
+    </mat-card-title>
+    <mat-card-subtitle>Date {{getMatch().date}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <table class="mat-elevation-z8" mat-table>
+      <!-- Position Column -->
+      <ng-container *ngFor="let Set of getMatch().stadistics_1.sets" matColumnDef="position">
+        <th *matHeaderCellDef mat-header-cell> Team</th>
+        <td *matCellDef mat-cell> {{Set.games}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef mat-header-row></tr>
+      <tr *matRowDef mat-row></tr>
+    </table>
+
+
+    <mat-grid-list cols="2" rowHeight="6:1">
+      <mat-grid-tile>
+        Acurracy {{getMatch().stadistics_1.acurracy}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.acurracy}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Acurracy {{getMatch().stadistics_2.acurracy}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.acurracy}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Effectiveness {{getMatch().stadistics_1.effectiveness}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.effectiveness}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Effectiveness {{getMatch().stadistics_2.effectiveness}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.effectiveness}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Games Wins {{getMatch().stadistics_1.games_wins}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.games_wins}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Games Wins {{getMatch().stadistics_2.games_wins}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.games_wins}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Unforced Errors {{getMatch().stadistics_1.unforcedErrors}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.unforcedErrors}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Unforced Errors {{getMatch().stadistics_2.unforcedErrors}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.unforcedErrors}}"></mat-progress-bar>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-card-content>
+</mat-card>
+
+<h2>Index</h2>
+<p>id:{{getMatch().id}} </p>
+<p> acuracy :{{getMatch().stadistics_1.acurracy}} </p>
+<li *ngFor="let Team of getMatch().teams">
+  <p>id: </p>
+  <p>{{Team.id}}</p>
+  <p>Name: </p>
+  <p>{{Team.name}}</p>
+</li>
+
+
