@@ -1,23 +1,22 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title *ngFor="let Team of getMatch().teams" class="card-title">
-      {{Team.name}}
-    </mat-card-title>
-    <mat-card-subtitle>Date {{getMatch().date}}</mat-card-subtitle>
-  </mat-card-header>
   <mat-card-content>
 
-    <table class="mat-elevation-z8" mat-table>
-      <!-- Position Column -->
-      <ng-container *ngFor="let Set of getMatch().stadistics_1.sets" matColumnDef="position">
-        <th *matHeaderCellDef mat-header-cell> Team</th>
-        <td *matCellDef mat-cell> {{Set.games}} </td>
-      </ng-container>
+   <!-- <mat-grid-list cols="1" rowHeight="50:1">
+      <mat-grid-tile class="mat-card-sub" >
+        Date {{getMatch().date}}
+      </mat-grid-tile>
+    </mat-grid-list>-->
 
-      <tr *matHeaderRowDef mat-header-row></tr>
-      <tr *matRowDef mat-row></tr>
-    </table>
-
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile class="teams-names" *ngFor="let Team of getMatch().teams">
+        {{Team.name}}
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="6:1">
+      <mat-grid-tile class="teams-names">
+        {{getResult()[0]}}:{{getResult()[1]}}
+      </mat-grid-tile>
+    </mat-grid-list>
 
     <mat-grid-list cols="2" rowHeight="6:1">
       <mat-grid-tile>
@@ -57,14 +56,5 @@
   </mat-card-content>
 </mat-card>
 
-<h2>Index</h2>
-<p>id:{{getMatch().id}} </p>
-<p> acuracy :{{getMatch().stadistics_1.acurracy}} </p>
-<li *ngFor="let Team of getMatch().teams">
-  <p>id: </p>
-  <p>{{Team.id}}</p>
-  <p>Name: </p>
-  <p>{{Team.name}}</p>
-</li>
 
 
