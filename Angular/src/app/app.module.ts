@@ -2,19 +2,24 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatCarouselModule} from '@ngmodule/material-carousel';
 
 import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import {MatCarouselModule} from '@ngmodule/material-carousel';
+import {AppComponent} from './app.component';
+import {TournamentComponent} from './tournament/tournament.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TournamentRankingComponent } from './tournament/tournament-ranking/tournament-ranking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TournamentComponent,
+    TournamentRankingComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,8 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
