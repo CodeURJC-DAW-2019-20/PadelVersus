@@ -8,7 +8,7 @@ import {Tournament} from '../Interfaces/tournament.model';
   providedIn: 'root'
 })
 export class TournamentService {
-  private tournamentsUrl: string;
+  private readonly tournamentsUrl: string;
 
   constructor(private http: HttpClient) {
     this.tournamentsUrl = 'https://localhost:8443/api/tournaments/';
