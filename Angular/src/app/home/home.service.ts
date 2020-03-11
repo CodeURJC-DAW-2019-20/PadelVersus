@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
-import { Match } from '../Interfaces/match.model';
+import {Match} from '../Interfaces/match.model';
 
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-
 
 
 @Injectable({
@@ -18,11 +16,18 @@ export class HomeService {
 
 
   constructor(private http: HttpClient) {
-      this.matchesUrl = 'https://localhost:8443/api/matches/';
+    this.matchesUrl = 'https://localhost:8443/api/matches/';
   }
 
   getNextMatches() {
-    return this.http.get<Match[]>(this.matchesUrl).pipe(
+    return this.http.get<Match[]>(this.matchesUrl + '?played=false').pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getLastMatches() {
+    return this.http.get<Match[]>(this.matchesUrl + '?played=true').pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
