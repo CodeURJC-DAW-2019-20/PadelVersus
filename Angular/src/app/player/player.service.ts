@@ -5,6 +5,7 @@ import {throwError} from 'rxjs';
 import {Match} from "../Interfaces/match.model";
 import {Player} from "../Interfaces/player.model";
 import {Tournament} from "../Interfaces/tournament.model";
+import {Team} from "../Interfaces/team.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PlayerService {
   constructor(private http:HttpClient) {
     this.playerUrls = 'https://localhost:8443/api/player/';
     this.tournamentsPlayerUrls = 'https://localhost:8443/api/tournaments/?playerId=';
+    this.teamsPlayerUrls = 'https://localhost:8443/api/teams/?playerId=';
   }
 
   getPlayer(id:number) {
@@ -29,6 +31,13 @@ export class PlayerService {
 
   getTournamentsByPlayer(id:number){
     return this.http.get<Tournament[]>(this.tournamentsPlayerUrls + id).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getTeamsByPlayer(id:number){
+    return this.http.get<Team[]>(this.teamsPlayerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

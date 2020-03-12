@@ -21,8 +21,13 @@
   </ng-container>
 
   <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
-    <p>id : {{tournament.name}}</p>
+    <p>tournamentName : {{tournament.name}}</p>
   </ng-container>
+
+  <ng-container *ngFor="let team of getTeamsByPlayer()">
+    <p>teamName : {{team.name}}</p>
+  </ng-container>
+
 
   <h3 style="text-align:center;">Radar Chart</h3>
   <div style="display: block">
