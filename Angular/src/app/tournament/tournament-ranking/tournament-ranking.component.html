@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <th>Teams</th>
+    <th>Games played</th>
+    <th>Games won</th>
+    <th>Games lost</th>
+    <th colspan="3" class="last-matches-header">Last matches</th>
+  </tr>
+  <ng-container *ngFor="let team of getRanking()">
+    <tr>
+      <td>{{team.name}}</td>
+      <td class="center-text">{{team.gamesPlayed}}</td>
+      <td class="center-text">{{team.gamesWon}}</td>
+      <td class="center-text last-col">{{team.gamesLost}}</td>
+      <td class="center-text">
+        <ng-container *ngIf="team.hasLastMatches">
+          <span *ngFor="let result of team.lastMatches; let i = index" class="result" [class.win]="result == 'w'" [class.lose]="result == 'l'">
+            {{result}}
+          </span>
+        </ng-container>
+        <span *ngIf="!team.hasLastMatches" class="no-games">
+          This team has not play any match
+        </span>
+      </td>
+    </tr>
+  </ng-container>
+</table>

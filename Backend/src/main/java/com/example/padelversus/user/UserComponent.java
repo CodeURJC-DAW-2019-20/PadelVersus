@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 @Component
-@SessionScope
+//@SessionScope
 public class UserComponent {
 
     private User user;
