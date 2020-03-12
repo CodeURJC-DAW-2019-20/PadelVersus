@@ -7,9 +7,9 @@ import {TournamentRankingComponent} from './tournament/tournament-ranking/tourna
 import {MatchComponent} from './match/match.component';
 
 const routes: Routes = [
+  { path: 'home/match/:id', component: MatchComponent },
   {path: 'home', component: HomeComponent},
   {path: 'tournament', component: TournamentComponent},
-  {path: 'home/match', component: MatchComponent},
   {path: 'tournament/:id', component: TournamentRankingComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];

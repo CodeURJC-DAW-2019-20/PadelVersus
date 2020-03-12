@@ -1,20 +1,27 @@
-import {Component, OnInit} from '@angular/core';
-import {Match} from '../Interfaces/Match.model';
-import {MatchService} from './match.service';
+
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Match } from "../Interfaces/Match.model";
+import { MatchService } from "./match.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-match',
+  encapsulation: ViewEncapsulation.None,
+  selector: 'match',
   templateUrl: 'match.component.html',
   styleUrls: ['match.component.css'],
 })
-export class MatchComponent implements OnInit {
+export class MatchComponent implements  OnInit{
+  private id: number;
+
   private matchInfo: Match;
 
-  constructor(private matchService: MatchService) {
+  constructor(private matchService: MatchService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.matchService.getMatch().subscribe(
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.matchService.getMatch(this.id).subscribe(
       data => this.matchInfo = data,
       error => this.handleError(error)
     );
@@ -39,7 +46,6 @@ export class MatchComponent implements OnInit {
         score[2] += 1;
       }
     }
-    console.log(score.toString());
     return score;
 
   }
