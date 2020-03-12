@@ -8,18 +8,19 @@
     <table>
       <ng-container *ngFor="let NextMatch of getNextMatches(); let i = index">
         <ng-container *ngIf="i <= 3">
-          <tr>
-            <td class="center-text tournament" colspan="3">Tournament X</td>
-          </tr>
-          <tr>
-            <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
-            <td class="center-text vs-text">VS</td>
-            <td class="center-text team-name">{{NextMatch.teams[1].name}}</td>
-          </tr>
-          <tr>
-            <td class="center-text date" colspan="3">{{NextMatch.date | date : 'yyyy-MM-dd'}}</td>
-          </tr>
-
+          <tbody style="animation:flipInX .5s ease-in;" class="flipInX">
+            <tr>
+              <td class="center-text tournament" colspan="3">Tournament X</td>
+            </tr>
+            <tr>
+              <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
+              <td class="center-text vs-text">VS</td>
+              <td class="center-text team-name">{{NextMatch.teams[1].name}}</td>
+            </tr>
+            <tr>
+              <td class="center-text date" colspan="3">{{NextMatch.date | date : 'yyyy-MM-dd'}}</td>
+            </tr>
+          </tbody>
         </ng-container>
       </ng-container>
     </table>

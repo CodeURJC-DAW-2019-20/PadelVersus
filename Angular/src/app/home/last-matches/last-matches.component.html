@@ -5,7 +5,7 @@
   <mat-card-content>
     <ng-container *ngFor="let LastMatch of getlastMatches(); let i = index">
       <ng-container *ngIf="i <= 3">
-        <table>
+        <table style="animation:flipInX .5s ease-in;" class="flipInX">
           <tr>
             <td class="center-text tournament" colspan="6">Tournament X</td>
           </tr>
