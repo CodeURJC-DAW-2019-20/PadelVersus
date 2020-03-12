@@ -3,6 +3,7 @@ import{HttpClient,HttpHeaders} from "@angular/common/http";
 import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Match} from "../Interfaces/match.model";
+import {Player} from "../Interfaces/player.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class PlayerService {
     this.playerUrls = 'https://localhost:8443/api/player/';
   }
 
-  getPlayer() {
-    return this.http.get<Match[]>(this.matchesUrl + '?played=true').pipe(
+  getPlayer(id:number) {
+    return this.http.get<Player>(this.playerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

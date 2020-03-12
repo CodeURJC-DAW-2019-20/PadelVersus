@@ -1,4 +1,4 @@
-import { User } from './user.model';
+
 export interface Player {
   id: number;
   age: number;
@@ -11,6 +11,6 @@ export interface Player {
   pace: number;
   accuaracy: number;
   aceleration: number;
-  username:User;
-  email:User;
+  username:"User";
+  email:"email";
 }
