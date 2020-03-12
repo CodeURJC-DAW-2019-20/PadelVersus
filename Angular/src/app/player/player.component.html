@@ -1,6 +1,23 @@
 <p>player works!</p>
 <ul id="player">
-    <p>Player con id : </p><p></p>
+
+  <ng-container *ngIf=" getPlayer()">
+    <p>id : {{getPlayer().id}}</p>
+    <p>age : {{getPlayer().age}}</p>
+    <p>countryBirth : {{getPlayer().countryBirth}}</p>
+    <p>height : {{getPlayer().height}}</p>
+    <p>weight : {{getPlayer().weight}}</p>
+    <p>speed : {{getPlayer().speed}}</p>
+    <p>strength : {{getPlayer().strength}}</p>
+    <p>endurance : {{getPlayer().endurance}}</p>
+    <p>pace : {{getPlayer().pace}}</p>
+    <p>accuaracy : {{getPlayer().accuaracy}}</p>
+    <p>aceleration : {{getPlayer().aceleration}}</p>
+    <p>username : {{getPlayer().username}}</p>
+    <p>mail : {{getPlayer().email}}</p>
+
+  </ng-container>
+
 </ul>
 
 
