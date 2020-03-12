@@ -17,10 +17,12 @@ export class MatchService {
 
 
   constructor(private http: HttpClient) {
-      this.matchUrl = 'https://localhost:8443/api/match/1';
+      this.matchUrl = 'https://localhost:8443/api/match/';
   }
 
-  getMatch() {
+  getMatch(id:number) {
+    this.matchUrl.concat(id.toString());
+    console.log("Voy a la URL:",this.matchUrl)
     return this.http.get<Match>(this.matchUrl).pipe(
       map(response => response),
       catchError(err => this.handleError(err))

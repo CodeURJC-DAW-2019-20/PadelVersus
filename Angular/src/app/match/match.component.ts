@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Match } from "../Interfaces/Match.model";
 import { MatchService } from "./match.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -9,13 +10,17 @@ import { MatchService } from "./match.service";
   styleUrls: ['match.component.css'],
 })
 export class MatchComponent implements  OnInit{
+  private id: number;
   private matchInfo: Match;
 
-  constructor(private matchService: MatchService) {
+  constructor(private matchService: MatchService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.matchService.getMatch().subscribe(
+    this.id = this.activatedRoute.snapshot.params.id;
+    console.log(this.id.toString())
+    this.matchService.getMatch(this.id).subscribe(
       data => this.matchInfo = data,
       error => this.handleError(error)
     );
