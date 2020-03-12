@@ -37,9 +37,6 @@ export class PlayerComponent implements OnInit {
     return this.player;
   }
 
-
-
-
   private handleError(error: any) {
     console.error(error);
   }
