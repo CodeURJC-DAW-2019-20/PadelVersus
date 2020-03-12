@@ -1,0 +1,54 @@
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+table, th, td, caption {
+  padding: 10px;
+}
+
+td.center-text {
+  text-align: center;
+}
+
+
+td.score {
+  border-radius: 0.6em;
+  background: black;
+  color: white;
+  text-align: center;
+  width: 5%;
+}
+
+td.team-name{
+  padding-left: 5%;
+  width: 30%;
+}
+
+td.col-space{
+  width: 10%;
+}
+
+td.first-col-space{
+  width: 5%;
+}
+
+.yellow-background {
+  background: orange;
+  border-radius: 12px;
+}
+
+
+.card {
+  width: 100%;
+  background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
+}
+
+.tournament {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fb6107;
+  font-family: Montserrat, sans-serif;
+  line-height: normal;
+}

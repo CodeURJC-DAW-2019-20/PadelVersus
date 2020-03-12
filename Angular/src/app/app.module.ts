@@ -16,6 +16,9 @@ import {HomeComponent} from './home/home.component';
 import {MatchComponent} from './match/match.component';
 import {TournamentComponent} from './tournament/tournament.component';
 import {TournamentRankingComponent} from './tournament/tournament-ranking/tournament-ranking.component';
+import { NextMatchesComponent } from './home/next-matches/next-matches.component';
+import { LastMatchesComponent } from './home/last-matches/last-matches.component';
+import { CarouselComponent } from './home/carousel/carousel.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import {TournamentRankingComponent} from './tournament/tournament-ranking/tourna
     HomeComponent,
     TournamentComponent,
     TournamentRankingComponent,
-    MatchComponent
+    MatchComponent,
+    NextMatchesComponent,
+    LastMatchesComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserAnimationsModule,
