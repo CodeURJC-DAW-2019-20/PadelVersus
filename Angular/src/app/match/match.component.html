@@ -1,14 +1,14 @@
 <mat-card class="example-card">
   <mat-card-content>
 
-   <!-- <mat-grid-list cols="1" rowHeight="50:1">
-      <mat-grid-tile class="mat-card-sub" >
-        Date {{getMatch().date}}
-      </mat-grid-tile>
-    </mat-grid-list>-->
+    <!-- <mat-grid-list cols="1" rowHeight="50:1">
+       <mat-grid-tile class="mat-card-sub" >
+         Date {{getMatch().date}}
+       </mat-grid-tile>
+     </mat-grid-list>-->
 
     <mat-grid-list cols="2" rowHeight="2:1">
-      <mat-grid-tile class="teams-names" *ngFor="let Team of getMatch().teams">
+      <mat-grid-tile *ngFor="let Team of getMatch().teams" class="teams-names">
         {{Team.name}}
       </mat-grid-tile>
     </mat-grid-list>
@@ -17,6 +17,7 @@
         {{getResult()[0]}}:{{getResult()[1]}}
       </mat-grid-tile>
     </mat-grid-list>
+
     <mat-grid-list cols="1" rowHeight="6:1">
         <table>
           <tr>
@@ -40,6 +41,7 @@
           </tr>
         </table>
     </mat-grid-list>
+
 
     <mat-grid-list cols="2" rowHeight="6:1">
       <mat-grid-tile>

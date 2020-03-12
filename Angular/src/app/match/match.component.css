@@ -5,15 +5,18 @@
   background: #fff;
   color: #fff;
 }
-.card-title{
+
+.card-title {
   padding-top: 20px;
   padding-bottom: 21px;
   font-size: 28px;
 }
-.mat-card-sub{
+
+.mat-card-sub {
   align-content: center;
 }
-.teams-names{
+
+.teams-names {
   padding-top: 20px;
   padding-bottom: 21px;
   font-size: 28px;
@@ -22,6 +25,7 @@
   text-transform: uppercase;
   color: #141414;
 }
+
 .mat-progress-bar.mat-progress-bar.mat-primary{
   color: darkorange !important;
   margin: 5px 15px 15px 5px;
@@ -30,9 +34,11 @@
   color: darkorange !important;
 }
 .mat-grid-tile{
+
   margin: 15px 15px 15px 15px;
   color:black;
 }
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;

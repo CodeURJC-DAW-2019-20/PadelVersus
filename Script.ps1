@@ -39,4 +39,3 @@ docker image build -t teampina/padelversus -f .Dockerfile .
 
 # We reutrned to the started directory
 cd ..
-exit

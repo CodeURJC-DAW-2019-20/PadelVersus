@@ -1,5 +1,5 @@
-import { MatchStatistics } from './matchStatistics.model';
-import { TeamMatch } from './teamMatch.model';
+import {MatchStatistics} from './matchStatistics.model';
+import {TeamMatch} from './teamMatch.model';
 
 export interface Match {
   id: number;
