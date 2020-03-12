@@ -1,0 +1,55 @@
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+table, th, td, caption {
+  padding: 10px;
+}
+
+td.center-text {
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+  background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
+}
+
+
+.team-name {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #141414;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.vs-text {
+  font-size: 32px;
+  line-height: normal;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #141414;
+  border-radius: 9px;
+}
+
+.date {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #141414;
+  font-family: Montserrat, sans-serif;
+  line-height: normal;
+}
+
+.tournament {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fb6107;
+  font-family: Montserrat, sans-serif;
+  line-height: normal;
+}
