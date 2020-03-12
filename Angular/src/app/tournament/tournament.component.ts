@@ -36,5 +36,29 @@ export class TournamentComponent implements OnInit {
 
   downloadPdf() {
     console.log('Download pdf');
+    this.tournamentService.getPdf().subscribe(
+      x => {
+        const newBlob = new Blob([x], {type: 'application/pdf'});
+
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob);
+          return;
+        }
+
+        const data = window.URL.createObjectURL(newBlob);
+
+        const link = document.createElement('a');
+        link.href = data;
+        link.download = 'Ranking.pdf';
+
+        link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+
+        setTimeout(() => {
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
+      },
+      error => this.handleError(error)
+    );
   }
 }
