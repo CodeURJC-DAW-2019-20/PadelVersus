@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{PlayerService} from "./player.service";
 import {Player} from "../Interfaces/player.model";
 import{ActivatedRoute} from "@angular/router";
+
 import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
 
 
@@ -15,6 +16,15 @@ export class PlayerComponent implements OnInit {
 
   private player:Player;
   private id : number;
+  private chartType: string;
+  private chartDatasets: any;
+
+
+  private chartLabels: string[];
+
+
+
+
 
   constructor(private activatedRoute:ActivatedRoute, private playerService:PlayerService) {
     this.id = activatedRoute.snapshot.params['id'];
@@ -33,9 +43,37 @@ export class PlayerComponent implements OnInit {
 
   }
 
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
+
   getPlayer(){
     return this.player;
   }
+
+  getChartType(){
+    return this.chartType = 'radar';
+  }
+
+  getChartDataSets(){
+
+    return this.chartDatasets = [{data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace],label: 'Player con id '+this.player.id} ];
+
+  }
+
+  getChartLabels(){
+    return this.chartLabels=
+      ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace'];
+  }
+
+
+
+
 
   private handleError(error: any) {
     console.error(error);

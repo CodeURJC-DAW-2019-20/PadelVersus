@@ -11,13 +11,23 @@ import {Player} from "../Interfaces/player.model";
 export class PlayerService {
 
   private playerUrls:string;
+  private tournamentsPlayerUrls:string;
+  private teamsPlayerUrls:string;
 
   constructor(private http:HttpClient) {
     this.playerUrls = 'https://localhost:8443/api/player/';
+    this.tournamentsPlayerUrls = 'https://localhost:8443/api/tournaments/?playerId=';
   }
 
   getPlayer(id:number) {
     return this.http.get<Player>(this.playerUrls + id).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getTournamentsByPlayer(id:number){
+    return this.http.get<Tournament>(this.playerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

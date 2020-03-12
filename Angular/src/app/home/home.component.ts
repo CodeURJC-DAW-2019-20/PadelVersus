@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit{
     );
   }
 
-
   getSlides() {
     this.slides = [];
     for (const match of this.nextMatches) {

@@ -7,17 +7,22 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import { PlayerComponent } from './player/player.component';
+import {ChartsModule} from "ng2-charts";
+import { TournamentComponent } from './tournament/tournament.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PlayerComponent
+    PlayerComponent,
+    TournamentComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { PlayerComponent } from './player/player.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
-    MatCarouselModule
+    MatCarouselModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
