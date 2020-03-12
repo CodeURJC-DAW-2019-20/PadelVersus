@@ -27,3 +27,18 @@
 .mat-tab-header{
   padding-bottom: 20px;
 }
+
+.mat-button{
+  background: rgb(255, 160, 0);
+  color: black;
+  text-align: center;
+}
+
+span.mat-button-wrapper{
+  padding: 2em;
+}
+.button-container{
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+}

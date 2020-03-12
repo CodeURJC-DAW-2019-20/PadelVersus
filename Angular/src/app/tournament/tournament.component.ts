@@ -33,4 +33,8 @@ export class TournamentComponent implements OnInit {
   private handleError(error: any) {
     console.error(error);
   }
+
+  downloadPdf() {
+    console.log('Download pdf');
+  }
 }

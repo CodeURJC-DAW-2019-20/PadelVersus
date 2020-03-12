@@ -13,6 +13,7 @@ import {AppComponent} from './app.component';
 import {TournamentComponent} from './tournament/tournament.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TournamentRankingComponent } from './tournament/tournament-ranking/tournament-ranking.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,17 @@ import { TournamentRankingComponent } from './tournament/tournament-ranking/tour
     TournamentComponent,
     TournamentRankingComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatGridListModule,
-    MatCarouselModule,
-    MatTabsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatGridListModule,
+        MatCarouselModule,
+        MatTabsModule,
+        MatButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
