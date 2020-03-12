@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TeamTournament} from '../../Interfaces/teamTournament.model';
 import {TournamentRankingService} from './tournament-ranking.service';
@@ -13,16 +13,25 @@ export class TournamentRankingComponent implements OnInit {
   private id: number;
   private ranking: TeamTournament[];
 
+  @Input()
+  private idFromParent: number;
+
   constructor(private tournamentRankingService: TournamentRankingService,
               private activatedRoute: ActivatedRoute) {
-    this.id = this.activatedRoute.snapshot.params.id;
   }
 
   ngOnInit(): void {
+    // if the id comes from the route or comes from the parent
+    if (this.activatedRoute.snapshot.params.id) {
+      this.id = this.activatedRoute.snapshot.params.id;
+    } else {
+      this.id = this.idFromParent;
+    }
+
     this.tournamentRankingService.getTournamentRanking(this.id).subscribe(
       data => {
         this.ranking = data;
-        console.log('ranking: ', data);
+        console.log('ranking (' + this.id + '): ', data);
       },
       error => this.handleError(error)
     );

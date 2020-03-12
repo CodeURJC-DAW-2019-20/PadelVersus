@@ -4,7 +4,7 @@ import {Tournament} from '../Interfaces/tournament.model';
 
 
 @Component({
-  selector: 'app-tournament-ranking',
+  selector: 'app-tournaments',
   templateUrl: './tournament.component.html',
   styleUrls: ['./tournament.component.css'],
   encapsulation: ViewEncapsulation.None
