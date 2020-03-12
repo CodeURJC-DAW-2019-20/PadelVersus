@@ -19,7 +19,6 @@ export class MatchComponent implements  OnInit{
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id;
-    console.log(this.id.toString())
     this.matchService.getMatch(this.id).subscribe(
       data => this.matchInfo = data,
       error => this.handleError(error)
@@ -44,7 +43,6 @@ export class MatchComponent implements  OnInit{
         score[2] += 1;
       }
     }
-    console.log(score.toString())
     return score;
 
   }

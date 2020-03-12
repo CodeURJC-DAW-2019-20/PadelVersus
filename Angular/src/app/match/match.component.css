@@ -22,9 +22,12 @@
   text-transform: uppercase;
   color: #141414;
 }
-.mat-progress-bar{
+.mat-progress-bar.mat-progress-bar.mat-primary{
   color: darkorange !important;
   margin: 5px 15px 15px 5px;
+}
+.mat-progress-bar-background{
+  color: darkorange !important;
 }
 .mat-grid-tile{
   margin: 15px 15px 15px 15px;

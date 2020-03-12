@@ -5,7 +5,7 @@ import {MatchComponent} from "./match/match.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'home/match', component: MatchComponent },
+  { path: 'home/match/:id', component: MatchComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
