@@ -2,6 +2,7 @@
 <ul id="player">
 
   <ng-container *ngIf=" getPlayer()">
+    <p>username: {{getPlayer().user.name}}</p>
     <p>id : {{getPlayer().id}}</p>
     <p>age : {{getPlayer().age}}</p>
     <p>countryBirth : {{getPlayer().countryBirth}}</p>
@@ -13,8 +14,9 @@
     <p>pace : {{getPlayer().pace}}</p>
     <p>accuaracy : {{getPlayer().accuaracy}}</p>
     <p>aceleration : {{getPlayer().aceleration}}</p>
-    <p>username : {{getPlayer().username}}</p>
-    <p>mail : {{getPlayer().email}}</p>
+    <p>email: {{getPlayer().user.mail}}</p>
+
+
 
 
 
