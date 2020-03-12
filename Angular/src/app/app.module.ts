@@ -25,7 +25,7 @@ import {TournamentRankingComponent} from './tournament/tournament-ranking/tourna
     AppComponent,
     HomeComponent,
     TournamentComponent,
-    TournamentRankingComponent
+    TournamentRankingComponent,
     MatchComponent
   ],
   imports: [
