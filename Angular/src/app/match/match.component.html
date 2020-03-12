@@ -1,14 +1,14 @@
 <mat-card class="example-card">
   <mat-card-content>
 
-   <!-- <mat-grid-list cols="1" rowHeight="50:1">
-      <mat-grid-tile class="mat-card-sub" >
-        Date {{getMatch().date}}
-      </mat-grid-tile>
-    </mat-grid-list>-->
+    <!-- <mat-grid-list cols="1" rowHeight="50:1">
+       <mat-grid-tile class="mat-card-sub" >
+         Date {{getMatch().date}}
+       </mat-grid-tile>
+     </mat-grid-list>-->
 
     <mat-grid-list cols="2" rowHeight="2:1">
-      <mat-grid-tile class="teams-names" *ngFor="let Team of getMatch().teams">
+      <mat-grid-tile *ngFor="let Team of getMatch().teams" class="teams-names">
         {{Team.name}}
       </mat-grid-tile>
     </mat-grid-list>
@@ -18,27 +18,27 @@
       </mat-grid-tile>
     </mat-grid-list>
 
-        <table>
-          <tr>
-            <td class="center-text tournament" colspan="6">Sets</td>
-          </tr>
-          <tr>
-            <td class="center-text" colspan="2"
-                [class.yellow-background]=getMatch().stadistics_1.win>{{getMatch().teams[0].name}}</td>
-            <td class="center-text"></td>
-            <td class="score">{{getMatch().stadistics_1.sets[0].games}}</td>
-            <td class="score">{{getMatch().stadistics_1.sets[1].games}}</td>
-            <td class="score">{{getMatch().stadistics_1.sets[2].games}}</td>
-          </tr>
-          <tr>
-            <td class="center-text" colspan="2"
-                [class.yellow-background]=getMatch().stadistics_2.win>{{getMatch().teams[1].name}}</td>
-            <td class="center-text"></td>
-            <td class="score">{{getMatch().stadistics_2.sets[0].games}}</td>
-            <td class="score">{{getMatch().stadistics_2.sets[1].games}}</td>
-            <td class="score">{{getMatch().stadistics_2.sets[2].games}}</td>
-          </tr>
-        </table>
+    <table>
+      <tr>
+        <td class="center-text tournament" colspan="6">Sets</td>
+      </tr>
+      <tr>
+        <td [class.yellow-background]=getMatch().stadistics_1.win class="center-text"
+            colspan="2">{{getMatch().teams[0].name}}</td>
+        <td class="center-text"></td>
+        <td class="score">{{getMatch().stadistics_1.sets[0].games}}</td>
+        <td class="score">{{getMatch().stadistics_1.sets[1].games}}</td>
+        <td class="score">{{getMatch().stadistics_1.sets[2].games}}</td>
+      </tr>
+      <tr>
+        <td [class.yellow-background]=getMatch().stadistics_2.win class="center-text"
+            colspan="2">{{getMatch().teams[1].name}}</td>
+        <td class="center-text"></td>
+        <td class="score">{{getMatch().stadistics_2.sets[0].games}}</td>
+        <td class="score">{{getMatch().stadistics_2.sets[1].games}}</td>
+        <td class="score">{{getMatch().stadistics_2.sets[2].games}}</td>
+      </tr>
+    </table>
 
 
     <mat-grid-list cols="2" rowHeight="6:1">

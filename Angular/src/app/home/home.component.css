@@ -7,25 +7,25 @@ table, th, td, caption {
   padding: 10px;
 }
 
-td.center-text{
+td.center-text {
   text-align: center;
 }
 
 
-td.score{
+td.score {
   border-radius: 0.6em;
   background: black;
-  color : white;
+  color: white;
   text-align: center;
 }
 
 
-.yellow-background{
+.yellow-background {
   background: orange;
   border-radius: 12px;
 }
 
-.slide-text{
+.slide-text {
   font-size: 40px;
   text-transform: uppercase;
   font-family: Raleway, sans-serif;
@@ -34,7 +34,7 @@ td.score{
   line-height: normal;
 }
 
-.slider-date{
+.slider-date {
   padding-bottom: 2px;
   font-size: 16px;
   text-transform: uppercase;
@@ -42,13 +42,13 @@ td.score{
   color: #000000;
 }
 
-.card{
+.card {
   width: 50%;
   background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
 }
 
 
-.team-name{
+.team-name {
   font-size: 12px;
   text-transform: uppercase;
   color: #141414;
@@ -57,7 +57,7 @@ td.score{
   line-height: normal;
 }
 
-.vs-text{
+.vs-text {
   font-size: 32px;
   line-height: normal;
   color: #fff;
@@ -66,6 +66,7 @@ td.score{
   background: #141414;
   border-radius: 9px;
 }
+
 .date {
   text-align: center;
   font-size: 12px;
