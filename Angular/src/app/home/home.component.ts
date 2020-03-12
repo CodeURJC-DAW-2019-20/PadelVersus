@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     return this.lastMatches;
   }
 
+
   private handleError(error: any) {
     console.error(error);
   }

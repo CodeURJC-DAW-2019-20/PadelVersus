@@ -1,0 +1,83 @@
+<mat-card class="example-card">
+  <mat-card-content>
+
+   <!-- <mat-grid-list cols="1" rowHeight="50:1">
+      <mat-grid-tile class="mat-card-sub" >
+        Date {{getMatch().date}}
+      </mat-grid-tile>
+    </mat-grid-list>-->
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile class="teams-names" *ngFor="let Team of getMatch().teams">
+        {{Team.name}}
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="6:1">
+      <mat-grid-tile class="teams-names">
+        {{getResult()[0]}}:{{getResult()[1]}}
+      </mat-grid-tile>
+    </mat-grid-list>
+
+        <table>
+          <tr>
+            <td class="center-text tournament" colspan="6">Sets</td>
+          </tr>
+          <tr>
+            <td class="center-text" colspan="2"
+                [class.yellow-background]=getMatch().stadistics_1.win>{{getMatch().teams[0].name}}</td>
+            <td class="center-text"></td>
+            <td class="score">{{getMatch().stadistics_1.sets[0].games}}</td>
+            <td class="score">{{getMatch().stadistics_1.sets[1].games}}</td>
+            <td class="score">{{getMatch().stadistics_1.sets[2].games}}</td>
+          </tr>
+          <tr>
+            <td class="center-text" colspan="2"
+                [class.yellow-background]=getMatch().stadistics_2.win>{{getMatch().teams[1].name}}</td>
+            <td class="center-text"></td>
+            <td class="score">{{getMatch().stadistics_2.sets[0].games}}</td>
+            <td class="score">{{getMatch().stadistics_2.sets[1].games}}</td>
+            <td class="score">{{getMatch().stadistics_2.sets[2].games}}</td>
+          </tr>
+        </table>
+
+
+    <mat-grid-list cols="2" rowHeight="6:1">
+      <mat-grid-tile>
+        Acurracy {{getMatch().stadistics_1.acurracy}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.acurracy}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Acurracy {{getMatch().stadistics_2.acurracy}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.acurracy}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Effectiveness {{getMatch().stadistics_1.effectiveness}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.effectiveness}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Effectiveness {{getMatch().stadistics_2.effectiveness}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.effectiveness}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Games Wins {{getMatch().stadistics_1.games_wins}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.games_wins}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Games Wins {{getMatch().stadistics_2.games_wins}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.games_wins}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Unforced Errors {{getMatch().stadistics_1.unforcedErrors}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_1.unforcedErrors}}"></mat-progress-bar>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        Unforced Errors {{getMatch().stadistics_2.unforcedErrors}}%
+        <mat-progress-bar mode="determinate" value="{{getMatch().stadistics_2.unforcedErrors}}"></mat-progress-bar>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-card-content>
+</mat-card>
+
+
+
