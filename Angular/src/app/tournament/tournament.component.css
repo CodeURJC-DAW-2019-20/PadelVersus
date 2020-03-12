@@ -1,33 +1,11 @@
-.container {
+.container  {
+  width: 65%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
-@media (min-width: 992px){
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width: 992px){
-  .container {
-    width: 970px;
-  }
-}
-
-@media (min-width: 768px){
-  .container {
-    width: 750px;
-  }
-}
 
 .mat-tab-group {
   align-content: center;
@@ -38,9 +16,14 @@
   font-size: 14px;
   color: #141414;
   font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background: rgb(255, 160, 0);
   height: 5px;
+}
+
+.mat-tab-header{
+  padding-bottom: 20px;
 }
