@@ -4,6 +4,7 @@ import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Match} from "../Interfaces/match.model";
 import {Player} from "../Interfaces/player.model";
+import {Tournament} from "../Interfaces/tournament.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class PlayerService {
   }
 
   getTournamentsByPlayer(id:number){
-    return this.http.get<Tournament>(this.playerUrls + id).pipe(
+    return this.http.get<Tournament[]>(this.tournamentsPlayerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

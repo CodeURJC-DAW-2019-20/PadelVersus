@@ -5,6 +5,7 @@ import {Player} from "../Interfaces/player.model";
 import{ActivatedRoute} from "@angular/router";
 
 import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
+import {Tournament} from "../Interfaces/tournament.model";
 
 
 @Component({
@@ -18,6 +19,7 @@ export class PlayerComponent implements OnInit {
   private id : number;
   private chartType: string;
   private chartDatasets: any;
+  private tournament:Tournament[] = [];
 
 
   private chartLabels: string[];
@@ -40,6 +42,13 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+    this.playerService.getTournamentsByPlayer(this.id).subscribe(
+      data => {
+        this.tournament = data;
+        console.log('Player info: ', data);
+      },
+      error => this.handleError(error)
+    );
 
   }
 
@@ -54,6 +63,10 @@ export class PlayerComponent implements OnInit {
 
   getPlayer(){
     return this.player;
+  }
+
+  getTournamentsByPlayer(){
+    return this.tournament;
   }
 
   getChartType(){

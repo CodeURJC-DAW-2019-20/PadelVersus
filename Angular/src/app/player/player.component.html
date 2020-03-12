@@ -16,18 +16,24 @@
     <p>username : {{getPlayer().username}}</p>
     <p>mail : {{getPlayer().email}}</p>
 
-    <h3 style="text-align:center;">Radar Chart</h3>
-    <div style="display: block">
-      <canvas baseChart
-              [datasets]="getChartDataSets()"
-              [labels]="getChartLabels()"
-              [chartType]="getChartType()">
 
-
-      </canvas>
-    </div>
 
   </ng-container>
+
+  <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
+    <p>id : {{tournament.name}}</p>
+  </ng-container>
+
+  <h3 style="text-align:center;">Radar Chart</h3>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="getChartDataSets()"
+            [labels]="getChartLabels()"
+            [chartType]="getChartType()">
+
+
+    </canvas>
+  </div>
 
 
 

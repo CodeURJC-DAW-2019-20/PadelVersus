@@ -7,8 +7,7 @@ import {PlayerComponent} from "./player/player.component";
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'player/:id', component: PlayerComponent }
-
+  { path: 'player/:id', component: PlayerComponent },
 
 ];
 
