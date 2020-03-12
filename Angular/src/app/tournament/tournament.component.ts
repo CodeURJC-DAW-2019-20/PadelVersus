@@ -30,10 +30,6 @@ export class TournamentComponent implements OnInit {
     return this.tournaments;
   }
 
-  private handleError(error: any) {
-    console.error(error);
-  }
-
   downloadPdf() {
     console.log('Download pdf');
     this.tournamentService.getPdf().subscribe(
@@ -60,5 +56,9 @@ export class TournamentComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+  }
+
+  private handleError(error: any) {
+    console.error(error);
   }
 }

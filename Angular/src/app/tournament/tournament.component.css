@@ -1,4 +1,4 @@
-.container  {
+.container {
   width: 65%;
   padding-right: 15px;
   padding-left: 15px;
@@ -24,20 +24,21 @@
   height: 5px;
 }
 
-.mat-tab-header{
+.mat-tab-header {
   padding-bottom: 20px;
 }
 
-.mat-button{
+.mat-button {
   background: rgb(255, 160, 0);
   color: black;
   text-align: center;
 }
 
-span.mat-button-wrapper{
+span.mat-button-wrapper {
   padding: 2em;
 }
-.button-container{
+
+.button-container {
   padding-top: 20px;
   margin: 0 auto;
   text-align: center;

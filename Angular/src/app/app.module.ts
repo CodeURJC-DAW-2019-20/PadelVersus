@@ -1,13 +1,11 @@
-
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {MatCardModule} from '@angular/material/card';
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
