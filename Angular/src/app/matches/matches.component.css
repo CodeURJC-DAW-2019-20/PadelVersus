@@ -1,0 +1,13 @@
+.container {
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 5% 5% 5%;
+}

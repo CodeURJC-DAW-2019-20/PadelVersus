@@ -10,7 +10,7 @@ import {throwError} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class MatchesService {
 
   private matchesUrl: string;
 
