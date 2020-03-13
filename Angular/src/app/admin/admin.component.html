@@ -1,0 +1,30 @@
+<p>admin works!</p>
+
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-card id="next-matches-card" class="card">
+      <mat-card-header style="justify-content: center">
+        <mat-card-title>Next Matches</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <!-- The tournament doesn't come from the api when we ask for matches (PROBLEM) -->
+        <table>
+          <ng-container *ngFor="let Tournament of getTournaments(); let i = index">
+            <ng-container>
+              <tr>
+                <td class="center-text tournament" colspan="3">{{Tournament.name}}</td>
+              </tr>
+              <ng-container *ngFor="let Team of Tournament; let i = index">
+                <ng-container>
+                  <tr>
+                    <td class="center-text team-name">{{Team}}</td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
