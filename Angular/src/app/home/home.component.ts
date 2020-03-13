@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit {
         date: match.date
       });
     }
-    console.log(this.slides);
     return this.slides;
   }
 

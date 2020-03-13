@@ -8,4 +8,5 @@ export interface Match {
   stadistics_1: MatchStatistics;
   stadistics_2: MatchStatistics;
   teams: TeamMatch [];
+  tournammentName: string;
 }
