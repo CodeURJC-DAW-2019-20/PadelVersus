@@ -1,1 +1,5 @@
-
+<ng-container *ngIf="show">
+<div class="datesConatiener">
+  <a class="prev" (click)="PrevDate()">&#10094;</a>{{getDate()}}<a class="next" (click)="NextDate()">&#10095;</a>
+</div>
+</ng-container>

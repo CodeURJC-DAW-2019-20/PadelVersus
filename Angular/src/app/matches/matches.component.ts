@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatchesService} from './matches.service';
 import {Match} from '../Interfaces/match.model';
 import {MatchesOnDate} from '../Interfaces/matchesOnDate.model';
+import {NextMatchesDateComponent} from './next-matches-date/next-matches-date.component';
 
 @Component({
   selector: 'app-matches',
@@ -9,9 +10,10 @@ import {MatchesOnDate} from '../Interfaces/matchesOnDate.model';
   styleUrls: ['./matches.component.css']
 })
 export class MatchesComponent implements OnInit {
+  @ViewChild(NextMatchesDateComponent)
+  private nextMatchesDateComponent: NextMatchesDateComponent;
+
   private lastMatches: Match[];
-  private notPlayedDates: string[] = [];
-  private matchesByDate: any[] = [];
 
   constructor(private matchesService: MatchesService) {
   }
@@ -26,6 +28,7 @@ export class MatchesComponent implements OnInit {
     );
     this.matchesService.getDates().subscribe(
       data => {
+        const matchesByDate: MatchesOnDate[] = [];
         for (const date of data) {
           this.matchesService.getMatchesByDate(date).subscribe(
             dataOnDate => {
@@ -33,9 +36,14 @@ export class MatchesComponent implements OnInit {
                 date,
                 matches: dataOnDate
               };
-              this.matchesByDate.push(obj);
+              matchesByDate.push(obj);
               console.log('Matches not played on ' + date + ': ', dataOnDate);
               console.log(obj);
+              if (data.indexOf(date) === (data.length - 1)) {
+                console.log('Passing to child (lenght): ' + matchesByDate.length);
+                this.nextMatchesDateComponent.matchesByDate = matchesByDate;
+                this.nextMatchesDateComponent.toggleShow();
+              }
             },
             error => this.handleError(error)
           );
@@ -54,7 +62,4 @@ export class MatchesComponent implements OnInit {
     console.error(error);
   }
 
-  private getMatchesByDate() {
-    return this.matchesByDate;
-  }
 }
