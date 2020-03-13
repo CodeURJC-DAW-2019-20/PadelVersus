@@ -13,10 +13,11 @@ import {throwError} from 'rxjs';
 export class MatchesService {
 
   private matchesUrl: string;
-
+  private datesUrl: string;
 
   constructor(private http: HttpClient) {
     this.matchesUrl = 'https://localhost:8443/api/matches/';
+    this.datesUrl = 'https://localhost:8443/api/dates';
   }
 
   getNextMatches() {
@@ -28,6 +29,20 @@ export class MatchesService {
 
   getLastMatches() {
     return this.http.get<Match[]>(this.matchesUrl + '?played=true').pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getDates() {
+    return this.http.get<string[]>(this.datesUrl).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getMatchesByDate(date: string) {
+    return this.http.get<Match[]>(this.datesUrl + '?date=' + date).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

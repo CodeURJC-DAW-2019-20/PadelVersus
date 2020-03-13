@@ -9,6 +9,7 @@ import {Match} from '../Interfaces/match.model';
 })
 export class MatchesComponent implements OnInit {
   private lastMatches: Match[];
+  private notPlayedDates: string[] = [];
 
   constructor(private matchesService: MatchesService) {
   }
@@ -18,6 +19,13 @@ export class MatchesComponent implements OnInit {
       data => {
         this.lastMatches = data;
         console.log('Last Matches: ', data);
+      },
+      error => this.handleError(error)
+    );
+    this.matchesService.getDates().subscribe(
+      data => {
+        this.notPlayedDates = data;
+        console.log('Not played dates: ', data);
       },
       error => this.handleError(error)
     );
