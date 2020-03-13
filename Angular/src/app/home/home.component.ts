@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {Match} from '../Interfaces/match.model';
-import {HomeService} from './home.service';
+import {MatchesService} from '../matches/matches.service';
 
 @Component({
   selector: 'app-home',
@@ -15,18 +15,18 @@ export class HomeComponent implements OnInit {
 
   private slides: any [] = [];
 
-  constructor(private homeService: HomeService) {
+  constructor(private matchesService: MatchesService) {
   }
 
   ngOnInit(): void {
-    this.homeService.getNextMatches().subscribe(
+    this.matchesService.getNextMatches().subscribe(
       data => {
         this.nextMatches = data;
         console.log('Next Matches: ', data);
       },
       error => this.handleError(error)
     );
-    this.homeService.getLastMatches().subscribe(
+    this.matchesService.getLastMatches().subscribe(
       data => {
         this.lastMatches = data;
         console.log('Last Matches: ', data);
@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit {
         date: match.date
       });
     }
-    console.log(this.slides);
     return this.slides;
   }
 

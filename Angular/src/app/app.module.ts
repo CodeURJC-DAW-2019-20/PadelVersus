@@ -19,6 +19,9 @@ import {TournamentRankingComponent} from './tournament/tournament-ranking/tourna
 import { NextMatchesComponent } from './home/next-matches/next-matches.component';
 import { LastMatchesComponent } from './home/last-matches/last-matches.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
+import { MatchesComponent } from './matches/matches.component';
+import { NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -30,20 +33,23 @@ import { CarouselComponent } from './home/carousel/carousel.component';
     MatchComponent,
     NextMatchesComponent,
     LastMatchesComponent,
-    CarouselComponent
+    CarouselComponent,
+    MatchesComponent,
+    NextMatchesDateComponent
   ],
-  imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatProgressBarModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatCarouselModule
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatProgressBarModule,
+        MatGridListModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatCarouselModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 <mat-card class="card" id="next-matches-card">
   <mat-card-header style="justify-content: center">
-    <mat-card-title>Next Matches</mat-card-title>
+    <mat-card-title *ngIf="showTitle">Next Matches</mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
@@ -8,9 +8,9 @@
     <table>
       <ng-container *ngFor="let NextMatch of getNextMatches(); let i = index">
         <ng-container *ngIf="i <= 3">
-          <tbody style="animation:flipInX .5s ease-in;" class="flipInX">
+          <tbody *ngIf="flipInX" style="animation:flipInX .5s ease-in;" class="flipInX">
             <tr>
-              <td class="center-text tournament" colspan="3">Tournament X</td>
+              <td class="center-text tournament" colspan="3">{{NextMatch.tournammentName}}</td>
             </tr>
             <tr>
               <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
@@ -20,6 +20,19 @@
             <tr>
               <td class="center-text date" colspan="3">{{NextMatch.date | date : 'yyyy-MM-dd'}}</td>
             </tr>
+          </tbody>
+          <tbody *ngIf="fadeInUp" class="animated animatedFadeInUp fadeInUp">
+          <tr>
+            <td class="center-text tournament" colspan="3">{{NextMatch.tournammentName}}</td>
+          </tr>
+          <tr>
+            <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
+            <td class="center-text vs-text">VS</td>
+            <td class="center-text team-name">{{NextMatch.teams[1].name}}</td>
+          </tr>
+          <tr>
+            <td class="center-text date" colspan="3">{{NextMatch.date | date : 'yyyy-MM-dd'}}</td>
+          </tr>
           </tbody>
         </ng-container>
       </ng-container>
