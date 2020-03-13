@@ -22,6 +22,7 @@ import { CarouselComponent } from './home/carousel/carousel.component';
 import { MatchesComponent } from './matches/matches.component';
 import { NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
 import {FormsModule} from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {FormsModule} from '@angular/forms';
     LastMatchesComponent,
     CarouselComponent,
     MatchesComponent,
-    NextMatchesDateComponent
+    NextMatchesDateComponent,
+    NotFoundComponent
   ],
     imports: [
         BrowserAnimationsModule,
