@@ -8,6 +8,7 @@ import {MatchComponent} from './match/match.component';
 import {MatchesComponent} from './matches/matches.component';
 
 const routes: Routes = [
+  { path: 'home/match/:id', component: MatchComponent },
   {path: 'home', component: HomeComponent},
   {path: 'tournament', component: TournamentComponent},
   {path: 'matches', component: MatchesComponent},
