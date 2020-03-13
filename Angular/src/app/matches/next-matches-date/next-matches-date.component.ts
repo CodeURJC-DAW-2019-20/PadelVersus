@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MatchesOnDate} from '../../Interfaces/matchesOnDate.model';
 import {Match} from '../../Interfaces/match.model';
 
@@ -7,7 +7,7 @@ import {Match} from '../../Interfaces/match.model';
   templateUrl: './next-matches-date.component.html',
   styleUrls: ['./next-matches-date.component.css']
 })
-export class NextMatchesDateComponent implements OnInit {
+export class NextMatchesDateComponent implements OnInit, AfterViewInit {
 
   public matchesByDate: MatchesOnDate [] = [];
   private show = false;
@@ -21,6 +21,10 @@ export class NextMatchesDateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dateShowing = 0;
+  }
+
+  ngAfterViewInit(): void {
     this.dateShowing = 0;
   }
 
@@ -75,5 +79,7 @@ export class NextMatchesDateComponent implements OnInit {
     }
     return matches;
   }
+
+
 
 }
