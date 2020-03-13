@@ -154,6 +154,10 @@ public class TournamentService {
         return allTournamentDisplay;
     }
 
+    public Tournament findTournamentByMatchId(Long id){
+        return tournamentRepository.findTournamentByMatchId(id).orElse(null);
+    }
+
     public void saveTournament(Tournament tournament) {
         tournamentRepository.save(tournament);
     }
