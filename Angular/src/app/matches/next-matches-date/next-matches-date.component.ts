@@ -29,6 +29,7 @@ export class NextMatchesDateComponent implements OnInit, AfterViewInit {
   }
 
   NextDate() {
+    this.updateDates();
     this.dateShowing++;
     if (this.dateShowing > (this.dates.length - 1)) {
       this.dateShowing -= this.dates.length;
@@ -37,6 +38,7 @@ export class NextMatchesDateComponent implements OnInit, AfterViewInit {
   }
 
   PrevDate() {
+    this.updateDates();
     this.dateShowing--;
     if (this.dateShowing < 0) {
       this.dateShowing += this.dates.length;
@@ -46,6 +48,7 @@ export class NextMatchesDateComponent implements OnInit, AfterViewInit {
 
 
   getDate() {
+    this.updateDates();
     console.log('Date showing:' + this.dateShowing);
     return this.dates[this.dateShowing];
   }
@@ -79,7 +82,6 @@ export class NextMatchesDateComponent implements OnInit, AfterViewInit {
     }
     return matches;
   }
-
 
 
 }
