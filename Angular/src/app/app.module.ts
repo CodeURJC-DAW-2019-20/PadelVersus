@@ -21,6 +21,7 @@ import { LastMatchesComponent } from './home/last-matches/last-matches.component
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { MatchesComponent } from './matches/matches.component';
 import { NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -36,18 +37,19 @@ import { NextMatchesDateComponent } from './matches/next-matches-date/next-match
     MatchesComponent,
     NextMatchesDateComponent
   ],
-  imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatProgressBarModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatCarouselModule
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatProgressBarModule,
+        MatGridListModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatCarouselModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

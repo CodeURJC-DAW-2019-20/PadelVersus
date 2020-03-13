@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatchesService} from './matches.service';
 import {Match} from '../Interfaces/match.model';
+import {MatchesOnDate} from '../Interfaces/matchesOnDate.model';
 
 @Component({
   selector: 'app-matches',
@@ -10,6 +11,7 @@ import {Match} from '../Interfaces/match.model';
 export class MatchesComponent implements OnInit {
   private lastMatches: Match[];
   private notPlayedDates: string[] = [];
+  private matchesByDate: any[] = [];
 
   constructor(private matchesService: MatchesService) {
   }
@@ -24,7 +26,20 @@ export class MatchesComponent implements OnInit {
     );
     this.matchesService.getDates().subscribe(
       data => {
-        this.notPlayedDates = data;
+        for (const date of data) {
+          this.matchesService.getMatchesByDate(date).subscribe(
+            dataOnDate => {
+              const obj: MatchesOnDate = {
+                date,
+                matches: dataOnDate
+              };
+              this.matchesByDate.push(obj);
+              console.log('Matches not played on ' + date + ': ', dataOnDate);
+              console.log(obj);
+            },
+            error => this.handleError(error)
+          );
+        }
         console.log('Not played dates: ', data);
       },
       error => this.handleError(error)
@@ -35,9 +50,11 @@ export class MatchesComponent implements OnInit {
     return this.lastMatches;
   }
 
-
   private handleError(error: any) {
     console.error(error);
   }
 
+  private getMatchesByDate() {
+    return this.matchesByDate;
+  }
 }

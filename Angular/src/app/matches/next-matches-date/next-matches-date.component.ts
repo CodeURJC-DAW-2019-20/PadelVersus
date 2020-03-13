@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MatchesOnDate} from '../../Interfaces/matchesOnDate.model';
 
 @Component({
   selector: 'app-next-matches-date',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NextMatchesDateComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  private matchesByDate: MatchesOnDate [] = [];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

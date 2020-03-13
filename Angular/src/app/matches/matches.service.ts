@@ -42,7 +42,7 @@ export class MatchesService {
   }
 
   getMatchesByDate(date: string) {
-    return this.http.get<Match[]>(this.datesUrl + '?date=' + date).pipe(
+    return this.http.get<Match[]>(this.matchesUrl + '?date=' + date).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
