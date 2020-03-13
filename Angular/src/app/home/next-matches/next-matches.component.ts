@@ -11,6 +11,9 @@ export class NextMatchesComponent implements OnInit {
   @Input()
   private nextMatches: Match[] = [];
 
+  @Input()
+  public showTitle: boolean;
+
   constructor() {
   }
 

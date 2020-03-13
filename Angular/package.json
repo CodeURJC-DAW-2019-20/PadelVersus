@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",
     "@ngmodule/material-carousel": "^0.6.0",
+    "raleway-webfont": "^3.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

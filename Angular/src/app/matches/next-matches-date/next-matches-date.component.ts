@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MatchesOnDate} from '../../Interfaces/matchesOnDate.model';
+import {Match} from '../../Interfaces/match.model';
 
 @Component({
   selector: 'app-next-matches-date',
@@ -49,10 +50,25 @@ export class NextMatchesDateComponent {
     }
   }
 
+  getShow() {
+    return this.show;
+  }
+
   private updateDates() {
     this.dates = [];
     for (const obj of this.matchesByDate) {
       this.dates.push(obj.date);
     }
+  }
+
+  getMatchesOnDate() {
+    const date = this.getDate();
+    let matches: Match[] = [];
+    for (const obj of this.matchesByDate) {
+      if (obj.date === date) {
+        matches = obj.matches;
+      }
+    }
+    return matches;
   }
 }

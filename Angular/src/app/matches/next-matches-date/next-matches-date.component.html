@@ -1,5 +1,6 @@
-<ng-container *ngIf="show">
-<div class="datesConatiener">
-  <a class="prev" (click)="PrevDate()">&#10094;</a>{{getDate()}}<a class="next" (click)="NextDate()">&#10095;</a>
-</div>
+<ng-container *ngIf="getShow()">
+  <div class="dates-contaiener">
+    <a class="prev" (click)="PrevDate()">&#10094;</a><span class="date">{{getDate()}}</span><a class="next" (click)="NextDate()">&#10095;</a>
+  </div>
+  <app-next-matches [nextMatches]="getMatchesOnDate()" [showTitle]=false></app-next-matches>
 </ng-container>
