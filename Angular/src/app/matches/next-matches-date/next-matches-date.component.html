@@ -2,5 +2,5 @@
   <div class="dates-contaiener">
     <a class="prev" (click)="PrevDate()">&#10094;</a><span class="date">{{getDate()}}</span><a class="next" (click)="NextDate()">&#10095;</a>
   </div>
-  <app-next-matches [nextMatches]="getMatchesOnDate()" [showTitle]=false></app-next-matches>
+  <app-next-matches [nextMatches]="getMatchesOnDate()" [showTitle]=false [fadeInUp]=true [flipInX]=false></app-next-matches>
 </ng-container>
