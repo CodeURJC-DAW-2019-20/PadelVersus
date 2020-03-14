@@ -25,6 +25,12 @@ h1{
   width: 136%;
   background: #fff;
 }
+.canvas-angular {
+  position: relative;
+  left: 380px;
+  top: -350px;
+}
+
 
 
 .boxCountry{

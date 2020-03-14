@@ -8,6 +8,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -18,6 +19,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import {MatTab, MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import {MatListModule} from "@angular/material/list";
     MatTabsModule,
     MatIconModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    NgApexchartsModule,
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

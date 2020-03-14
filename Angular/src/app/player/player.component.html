@@ -26,9 +26,24 @@
       <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
         <span class = " feature"> {{tournament.name}}<br></span><br>
       </ng-container>
+
+
+
     </mat-card>
 
+
   </div>
+  <div class = "canvas-angular">
+    <apx-chart
+
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [title]="chartOptions.title"
+    ></apx-chart>
+  </div>
+
+
 
 
 </ul>

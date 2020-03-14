@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 import{PlayerService} from "./player.service";
 import {Player} from "../Interfaces/player.model";
@@ -7,8 +7,20 @@ import{ActivatedRoute} from "@angular/router";
 import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
 import {Tournament} from "../Interfaces/tournament.model";
 import {Team} from "../Interfaces/team.model";
+import{ChartComponent,
+  ApexAxisChartSeries,
+  ApexTitleSubtitle,
+  ApexChart,
+  ApexXAxis,
+  }from "ng-apexcharts";
 
 
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  title: ApexTitleSubtitle;
+  xaxis: ApexXAxis;
+};
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -26,12 +38,43 @@ export class PlayerComponent implements OnInit {
 
   private chartLabels: string[];
 
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+
 
 
 
 
   constructor(private activatedRoute:ActivatedRoute, private playerService:PlayerService) {
     this.id = activatedRoute.snapshot.params['id'];
+
+
+
+    this.chartOptions = {
+      series: [
+        {
+          name: "Series 1",
+          data: [10,20,20,20,20,20,20,20]
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "radar"
+      },
+      title: {
+        text: "Basic Radar Chart"
+      },
+      xaxis: {
+        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
+      }
+    };
+
+
+
+
+
+
+
   }
 
 
@@ -58,7 +101,27 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+    /*
+    this.chartOptions ={
+      series: [
+        {
+          name: "Series 1",
+          data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace]
+        }
+      ],
+        chart: {
+        height: 350,
+          type: "radar"
+      },
+      title: {
+        text: "Basic Radar Chart"
+      },
+      xaxis: {
+        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
+      }
+    };
 
+     */
   }
 
   // events
@@ -96,6 +159,28 @@ export class PlayerComponent implements OnInit {
     return this.chartLabels=
       ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace'];
   }
+
+  getChartOptions(){
+    return this.chartOptions = {
+      series: [
+        {
+          name: "Series 1",
+          data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace]
+        }
+      ],
+      chart: {
+        height: 100,
+        type: "radar"
+      },
+      title: {
+        text: "Basic Radar Chart"
+      },
+      xaxis: {
+        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
+      }
+    };
+  }
+
 
 
 
