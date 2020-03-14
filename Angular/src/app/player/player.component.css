@@ -1,19 +1,26 @@
+.container {
+  width: 65%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card {
+  background: #fff;
+}
 
 .center {
   text-align: center;
-  padding: 50px;
-
 }
-.margin{
-  margin:0 400px;
 
-}
-.player{
+.player {
   color: #fc0;
   font-size: 30px;
   margin-bottom: 20px;
 }
-h1{
+
+h1 {
   font-size: 24px;
   font-family: Raleway, sans-serif;
   font-weight: 900;
@@ -21,26 +28,15 @@ h1{
   color: #141414;
 }
 
-.card{
-  width: 136%;
-  background: #fff;
-}
-.canvas-angular {
-  position: relative;
-  left: 380px;
-  top: -350px;
+h1 {
+  display: inline-block;
 }
 
-
-
-.boxCountry{
-
-  margin: 30px 20px 29px 0;
+.boxCountry {
+  margin: 0 10px 0 0;
   padding: 0 10px;
   height: 26px;
-  position: relative;
-  vertical-align:top;
-
+  vertical-align: top;
   display: inline-block;
   font-size: 10px;
   text-transform: uppercase;
@@ -48,7 +44,8 @@ h1{
   font-family: Montserrat, sans-serif;
   background: #fc0;
 }
-.before{
+
+.before {
   content: '';
   width: 100%;
   position: absolute;
@@ -60,9 +57,13 @@ h1{
   z-index: -1;
 }
 
+.canvas-angular {
+  position: absolute;
+  top: -30%;
+  right: 5%;
+}
 
-.feature{
-
+.feature {
   color: #141414;
   font-size: 15px;
   text-transform: uppercase;

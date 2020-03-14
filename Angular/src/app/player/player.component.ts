@@ -1,26 +1,20 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
-import{PlayerService} from "./player.service";
-import {Player} from "../Interfaces/player.model";
-import{ActivatedRoute} from "@angular/router";
-
-import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
-import {Tournament} from "../Interfaces/tournament.model";
-import {Team} from "../Interfaces/team.model";
-import{ChartComponent,
-  ApexAxisChartSeries,
-  ApexTitleSubtitle,
-  ApexChart,
-  ApexXAxis,
-  }from "ng-apexcharts";
+import {PlayerService} from './player.service';
+import {Player} from '../Interfaces/player.model';
+import {ActivatedRoute} from '@angular/router';
+import {Tournament} from '../Interfaces/tournament.model';
+import {Team} from '../Interfaces/team.model';
+import {ApexAxisChartSeries, ApexChart, ApexTitleSubtitle, ApexXAxis, ChartComponent} from 'ng-apexcharts';
 
 
-export type ChartOptions = {
+export interface ChartOptions {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   title: ApexTitleSubtitle;
   xaxis: ApexXAxis;
-};
+}
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -28,55 +22,17 @@ export type ChartOptions = {
 })
 export class PlayerComponent implements OnInit {
 
-  private player:Player;
-  private id : number;
-  private chartType: string;
-  private chartDatasets: any;
-  private tournaments:Tournament[] = [];
-  private teams:Team[] = [];
+  private player: Player;
+  private id: number;
+  private tournaments: Tournament[] = [];
+  private teams: Team[] = [];
 
-
-  private chartLabels: string[];
-
-  @ViewChild("chart") chart: ChartComponent;
+  @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-
-
-
-
-  constructor(private activatedRoute:ActivatedRoute, private playerService:PlayerService) {
-    this.id = activatedRoute.snapshot.params['id'];
-
-
-
-    this.chartOptions = {
-      series: [
-        {
-          name: "Series 1",
-          data: [10,20,20,20,20,20,20,20]
-        }
-      ],
-      chart: {
-        height: 350,
-        type: "radar"
-      },
-      title: {
-        text: "Basic Radar Chart"
-      },
-      xaxis: {
-        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
-      }
-    };
-
-
-
-
-
-
-
+  constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
+    this.id = activatedRoute.snapshot.params.id;
   }
-
 
 
   ngOnInit(): void {
@@ -84,6 +40,7 @@ export class PlayerComponent implements OnInit {
       data => {
         this.player = data;
         console.log('Player info: ', data);
+        this.setChartOptions();
       },
       error => this.handleError(error)
     );
@@ -101,95 +58,47 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
-    /*
-    this.chartOptions ={
-      series: [
-        {
-          name: "Series 1",
-          data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace]
-        }
-      ],
-        chart: {
-        height: 350,
-          type: "radar"
-      },
-      title: {
-        text: "Basic Radar Chart"
-      },
-      xaxis: {
-        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
-      }
-    };
-
-     */
   }
 
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
 
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-
-  getPlayer(){
+  getPlayer() {
     return this.player;
   }
 
-  getTournamentsByPlayer(){
+  getTournamentsByPlayer() {
     return this.tournaments;
   }
 
-  getTeamsByPlayer(){
+  getTeamsByPlayer() {
     return this.teams;
   }
 
-  getChartType(){
-    return this.chartType = 'radar';
-  }
-
-  getChartDataSets(){
-
-    return this.chartDatasets = [{data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace],label: 'Player con id '+this.player.id} ];
-
-  }
-
-  getChartLabels(){
-    return this.chartLabels=
-      ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace'];
-  }
-
-  getChartOptions(){
-    return this.chartOptions = {
+  setChartOptions(): void {
+    this.chartOptions = {
       series: [
         {
-          name: "Series 1",
-          data: [this.player.height,this.player.weight,this.player.endurance,this.player.speed,this.player.accuaracy,this.player.aceleration,this.player.strength,this.player.pace]
+          name: 'Series 1',
+          data: [this.player.height * 10, this.player.endurance * 10, this.player.weight, this.player.speed * 10,
+            this.player.accuaracy * 10, this.player.aceleration * 10, this.player.strength * 10, this.player.pace * 10]
         }
       ],
       chart: {
-        height: 100,
-        type: "radar"
+        height: 500,
+        type: 'radar'
       },
       title: {
-        text: "Basic Radar Chart"
+        text: 'Basic Radar Chart'
       },
       xaxis: {
-        categories: ['Height', 'Weight', 'Endurance', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght','Pace']
+        categories: ['Height', 'Endurance', 'Weight', 'Speed', 'Accuaracy', 'Aceleration', 'Strenght', 'Pace']
       }
     };
   }
-
-
-
-
 
 
   private handleError(error: any) {
     console.error(error);
   }
-
 
 
 }
