@@ -15,6 +15,9 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
 import { PlayerComponent } from './player/player.component';
 import {ChartsModule} from "ng2-charts";
 import { TournamentComponent } from './tournament/tournament.component';
+import {MatTab, MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -32,7 +35,11 @@ import { TournamentComponent } from './tournament/tournament.component';
     MatCardModule,
     MatGridListModule,
     MatCarouselModule,
-    ChartsModule
+    ChartsModule,
+    MatTabsModule,
+    MatIconModule,
+    MatListModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

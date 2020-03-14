@@ -1,52 +1,46 @@
 <p>player works!</p>
+<mat-card-title id="tittle" >
+
+  <p>PAGINA DEL PLAYER</p>
+</mat-card-title>
 <ul id="player">
 
-  <ng-container *ngIf=" getPlayer()">
-    <p>username: {{getPlayer().user.name}}</p>
-    <p>id : {{getPlayer().id}}</p>
-    <p>age : {{getPlayer().age}}</p>
-    <p>countryBirth : {{getPlayer().countryBirth}}</p>
-    <p>height : {{getPlayer().height}}</p>
-    <p>weight : {{getPlayer().weight}}</p>
-    <p>speed : {{getPlayer().speed}}</p>
-    <p>strength : {{getPlayer().strength}}</p>
-    <p>endurance : {{getPlayer().endurance}}</p>
-    <p>pace : {{getPlayer().pace}}</p>
-    <p>accuaracy : {{getPlayer().accuaracy}}</p>
-    <p>aceleration : {{getPlayer().aceleration}}</p>
-    <p>email: {{getPlayer().user.mail}}</p>
+    <ng-container *ngIf=" getPlayer()">
+      <span style="text-align: center" class = "boxCountry ">{{getPlayer().countryBirth}} </span>
+      <h1> {{getPlayer().user.name}}</h1><br>
+    </ng-container>
+  <div class = "margin">
+    <mat-card class = "card">
+      <ng-container *ngIf=" getPlayer()">
+
+        <span class = "player"><br>Age</span><br><br><span class = "feature">{{getPlayer().age}}<br></span>
 
 
 
+      </ng-container>
+      <span class = "player"><br>Teams </span><br><br>
+      <ng-container *ngFor="let team of getTeamsByPlayer()">
+        <span class = " feature">{{team.name}}<br></span><br>
+      </ng-container>
+      <span class = "player">Tournaments </span><br><br>
+      <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
+        <span class = " feature"> {{tournament.name}}<br></span><br>
+      </ng-container>
+    </mat-card>
 
-
-  </ng-container>
-
-  <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
-    <p>tournamentName : {{tournament.name}}</p>
-  </ng-container>
-
-  <ng-container *ngFor="let team of getTeamsByPlayer()">
-    <p>teamName : {{team.name}}</p>
-  </ng-container>
-
-
-  <h3 style="text-align:center;">Radar Chart</h3>
-  <div style="display: block">
-    <canvas baseChart
-            [datasets]="getChartDataSets()"
-            [labels]="getChartLabels()"
-            [chartType]="getChartType()">
-
-
-    </canvas>
   </div>
 
 
-
-
-
 </ul>
+
+
+
+
+
+
+
+
+
 
 
 

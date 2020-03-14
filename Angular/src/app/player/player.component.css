@@ -1,0 +1,67 @@
+
+.center {
+  text-align: center;
+  padding: 50px;
+
+}
+.margin{
+  margin:0 400px;
+
+}
+.player{
+  color: #fc0;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+h1{
+  font-size: 24px;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+.card{
+  width: 136%;
+  background: #fff;
+}
+
+
+.boxCountry{
+
+  margin: 30px 20px 29px 0;
+  padding: 0 10px;
+  height: 26px;
+  position: relative;
+  vertical-align:top;
+
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  font-family: Montserrat, sans-serif;
+  background: #fc0;
+}
+.before{
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -10px;
+  transform: skew(-10deg);
+  background: #fc0;
+  z-index: -1;
+}
+
+
+.feature{
+
+  color: #141414;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+
