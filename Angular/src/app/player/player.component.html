@@ -1,0 +1,58 @@
+
+<div>
+  <img class="card-img-top" [src]="'/assets/page-header-bg.jpg/'" alt="Card image">
+</div>
+
+<div class="container">
+  <div class = "row">
+    <div class = "col-md-photo">
+      <div *ngIf=" getPlayer()">
+        <span class="boxCountry center">{{getPlayer().countryBirth}} </span>
+        <h1> {{getPlayer().user.name}}</h1>
+      </div>
+      <img [src]="getImageByPlayer()" alt="{{getImageByPlayer()}}">
+    </div>
+    <div class = "col-md-player">
+      <mat-card class="card">
+        <mat-card-content>
+          <ng-container *ngIf=" getPlayer()">
+            <span class="player"><br>Age</span><br><br><span class="feature">{{getPlayer().age}}<br></span>
+          </ng-container>
+          <span class="player"><br>Teams </span><br><br>
+          <ng-container *ngFor="let team of getTeamsByPlayer()">
+            <span class=" feature">{{team.name}}<br></span><br>
+          </ng-container>
+          <span class="player">Tournaments </span><br><br>
+          <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
+            <span class=" feature"> {{tournament.name}}<br></span><br>
+          </ng-container>
+          <ng-container *ngIf=" getPlayer()">
+            <div>
+              <apx-chart
+                [class.canvas-angular]=true
+                [series]="chartOptions.series"
+                [chart]="chartOptions.chart"
+                [xaxis]="chartOptions.xaxis"
+                [title]=""
+              ></apx-chart>
+            </div>
+          </ng-container>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Tournament} from '../Interfaces/tournament.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
