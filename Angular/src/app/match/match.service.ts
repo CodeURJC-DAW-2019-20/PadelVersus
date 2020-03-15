@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {Match} from '../Interfaces/Match.model';
+import {Match} from '../Interfaces/match.model';
 
 
 @Injectable({
