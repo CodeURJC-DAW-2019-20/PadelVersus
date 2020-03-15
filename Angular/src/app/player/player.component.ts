@@ -95,7 +95,7 @@ export class PlayerComponent implements OnInit {
         }
       ],
       chart: {
-        height: 500,
+        height: 600,
         type: 'radar'
       },
       title: {

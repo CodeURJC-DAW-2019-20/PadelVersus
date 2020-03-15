@@ -11,10 +11,10 @@
 
 .card {
   background: #fff;
-  width: 55%;
-  position: absolute;
-  top: 30%;
-  right: 10%;
+  width:390%;
+  height: 355px;
+
+
 }
 
 .center {
@@ -30,16 +30,19 @@
 }
 
 .col-md-player {
-  position: relative;
   min-height: 1px;
+  position: absolute;
+  top: 59.7%;
+  right: 54.7%;
+
 
 }
 
 .col-md-photo {
   min-height: 1px;
   position: absolute;
-  top: 0%;
-  right: 70%;
+  top: 53.3%;
+  right: 68.5%;
 
 }
 
@@ -97,6 +100,13 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 20px;
   text-align: left;
+}
+
+.image-header-player {
+  min-height: 300px;
+  background-size: cover;
+  overflow: hidden;
+  clear: both
 }
 
 
