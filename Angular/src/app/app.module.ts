@@ -26,6 +26,7 @@ import {MatchesComponent} from './matches/matches.component';
 import {NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
 import {FormsModule} from '@angular/forms';
 import {NotFoundComponent} from './not-found/not-found.component';
+import { ImagesComponent } from './images/images.component';
 
 
 
@@ -43,6 +44,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
     NextMatchesDateComponent,
     NotFoundComponent,
     PlayerComponent,
+    ImagesComponent,
   ],
   imports: [
     BrowserAnimationsModule,

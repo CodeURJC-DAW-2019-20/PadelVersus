@@ -3,6 +3,7 @@
   <img class="card-img-top" [src]="'/assets/page-header-bg.jpg/'" alt="Card image">
 </div>
 
+
 <div class="container">
   <div class = "row">
     <div class = "col-md-photo">
@@ -10,7 +11,7 @@
         <span class="boxCountry center">{{getPlayer().countryBirth}} </span>
         <h1> {{getPlayer().user.name}}</h1>
       </div>
-      <img [src]="getImageByPlayer()" alt="{{getImageByPlayer()}}">
+      <app-images [id]="getId()"></app-images>
     </div>
     <div class = "col-md-player">
       <mat-card class="card">

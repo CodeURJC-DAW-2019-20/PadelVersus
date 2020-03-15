@@ -26,7 +26,7 @@ export class PlayerComponent implements OnInit {
   private id: number;
   private tournaments: Tournament[] = [];
   private teams: Team[] = [];
-  private image:any;
+
 
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
@@ -59,13 +59,7 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
-    this.playerService.getImageByPlayer(this.id)
-      .subscribe(data => {
-          this.createImageFromBlob(data);
-        }, error => {
-          console.log(error);
-        }
-      );
+
   }
 
 
@@ -81,9 +75,10 @@ export class PlayerComponent implements OnInit {
     return this.teams;
   }
 
-  getImageByPlayer(){
-    return this.image;
+  getId(){
+    return this.id;
   }
+
 
   setChartOptions(): void {
     this.chartOptions = {
@@ -112,16 +107,6 @@ export class PlayerComponent implements OnInit {
     console.error(error);
   }
 
-  createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      this.image = reader.result;
-    }, false);
-
-    if (image) {
-      reader.readAsDataURL(image);
-    }
-  }
 
 
 }
