@@ -29,21 +29,222 @@
 
     </mat-card>
   </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card id="next-matches-card1" class="card">
+      <mat-card-header style="justify-content: center">
+        <mat-card-title>Save Stadistics Match:</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form (ngSubmit)="onSubmit()">
+          <h4>Choose Match:</h4>
+          <mat-form-field>
+            <mat-label>MATCH:</mat-label>
+            <mat-select [(ngModel)]="selectedMatch" name="selectedMatch">
+              <mat-option *ngFor="let Match of getMatchs()" [value]="Match.id">
+                {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+<!--
+          <p> Selected Match: {{selectedMatch}} </p>
+          <h4 for="team1Stats">Stadistics Team 1:</h4>
+          <div id="team1Stats">
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Accuracy is accuracy">
+              <span class="label-input100 ">Accuracy:</span>
+              <input class="input100 form-control" id="accuracy1" max="100"
+                     min="0" name="accuracy1" placeholder="Type your accuracy" type="number">
+
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Effectiveness is required">
+              <span class="label-input100 ">Effectiveness:</span>
+              <input class="input100 form-control" id="effectiveness1" max="100"
+                     min="0" name="effectiveness1" placeholder="Type your effectiveness"
+                     type="number">
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Unforced Errors is required">
+              <span class="label-input100 ">Unforced Errors:</span>
+              <input class="input100 form-control" id="unforcedErrors1" max="100"
+                     min="0" name="unforcedErrors1" placeholder="Type your unforced Errors"
+                     type="number">
+
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required">
+              <span class="label-input100 ">Set 1:</span>
+              <input class="input100 form-control" id="set1team1" max="7"
+                     min="0" name="set1team1" placeholder="Type set 1" type="number">
+
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
+              <span class="label-input100 ">Set 2:</span>
+              <input class="input100 form-control" id="set2team1" max="7"
+                     min="0" name="set2team1" placeholder="Type set 2" type="number">
+
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
+              <span class="label-input100 ">Set 3: (-1 if not played)</span>
+              <input class="input100 form-control" id="set3team1" max="7"
+                     min="-1" name="set3team1" placeholder="Type set 3" type="number">
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+              <input id="win1" name="win1" type="checkbox">
+              <label for="win1">Win the match</label>
+            </div>
+          </div>
+          <h4 for="team2Stats">Stadistics Team 2:</h4>
+          <div id="team2Stats">
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Accuracy is accuracy">
+              <span class="label-input100 ">Accuracy:</span>
+              <input class="input100 form-control" id="accuracy2" max="100"
+                     min="0" name="accuracy2" placeholder="Type your accuracy" type="number">
+
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Effectiveness is required">
+              <span class="label-input100 ">Effectiveness:</span>
+              <input class="input100 form-control" id="effectiveness2" max="100"
+                     min="0" name="effectiveness2" placeholder="Type your effectiveness"
+                     type="number">
+
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-23"
+                 data-validate="Unforced Errors is required">
+              <span class="label-input100 ">Unforced Errors:</span>
+              <input class="input100 form-control" id="unforcedErrors2" max="100"
+                     min="0" name="unforcedErrors2" placeholder="Type your unforced Errors"
+                     type="number">
+
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 1 is required">
+              <span class="label-input100 ">Set 1:</span>
+              <input class="input100 form-control" id="set1team2" max="7"
+                     min="0" name="set1team2" placeholder="Type set 1" type="number">
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
+              <span class="label-input100 ">Set 2:</span>
+              <input class="input100 form-control" id="set2team2" max="7"
+                     min="0" name="set2team2" placeholder="Type set 2" type="number">
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
+              <span class="label-input100 ">Set 3: (-1 if not played)</span>
+              <input class="input100 form-control" id="set3team2" max="7"
+                     min="-1" name="set3team2" placeholder="Type set 3" type="number">
+            </div>
+            <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+              <input id="win2" name="win2" type="checkbox">
+              <label for="win1">Win the match</label>
+            </div>
+          </div>-->
+          <button class="btn btn-success" type="submit">Save</button>
+        </form>
+      </mat-card-content>
+
+
+    </mat-card>
+  </mat-grid-tile>
 </mat-grid-list>
+<!--
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Form Prueba:</h1>
+    <form #stadisticsForm="ngForm" (ngSubmit)="onSubmit()">
+      <h4 for="team1Stats">Stadistics Team 1:</h4>
+      <div id="team1Stats1">
+        <div class="form-group">
+          <label for="accuracy1">Accuracy:</label>
+          <input class="form-control" type="number" id="accuracy1" name="accuracy1" #accuracy1 placeholder="Type your accuracy" required [(ngModel)]="statsMatch1.acurracy">
+          <div>
+            {{accuracy1.className}}
+          </div>
+
+
+        </div>
+
+        <div class="form-group">
+          <label for="effectiveness1">Effectiveness:</label>
+          <input class="input100 form-control" id="effectiveness1" name="effectiveness1" placeholder="Type your effectiveness"
+                 type="number" required [(ngModel)]="statsMatch1.effectiveness" #effectiveness1="ngModel">
+          <div [hidden]="effectiveness1.valid || effectiveness1.pristine" class="alert alert-danger">
+            Effectiveness is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="unforcedErrors1">Unforced Errors:</label>
+          <input class="input100 form-control" id="unforcedErrors1" name="unforcedErrors1" placeholder="Type your unforced Errors"
+                 type="number" required [(ngModel)]="statsMatch1.unforcedErrors" #unforcedErrors1="ngModel">
+          <div [hidden]="unforcedErrors1.valid || unforcedErrors1.pristine" class="alert alert-danger">
+            Unforced Errors is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="set1team1">Set 1:</label>
+          <input class="form-control" id="set1team1" max="7"
+                 min="0" name="set1team1" placeholder="Type set 1" type="number" required [(ngModel)]="statsMatch1.sets[0]">
+        </div>
+        <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
+          <span class="label-input100 ">Set 2:</span>
+          <input class="input100 form-control" id="set2team1" max="7"
+                 min="0" name="set2team1" placeholder="Type set 2" type="number" required [(ngModel)]="statsMatch1.sets[1]">
+
+        </div>
+        <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
+          <span class="label-input100 ">Set 3: (-1 if not played)</span>
+          <input class="input100 form-control" id="set3team1" max="7"
+                 min="-1" name="set3team1" placeholder="Type set 3" type="number" required [(ngModel)]="statsMatch1.sets[2]">
+        </div>
+        <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+          <input id="win1" name="win1" type="checkbox" required [(ngModel)]="statsMatch1.win">
+          <label for="win1">Win the match</label>
+        </div>
+      </div>
+-->
+<!-- <button type="submit" [disabled]="!stadisticsForm.form.valid" class="btn btn-success">Submit</button>-->
+<!-- <button type="submit" [disabled]="!stadisticsForm.form.valid" class="btn btn-success">Submit</button>
+
+
+
+
+ <div class="form-group">
+   <label for="name1">Super Hero</label>
+   <input type="text" class="form-control" id="name1" required [(ngModel)]="statsMatch1">
+ </div>
+ <div class="form-group">
+   <label for="match">Match:</label>
+   <select class="form-control" id="match">
+     <option *ngFor="let Match of getMatchs()" [value]="Match.id">
+       {{Match.teams[0].name+", "+Match.teams[1].name+", "+Match.date}}
+     </option>
+   </select>
+ </div>
+ <button type="submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+</div>
+-->
 <!--
 <mat-grid-list cols="2">
   <mat-grid-tile>
     <mat-card id="next-matches-card1" class="card">
       <mat-card-header style="justify-content: center">
-        <mat-card-title>Save Match:</mat-card-title>
+        <mat-card-title>Tournament:</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
         <form>
-          <h4>Save Stadistics Match:</h4>
+          <h4>Tournament:</h4>
           <mat-form-field>
             <mat-label>MATCH::</mat-label>
-            <mat-select [(ngModel)]="selectedMatch" name="tournament">
+            <mat-select [(ngModel)]="selectedTournament" name="tournament">
               <mat-option *ngFor="let Tournament of getTournaments()" [value]="Tournament.name">
                 {{Tournament.name}}
               </mat-option>

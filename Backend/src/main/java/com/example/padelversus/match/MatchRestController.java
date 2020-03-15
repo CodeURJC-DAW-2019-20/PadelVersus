@@ -78,7 +78,9 @@ public class MatchRestController {
         private String t1;
         private String t2;
         private LocalDate date;
+        public MatchCreate(){
 
+        }
         public MatchCreate(String t1, String t2, LocalDate date) {
             this.t1 = t1;
             this.t2 = t2;

@@ -9,13 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {BrowserModule} from '@angular/platform-browser';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {AdminComponent} from "./admin/admin.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SignUpComponent} from "./signUp/signUp.component";
+import {LogInComponent} from "./logIn/logIn.component";
 
 
 @NgModule({
@@ -23,25 +26,29 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     MatchComponent,
-    AdminComponent
+    AdminComponent,
+    SignUpComponent,
+    LogInComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
 
-    MatProgressBarModule,
-    MatGridListModule,
+        MatProgressBarModule,
+        MatGridListModule,
 
-    MatGridListModule,
-    MatCarouselModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule
+        MatGridListModule,
+        MatCarouselModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        ReactiveFormsModule,
 
-  ],
+        FlexLayoutModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

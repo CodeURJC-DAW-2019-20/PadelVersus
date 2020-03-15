@@ -4,6 +4,10 @@ import {Tournament} from '../Interfaces/tournament.model'
 import {AdminService} from "./admin.service";
 import {Team} from '../Interfaces/team.model';
 import {Match} from "../Interfaces/match.model";
+import {MatchStatistics} from "../Interfaces/matchStatistics.model";
+import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -18,7 +22,8 @@ export class AdminComponent implements OnInit {
   selectedTeam1: Team;
   selectedTeam2: Team;
   selectedMatch: Match;
-
+  statsMatch1: MatchStatistics;
+  statsMatch2: MatchStatistics;
 
   constructor(private  adminService: AdminService) {
   }
@@ -29,7 +34,13 @@ export class AdminComponent implements OnInit {
         this.tournamentList = data;
         console.log('Tournaments', data);
       },
-      error => this.handleError(error)
+      err => {
+        if( err instanceof HttpErrorResponse ) {
+          if (err.status === 401) {
+            //this.router.navigate(['/login']).then(r => err);
+          }
+        }
+      }
     );
     this.adminService.getMatchAdmin().subscribe(
       data => {
@@ -60,4 +71,12 @@ export class AdminComponent implements OnInit {
     console.error(error);
   }
 
+
+  submitted = false;
+  onSubmit() {
+    this.submitted = true;
+    this.statsMatch2 = this.statsMatch1;
+    this.adminService.addStatsMatch(this.selectedMatch,this.statsMatch1,this.statsMatch2);
+    console.log('Accuracy '+this.statsMatch1.acurracy);
+  }
 }
