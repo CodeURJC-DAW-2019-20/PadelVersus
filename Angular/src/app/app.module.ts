@@ -10,7 +10,7 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 
-import {NgApexchartsModule} from "ng-apexcharts";
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -30,7 +30,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     AppComponent,
     HomeComponent,
     TournamentComponent,
@@ -41,7 +41,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
     CarouselComponent,
     MatchesComponent,
     NextMatchesDateComponent,
-    NotFoundComponent
+    NotFoundComponent,
     PlayerComponent,
   ],
   imports: [
