@@ -12,13 +12,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
+import {AdminComponent} from "./admin/admin.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MatchComponent
+    MatchComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,10 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
     MatGridListModule,
 
     MatGridListModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule
 
   ],
   providers: [],

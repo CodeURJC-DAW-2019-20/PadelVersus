@@ -6,6 +6,7 @@ import {throwError} from 'rxjs';
 
 import {Tournament} from "../Interfaces/tournament.model";
 import {MatchAdmin} from "../Interfaces/matchAdmin.model";
+import {Match} from "../Interfaces/match.model";
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,12 @@ export class AdminService {
       catchError(err => this.handleError(err))
     );
   }
+
   getMatchAdmin(){
-    //eturn this.http.get<MatchAdmin[]>(this.ad)
+    return this.http.get<Match[]>("https://localhost:8443/api/matches/?played=false").pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
   }
   private handleError(error: any) {
     console.error(error);

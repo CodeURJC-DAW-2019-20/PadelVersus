@@ -1,24 +1,24 @@
-<p>admin works!</p>
+<h1 align="center" class="mat-display-3" style="padding-top: 15px; color: #fb6107">ADMIN PAGE:</h1>
+
 
 <mat-grid-list cols="2">
   <mat-grid-tile>
     <mat-card id="next-matches-card" class="card">
       <mat-card-header style="justify-content: center">
-        <mat-card-title>Next Matches</mat-card-title>
+        <mat-card-title>Tournaments:</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
-        <!-- The tournament doesn't come from the api when we ask for matches (PROBLEM) -->
         <table>
-          <ng-container *ngFor="let Tournament of getTournaments(); let i = index">
+          <ng-container *ngFor="let Tournament of getTournaments();">
             <ng-container>
               <tr>
                 <td class="center-text tournament" colspan="3">{{Tournament.name}}</td>
               </tr>
-              <ng-container *ngFor="let Team of Tournament; let i = index">
+              <ng-container *ngFor="let Team of Tournament.teams; let i = index">
                 <ng-container>
                   <tr>
-                    <td class="center-text team-name">{{Team}}</td>
+                    <td class="center-text team-name">{{Team.name}}</td>
                   </tr>
                 </ng-container>
               </ng-container>
@@ -26,5 +26,51 @@
           </ng-container>
         </table>
       </mat-card-content>
+
     </mat-card>
   </mat-grid-tile>
+</mat-grid-list>
+<!--
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-card id="next-matches-card1" class="card">
+      <mat-card-header style="justify-content: center">
+        <mat-card-title>Save Match:</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form>
+          <h4>Save Stadistics Match:</h4>
+          <mat-form-field>
+            <mat-label>MATCH::</mat-label>
+            <mat-select [(ngModel)]="selectedMatch" name="tournament">
+              <mat-option *ngFor="let Tournament of getTournaments()" [value]="Tournament.name">
+                {{Tournament.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p> Selected Tournament: {{selectedTournament}} </p>
+          <mat-form-field>
+            <mat-label>TEAM 1:</mat-label>
+            <mat-select [(ngModel)]="selectedTeam1" name="team1">
+              <mat-option *ngFor="" [value]="">
+
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>TEAM 1:</mat-label>
+            <mat-select [(ngModel)]="selectedTeam1" name="team1">
+              <mat-option *ngFor="let Team of getTeamsOfTournaments()" [value]="Team.name">
+                {{Team.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+
+
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>-->
