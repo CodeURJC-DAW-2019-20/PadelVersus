@@ -1,8 +1,7 @@
-
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import { Match } from "../Interfaces/Match.model";
-import { MatchService } from "./match.service";
-import {ActivatedRoute} from "@angular/router";
+import {Match} from '../Interfaces/match.model';
+import {MatchService} from './match.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -10,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: 'match.component.html',
   styleUrls: ['match.component.css'],
 })
-export class MatchComponent implements  OnInit{
+export class MatchComponent implements OnInit {
   private id: number;
 
   private matchInfo: Match;
