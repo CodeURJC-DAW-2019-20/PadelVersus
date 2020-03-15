@@ -1,23 +1,46 @@
 .container {
-  width: 65%;
-  padding-right: 15px;
-  padding-left: 15px;
+
   margin-right: auto;
   margin-left: auto;
 }
 
+.row {
+  margin-right: -1px;
+  margin-left: -15px
+}
+
 .card {
   background: #fff;
+  width: 55%;
+  position: absolute;
+  top: 30%;
+  right: 10%;
 }
 
 .center {
   text-align: center;
 }
 
+
+
 .player {
   color: #fc0;
   font-size: 30px;
   margin-bottom: 20px;
+}
+
+.col-md-player {
+  position: relative;
+  min-height: 1px;
+
+}
+
+.col-md-photo {
+  min-height: 1px;
+  position: absolute;
+  top: 0%;
+  right: 70%;
+
 }
 
 h1 {
@@ -62,6 +85,11 @@ h1 {
   top: -30%;
   right: 5%;
 }
+
+
+
+
+
 
 .feature {
   color: #141414;
