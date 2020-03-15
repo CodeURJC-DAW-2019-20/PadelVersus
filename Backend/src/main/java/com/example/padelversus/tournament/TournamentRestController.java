@@ -63,9 +63,10 @@ public class TournamentRestController {
     @GetMapping("/tournaments/")
     public ResponseEntity<List<Tournament>> getTournamentByName(@RequestParam(required = false) String name,
                                                                 @RequestParam(required = false) Long playerId,
-                                                                @RequestParam(required = false) Long teamId
+                                                                @RequestParam(required = false) Long teamId,
+                                                                @RequestParam(required = false) Long matchId
     ) {
-        if (name != null && playerId == null  && teamId == null) { //Only name
+        if (name != null && playerId == null  && teamId == null && matchId == null) { //Only name
             Optional<Tournament> tournamentOptional = tournamentService.getTournamentByName(name);
             if (tournamentOptional.isPresent()) {
                 ArrayList<Tournament> tournamentName = new ArrayList<>();
@@ -75,7 +76,7 @@ public class TournamentRestController {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         }
-        if (name == null && playerId != null && teamId == null) { //Only playerId
+        if (name == null && playerId != null && teamId == null && matchId == null) { //Only playerId
             Optional<Player> playerOptional = playerService.findPlayerById(playerId);
             if (!playerOptional.isPresent()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -83,7 +84,7 @@ public class TournamentRestController {
             List<Tournament> tournaments = playerService.findTournamentsOfPlayer(playerOptional.get());
             return new ResponseEntity<>(tournaments, HttpStatus.OK);
         }
-        if(name != null && playerId != null && teamId == null){ //Name and playerId
+        if(name != null && playerId != null && teamId == null && matchId == null){ //Name and playerId
             Optional<Player> playerOptional = playerService.findPlayerById(playerId);
             if (!playerOptional.isPresent()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -103,7 +104,7 @@ public class TournamentRestController {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         }
-        if(name == null && playerId == null && teamId != null){ //Only teamId
+        if(name == null && playerId == null && teamId != null && matchId == null){ //Only teamId
             Optional<Team> teamOptional = teamService.getTeam(teamId);
             if(!teamOptional.isPresent()){
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -114,7 +115,7 @@ public class TournamentRestController {
             }
             return new ResponseEntity<>(tournaments, HttpStatus.OK);
         }
-        if(name != null && playerId == null && teamId != null){ //Name and teamID
+        if(name != null && playerId == null && teamId != null && matchId == null){ //Name and teamID
             Optional<Team> teamOptional = teamService.getTeam(teamId);
             if(!teamOptional.isPresent()){
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -136,7 +137,17 @@ public class TournamentRestController {
             tournamentsName.add(tournament);
             return new ResponseEntity<>(tournamentsName, HttpStatus.OK);
         }
-        if(name == null && playerId == null && teamId == null) {
+        if(name == null && playerId == null && teamId == null && matchId != null) {// only match id
+           Tournament tournament = tournamentService.findTournamentByMatchId(matchId);
+           if(tournament != null){
+               List<Tournament> tournaments = new ArrayList<>();
+               tournaments.add(tournament);
+               return new ResponseEntity<>(tournaments, HttpStatus.OK);
+           }else{
+               return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+           }
+        }
+        if(name == null && playerId == null && teamId == null && matchId == null) {
             List<Tournament> tournaments = tournamentService.getAllTournament();
             return new ResponseEntity<>(tournaments, HttpStatus.OK);
         }

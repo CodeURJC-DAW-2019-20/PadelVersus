@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "padelversus",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,10 +23,7 @@
     "@angular/router": "~9.0.5",
     "@ngmodule/material-carousel": "^0.6.0",
     "apexcharts": "^3.16.1",
-    "chart.js": "^2.9.3",
-    "mdbootstrap": "^4.14.0",
-    "ng-apexcharts": "^1.2.1",
-    "ng2-charts": "^2.3.0",
+    "raleway-webfont": "^3.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

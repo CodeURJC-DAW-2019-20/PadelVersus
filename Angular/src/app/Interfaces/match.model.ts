@@ -1,5 +1,5 @@
-import { MatchStatistics } from './matchStatistics.model';
-import { TeamMatch } from './teamMatch.model';
+import {MatchStatistics} from './matchStatistics.model';
+import {TeamMatch} from './teamMatch.model';
 
 export interface Match {
   id: number;
@@ -8,4 +8,5 @@ export interface Match {
   stadistics_1: MatchStatistics;
   stadistics_2: MatchStatistics;
   teams: TeamMatch [];
+  tournammentName: string;
 }
