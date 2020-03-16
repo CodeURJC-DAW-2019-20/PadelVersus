@@ -32,20 +32,155 @@
   <mat-grid-tile>
     <mat-card id="next-matches-card1" class="card">
       <mat-card-header style="justify-content: center">
-        <mat-card-title>Save Stadistics Match:</mat-card-title>
+        <mat-card-title>Save Stats Match:</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
-        <form (ngSubmit)="onSubmit()">
+        <form #stadisticsForm="ngForm" (ngSubmit)="statsForm(selectedMatch)">
           <h4>Choose Match:</h4>
-          <mat-form-field>
-            <mat-label>MATCH:</mat-label>
-            <mat-select [(ngModel)]="selectedMatch" name="selectedMatch">
-              <mat-option *ngFor="let Match of getMatchs()" [value]="Match.id">
-                {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <mat-select [(ngModel)]="selectedMatch" name="selectedMatch" style="background: #ffa000;color: black">
+            <mat-option *ngFor="let Match of getMatchs()" [value]="Match">
+              {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+            </mat-option>
+          </mat-select>
+          <h4 for="team1Stats">Stadistics Team 1:</h4>
+          <div #team1 id="team1Stats1">
+            <div class="form-group">
+            <label>Accuracy:</label>
+            <input type="number" name="acurracy" [(ngModel)]="acurracy1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+            <label>Effectiveness:</label>
+            <input type="number" name="effectiveness" [(ngModel)]="effectiveness1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+            <label>UnforcedErrors:</label>
+            <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+            <label>Set 1:</label>
+            <input type="number" name="set1" [(ngModel)]="set1team1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+            <label>Set 2:</label>
+            <input type="number" name="set2" [(ngModel)]="set2team1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+            <label>Set 3:</label>
+            <input type="number" name="set3" [(ngModel)]="set3team1" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <input id="win1" name="win"[(ngModel)]="win1"  type="checkbox">
+              <label for="win1">Win the match</label>
+            </div>
+          </div>
+          <h4 for="team1Stats">Stadistics Team 2:</h4>
+          <div id="team2Stats1" #team2>
+            <div class="form-group">
+              <label>Accuracy:</label>
+              <input type="number" name="acurracy1"  [(ngModel)]="acurracy2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <label>Effectiveness:</label>
+              <input type="number" name="effectiveness1"  [(ngModel)]="effectiveness2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <label>UnforcedErrors:</label>
+              <input type="number" name="unforcedErrors1"  [(ngModel)]="unforcedErrors2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <label>Set 1:</label>
+              <input type="number" name="set11"  [(ngModel)]="set1team2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <label>Set 2:</label>
+              <input type="number" name="set21"  [(ngModel)]="set2team2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <label>Set 3:</label>
+              <input type="number" name="set31"  [(ngModel)]="set3team2" style="background: transparent; color: #ffa000">
+            </div>
+            <div class="form-group">
+              <input id="win2" name="win1"  [(ngModel)]="win2" type="checkbox">
+              <label for="win2">Win the match</label>
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit">Save</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <mat-grid-tile>
+
+   <mat-card id="next-matches-card1" class="card">
+     <mat-card-header style="justify-content: center">
+       <mat-card-title>Save Stadistics Match:</mat-card-title>
+     </mat-card-header>
+
+     <mat-card-content>
+       <form (ngSubmit)="onSubmit()">
+         <h4>Choose Match:</h4>
+         <mat-form-field>
+           <mat-label>MATCH:</mat-label>
+           <mat-select [(ngModel)]="selectedMatch" name="selectedMatch">
+             <mat-option *ngFor="let Match of getMatchs()" [value]="Match.id">
+               {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+             </mat-option>
+           </mat-select>
+         </mat-form-field>
+
+         <h4 for="team1Stats">Stadistics Team 1:</h4>
+         <div id="team1Stats1">
+           <div class="form-group">
+             <label for="acurracy1">Accuracy:</label>
+             <input class="form-control" type="number" id="acurracy1" name="acurracy1" #acurracy1="ngModel"
+                    placeholder="Type your acurracy" required [(ngModel)]="statsMatch1.acurracy">
+           </div>
+
+           <div class="form-group">
+             <label for="effectiveness1">Effectiveness:</label>
+             <input class="input100 form-control" id="effectiveness1" name="effectiveness1"
+                    placeholder="Type your effectiveness"
+                    type="number" required [(ngModel)]="statsMatch1.effectiveness" #effectiveness1="ngModel">
+             <div [hidden]="effectiveness1.valid || effectiveness1.pristine" class="alert alert-danger">
+               Effectiveness is required
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label for="unforcedErrors1">Unforced Errors:</label>
+             <input class="input100 form-control" id="unforcedErrors1" name="unforcedErrors1"
+                    placeholder="Type your unforced Errors"
+                    type="number" required [(ngModel)]="statsMatch1.unforcedErrors" #unforcedErrors1="ngModel">
+             <div [hidden]="unforcedErrors1.valid || unforcedErrors1.pristine" class="alert alert-danger">
+               Unforced Errors is required
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="set1team1">Set 1:</label>
+             <input class="form-control" id="set1team1" max="7"
+                    min="0" name="set1team1" placeholder="Type set 1" type="number" required
+                    [(ngModel)]="statsMatch1.sets[0]">
+           </div>
+           <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
+             <span class="label-input100 ">Set 2:</span>
+             <input class="input100 form-control" id="set2team1" max="7"
+                    min="0" name="set2team1" placeholder="Type set 2" type="number" required
+                    [(ngModel)]="statsMatch1.sets[1]">
+
+           </div>
+           <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
+             <span class="label-input100 ">Set 3: (-1 if not played)</span>
+             <input class="input100 form-control" id="set3team1" max="7"
+                    min="-1" name="set3team1" placeholder="Type set 3" type="number" required
+                    [(ngModel)]="statsMatch1.sets[2]">
+           </div>
+           <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
+             <input id="win1" name="win1" type="checkbox" required [(ngModel)]="statsMatch1.win">
+             <label for="win1">Win the match</label>
+           </div>
+         </div>-->
 <!--
           <p> Selected Match: {{selectedMatch}} </p>
           <h4 for="team1Stats">Stadistics Team 1:</h4>
@@ -144,34 +279,72 @@
               <label for="win1">Win the match</label>
             </div>
           </div>-->
-          <button class="btn btn-success" type="submit">Save</button>
-        </form>
-      </mat-card-content>
+<!--       <button class="btn btn-success" type="submit">Save</button>-->
+<!--   </form>
+ </mat-card-content>
 
 
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+</mat-card>
+</mat-grid-tile>
+</mat-grid-list>-->
 <!--
-<div class="container">
-  <div [hidden]="submitted">
-    <h1>Form Prueba:</h1>
-    <form #stadisticsForm="ngForm" (ngSubmit)="onSubmit()">
+<form #form="ngForm" (ngSubmit)="logForm(form.value)">
+  <label>Firstname:</label>
+  <input type="text" name="firstname" ngModel>
+
+  <label>Lastname:</label>
+  <input type="text" name="lastname" ngModel>
+
+  <label>Street:</label>
+  <input type="text" name="street" ngModel>
+
+  <label>Zip:</label>
+  <input type="text" name="zip" ngModel>
+
+  <label>City:</label>
+  <input type="text" name="city" ngModel>
+
+  <button type="submit">Submit</button>
+</form>
+<form #stadisticsForm="ngForm" (ngSubmit)="statsForm(stadisticsForm.value)">
+  <h4>Choose Match:</h4>
+  <mat-select [(ngModel)]="selectedMatch" name="selectedMatch" style="background: #fb6107;color: black">
+    <mat-option *ngFor="let Match of getMatchs()" [value]="Match.id">
+      {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+    </mat-option>
+  </mat-select>
+  <h4 for="team1Stats">Stadistics Team 1:</h4>
+  <div id="team1Stats1">
+    <label>Accuracy:</label>
+    <input type="number" name="acurracy" ngModel>
+  </div>
+</form>
+-->
+
+<!--  <div class="container">
+    <div [hidden]="submitted">
+      <h4>Choose Match:</h4>
+      <mat-select [(ngModel)]="selectedMatch" name="selectedMatch">
+        <mat-option *ngFor="let Match of getMatchs()" [value]="Match.id">
+          {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+        </mat-option>
+      </mat-select>
+
+
       <h4 for="team1Stats">Stadistics Team 1:</h4>
       <div id="team1Stats1">
         <div class="form-group">
-          <label for="accuracy1">Accuracy:</label>
-          <input class="form-control" type="number" id="accuracy1" name="accuracy1" #accuracy1 placeholder="Type your accuracy" required [(ngModel)]="statsMatch1.acurracy">
-          <div>
-            {{accuracy1.className}}
-          </div>
+          <label for="acurracy1">Accuracy:</label>
+          <input class="form-control" type="number" id="acurracy1" name="acurracy1" #acurracy1="ngModel"
+                 placeholder="Type your acurracy" required [(ngModel)]="statsMatch1.acurracy">
 
 
         </div>
 
         <div class="form-group">
           <label for="effectiveness1">Effectiveness:</label>
-          <input class="input100 form-control" id="effectiveness1" name="effectiveness1" placeholder="Type your effectiveness"
+          <input class="input100 form-control" id="effectiveness1" name="effectiveness1"
+                 placeholder="Type your effectiveness"
                  type="number" required [(ngModel)]="statsMatch1.effectiveness" #effectiveness1="ngModel">
           <div [hidden]="effectiveness1.valid || effectiveness1.pristine" class="alert alert-danger">
             Effectiveness is required
@@ -180,7 +353,8 @@
 
         <div class="form-group">
           <label for="unforcedErrors1">Unforced Errors:</label>
-          <input class="input100 form-control" id="unforcedErrors1" name="unforcedErrors1" placeholder="Type your unforced Errors"
+          <input class="input100 form-control" id="unforcedErrors1" name="unforcedErrors1"
+                 placeholder="Type your unforced Errors"
                  type="number" required [(ngModel)]="statsMatch1.unforcedErrors" #unforcedErrors1="ngModel">
           <div [hidden]="unforcedErrors1.valid || unforcedErrors1.pristine" class="alert alert-danger">
             Unforced Errors is required
@@ -189,44 +363,54 @@
         <div class="form-group">
           <label for="set1team1">Set 1:</label>
           <input class="form-control" id="set1team1" max="7"
-                 min="0" name="set1team1" placeholder="Type set 1" type="number" required [(ngModel)]="statsMatch1.sets[0]">
+                 min="0" name="set1team1" placeholder="Type set 1" type="number" required
+                 [(ngModel)]="statsMatch1.sets[0]">
         </div>
         <div class="wrap-input100 validate-input m-b-23" data-validate="Set 2 is required">
           <span class="label-input100 ">Set 2:</span>
           <input class="input100 form-control" id="set2team1" max="7"
-                 min="0" name="set2team1" placeholder="Type set 2" type="number" required [(ngModel)]="statsMatch1.sets[1]">
+                 min="0" name="set2team1" placeholder="Type set 2" type="number" required
+                 [(ngModel)]="statsMatch1.sets[1]">
 
         </div>
         <div class="wrap-input100 validate-input m-b-23" data-validate="Set 3 is required">
           <span class="label-input100 ">Set 3: (-1 if not played)</span>
           <input class="input100 form-control" id="set3team1" max="7"
-                 min="-1" name="set3team1" placeholder="Type set 3" type="number" required [(ngModel)]="statsMatch1.sets[2]">
+                 min="-1" name="set3team1" placeholder="Type set 3" type="number" required
+                 [(ngModel)]="statsMatch1.sets[2]">
         </div>
         <div class="wrap-input100 validate-input m-b-23" data-validate="Win">
           <input id="win1" name="win1" type="checkbox" required [(ngModel)]="statsMatch1.win">
           <label for="win1">Win the match</label>
         </div>
       </div>
+    </div>
+  </div>
+</form>
 -->
-<!-- <button type="submit" [disabled]="!stadisticsForm.form.valid" class="btn btn-success">Submit</button>-->
+
 <!-- <button type="submit" [disabled]="!stadisticsForm.form.valid" class="btn btn-success">Submit</button>
+ <button type="submit" [disabled]="!stadisticsForm.form.valid" class="btn btn-success">Submit</button>
 
+    </form>
+  </div>
+</div>-->
 
+<!--
 
-
- <div class="form-group">
-   <label for="name1">Super Hero</label>
-   <input type="text" class="form-control" id="name1" required [(ngModel)]="statsMatch1">
- </div>
- <div class="form-group">
-   <label for="match">Match:</label>
-   <select class="form-control" id="match">
-     <option *ngFor="let Match of getMatchs()" [value]="Match.id">
-       {{Match.teams[0].name+", "+Match.teams[1].name+", "+Match.date}}
-     </option>
-   </select>
- </div>
- <button type="submit" class="btn btn-success">Submit</button>
+<div class="form-group">
+<label for="name1">Super Hero</label>
+<input type="text" class="form-control" id="name1" required [(ngModel)]="statsMatch1">
+</div>
+<div class="form-group">
+<label for="match">Match:</label>
+<select class="form-control" id="match">
+<option *ngFor="let Match of getMatchs()" [value]="Match.id">
+{{Match.teams[0].name+", "+Match.teams[1].name+", "+Match.date}}
+</option>
+</select>
+</div>
+<button type="submit" class="btn btn-success">Submit</button>
 </form>
 </div>
 </div>

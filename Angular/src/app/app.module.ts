@@ -11,7 +11,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {BrowserModule} from '@angular/platform-browser';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientJsonpModule} from "@angular/common/http";
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {AdminComponent} from "./admin/admin.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -19,6 +20,12 @@ import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SignUpComponent} from "./signUp/signUp.component";
 import {LogInComponent} from "./logIn/logIn.component";
+import {AuthService} from "./auth.service";
+import {AuthGuard} from "./auth.guard";
+import {AdminService} from "./admin/admin.service";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -30,26 +37,30 @@ import {LogInComponent} from "./logIn/logIn.component";
     SignUpComponent,
     LogInComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCardModule,
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
 
-        MatProgressBarModule,
-        MatGridListModule,
+    MatProgressBarModule,
+    MatGridListModule,
 
-        MatGridListModule,
-        MatCarouselModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        FormsModule,
-        ReactiveFormsModule,
+    MatGridListModule,
+    MatCarouselModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
 
-        FlexLayoutModule
-    ],
-  providers: [],
+    FlexLayoutModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatDialogModule
+  ],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

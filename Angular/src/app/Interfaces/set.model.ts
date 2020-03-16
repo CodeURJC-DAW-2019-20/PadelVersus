@@ -1,5 +1,5 @@
 export interface Set {
-  id: number;
+  id?: number;
   games: number;
   setNumber: number;
 }

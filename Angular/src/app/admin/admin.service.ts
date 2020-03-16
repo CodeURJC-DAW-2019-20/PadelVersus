@@ -9,7 +9,7 @@ import {Match} from "../Interfaces/match.model";
 import {MatchStatistics} from "../Interfaces/matchStatistics.model";
 var headers_object = new HttpHeaders();
 headers_object.append('Content-Type', 'application/json');
-headers_object.append("Authorization", "Basic " + btoa("admin:adminpass"));
+//headers_object.append("Authorization", "Basic " + btoa("admin:adminpass"));
 
 const httpOptions = {
   headers: headers_object
@@ -21,10 +21,10 @@ export class AdminService {
 
   private adminUrl : string;
   private statMatch: MatchStatistics[];
+
   constructor(private http: HttpClient) {
-    this.adminUrl = 'https://localhost:8443/api/tournaments/'
-    this.statMatch[0] = null;
-    this.statMatch[1] = null;
+    this.adminUrl = 'https://localhost:8443/api/tournaments/';
+    this.statMatch= [];
   }
 
   getTournaments() {
@@ -47,13 +47,15 @@ export class AdminService {
 
   /** POST: add a new stats match to the database */
   addStatsMatch (match: Match,statsMatch: MatchStatistics,statsMatch1: MatchStatistics): Observable<Match> {
-    this.statMatch[0] = (statsMatch);
-    this.statMatch[1] = (statsMatch1);
-    console.log('ID: '+match.id)
-    return this.http.post<Match>("https://localhost:8443/api/match/"+match.id, this.statMatch, httpOptions)
-      .pipe(
-        catchError(err=> this.handleError(err))
-      );
+    this.statMatch[0]=((statsMatch));
+    this.statMatch[1]=((statsMatch1));
+    const body = JSON.stringify(this.statMatch);
+    console.log('ID: '+match);
+    console.log('Stat Match:'+body);
+    return this.http.put<Match>("https://localhost:8443/api/match/"+match.id, body, httpOptions).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
 
   }
 

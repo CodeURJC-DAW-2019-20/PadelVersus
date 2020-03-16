@@ -44,5 +44,15 @@ public class UserRestController{
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
+    @GetMapping(value = "/{name}")
+    @JsonView(UserPlayer.class)
+    public ResponseEntity<User> getUser(@PathVariable String name){
+        Optional<User> optionalUser = userService.findUserByName(name);
+        if(optionalUser.isPresent()){
+            return new ResponseEntity<>(optionalUser.get(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
