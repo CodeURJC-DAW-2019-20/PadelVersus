@@ -8,4 +8,5 @@ export interface User {
   roles: string[];
   player?: Player;
   authdata: string;
+
 }

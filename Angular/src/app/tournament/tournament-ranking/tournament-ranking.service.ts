@@ -1,33 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
-import {Match} from '../Interfaces/match.model';
-
 import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-
+import {TeamTournament} from '../../Interfaces/teamTournament.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
-
-  private matchesUrl: string;
-
+export class TournamentRankingService {
+  private readonly tournamentUrl: string;
 
   constructor(private http: HttpClient) {
-    this.matchesUrl = 'https://localhost:8443/api/matches/';
+    this.tournamentUrl = 'https://localhost:8443/api/tournament/id/ranking';
   }
 
-  getNextMatches() {
-    return this.http.get<Match[]>(this.matchesUrl + '?played=false').pipe(
-      map(response => response),
-      catchError(err => this.handleError(err))
-    );
-  }
-
-  getLastMatches() {
-    return this.http.get<Match[]>(this.matchesUrl + '?played=true').pipe(
+  getTournamentRanking(id: number) {
+    const url = this.tournamentUrl.replace('id', (id as unknown as string));
+    console.log('Get to: ' + url);
+    return this.http.get<TeamTournament[]>(url).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
@@ -37,5 +27,4 @@ export class HomeService {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);
   }
-
 }

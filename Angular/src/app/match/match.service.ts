@@ -17,7 +17,9 @@ export class MatchService {
 
   constructor(private http: HttpClient) {
 
+
     this.matchUrl = 'https://localhost:8443/api/match/';
+
 
   }
 

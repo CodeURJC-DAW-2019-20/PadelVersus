@@ -1,0 +1,112 @@
+.container {
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -1px;
+  margin-left: -15px
+}
+
+.card {
+  background: #fff;
+  width:390%;
+  height: 355px;
+
+
+}
+
+.center {
+  text-align: center;
+}
+
+
+
+.player {
+  color: #fc0;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.col-md-player {
+  min-height: 1px;
+  position: absolute;
+  top: 59.7%;
+  right: 54.7%;
+
+
+}
+
+.col-md-photo {
+  min-height: 1px;
+  position: absolute;
+  top: 53.3%;
+  right: 68.5%;
+
+}
+
+h1 {
+  font-size: 24px;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.boxCountry {
+  margin: 0 10px 0 0;
+  padding: 0 10px;
+  height: 26px;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  font-family: Montserrat, sans-serif;
+  background: #fc0;
+}
+
+.before {
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -10px;
+  transform: skew(-10deg);
+  background: #fc0;
+  z-index: -1;
+}
+
+.canvas-angular {
+  position: absolute;
+  top: -30%;
+  right: 5%;
+}
+
+
+
+
+
+
+.feature {
+  color: #141414;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.image-header-player {
+  min-height: 300px;
+  background-size: cover;
+  overflow: hidden;
+  clear: both
+}
+
+

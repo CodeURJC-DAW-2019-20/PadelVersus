@@ -1,8 +1,10 @@
 
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+
 
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -25,6 +27,7 @@ import {LastMatchesComponent} from './home/last-matches/last-matches.component';
 import {CarouselComponent} from './home/carousel/carousel.component';
 import {MatchesComponent} from './matches/matches.component';
 import {NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
+
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {NotFoundComponent} from './not-found/not-found.component';
 import { ImagesComponent } from './images/images.component';
@@ -46,6 +49,7 @@ import {BasicAuthInterceptor} from "./basic-auth.interceptor";
 import {ErrorInterceptor} from "./error.interceptor";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +68,7 @@ import {ErrorInterceptor} from "./error.interceptor";
     AdminComponent,
     SignUpComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserAnimationsModule,
@@ -91,6 +96,7 @@ import {ErrorInterceptor} from "./error.interceptor";
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-import { Set } from './set.model';
+import {Set} from './set.model';
 
 export interface MatchStatistics {
   acurracy: number;

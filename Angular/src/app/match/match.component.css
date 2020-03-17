@@ -1,15 +1,22 @@
 .example-card {
-  max-width: 700px;
+  max-width: 40%;
 }
-.card-title{
+.mat-card {
+  background: #fff;
+  color: #fff;
+}
+
+.card-title {
   padding-top: 20px;
   padding-bottom: 21px;
   font-size: 28px;
 }
-.mat-card-sub{
+
+.mat-card-sub {
   align-content: center;
 }
-.teams-names{
+
+.teams-names {
   padding-top: 20px;
   padding-bottom: 21px;
   font-size: 28px;
@@ -18,17 +25,45 @@
   text-transform: uppercase;
   color: #141414;
 }
-.mat-progress-bar{
-  color: darkorange;
+
+.mat-progress-bar.mat-progress-bar.mat-primary{
+  color: darkorange !important;
   margin: 5px 15px 15px 5px;
 }
-.mat-grid-tile{
-  margin: 15px 15px 15px 15px;
+.mat-progress-bar-background{
+  color: darkorange !important;
 }
+.mat-grid-tile{
+
+  margin: 15px 15px 15px 15px;
+  color:black;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+}
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+table, th, td, caption {
+  padding: 10px;
+}
+
+td.center-text{
+  text-align: center;
+  color: black;
+}
+
+
+td.score{
+  border-radius: 0.6em;
+  background: black;
+  color : white;
+  text-align: center;
 }
