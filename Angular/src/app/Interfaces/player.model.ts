@@ -1,7 +1,7 @@
 import {User} from "./user.model";
 
 export interface Player {
-  id: number;
+  id?: number;
   age: number;
   countryBirth: "Spain",
   height: number;
@@ -12,5 +12,5 @@ export interface Player {
   pace: number;
   accuaracy: number;
   aceleration: number;
-  user:User;
+  user?:User;
 }
