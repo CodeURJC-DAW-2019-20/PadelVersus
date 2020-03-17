@@ -7,4 +7,5 @@ export interface User {
   mail: string;
   roles: string[];
   player?: Player;
+  authdata: string;
 }

@@ -19,13 +19,15 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SignUpComponent} from "./signUp/signUp.component";
-import {LogInComponent} from "./logIn/logIn.component";
-import {AuthService} from "./auth.service";
+import {LoginComponent} from "./logIn/login.component";
+import {AuthenticationService} from "./authentication.service";
 import {AuthGuard} from "./auth.guard";
 import {AdminService} from "./admin/admin.service";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
+import {BasicAuthInterceptor} from "./basic-auth.interceptor";
+import {ErrorInterceptor} from "./error.interceptor";
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatchComponent,
     AdminComponent,
     SignUpComponent,
-    LogInComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,10 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatIconModule,
     MatDialogModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
