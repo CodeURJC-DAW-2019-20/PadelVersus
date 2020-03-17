@@ -14,6 +14,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {LoginComponent} from "./logIn/login.component";
 import {SignUpComponent} from "./signUp/signUp.component";
 import {AuthGuard} from "./auth.guard";
+import {TeamComponent} from "./teams/team.component";
 
 const routes: Routes = [
   {path: 'home/match/:id', component: MatchComponent},
@@ -26,10 +27,11 @@ const routes: Routes = [
   {path: 'home/match', component: MatchComponent},
   {path: 'tournament/:id', component: TournamentRankingComponent},
   {path: 'player/:id', component: PlayerComponent},
+  {path: 'teams/:id', component: TeamComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'},
- 
+
 ];
 
 @NgModule({
