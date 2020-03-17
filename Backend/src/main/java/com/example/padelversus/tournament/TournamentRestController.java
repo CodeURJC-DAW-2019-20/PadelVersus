@@ -190,6 +190,9 @@ public class TournamentRestController {
         private Long playerId;
         private String teamName;
 
+        public RegisterTournamentParams(){
+
+        }
         public RegisterTournamentParams(Long playerId, String teamName) {
             this.playerId = playerId;
             this.teamName = teamName;

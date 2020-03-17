@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @RestController
+@RequestMapping("/api")
 public class RestLoginCotroller {
     interface UserPlayer extends User.Identifier, User.Roles, User.Name, User.Email, User.PlayerView, Player.Basic {
     }
@@ -23,10 +23,9 @@ public class RestLoginCotroller {
     @Autowired
     private UserComponent userComponent;
 
-    @RequestMapping("/api/logIn")
+    @GetMapping("/logIn")
     @JsonView(UserPlayer.class)
     public ResponseEntity<User> logIn() {
-
         if (!userComponent.isLoggedUser()) {
             log.info("Not user logged");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -37,7 +36,7 @@ public class RestLoginCotroller {
         }
     }
 
-    @RequestMapping("/api/logOut")
+    @RequestMapping("/logOut")
     public ResponseEntity<Boolean> logOut(HttpSession session) {
 
         if (!userComponent.isLoggedUser()) {

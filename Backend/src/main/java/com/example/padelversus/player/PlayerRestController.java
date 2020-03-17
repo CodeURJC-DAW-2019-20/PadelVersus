@@ -51,6 +51,9 @@ public class PlayerRestController {
 
         private Long idUser;
 
+        public PlayerApi(){
+
+        }
         public PlayerApi(int age, double height, double weight, double speed, double strength, double endurance, double pace, double accuaracy, double aceleration, String countryBirth, Long id) {
             this.age = age;
             this.height = height;
