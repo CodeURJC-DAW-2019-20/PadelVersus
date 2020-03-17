@@ -64,6 +64,7 @@ import {ErrorInterceptor} from "./error.interceptor";
     NextMatchesDateComponent,
     NotFoundComponent,
     PlayerComponent,
+    TeamComponent,
     ImagesComponent,
     AdminComponent,
     SignUpComponent,
