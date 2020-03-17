@@ -1,10 +1,10 @@
-import { TeamMatch } from './teamMatch.model';
-import { Match } from './match.model';
+import {Match} from './match.model';
+import {TeamMatch} from './teamMatch.model';
 
 export interface Tournament {
   id: number;
   name: string;
   nonspacename: string;
-  matches: Match[];
+  matchs: Match[];
   teams: TeamMatch[];
 }

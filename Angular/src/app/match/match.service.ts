@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {Match} from "../Interfaces/Match.model";
+import {Match} from '../Interfaces/match.model';
 
 
 @Injectable({
@@ -17,10 +16,14 @@ export class MatchService {
 
 
   constructor(private http: HttpClient) {
-      this.matchUrl = 'https://localhost:8443/api/match/1';
+
+    this.matchUrl = 'https://localhost:8443/api/match/';
+
   }
 
-  getMatch() {
+  getMatch(id:number) {
+    this.matchUrl= this.matchUrl+id;
+    console.log("Voy a la URL:",this.matchUrl)
     return this.http.get<Match>(this.matchUrl).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
