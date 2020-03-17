@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {User} from "./Interfaces/user.model";
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
 
 @Injectable()
 export class AuthenticationService {
@@ -10,7 +10,6 @@ export class AuthenticationService {
   isAdmin = false;
   user: User;
   auth: string;
-
   constructor(private http: HttpClient) {
     let user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
@@ -46,10 +45,20 @@ export class AuthenticationService {
   }
 
   saveUser(user: User): Observable<User> {
-    const formData = new FormData();
-    formData.append('name', user.name);
-    formData.append('authdata', user.authdata);
-    return this.http.post<User>('https://localhost:8443/api/user/', formData);
+    console.log('userSave:'+user.name);
+    console.log('userSave:'+user.passwordHash);
+    console.log('userSave:'+user.mail);
+
+    const body = JSON.stringify(user);
+    console.log(body);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<User>('/api/user', body, {headers}).pipe(
+      map(response => response)
+      //catchError(err => this.handleError(err))
+    );
   }
 
   private setCurrentUser(user: User) {
@@ -62,5 +71,9 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.isLogged = false;
     this.isAdmin = false;
+  }
+  private handleError(error: any) {
+    console.error(error);
+    return throwError('Server error (' + error.status + '): ' + error);
   }
 }

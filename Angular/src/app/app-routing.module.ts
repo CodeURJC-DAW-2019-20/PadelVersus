@@ -16,11 +16,11 @@ import {SignUpComponent} from "./signUp/signUp.component";
 import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
-  {path: 'home/match/:id', component: MatchComponent},
+  {path: 'match/:id', component: MatchComponent},
   {path: 'home', component: HomeComponent},
   {path: 'tournament', component: TournamentComponent},
   {path: 'matches', component: MatchesComponent},
-   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   {path: 'home/match', component: MatchComponent},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'},
- 
+
 ];
 
 @NgModule({

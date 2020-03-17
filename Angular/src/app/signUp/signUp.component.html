@@ -1,37 +1,45 @@
-<h1>SIGN UP:</h1>
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="box">
-    <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
-    </mat-card-header>
 
-    <form class="example-form">
-
-      <mat-card-content>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Choose a role...</mat-label>
-          <mat-select [(value)]="selected">
-            <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-      </mat-card-content>
-
-      <button mat-stroked-button color="accent" class="btn-block">Register</button>
-
-    </form>
+<div *ngIf="user">
+  <mat-card class="card" >
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Sign Up">
+        <form #userForm="ngForm">
+          <div [hidden]="!error">
+            <p style="color: red; text-align: center">ERROR USER ALREADY CREATED</p>
+          </div>
+          <mat-card class="card" style="text-align: center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nombre" [(ngModel)]="user.name" #userFormElement
+                     #userFormControl="ngModel"
+                     name="name"
+                     required>
+            </mat-form-field>
+          </mat-card>
+          <mat-card class="card" style="text-align: center">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Mail" type="email" [(ngModel)]="user.mail" #userFormElement
+                   #userFormControl="ngModel"
+                   name="mail"
+                   required>
+          </mat-form-field>
+          </mat-card>
+          <mat-card class="card" style="text-align: center">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" type="password" [(ngModel)]="user.passwordHash" #userFormElement
+                     #userFormControl="ngModel"
+                     name="password"
+                     required>
+            </mat-form-field>
+          </mat-card>
+        </form>
+        <div  layout="row" style="text-align: center" class="enterLoginBotton">
+          <button mat-raised-button color="primary" class="button" (click)="save()"  [disabled]="userForm === undefined || (userForm && !userForm.valid)">
+            Registrar <mat-icon>assignment</mat-icon>
+          </button>
+          <button mat-raised-button class="button" color="accent" (click)="cancel()">Cancelar</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </mat-card>
 </div>
+
