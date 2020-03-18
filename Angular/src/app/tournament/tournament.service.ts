@@ -12,7 +12,7 @@ export class TournamentService {
   private readonly tournamentsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.tournamentsUrl = 'https://localhost:8443/api/tournaments/';
+    this.tournamentsUrl = '/api/tournaments/';
   }
 
   getTournaments() {
