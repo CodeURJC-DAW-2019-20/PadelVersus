@@ -45,16 +45,12 @@ export class PlayerService {
     );
   }
 
-
-
   getImageByPlayer(id:number):Observable<Blob>{
     return this.http.get(this.imagePlayerUrl + id+'/image', {responseType: 'blob'}).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
   }
-
-
 
   private handleError(error: any) {
     console.error(error);

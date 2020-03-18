@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {Team} from '../Interfaces/team.model';
-import {TeamPlayer} from "../Interfaces/teamplayer.model";
 import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
 
