@@ -14,7 +14,7 @@ export class TeamComponent implements OnInit {
 
   private team: Team;
   private id: number;
-  private players: TeamPlayer[];
+
   constructor(private activatedRoute: ActivatedRoute, private teamService: TeamService) {
     this.id = activatedRoute.snapshot.params.id;
   }
