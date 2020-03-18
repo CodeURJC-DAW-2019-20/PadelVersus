@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="name-badge">Name</div>
-                <h4 class="team-name">NOMBRE DEL EQUIPO</h4>
+                <h4 class="team-name" *ngIf="getTeam()">{{getTeam().name}}</h4>
             </div>
         </div>
     </section>

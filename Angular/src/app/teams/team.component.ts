@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {Team} from '../Interfaces/team.model';
+import {TeamPlayer} from "../Interfaces/teamplayer.model";
 import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -13,8 +14,7 @@ export class TeamComponent implements OnInit {
 
   private team: Team;
   private id: number;
-  private name: string;
-
+  private players: TeamPlayer[];
   constructor(private activatedRoute: ActivatedRoute, private teamService: TeamService) {
     this.id = activatedRoute.snapshot.params.id;
   }
@@ -23,7 +23,7 @@ export class TeamComponent implements OnInit {
     this.teamService.getTeam(this.id).subscribe(
       data => {
         this.team = data;
-        console.log('Tournaments: ', data);
+        console.log('Team: ', data);
       },
       error => this.handleError(error)
     );
@@ -32,4 +32,9 @@ export class TeamComponent implements OnInit {
   private handleError(error: any) {
     console.error(error);
   }
+
+  getTeam(){
+    return this.team
+  }
+
 }
