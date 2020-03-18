@@ -18,9 +18,9 @@ export class MatchesService {
   private tournamentMatchUrl: string;
 
   constructor(private http: HttpClient) {
-    this.matchesUrl = 'https://localhost:8443/api/matches/';
-    this.datesUrl = 'https://localhost:8443/api/dates';
-    this.tournamentMatchUrl = 'https://localhost:8443/api/tournaments/?matchId=';
+    this.matchesUrl = '/api/matches/';
+    this.datesUrl = '/api/dates';
+    this.tournamentMatchUrl = '/api/tournaments/?matchId=';
   }
 
   getNextMatches() {
