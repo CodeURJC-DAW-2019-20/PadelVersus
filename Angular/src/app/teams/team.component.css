@@ -20,7 +20,7 @@ h4 {
 }
 
 .badge {
-  margin: 30px 20px 29px 0;
+  margin: 30px 20px 29px 20px;
   padding: 10px;
   height: 26px;
   position: relative;
@@ -32,6 +32,11 @@ h4 {
   color: #fcfcfc;
   font-family: Montserrat, sans-serif;
   background: #fc0;
+  text-align: center;
+}
+
+.col-md-6 {
+  width: 50%;
   text-align: center;
 }
 

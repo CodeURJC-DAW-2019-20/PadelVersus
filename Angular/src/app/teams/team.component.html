@@ -4,6 +4,8 @@
     <h4 *ngIf=" getTeam()"> {{getTeam().name}}</h4>
   </div>
   <div class = "row">
-    <div class = "col"
+    <div class = "col-md-6" *ngFor="let player of getTeam().players; let i = index">
+      <span class="badge">Member {{i+1}}</span>
+    </div>
   </div>
 </div>
