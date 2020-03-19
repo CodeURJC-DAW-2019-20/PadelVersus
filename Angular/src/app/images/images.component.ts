@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PlayerService} from "../player/player.service";
 
@@ -10,7 +10,7 @@ import {PlayerService} from "../player/player.service";
 })
 export class ImagesComponent implements OnInit {
 
-  private idPlayer:number;
+  @Input() private idPlayer:number;
   private imagePlayer:any;
 
   constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {

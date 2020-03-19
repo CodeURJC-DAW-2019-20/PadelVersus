@@ -3,7 +3,7 @@
     <span class="badge">Name</span>
     <h4 *ngIf=" getTeam()"> {{getTeam().name}}</h4>
   </div>
-  <div clas ="row">
+  <div clas ="row" *ngIf="getTeam()">
     <div class="col-md-6" *ngFor="let player of getTeam().players; let i = index">
       <span class="badge"> Member {{i+1}}</span>
       <mat-card class="player-card">
@@ -11,7 +11,7 @@
           <mat-card-title class="player-name">{{player.user.name}}</mat-card-title>
           <mat-card-subtitle>{{player.age}}, {{player.countryBirth}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <app-images [idPlayer]="player.id"></app-images>
       </mat-card>
     </div>
   </div>
