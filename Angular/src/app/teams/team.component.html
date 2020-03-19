@@ -1,11 +1,16 @@
 <div class="container">
-  <div class = "row">
+  <div class="row">
     <span class="badge">Name</span>
     <h4 *ngIf=" getTeam()"> {{getTeam().name}}</h4>
   </div>
-  <div class = "row">
-    <div class = "col-md-6" *ngFor="let player of getTeam().players; let i = index">
-      <span class="badge">Member {{i+1}}</span>
+  <div clas ="row">
+    <div class="col-md-6" *ngFor="let player of getTeam().players; let i = index">
+      <span class="badge"> Member {{i+1}}</span>
+      <mat-card class="player-card">
+        <mat-card-header>
+          <mat-card-title class="player-name">{{player.user.name}}</mat-card-title>
+        </mat-card-header>
+      </mat-card>
     </div>
   </div>
 </div>
