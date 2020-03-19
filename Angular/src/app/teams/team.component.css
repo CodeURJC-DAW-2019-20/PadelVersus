@@ -21,13 +21,13 @@ h4 {
 
 .badge {
   margin: 30px 20px 29px 0;
-  padding: 0 0 0 10px;
+  padding: 10px;
   height: 26px;
   position: relative;
   vertical-align: top;
-  line-height: 24px;
+  line-height: 10px;
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
   color: #fcfcfc;
   font-family: Montserrat, sans-serif;
