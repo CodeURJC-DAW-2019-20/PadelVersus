@@ -43,10 +43,7 @@ h4 {
 .player-card{
   margin: 0 50px 0 50px;
   background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
-  text-align: center;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .player-name{
