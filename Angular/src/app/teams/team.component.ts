@@ -1,9 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 
-import{Player} from '../Interfaces/player.model'
 import {Team} from '../Interfaces/team.model';
 import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
+import {Match} from "../Interfaces/match.model";
+import {MatchService} from "../match/match.service";
 
 @Component({
   selector: 'app-teams',
@@ -12,10 +13,13 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class TeamComponent implements OnInit {
 
-  private team: Team;
   private id: number;
+  private team: Team;
+  private lastMatches: Match[];
 
-  constructor(private activatedRoute: ActivatedRoute, private teamService: TeamService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private teamService: TeamService,
+              private matchService: MatchService) {
     this.id = activatedRoute.snapshot.params.id;
   }
 
@@ -27,6 +31,13 @@ export class TeamComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+
+    this.matchService.getLastMatchesByTeam(this.id).subscribe(
+      data =>{
+        this.lastMatches = data
+        console.log('Last matches of team: ', data)
+      }
+    )
   }
 
   private handleError(error: any) {
