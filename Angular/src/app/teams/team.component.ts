@@ -48,4 +48,8 @@ export class TeamComponent implements OnInit {
     return this.team
   }
 
+  getLastMatches(){
+    return this.lastMatches
+  }
+
 }

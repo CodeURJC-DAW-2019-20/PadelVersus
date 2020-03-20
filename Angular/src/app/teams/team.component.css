@@ -6,6 +6,7 @@
 .row {
   margin-right: -1px;
   margin-left: -15px;
+  margin-bottom: 50px
 }
 
 h4 {
@@ -38,6 +39,7 @@ h4 {
 .col-md-6 {
   width: 50%;
   text-align: center;
+  margin-bottom: 100px;
 }
 
 .player-card{
@@ -46,6 +48,9 @@ h4 {
   justify-content: center;
 }
 
+.last-matches{
+  justify-content: center;
+}
 .player-name{
   font-size: 16px;
   line-height: 19px;
