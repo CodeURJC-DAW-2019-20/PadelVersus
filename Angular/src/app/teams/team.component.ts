@@ -4,7 +4,7 @@ import {Team} from '../Interfaces/team.model';
 import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
 import {Match} from "../Interfaces/match.model";
-import {MatchService} from "../match/match.service";
+import {MatchesService} from "../matches/matches.service";
 
 @Component({
   selector: 'app-teams',
@@ -19,7 +19,7 @@ export class TeamComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private teamService: TeamService,
-              private matchService: MatchService) {
+              private matchesService: MatchesService) {
     this.id = activatedRoute.snapshot.params.id;
   }
 

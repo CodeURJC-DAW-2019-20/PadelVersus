@@ -32,23 +32,6 @@ export class MatchService {
     );
   }
 
-  getLastMatchesByTeam(id: number){
-    return this.http.get<Match[]>(this.matchesUrl + '?played=true' + '?teamId=' + id).pipe(
-      map(response => {
-        for (const match of response) {
-          console.log('matchId: ' + match.id);
-          this.getTournamentOfMatch(match.id).subscribe(
-            data => {
-              match.tournammentName = data[0].name;
-            },
-            error => this.handleError(error)
-          );
-        }
-        return response;
-      }),
-      catchError(err => this.handleError(err))
-    );
-  }
   private handleError(error: any) {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);
