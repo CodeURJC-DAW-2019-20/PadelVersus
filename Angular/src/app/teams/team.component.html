@@ -17,11 +17,25 @@
       </div>
     </div>
 
-    <ng-container *ngIf="getLastMatches">
+    <ng-container *ngIf="getLastMatches()">
       <div class="row last-matches">
         <app-last-matches [lastMatches]="getLastMatches()"></app-last-matches>
       </div>
     </ng-container>
 
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [grid]="chartOptions.grid"
+        [stroke]="chartOptions.stroke"
+        [title]="chartOptions.title"
+        [markers]="chartOptions.markers"
+        [yaxis]="chartOptions.yaxis"
+        [fill]="chartOptions.fill"
+      ></apx-chart>
+    </div>
   </div>
 </ng-container>

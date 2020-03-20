@@ -5,6 +5,7 @@ import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
 import {Match} from "../Interfaces/match.model";
 import {MatchesService} from "../matches/matches.service";
+import {TeamStatistics} from "../Interfaces/teamStatistics.model";
 
 import {
   ChartComponent,
@@ -17,7 +18,9 @@ import {
   ApexGrid,
   ApexFill,
   ApexMarkers,
-  ApexYAxis
+  ApexYAxis,
+  ApexTooltip
+
 } from "ng-apexcharts";
 
 export interface ChartOptions {
@@ -31,6 +34,7 @@ export interface ChartOptions {
   yaxis: ApexYAxis;
   stroke: ApexStroke;
   title: ApexTitleSubtitle;
+  toolbar: ApexTooltip;
 }
 
 @Component({
@@ -45,6 +49,7 @@ export class TeamComponent implements OnInit {
   private id: number;
   private team: Team;
   private lastMatches: Match[];
+  private teamStatistics: TeamStatistics;
 
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
@@ -70,6 +75,8 @@ export class TeamComponent implements OnInit {
         console.log('Last matches of team: ', data)
       }
     )
+
+    this.setChartOptions();
   }
 
   private handleError(error: any) {
@@ -89,7 +96,7 @@ export class TeamComponent implements OnInit {
       series: [
         {
           name: "Likes",
-          data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
+          data: [this.team.teamStatistics.totalAcurracy]
         }
       ],
       chart: {
@@ -158,7 +165,7 @@ export class TeamComponent implements OnInit {
         title: {
           text: "Engagement"
         }
-      }
+      },
     };
   }
 }
