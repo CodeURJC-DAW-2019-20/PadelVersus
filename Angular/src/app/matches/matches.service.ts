@@ -60,7 +60,7 @@ export class MatchesService {
   }
 
   getLastMatchesByTeam(id: number){
-    return this.http.get<Match[]>(this.matchesUrl + '?played=true' + '?teamId=' + id).pipe(
+    return this.http.get<Match[]>(this.matchesUrl + '?teamId=' + id).pipe(
       map(response => {
         for (const match of response) {
           console.log('matchId: ' + match.id);

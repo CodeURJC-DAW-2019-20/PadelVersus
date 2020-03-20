@@ -32,7 +32,7 @@ export class TeamComponent implements OnInit {
       error => this.handleError(error)
     );
 
-    this.matchService.getLastMatchesByTeam(this.id).subscribe(
+    this.matchesService.getLastMatchesByTeam(this.id).subscribe(
       data => {
         this.lastMatches = data
         console.log('Last matches of team: ', data)
