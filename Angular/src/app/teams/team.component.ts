@@ -33,7 +33,7 @@ export class TeamComponent implements OnInit {
     );
 
     this.matchService.getLastMatchesByTeam(this.id).subscribe(
-      data =>{
+      data => {
         this.lastMatches = data
         console.log('Last matches of team: ', data)
       }
