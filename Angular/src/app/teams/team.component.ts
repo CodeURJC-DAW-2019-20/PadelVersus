@@ -5,7 +5,6 @@ import {TeamService} from "../teams/team.service";
 import {ActivatedRoute} from "@angular/router";
 import {Match} from "../Interfaces/match.model";
 import {MatchesService} from "../matches/matches.service";
-import {TeamStatistics} from "../Interfaces/teamStatistics.model";
 
 import {
   ChartComponent,
@@ -19,6 +18,7 @@ import {
   ApexFill,
   ApexMarkers,
   ApexYAxis,
+  ApexPlotOptions,
   ApexTooltip
 
 } from "ng-apexcharts";
@@ -36,6 +36,8 @@ export interface ChartOptions {
   stroke: ApexStroke;
   title: ApexTitleSubtitle;
   toolbar: ApexTooltip;
+  plotOptions: ApexPlotOptions;
+  colors: string[];
 }
 
 @Component({
@@ -52,8 +54,11 @@ export class TeamComponent implements OnInit {
   private team: Team;
   private lastMatches: Match[];
 
-  @ViewChild('chart') chartGPM: ChartComponent;
+  @ViewChild('chart1') chartGPM: ChartComponent;
   public chartGPMOptions: Partial<ChartOptions>;
+
+  @ViewChild('chart2') chartAVG: ChartComponent;
+  public chartAVGOptions: Partial<ChartOptions>;
 
   constructor(private activatedRoute: ActivatedRoute,
               private teamService: TeamService,
@@ -66,6 +71,7 @@ export class TeamComponent implements OnInit {
       data => {
         this.team = data;
         this.setChartGPMOptions();
+        this.setChartAVGOptions();
         console.log('Team: ', data);
       },
       error => this.handleError(error)
@@ -101,8 +107,23 @@ export class TeamComponent implements OnInit {
     return gamesParsed;
   }
 
+  parseStats(){
+    let avgStats : number[] = [];
+    let totalGames = this.team.teamStatistics.totalGames;
+    let avgAcc = this.team.teamStatistics.totalAcurracy/ totalGames;
+    let avgEff = this.team.teamStatistics.totalEffectiveness/ totalGames;
+    let avgForced = this.team.teamStatistics.totalUnforcedErrors/ totalGames;
+
+    avgStats.push(avgAcc);
+    avgStats.push(avgEff);
+    avgStats.push(avgForced);
+
+    return avgStats;
+  }
+
   setChartGPMOptions(): void {
     let games = this.parseGames();
+
     this.chartGPMOptions = {
       series: [
         {
@@ -116,7 +137,8 @@ export class TeamComponent implements OnInit {
       },
       stroke: {
         width: 7,
-        curve: "smooth"
+        curve: "smooth",
+        colors: ["#ffa000"]
       },
       title: {
         text: "GAMES PER MATCH",
@@ -159,6 +181,60 @@ export class TeamComponent implements OnInit {
           text: "Match"
         }
       },
+    };
+  }
+
+  setChartAVGOptions(): void{
+
+    let avgStats = this.parseStats();
+
+    this.chartAVGOptions = {
+      series: [
+        {
+          name: "%",
+          data: avgStats
+        }
+      ],
+
+      colors: [
+        "#ffa000",
+        "#ffa000",
+        "#ffa000",
+      ],
+
+      chart: {
+        type: "bar",
+        height: 350
+      },
+
+      plotOptions: {
+        bar: {
+          horizontal: true,
+        }
+
+      },
+      dataLabels: {
+        enabled: false
+      },
+
+      xaxis: {
+        min: 0,
+        max: 100,
+        categories: [
+          "Accuracy",
+          "Effectiveness",
+          "Unforced errors",
+        ]
+      },
+
+      title: {
+        text: "AVERAGE STATISTICS",
+        align: "center",
+        style: {
+          fontSize: "18px",
+          color: "#141414"
+        }
+      }
     };
   }
 }

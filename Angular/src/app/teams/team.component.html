@@ -23,19 +23,34 @@
       </div>
     </ng-container>
 
-    <div id="chart">
-      <apx-chart
-        [series]="chartGPMOptions.series"
-        [chart]="chartGPMOptions.chart"
-        [xaxis]="chartGPMOptions.xaxis"
-        [dataLabels]="chartGPMOptions.dataLabels"
-        [grid]="chartGPMOptions.grid"
-        [stroke]="chartGPMOptions.stroke"
-        [title]="chartGPMOptions.title"
-        [markers]="chartGPMOptions.markers"
-        [yaxis]="chartGPMOptions.yaxis"
-        [fill]="chartGPMOptions.fill"
-      ></apx-chart>
+    <div class="row">
+      <div id="chart1">
+        <apx-chart
+          [series]="chartGPMOptions.series"
+          [chart]="chartGPMOptions.chart"
+          [xaxis]="chartGPMOptions.xaxis"
+          [dataLabels]="chartGPMOptions.dataLabels"
+          [grid]="chartGPMOptions.grid"
+          [stroke]="chartGPMOptions.stroke"
+          [title]="chartGPMOptions.title"
+          [markers]="chartGPMOptions.markers"
+          [yaxis]="chartGPMOptions.yaxis"
+          [fill]="chartGPMOptions.fill"
+        ></apx-chart>
+      </div>
+
+      <div id="chart2">
+        <apx-chart
+          [series]="chartAVGOptions.series"
+          [colors]="chartAVGOptions.colors"
+          [chart]="chartAVGOptions.chart"
+          [dataLabels]="chartAVGOptions.dataLabels"
+          [plotOptions]="chartAVGOptions.plotOptions"
+          [xaxis]="chartAVGOptions.xaxis"
+          [title]="chartAVGOptions.title"
+        ></apx-chart>
+      </div>
     </div>
+
   </div>
 </ng-container>
