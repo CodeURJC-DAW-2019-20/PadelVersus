@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Team HTML</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900"
+          rel="stylesheet"/>
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="/css/library/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/preloader-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/dev-assets/demo-switcher.css" rel="stylesheet" type="text/css"/>
+    <link href="/css-min/soccer.min.css" rel="stylesheet" type="text/css"/><link href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- 
+    
+    Enable one styles which the you want
+    
+    <link href="css-min/hockey.min.css" rel="stylesheet" type="text/css" />
+    <link href="css-min/basketball.min.css" rel="stylesheet" type="text/css" />
+    <link href="css-min/football.min.css" rel="stylesheet" type="text/css" />
+    <link href="css-min/baseball.min.css" rel="stylesheet" type="text/css" />
+    <link href="css-min/dota.min.css" rel="stylesheet" type="text/css" />
+    <link href="css-min/csgo.min.css" rel="stylesheet" type="text/css" />
+    
+    All libraries included in this css, concating rules in /grunt/cssmin.js
+    Use grunt default task for creating this files
+    
+    -->
+</head>
+
+<body>
+
+{{> preloadEffect}}
+
+
+{{> menu}}
+
+
+<!--MAIN MENU WRAP END-->
+
+<!--BREADCRUMBS BEGIN-->
+<section class="image-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="info">
+                    <div class="wrap">
+                        <ul class="breadcrumbs">
+                            <li><a href="index.html">Main</a>/</li>
+                            <li>Teams</li>
+                        </ul>
+                        <h1>Teams</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--BREADCRUMBS END-->
+
+
+<!--MAIN MATCH SHEDULE BEGIN-->
+
+<section class="main-match-shedule amateurs-match-shedule">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <ul class="tab-filters" role="tablist">
+                    {{#allTournamentsInfo}}
+                    <li><a aria-expanded="true" data-toggle="tab" href="#{{cleanName}}"
+                           role="tab">{{tournamentName}}</a></li>
+                    {{/allTournamentsInfo}}
+                </ul>
+                <div class="tab-content">
+                    {{#allTournamentsInfo}}
+                    <div class="tab-pane" id="{{cleanName}}">
+                        <div class="esport_championship_participants">
+                            <div class="container">
+                                <div class="row no-guters">
+                                    {{#teams}}
+                                    <div class="col-md-3 col-sm-4 col-xs-6">
+                                        <a href="/teamx/{{id}}">
+                                            <img alt="background"
+                                                 class="background-team" src="/images/common/esport-participants-background.jpg">
+                                            <img alt="team-logo" src="/images/common/team-logo2.png">
+                                            <span>{{name}}</span>
+                                        </a>
+                                    </div>
+                                    {{/teams}}
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/allTournamentsInfo}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <span class="badge badge-warning" id="loadMore" onclick="loadPage(4)">Load more</span>
+            <img alt="team-logo" id="loadSpinner" src="/images/spinner.gif">
+            <p id="actualPage" style="display: none">-1</p>
+        </div>
+    </div>
+</section>
+
+<!--MAIN MATCH SHEDULE END-->
+
+{{> footer}}
+
+<script src="/js/library/jquery.js" type="text/javascript"></script>
+<script src="/js/library/jquery-ui.js" type="text/javascript"></script>
+<script src="/js/library/bootstrap.js" type="text/javascript"></script>
+<script src="/js/library/jquery.sticky.js" type="text/javascript"></script>
+<script src="/js/library/jquery.jcarousel.js" type="text/javascript"></script>
+<script src="/js/library/jcarousel.connected-carousels.js" type="text/javascript"></script>
+<script src="/js/library/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/library/progressbar.js" type="text/javascript"></script>
+<script src="/js/library/jquery.bracket.min.js" type="text/javascript"></script>
+<script src="/js/library/chartist.js" type="text/javascript"></script>
+<script src="/js/library/Chart.js" type="text/javascript"></script>
+<script src="/js/library/fancySelect.js" type="text/javascript"></script>
+<script src="/js/library/isotope.pkgd.js" type="text/javascript"></script>
+<script src="/js/library/imagesloaded.pkgd.js" type="text/javascript"></script>
+
+<script src="/js/jquery.team-coundown.js" type="text/javascript"></script>
+<script src="/js/matches-slider.js" type="text/javascript"></script>
+<script src="/js/header.js" type="text/javascript"></script>
+<script src="/js/matches_broadcast_listing.js" type="text/javascript"></script>
+<script src="/js/news-line.js" type="text/javascript"></script>
+<script src="/js/match_galery.js" type="text/javascript"></script>
+<script src="/js/main-club-gallery.js" type="text/javascript"></script>
+<script src="/js/product-slider.js" type="text/javascript"></script>
+<script src="/js/circle-bar.js" type="text/javascript"></script>
+<script src="/js/standings.js" type="text/javascript"></script>
+<script src="/js/shop-price-filter.js" type="text/javascript"></script>
+<script src="/js/timeseries.js" type="text/javascript"></script>
+<script src="/js/radar.js" type="text/javascript"></script>
+<script src="/js/slider.js" type="text/javascript"></script>
+<script src="/js/preloader.js" type="text/javascript"></script>
+<script src="/js/diagram.js" type="text/javascript"></script>
+<script src="/js/bi-polar-diagram.js" type="text/javascript"></script>
+<script src="/js/label-placement-diagram.js" type="text/javascript"></script>
+<script src="/js/donut-chart.js" type="text/javascript"></script>
+<script src="/js/animate-donut.js" type="text/javascript"></script>
+<script src="/js/advanced-smil.js" type="text/javascript"></script>
+<script src="/js/svg-path.js" type="text/javascript"></script>
+<script src="/js/pick-circle.js" type="text/javascript"></script>
+<script src="/js/horizontal-bar.js" type="text/javascript"></script>
+<script src="/js/gauge-chart.js" type="text/javascript"></script>
+<script src="/js/stacked-bar.js" type="text/javascript"></script>
+
+<script src="/js/library/chartist-plugin-legend.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-threshold.js" type="text/javascript"></script>
+<script src="/js/library/chartist-plugin-pointlabels.js" type="text/javascript"></script>
+
+<script src="/js/treshold.js" type="text/javascript"></script>
+<script src="/js/visible.js" type="text/javascript"></script>
+<script src="/js/anchor.js" type="text/javascript"></script>
+<script src="/js/landing_carousel.js" type="text/javascript"></script>
+<script src="/js/landing_sport_standings.js" type="text/javascript"></script>
+<script src="/js/twitterslider.js" type="text/javascript"></script>
+<script src="/js/champions.js" type="text/javascript"></script>
+<script src="/js/landing_mainnews_slider.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+<script src="/js/video_slider.js" type="text/javascript"></script>
+<script src="/js/footer_slides.js" type="text/javascript"></script>
+<script src="/js/player_test.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        loadPage(4);
+        //$("#loadSpinner").hide();
+    });
+
+    function loadPage(size) {
+        var actual_page = parseInt($("#actualPage").text());
+        var ajax = true;
+        if (actual_page < 2) {
+            actual_page = actual_page + 1;
+            $("#actualPage").text(actual_page);
+        } else {
+            ajax = false;
+        }
+        if (ajax) {
+            $("#loadSpinner").show();
+            $.ajax({
+                url: 'https://localhost:8443/api/teamsList/?page=' + actual_page + '&size=' + size,
+                success: function (data) {
+                    setTimeout(function () {
+                        $.each(data, function (index, value) {
+                            $("#All > div > div > div").append("<div class=\"col-md-3 col-sm-4 col-xs-6\">\n" +
+                                "                                        <a href=\"/teamx/" + value[0] + "\">\n" +
+                                "                                            <img src=\"/images/common/esport-participants-background.jpg\" class=\"background-team\" alt=\"background\">\n" +
+                                "                                            <img src=\"/images/common/team-logo2.png\" alt=\"team-logo\">\n" +
+                                "                                            <span>" + value[1] + "</span>\n" +
+                                "                                        </a>\n" +
+                                "                                    </div>");
+                        });
+                        $("#loadSpinner").hide();
+                    }, 1000);
+                },
+                error: function () {
+                    console.log("Ajax Error");
+                }
+            });
+        }
+        if (actual_page >= 2) {
+            $("#loadMore").css("display", "none");
+        }
+    }
+</script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<script src="/dev-assets/demo-switcher.js" type="text/javascript"></script>
+</body>
+
+
+</html>

@@ -203,6 +203,9 @@ public class PlayerRestController {
         Player playerPojo = player.getPlayer();
         Optional<User> user = userService.findUserById(player.getIdUser());
         if(user.isPresent()){
+            if(!user.get().getId().equals(userOnline.getLoggedUser().getId())){
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
             playerPojo.setUser(user.get());
             playerService.savePlayer(playerPojo);
 
