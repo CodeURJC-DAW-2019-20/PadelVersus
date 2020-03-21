@@ -27,7 +27,7 @@ import {LastMatchesComponent} from './home/last-matches/last-matches.component';
 import {CarouselComponent} from './home/carousel/carousel.component';
 import {MatchesComponent} from './matches/matches.component';
 import {NextMatchesDateComponent } from './matches/next-matches-date/next-matches-date.component';
-
+import {TeamComponent} from "./teams/team.component";
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {NotFoundComponent} from './not-found/not-found.component';
 import { ImagesComponent } from './images/images.component';
@@ -72,6 +72,7 @@ import {SignUpPlayerComponent} from "./signUpPlayer/signUpPlayer.component";
     NextMatchesDateComponent,
     NotFoundComponent,
     PlayerComponent,
+    TeamComponent,
     ImagesComponent,
     AdminComponent,
     SignUpComponent,

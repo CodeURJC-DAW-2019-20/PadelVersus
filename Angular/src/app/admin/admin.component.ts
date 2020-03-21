@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
 
   private tournamentList: Tournament[] = [];
   private matchList: Match[] = [];
-  private selectedTournamentTeams: Team[] = [];
+  private selectedTournamentTeams: TeamMatch[] = [];
   selectedTournament: Tournament;
   selectedTeam1: Team;
   selectedTeam2: Team;

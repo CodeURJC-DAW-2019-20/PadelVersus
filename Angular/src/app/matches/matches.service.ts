@@ -59,6 +59,24 @@ export class MatchesService {
     );
   }
 
+  getLastMatchesByTeam(id: number){
+    return this.http.get<Match[]>(this.matchesUrl + '?teamId=' + id).pipe(
+      map(response => {
+        for (const match of response) {
+          console.log('matchId: ' + match.id);
+          this.getTournamentOfMatch(match.id).subscribe(
+            data => {
+              match.tournammentName = data[0].name;
+            },
+            error => this.handleError(error)
+          );
+        }
+        return response;
+      }),
+      catchError(err => this.handleError(err))
+    );
+  }
+
   getDates() {
     return this.http.get<string[]>(this.datesUrl).pipe(
       map(response => response),
