@@ -64,6 +64,7 @@ export class TeamComponent implements OnInit {
     this.teamService.getTeam(this.id).subscribe(
       data => {
         this.team = data;
+        this.setChartOptions();
         console.log('Team: ', data);
       },
       error => this.handleError(error)
@@ -75,8 +76,6 @@ export class TeamComponent implements OnInit {
         console.log('Last matches of team: ', data)
       }
     )
-
-    this.setChartOptions();
   }
 
   private handleError(error: any) {
@@ -91,12 +90,15 @@ export class TeamComponent implements OnInit {
     return this.lastMatches
   }
 
+  parseGames(){
+    let games: number[] = []
+  }
   setChartOptions(): void {
     this.chartOptions = {
       series: [
         {
           name: "Likes",
-          data: [this.team.teamStatistics.totalAcurracy]
+          data: [this.team.teamStatistics.totalAcurracy, this.team.teamStatistics.totalDefeats, this.team.teamStatistics.totalGames]
         }
       ],
       chart: {
@@ -117,22 +119,12 @@ export class TeamComponent implements OnInit {
           "5/11/2000",
           "6/11/2000",
           "7/11/2000",
-          "8/11/2000",
-          "9/11/2000",
-          "10/11/2000",
-          "11/11/2000",
-          "12/11/2000",
-          "1/11/2001",
-          "2/11/2001",
-          "3/11/2001",
-          "4/11/2001",
-          "5/11/2001",
-          "6/11/2001"
+          "8/11/2000"
         ]
       },
       title: {
-        text: "Social Media",
-        align: "left",
+        text: "Games per match",
+        align: "center",
         style: {
           fontSize: "16px",
           color: "#666"
@@ -160,8 +152,8 @@ export class TeamComponent implements OnInit {
         }
       },
       yaxis: {
-        min: -10,
-        max: 40,
+        min: 0,
+        max: 20,
         title: {
           text: "Engagement"
         }
