@@ -52,8 +52,8 @@ export class TeamComponent implements OnInit {
   private team: Team;
   private lastMatches: Match[];
 
-  @ViewChild('chart') chart: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
+  @ViewChild('chart') chartGPM: ChartComponent;
+  public chartGPMOptions: Partial<ChartOptions>;
 
   constructor(private activatedRoute: ActivatedRoute,
               private teamService: TeamService,
@@ -65,7 +65,7 @@ export class TeamComponent implements OnInit {
     this.teamService.getTeam(this.id).subscribe(
       data => {
         this.team = data;
-        this.setChartOptions();
+        this.setChartGPMOptions();
         console.log('Team: ', data);
       },
       error => this.handleError(error)
@@ -101,12 +101,12 @@ export class TeamComponent implements OnInit {
     return gamesParsed;
   }
 
-  setChartOptions(): void {
+  setChartGPMOptions(): void {
     let games = this.parseGames();
-    this.chartOptions = {
+    this.chartGPMOptions = {
       series: [
         {
-          name: "games",
+          name: "Games",
           data: games
         }
       ],
