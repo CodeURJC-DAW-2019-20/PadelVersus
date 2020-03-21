@@ -18,10 +18,10 @@ export class PlayerService {
   private imagePlayerUrl:string;
 
   constructor(private http:HttpClient) {
-    this.playerUrls = 'https://localhost:8443/api/player/';
-    this.tournamentsPlayerUrls = 'https://localhost:8443/api/tournaments/?playerId=';
-    this.teamsPlayerUrls = 'https://localhost:8443/api/teams/?playerId=';
-    this.imagePlayerUrl = 'https://localhost:8443/api/player/';
+    this.playerUrls = '/api/player/';
+    this.tournamentsPlayerUrls = '/api/tournaments/?playerId=';
+    this.teamsPlayerUrls = '/api/teams/?playerId=';
+    this.imagePlayerUrl = '/api/player/';
   }
 
   getPlayer(id:number) {

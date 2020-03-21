@@ -23,7 +23,7 @@ export class AdminService {
   private statMatch: MatchStatistics[];
 
   constructor(private http: HttpClient) {
-    this.adminUrl = 'https://localhost:8443/api/tournaments/';
+    this.adminUrl = '/api/tournaments/';
     this.statMatch= [];
   }
 
@@ -35,7 +35,7 @@ export class AdminService {
   }
 
   getMatchAdmin(){
-    return this.http.get<Match[]>("https://localhost:8443/api/matches/?played=false").pipe(
+    return this.http.get<Match[]>("/api/matches/?played=false").pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
@@ -52,7 +52,7 @@ export class AdminService {
     const body = JSON.stringify(this.statMatch);
     console.log('ID: '+match);
     console.log('Stat Match:'+body);
-    return this.http.put<Match>("https://localhost:8443/api/match/"+match.id, body, httpOptions).pipe(
+    return this.http.put<Match>("/api/match/"+match.id, body, httpOptions).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 
 import {PlayerService} from './player.service';
 import {Player} from '../Interfaces/player.model';
@@ -18,7 +18,8 @@ export interface ChartOptions {
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  styleUrls: ['./player.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PlayerComponent implements OnInit {
 
