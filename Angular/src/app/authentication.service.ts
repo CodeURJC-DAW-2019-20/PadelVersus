@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {User} from "./Interfaces/user.model";
 import {Observable, throwError} from "rxjs";
+import {Player} from "./Interfaces/player.model";
 
 @Injectable()
 export class AuthenticationService {
@@ -60,7 +61,21 @@ export class AuthenticationService {
       //catchError(err => this.handleError(err))
     );
   }
+  savePlayer(player: Player): Observable<Player> {
+    console.log('player:'+player.aceleration);
+    console.log('userID:'+player.idUser);
 
+    const body = JSON.stringify(player);
+    console.log(body);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<Player>('/api/player', body, {headers}).pipe(
+      map(response => response)
+      //catchError(err => this.handleError(err))
+    );
+  }
   private setCurrentUser(user: User) {
     this.isLogged = true;
     this.user = user;

@@ -48,6 +48,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {BasicAuthInterceptor} from "./basic-auth.interceptor";
 import {ErrorInterceptor} from "./error.interceptor";
 import {MatInputModule} from "@angular/material/input";
+import {SignUpPlayerComponent} from "./signUpPlayer/signUpPlayer.component";
 
 
 
@@ -74,7 +75,8 @@ import {MatInputModule} from "@angular/material/input";
     ImagesComponent,
     AdminComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpPlayerComponent
 
   ],
   imports: [

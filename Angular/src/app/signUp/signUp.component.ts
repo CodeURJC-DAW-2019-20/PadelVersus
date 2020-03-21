@@ -33,7 +33,8 @@ export class SignUpComponent {
         console.error(data);
         //GO TO THE LAST PAGE
         this.error = false;
-        window.history.back();
+        location.assign('http://localhost:4200/signupplayer/'+data.id);
+       // window.history.back();
       },
       (error: Error) => {
         //location.reload(true),
