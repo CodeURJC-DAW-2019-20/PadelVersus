@@ -47,9 +47,17 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import {BasicAuthInterceptor} from "./basic-auth.interceptor";
 import {ErrorInterceptor} from "./error.interceptor";
+import {MatInputModule} from "@angular/material/input";
+import {SignUpPlayerComponent} from "./signUpPlayer/signUpPlayer.component";
 
 
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +75,8 @@ import {ErrorInterceptor} from "./error.interceptor";
     ImagesComponent,
     AdminComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpPlayerComponent
 
   ],
   imports: [
@@ -90,7 +99,8 @@ import {ErrorInterceptor} from "./error.interceptor";
     FlexLayoutModule,
     MatCheckboxModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
@@ -99,5 +109,5 @@ import {ErrorInterceptor} from "./error.interceptor";
 
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+//@ts-ignore
+export class AppModule {}
