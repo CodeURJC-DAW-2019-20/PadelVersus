@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {User} from '../Interfaces/user.model'
+import {User} from '../Interfaces/user.model';
 @Component({
   templateUrl: './signUp.component.html',
   styleUrls: [
@@ -15,9 +15,9 @@ export class SignUpComponent {
   user: User;
   error: boolean;
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: AuthenticationService) {
-    this.user = { name: '',passwordHash: '',mail:'', roles: ['ROLE_USER'],player: null };
+    this.user = { name: '', passwordHash: '', mail: '', roles: ['ROLE_USER'], player: null };
     this.newUser = true;
-    //this.error = false;
+    // this.error = false;
   }
 
   cancel() {
@@ -25,22 +25,26 @@ export class SignUpComponent {
   }
 
   save() {
-    console.log('user:'+this.user.name);
-    console.log('user:'+this.user.passwordHash);
-    console.log('user:'+this.user.mail);
+    console.log('user:' + this.user.name);
+    console.log('user:' + this.user.passwordHash);
+    console.log('user:' + this.user.mail);
     this.service.saveUser(this.user).subscribe(
       data => {
         console.error(data);
-        //GO TO THE LAST PAGE
+        // GO TO THE LAST PAGE
         this.error = false;
-        location.assign('http://localhost:4200/signupplayer/'+data.id);
+        this.service.login(this.user.name, this.user.passwordHash).subscribe(
+          () => {
+            location.assign('http://localhost:4200/signupplayer/' + data.id);
+          }
+      );
        // window.history.back();
       },
       (error: Error) => {
-        //location.reload(true),
+        // location.reload(true),
         this.error = true;
       },
-      //console.error('Error creating new user: ' + error),
+      // console.error('Error creating new user: ' + error),
     );
 
   }

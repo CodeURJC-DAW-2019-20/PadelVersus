@@ -18,7 +18,7 @@ export class AuthenticationService {
     }
   }
 
-  login(user: string, pass: string) {
+  login(user: string, pass: string){
     console.log(user);
     console.log(pass);
     let auth = window.btoa(user + ':' + pass);
