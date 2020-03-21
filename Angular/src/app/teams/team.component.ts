@@ -9,6 +9,7 @@ import {MatchesService} from "../matches/matches.service";
 import {
   ChartComponent,
   ApexAxisChartSeries,
+  ApexNonAxisChartSeries,
   ApexChart,
   ApexXAxis,
   ApexDataLabels,
@@ -19,6 +20,7 @@ import {
   ApexMarkers,
   ApexYAxis,
   ApexPlotOptions,
+  ApexResponsive,
   ApexTooltip
 
 } from "ng-apexcharts";
@@ -37,7 +39,10 @@ export interface ChartOptions {
   title: ApexTitleSubtitle;
   toolbar: ApexTooltip;
   plotOptions: ApexPlotOptions;
+  responsive: ApexResponsive[];
+  labels: any;
   colors: string[];
+  seriesWL: ApexNonAxisChartSeries;
 }
 
 @Component({
@@ -60,6 +65,9 @@ export class TeamComponent implements OnInit {
   @ViewChild('chart2') chartAVG: ChartComponent;
   public chartAVGOptions: Partial<ChartOptions>;
 
+  @ViewChild('chart3') chartWL: ChartComponent;
+  public chartWLOptions: Partial<ChartOptions>;
+
   constructor(private activatedRoute: ActivatedRoute,
               private teamService: TeamService,
               private matchesService: MatchesService) {
@@ -72,6 +80,7 @@ export class TeamComponent implements OnInit {
         this.team = data;
         this.setChartGPMOptions();
         this.setChartAVGOptions();
+        this.setChartWLOptions();
         console.log('Team: ', data);
       },
       error => this.handleError(error)
@@ -237,4 +246,56 @@ export class TeamComponent implements OnInit {
       }
     };
   }
+
+
+  parseWL(){
+    let parsed: number[] = []
+    parsed.push(this.team.teamStatistics.totalWins);
+    parsed.push(this.team.teamStatistics.totalDefeats);
+    return parsed;
+  }
+
+  setChartWLOptions(): void{
+    let parsedWL = this.parseWL();
+    this.chartWLOptions = {
+      seriesWL: parsedWL,
+      chart: {
+        type: "donut",
+        height: 600,
+      },
+
+      colors: [
+        "#ffa000",
+        "#e61c2d"
+      ],
+
+      title: {
+        text: "W/L %",
+        align: "center",
+        style: {
+          fontSize: "18px",
+          color: "#141414"
+        }
+      },
+
+      labels: ["Wins", "Loses"],
+
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 50
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ],
+
+    };
+  }
+
+
 }
