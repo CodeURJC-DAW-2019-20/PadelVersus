@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 
 import {Team} from '../Interfaces/team.model';
 import {TeamService} from "../teams/team.service";
@@ -22,6 +22,7 @@ import {
   ApexTooltip
 
 } from "ng-apexcharts";
+import {Game} from "../Interfaces/game.model";
 
 export interface ChartOptions {
   series: ApexAxisChartSeries;
@@ -41,6 +42,7 @@ export interface ChartOptions {
   selector: 'app-teams',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 
@@ -49,7 +51,6 @@ export class TeamComponent implements OnInit {
   private id: number;
   private team: Team;
   private lastMatches: Match[];
-  private teamStatistics: TeamStatistics;
 
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
@@ -91,14 +92,22 @@ export class TeamComponent implements OnInit {
   }
 
   parseGames(){
-    let games: number[] = []
+    let gamesParsed: number[] = [];
+    let games: Game[] = this.team.teamStatistics.gamesPerMatch;
+    for (let i in games){
+      gamesParsed.push(games[i].games);
+    }
+    console.log('Games: ',gamesParsed)
+    return gamesParsed;
   }
+
   setChartOptions(): void {
+    let games = this.parseGames();
     this.chartOptions = {
       series: [
         {
-          name: "Likes",
-          data: [this.team.teamStatistics.totalAcurracy, this.team.teamStatistics.totalDefeats, this.team.teamStatistics.totalGames]
+          name: "games",
+          data: games
         }
       ],
       chart: {
@@ -109,25 +118,12 @@ export class TeamComponent implements OnInit {
         width: 7,
         curve: "smooth"
       },
-      xaxis: {
-        type: "datetime",
-        categories: [
-          "1/11/2000",
-          "2/11/2000",
-          "3/11/2000",
-          "4/11/2000",
-          "5/11/2000",
-          "6/11/2000",
-          "7/11/2000",
-          "8/11/2000"
-        ]
-      },
       title: {
-        text: "Games per match",
+        text: "GAMES PER MATCH",
         align: "center",
         style: {
-          fontSize: "16px",
-          color: "#666"
+          fontSize: "18px",
+          color: "#141414"
         }
       },
       fill: {
@@ -155,7 +151,12 @@ export class TeamComponent implements OnInit {
         min: 0,
         max: 20,
         title: {
-          text: "Engagement"
+          text: "Games"
+        }
+      },
+      xaxis: {
+        title: {
+          text: "Match"
         }
       },
     };

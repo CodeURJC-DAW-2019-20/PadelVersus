@@ -9,6 +9,10 @@
   margin-bottom: 50px
 }
 
+.apexcharts-toolbar{
+  display:none
+}
+
 h4 {
   margin-top: 10px;
   padding-top: 20px;
