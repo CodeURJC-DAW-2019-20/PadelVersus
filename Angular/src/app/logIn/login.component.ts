@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
-import { AuthenticationService } from '../authentication.service';
+import {AuthenticationService} from "../authentication.service";
 
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
@@ -48,7 +47,17 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          console.error(this.returnUrl.toString());
+          if(this.returnUrl.toString() == 'http://localhost:4200/admin'){
+            if(data.roles.some(x => x === 'ROLE_ADMIN')){
+              this.router.navigate([this.returnUrl]);
+            }else{
+              location.assign('http://localhost:4200/403');
+            }
+          }else{
+            this.router.navigate([this.returnUrl]);
+          }
+
         },
         error => {
           this.error = error;

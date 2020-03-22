@@ -3,17 +3,11 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {catchError, map} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-
+import {MatchStatistics} from "../Interfaces/matchStatistics.model";
 import {Tournament} from "../Interfaces/tournament.model";
 import {Match} from "../Interfaces/match.model";
-import {MatchStatistics} from "../Interfaces/matchStatistics.model";
-var headers_object = new HttpHeaders();
-headers_object.append('Content-Type', 'application/json');
-//headers_object.append("Authorization", "Basic " + btoa("admin:adminpass"));
 
-const httpOptions = {
-  headers: headers_object
-};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,13 +44,28 @@ export class AdminService {
     this.statMatch[0]=((statsMatch));
     this.statMatch[1]=((statsMatch1));
     const body = JSON.stringify(this.statMatch);
-    console.log('ID: '+match);
+    console.log('ID: '+match.id);
     console.log('Stat Match:'+body);
-    return this.http.put<Match>("/api/match/"+match.id, body, httpOptions).pipe(
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put<Match>("/api/match/"+match.id, body, {headers}).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
 
+  }
+
+  saveTournament(name: string){
+    const body = '{ "name": "'+name+'"}';
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<Tournament>("/api/tournament/", body, {headers}).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
   }
 
 

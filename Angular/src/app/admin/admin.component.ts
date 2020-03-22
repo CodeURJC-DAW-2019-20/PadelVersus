@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Tournament} from '../Interfaces/tournament.model'
 import {AdminService} from "./admin.service";
 import {Team} from '../Interfaces/team.model';
 import {Match} from "../Interfaces/match.model";
@@ -9,6 +8,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Set} from '../Interfaces/set.model';
 import {TeamMatch} from "../Interfaces/teamMatch.model";
+import {Tournament} from "../Interfaces/tournament.model";
 
 @Component({
   selector: 'app-admin',
@@ -46,6 +46,8 @@ export class AdminComponent implements OnInit {
   statsMatch2: MatchStatistics;
   sets: Set[] = [];
   set: Set;
+
+  tournamentName: string;
 
   constructor(private  adminService: AdminService, private router: Router) {
   }
@@ -177,13 +179,33 @@ export class AdminComponent implements OnInit {
   console.log(this.statsMatch2);
 
     this.adminService.addStatsMatch(match,this.statsMatch1,this.statsMatch2).subscribe(
-      _ => {},
+      data => {
+        console.error(data);
+        location.assign('http://localhost:4200/admin');
+      },
       (error: Error) => console.error('Error saving stat match: '+error.message),
     );
     //sets: Set = {{games,setNumber}};
     //let stat1: MatchStatistics = {acurracy,effectiveness, unforcedErrors, sets};
 
+  }
 
+  saveTournament(tournamentName: string){
+      this.adminService.saveTournament(tournamentName).subscribe(
+        data => {
+          console.error(data);
+          //GO TO THE LAST PAGE
+
+          location.assign('http://localhost:4200/admin');
+          //window.history.back();
+        },
+        (error: Error) => {
+          //location.reload(true),
+          console.error('Error creating new player: ' + error)
+          //this.error = true;
+        }
+      // console.error('Error creating new user: ' + error),
+    );
   }
 
 

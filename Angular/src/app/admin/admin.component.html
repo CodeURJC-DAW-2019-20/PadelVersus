@@ -30,7 +30,7 @@
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
-    <mat-card id="next-matches-card1" class="card">
+    <mat-card id="save-stats-match" class="card">
       <mat-card-header style="justify-content: center">
         <mat-card-title>Save Stats Match:</mat-card-title>
       </mat-card-header>
@@ -46,31 +46,34 @@
           <h4 for="team1Stats">Stadistics Team 1:</h4>
           <div #team1 id="team1Stats1">
             <div class="form-group">
-            <label>Accuracy:</label>
-            <input type="number" name="acurracy" [(ngModel)]="acurracy1" style="background: transparent; color: #ffa000">
+              <label>Accuracy:</label>
+              <input type="number" name="acurracy" [(ngModel)]="acurracy1"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-            <label>Effectiveness:</label>
-            <input type="number" name="effectiveness" [(ngModel)]="effectiveness1" style="background: transparent; color: #ffa000">
+              <label>Effectiveness:</label>
+              <input type="number" name="effectiveness" [(ngModel)]="effectiveness1"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-            <label>UnforcedErrors:</label>
-            <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1" style="background: transparent; color: #ffa000">
+              <label>UnforcedErrors:</label>
+              <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-            <label>Set 1:</label>
-            <input type="number" name="set1" [(ngModel)]="set1team1" style="background: transparent; color: #ffa000">
+              <label>Set 1:</label>
+              <input type="number" name="set1" [(ngModel)]="set1team1" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-            <label>Set 2:</label>
-            <input type="number" name="set2" [(ngModel)]="set2team1" style="background: transparent; color: #ffa000">
+              <label>Set 2:</label>
+              <input type="number" name="set2" [(ngModel)]="set2team1" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-            <label>Set 3:</label>
-            <input type="number" name="set3" [(ngModel)]="set3team1" style="background: transparent; color: #ffa000">
+              <label>Set 3:</label>
+              <input type="number" name="set3" [(ngModel)]="set3team1" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-              <input id="win1" name="win"[(ngModel)]="win1"  type="checkbox">
+              <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
               <label for="win1">Win the match</label>
             </div>
           </div>
@@ -78,31 +81,56 @@
           <div id="team2Stats1" #team2>
             <div class="form-group">
               <label>Accuracy:</label>
-              <input type="number" name="acurracy1"  [(ngModel)]="acurracy2" style="background: transparent; color: #ffa000">
+              <input type="number" name="acurracy1" [(ngModel)]="acurracy2"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
               <label>Effectiveness:</label>
-              <input type="number" name="effectiveness1"  [(ngModel)]="effectiveness2" style="background: transparent; color: #ffa000">
+              <input type="number" name="effectiveness1" [(ngModel)]="effectiveness2"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
               <label>UnforcedErrors:</label>
-              <input type="number" name="unforcedErrors1"  [(ngModel)]="unforcedErrors2" style="background: transparent; color: #ffa000">
+              <input type="number" name="unforcedErrors1" [(ngModel)]="unforcedErrors2"
+                     style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
               <label>Set 1:</label>
-              <input type="number" name="set11"  [(ngModel)]="set1team2" style="background: transparent; color: #ffa000">
+              <input type="number" name="set11" [(ngModel)]="set1team2" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
               <label>Set 2:</label>
-              <input type="number" name="set21"  [(ngModel)]="set2team2" style="background: transparent; color: #ffa000">
+              <input type="number" name="set21" [(ngModel)]="set2team2" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
               <label>Set 3:</label>
-              <input type="number" name="set31"  [(ngModel)]="set3team2" style="background: transparent; color: #ffa000">
+              <input type="number" name="set31" [(ngModel)]="set3team2" style="background: transparent; color: #ffa000">
             </div>
             <div class="form-group">
-              <input id="win2" name="win1"  [(ngModel)]="win2" type="checkbox">
+              <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
               <label for="win2">Win the match</label>
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit">Save</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card id="new-tournament" class="card">
+      <mat-card-header style="justify-content: center">
+        <mat-card-title>Save New Tournament:</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form #tournamentForm="ngForm" (ngSubmit)="saveTournament(tournamentName)">
+          <h4>Tournament Name:</h4>
+          <div id="tournamentName">
+            <div class="form-group">
+              <label>Tournament:</label>
+              <input type="text" name="tournament" [(ngModel)]="tournamentName"
+                     style="background: transparent; color: #ffa000">
             </div>
           </div>
           <button class="btn btn-success" type="submit">Save</button>
