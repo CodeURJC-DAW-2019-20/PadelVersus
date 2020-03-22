@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.error(this.returnUrl.toString());
-          if(this.returnUrl.toString() == 'http://localhost:4200/admin'){
+          if(this.returnUrl.toString() == '/admin'){
             if(data.roles.some(x => x === 'ROLE_ADMIN')){
               this.router.navigate([this.returnUrl]);
             }else{
