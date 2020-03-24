@@ -17,6 +17,7 @@ import {TournamentRankingComponent} from "./tournament/tournament-ranking/tourna
 import {PlayerComponent} from "./player/player.component";
 import {TeamComponent} from "./teams/team.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {LogOutComponent} from "./logOut/logOut.component";
 
 const routes: Routes = [
   { path: 'match/:id', component: MatchComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'logout', component: LogOutComponent },
   { path: 'signupplayer/:id', component: SignUpPlayerComponent},
   { path: 'home/match', component: MatchComponent},
   { path: 'tournament/:id', component: TournamentRankingComponent},

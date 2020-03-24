@@ -49,6 +49,7 @@ import {NextMatchesDateComponent} from "./matches/next-matches-date/next-matches
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {TeamComponent} from "./teams/team.component";
 import {ImagesComponent} from "./images/images.component";
+import {LogOutComponent} from "./logOut/logOut.component";
 
 
 
@@ -73,7 +74,8 @@ import {ImagesComponent} from "./images/images.component";
     AdminComponent,
     SignUpComponent,
     LoginComponent,
-    SignUpPlayerComponent
+    SignUpPlayerComponent,
+    LogOutComponent
 
   ],
   imports: [
