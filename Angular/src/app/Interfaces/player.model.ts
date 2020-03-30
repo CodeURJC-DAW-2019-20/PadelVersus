@@ -1,9 +1,9 @@
-import {User} from "./user.model";
+import {User} from './user.model';
 
 export interface Player {
   id?: number;
   age: number;
-  countryBirth: string,
+  countryBirth: string;
   height: number;
   weight: number;
   speed: number;
@@ -13,5 +13,5 @@ export interface Player {
   accuaracy: number;
   aceleration: number;
   idUser?: number;
-  user?:User;
+  user?: User;
 }

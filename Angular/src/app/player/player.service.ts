@@ -1,52 +1,52 @@
 import { Injectable } from '@angular/core';
-import{HttpClient,HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-import {Match} from "../Interfaces/match.model";
-import {Player} from "../Interfaces/player.model";
-import {Tournament} from "../Interfaces/tournament.model";
-import {Team} from "../Interfaces/team.model";
+import {Match} from '../Interfaces/match.model';
+import {Player} from '../Interfaces/player.model';
+import {Tournament} from '../Interfaces/tournament.model';
+import {Team} from '../Interfaces/team.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayerService {
 
-  private playerUrls:string;
-  private tournamentsPlayerUrls:string;
-  private teamsPlayerUrls:string;
-  private imagePlayerUrl:string;
+  private playerUrls: string;
+  private tournamentsPlayerUrls: string;
+  private teamsPlayerUrls: string;
+  private imagePlayerUrl: string;
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
     this.playerUrls = '/api/player/';
     this.tournamentsPlayerUrls = '/api/tournaments/?playerId=';
     this.teamsPlayerUrls = '/api/teams/?playerId=';
     this.imagePlayerUrl = '/api/player/';
   }
 
-  getPlayer(id:number) {
+  getPlayer(id: number) {
     return this.http.get<Player>(this.playerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
   }
 
-  getTournamentsByPlayer(id:number){
+  getTournamentsByPlayer(id: number) {
     return this.http.get<Tournament[]>(this.tournamentsPlayerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
   }
 
-  getTeamsByPlayer(id:number){
+  getTeamsByPlayer(id: number) {
     return this.http.get<Team[]>(this.teamsPlayerUrls + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
   }
 
-  getImageByPlayer(id:number):Observable<Blob>{
-    return this.http.get(this.imagePlayerUrl + id+'/image', {responseType: 'blob'}).pipe(
+  getImageByPlayer(id: number): Observable<Blob> {
+    return this.http.get(this.imagePlayerUrl + id + '/image', {responseType: 'blob'}).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

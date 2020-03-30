@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import{HttpClient,HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
-import {Team} from "../Interfaces/team.model";
-import {throwError} from "rxjs";
+import {Team} from '../Interfaces/team.model';
+import {throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

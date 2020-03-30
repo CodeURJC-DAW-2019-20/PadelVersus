@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {PlayerService} from "../player/player.service";
+import {ActivatedRoute} from '@angular/router';
+import {PlayerService} from '../player/player.service';
 
 
 @Component({
@@ -10,8 +10,8 @@ import {PlayerService} from "../player/player.service";
 })
 export class ImagesComponent implements OnInit {
 
-  @Input() private idPlayer:number;
-  private imagePlayer:any;
+  @Input() private idPlayer: number;
+  private imagePlayer: any;
 
   constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
     this.idPlayer = activatedRoute.snapshot.params.id;
@@ -30,8 +30,8 @@ export class ImagesComponent implements OnInit {
 
 
   private createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
       this.imagePlayer = reader.result;
     }, false);
 
@@ -40,7 +40,7 @@ export class ImagesComponent implements OnInit {
     }
   }
 
-  getImageByPlayer(){
+  getImageByPlayer() {
     return this.imagePlayer;
   }
 
