@@ -59,7 +59,7 @@ export class MatchesService {
     );
   }
 
-  getLastMatchesByTeam(id: number){
+  getLastMatchesByTeam(id: number) {
     return this.http.get<Match[]>(this.matchesUrl + '?teamId=' + id).pipe(
       map(response => {
         for (const match of response) {

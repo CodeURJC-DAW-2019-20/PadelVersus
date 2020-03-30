@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
-import {User} from "./Interfaces/user.model";
-import {Observable, throwError} from "rxjs";
-import {Player} from "./Interfaces/player.model";
+import {User} from './Interfaces/user.model';
+import {Observable, throwError} from 'rxjs';
+import {Player} from './Interfaces/player.model';
 
 @Injectable()
 export class AuthenticationService {
@@ -49,16 +49,16 @@ export class AuthenticationService {
   }
 
   constructor(private http: HttpClient) {
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+    const user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
       this.setCurrentUser(user);
     }
   }
 
-  login(user: string, pass: string){
+  login(user: string, pass: string) {
     console.log(user);
     console.log(pass);
-    let auth = window.btoa(user + ':' + pass);
+    const auth = window.btoa(user + ':' + pass);
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + auth,
       'X-Requested-With': 'XMLHttpRequest',
@@ -72,13 +72,13 @@ export class AuthenticationService {
           user.authdata = auth;
           localStorage.setItem('currentUser', JSON.stringify(user));
       }
-      return user;
+        return user;
       }
     ));
   }
 
   logOut() {
-    console.error("LOG OUT SERVICE");
+    console.error('LOG OUT SERVICE');
     return this.http.get('/api/logOut').pipe(map(response => {
       this.removeCurrentUser();
       return response;
@@ -86,9 +86,9 @@ export class AuthenticationService {
   }
 
   saveUser(user: User): Observable<User> {
-    console.log('userSave:'+user.name);
-    console.log('userSave:'+user.passwordHash);
-    console.log('userSave:'+user.mail);
+    console.log('userSave:' + user.name);
+    console.log('userSave:' + user.passwordHash);
+    console.log('userSave:' + user.mail);
 
     const body = JSON.stringify(user);
     console.log(body);
@@ -98,12 +98,12 @@ export class AuthenticationService {
 
     return this.http.post<User>('/api/user', body, {headers}).pipe(
       map(response => response)
-      //catchError(err => this.handleError(err))
+      // catchError(err => this.handleError(err))
     );
   }
   savePlayer(player: Player): Observable<Player> {
-    console.log('player:'+player.aceleration);
-    console.log('userID:'+player.idUser);
+    console.log('player:' + player.aceleration);
+    console.log('userID:' + player.idUser);
 
     const body = JSON.stringify(player);
     console.log(body);
@@ -113,14 +113,14 @@ export class AuthenticationService {
 
     return this.http.post<Player>('/api/player', body, {headers}).pipe(
       map(response => response)
-      //catchError(err => this.handleError(err))
+      // catchError(err => this.handleError(err))
     );
   }
   private setCurrentUser(user: User) {
     this._isLogged = true;
-    console.log('USEEEEEEEEER: '+user.name);
+    console.log('USEEEEEEEEER: ' + user.name);
     this._user = user;
-    //this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
+    // this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
   }
 
   removeCurrentUser() {

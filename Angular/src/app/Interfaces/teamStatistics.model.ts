@@ -1,6 +1,6 @@
-import {Game} from "./game.model";
+import {Game} from './game.model';
 
-export interface TeamStatistics{
+export interface TeamStatistics {
   totalGames: number;
   totalWins: number;
   totalDefeats: number;

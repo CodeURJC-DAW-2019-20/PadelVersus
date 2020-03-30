@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
-import {AdminService} from "./admin.service";
+import {AdminService} from './admin.service';
 import {Team} from '../Interfaces/team.model';
-import {Match} from "../Interfaces/match.model";
-import {MatchStatistics} from "../Interfaces/matchStatistics.model";
-import {HttpErrorResponse} from "@angular/common/http";
-import {Router} from "@angular/router";
+import {Match} from '../Interfaces/match.model';
+import {MatchStatistics} from '../Interfaces/matchStatistics.model';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 import {Set} from '../Interfaces/set.model';
-import {TeamMatch} from "../Interfaces/teamMatch.model";
-import {Tournament} from "../Interfaces/tournament.model";
+import {TeamMatch} from '../Interfaces/teamMatch.model';
+import {Tournament} from '../Interfaces/tournament.model';
 
 @Component({
   selector: 'app-admin',
@@ -17,6 +17,9 @@ import {Tournament} from "../Interfaces/tournament.model";
 })
 export class AdminComponent implements OnInit {
 
+  constructor(private  adminService: AdminService, private router: Router) {
+  }
+
   private tournamentList: Tournament[] = [];
   private matchList: Match[] = [];
   private selectedTournamentTeams: TeamMatch[] = [];
@@ -24,7 +27,7 @@ export class AdminComponent implements OnInit {
   selectedTeam1: Team;
   selectedTeam2: Team;
   selectedMatch: Match;
-  //Save Stats Match Team 1:
+  // Save Stats Match Team 1:
   acurracy1: number;
   effectiveness1: number;
   unforcedErrors1: number;
@@ -33,7 +36,7 @@ export class AdminComponent implements OnInit {
   set3team1: number;
   win1: boolean;
 
-  //Save Stats Match Team 2:
+  // Save Stats Match Team 2:
   acurracy2: number;
   effectiveness2: number;
   unforcedErrors2: number;
@@ -49,8 +52,8 @@ export class AdminComponent implements OnInit {
 
   tournamentName: string;
 
-  constructor(private  adminService: AdminService, private router: Router) {
-  }
+
+  submitted = false;
 
   ngOnInit(): void {
     this.adminService.getTournaments().subscribe(
@@ -97,18 +100,18 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  getTournaments(){
+  getTournaments() {
     return this.tournamentList;
   }
 
-  getMatchs(){
+  getMatchs() {
     return this.matchList;
   }
-  getSelectedTournament(){
+  getSelectedTournament() {
     return this.selectedTournament;
   }
 
-  getTeamsOfTournaments(){
+  getTeamsOfTournaments() {
     this.selectedTournamentTeams = this.selectedTournament.teams;
     return this.selectedTournamentTeams;
   }
@@ -116,13 +119,10 @@ export class AdminComponent implements OnInit {
   private handleError(error: any) {
     console.error(error);
   }
-
-
-  submitted = false;
   onSubmit() {
     this.submitted = true;
     this.statsMatch2 = this.statsMatch1;
-    this.adminService.addStatsMatch(this.selectedMatch,this.statsMatch1,this.statsMatch2).subscribe(
+    this.adminService.addStatsMatch(this.selectedMatch, this.statsMatch1, this.statsMatch2).subscribe(
       data => {
         console.log('Stats: ', data);
       },
@@ -135,7 +135,7 @@ export class AdminComponent implements OnInit {
   }
 
   statsForm(match: Match) {
-    //Stats team 1:
+    // Stats team 1:
     this.statsMatch1.acurracy = this.acurracy1;
     this.statsMatch1.effectiveness = this.effectiveness1;
     this.statsMatch1.unforcedErrors = this.unforcedErrors1;
@@ -149,13 +149,13 @@ export class AdminComponent implements OnInit {
     this.set.setNumber = 3;
     this.sets.concat(this.set);
     this.statsMatch1.sets = this.sets;
-    if(this.win1!=true) {
+    if (this.win1 != true) {
       this.statsMatch1.win = false;
-    }else {
+    } else {
       this.statsMatch1.win = this.win1;
     }
     this.sets = [];
-    //Stats team 2:
+    // Stats team 2:
     this.statsMatch2.acurracy = this.acurracy2;
     this.statsMatch2.effectiveness = this.effectiveness2;
     this.statsMatch2.unforcedErrors = this.unforcedErrors2;
@@ -169,40 +169,40 @@ export class AdminComponent implements OnInit {
     this.set.setNumber = 3;
     this.sets.concat(this.set);
     this.statsMatch2.sets = this.sets;
-    if(this.win2!=true){
+    if (this.win2 != true) {
       this.statsMatch2.win = false;
-    }else{
+    } else {
       this.statsMatch2.win = this.win2;
     }
-  console.log(match);
-  console.log(this.statsMatch1);
-  console.log(this.statsMatch2);
+    console.log(match);
+    console.log(this.statsMatch1);
+    console.log(this.statsMatch2);
 
-    this.adminService.addStatsMatch(match,this.statsMatch1,this.statsMatch2).subscribe(
+    this.adminService.addStatsMatch(match, this.statsMatch1, this.statsMatch2).subscribe(
       data => {
         console.error(data);
-        //location.assign('http://localhost:4200/admin');
+        // location.assign('http://localhost:4200/admin');
       },
-      (error: Error) => console.error('Error saving stat match: '+error.message),
+      (error: Error) => console.error('Error saving stat match: ' + error.message),
     );
-    //sets: Set = {{games,setNumber}};
-    //let stat1: MatchStatistics = {acurracy,effectiveness, unforcedErrors, sets};
+    // sets: Set = {{games,setNumber}};
+    // let stat1: MatchStatistics = {acurracy,effectiveness, unforcedErrors, sets};
 
   }
 
-  saveTournament(tournamentName: string){
+  saveTournament(tournamentName: string) {
       this.adminService.saveTournament(tournamentName).subscribe(
         data => {
           console.error(data);
-          //GO TO THE LAST PAGE
+          // GO TO THE LAST PAGE
 
-         //location.assign('http://localhost:4200/admin');
-          //window.history.back();
+         // location.assign('http://localhost:4200/admin');
+          // window.history.back();
         },
         (error: Error) => {
-          //location.reload(true),
-          console.error('Error creating new player: ' + error)
-          //this.error = true;
+          // location.reload(true),
+          console.error('Error creating new player: ' + error);
+          // this.error = true;
         }
       // console.error('Error creating new user: ' + error),
     );
