@@ -11,7 +11,7 @@ export class TournamentRankingService {
   private readonly tournamentUrl: string;
 
   constructor(private http: HttpClient) {
-    this.tournamentUrl = 'https://localhost:8443/api/tournament/id/ranking';
+    this.tournamentUrl = '/api/tournament/id/ranking';
   }
 
   getTournamentRanking(id: number) {

@@ -7,10 +7,47 @@ import {Player} from "./Interfaces/player.model";
 
 @Injectable()
 export class AuthenticationService {
-  isLogged = false;
-  isAdmin = false;
-  user: User;
-  auth: string;
+  private _isLogged = false;
+  private _isAdmin = false;
+  private _user: User;
+  private _auth: string;
+
+  get isLogged(): boolean {
+    return this._isLogged;
+  }
+
+  set isLogged(value: boolean) {
+    this._isLogged = value;
+  }
+
+  get isAdmin(): boolean {
+    return this._isAdmin;
+  }
+
+  set isAdmin(value: boolean) {
+    this._isAdmin = value;
+  }
+
+  getUserName(): string {
+    console.error(this._user.name);
+    return this._user.name;
+  }
+  getUserPassword(): string {
+    return this._user.passwordHash;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
+
+  get auth(): string {
+    return this._auth;
+  }
+
+  set auth(value: string) {
+    this._auth = value;
+  }
+
   constructor(private http: HttpClient) {
     let user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
@@ -27,18 +64,21 @@ export class AuthenticationService {
       'X-Requested-With': 'XMLHttpRequest',
     });
     console.log(headers);
-    return this.http.get<User>('/api/logIn', { headers }).pipe(map(user => {
-      console.log(user);
-      if (user) {
-        this.setCurrentUser(user);
-        user.authdata = auth;
-        localStorage.setItem('currentUser', JSON.stringify(user));
+    return this.http.get<User>('/api/logIn', { headers }).pipe(map(
+      user => {
+        console.log(user);
+        if (user) {
+          this.setCurrentUser(user);
+          user.authdata = auth;
+          localStorage.setItem('currentUser', JSON.stringify(user));
       }
       return user;
-    }));
+      }
+    ));
   }
 
   logOut() {
+    console.error("LOG OUT SERVICE");
     return this.http.get('/api/logOut').pipe(map(response => {
       this.removeCurrentUser();
       return response;
@@ -77,15 +117,16 @@ export class AuthenticationService {
     );
   }
   private setCurrentUser(user: User) {
-    this.isLogged = true;
-    this.user = user;
+    this._isLogged = true;
+    console.log('USEEEEEEEEER: '+user.name);
+    this._user = user;
     //this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
   }
 
   removeCurrentUser() {
     localStorage.removeItem('currentUser');
-    this.isLogged = false;
-    this.isAdmin = false;
+    this._isLogged = false;
+    this._isAdmin = false;
   }
   private handleError(error: any) {
     console.error(error);

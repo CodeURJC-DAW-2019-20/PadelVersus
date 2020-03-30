@@ -6,6 +6,7 @@ import {Observable, throwError} from 'rxjs';
 import {MatchStatistics} from "../Interfaces/matchStatistics.model";
 import {Tournament} from "../Interfaces/tournament.model";
 import {Match} from "../Interfaces/match.model";
+import {AuthenticationService} from "../authentication.service";
 
 
 @Injectable({
@@ -15,8 +16,11 @@ export class AdminService {
 
   private adminUrl : string;
   private statMatch: MatchStatistics[];
+  user: string;
+  pass: string;
+  //authService: AuthenticationService;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private authService: AuthenticationService) {
     this.adminUrl = '/api/tournaments/';
     this.statMatch= [];
   }
@@ -46,7 +50,15 @@ export class AdminService {
     const body = JSON.stringify(this.statMatch);
     console.log('ID: '+match.id);
     console.log('Stat Match:'+body);
+    this.user = this.authService.getUserName();
+    //this.pass = this.authService.getUserPassword();
+    this.pass = 'adminpass';
+    console.error(this.user);
+    console.error(this.pass);
+    let auth = window.btoa(this.user + ':' + this.pass);
     const headers = new HttpHeaders({
+      Authorization: 'Basic ' + auth,
+      'X-Requested-With': 'XMLHttpRequest',
       'Content-Type': 'application/json',
     });
     return this.http.put<Match>("/api/match/"+match.id, body, {headers}).pipe(

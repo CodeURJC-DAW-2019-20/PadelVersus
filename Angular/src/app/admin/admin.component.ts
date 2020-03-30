@@ -181,7 +181,7 @@ export class AdminComponent implements OnInit {
     this.adminService.addStatsMatch(match,this.statsMatch1,this.statsMatch2).subscribe(
       data => {
         console.error(data);
-        location.assign('http://localhost:4200/admin');
+        //location.assign('http://localhost:4200/admin');
       },
       (error: Error) => console.error('Error saving stat match: '+error.message),
     );
@@ -196,7 +196,7 @@ export class AdminComponent implements OnInit {
           console.error(data);
           //GO TO THE LAST PAGE
 
-          location.assign('http://localhost:4200/admin');
+         //location.assign('http://localhost:4200/admin');
           //window.history.back();
         },
         (error: Error) => {
