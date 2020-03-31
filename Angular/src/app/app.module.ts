@@ -36,9 +36,11 @@ import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
+    HeaderComponent,
     AppComponent,
     HomeComponent,
     TournamentComponent,

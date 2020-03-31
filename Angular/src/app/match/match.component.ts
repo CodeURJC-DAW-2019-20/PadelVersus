@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Match} from '../Interfaces/match.model';
 import {MatchService} from './match.service';
 import {ActivatedRoute} from '@angular/router';
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   encapsulation: ViewEncapsulation.None,
