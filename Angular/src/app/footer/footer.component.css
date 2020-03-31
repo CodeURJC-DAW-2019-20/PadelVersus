@@ -1,0 +1,9 @@
+
+.footer{
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color:#F7F48B;
+}
+
