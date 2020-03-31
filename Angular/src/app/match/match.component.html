@@ -1,3 +1,99 @@
+<p-card header="Match" *ngIf="getMatch()!=null" [style]="{width: '50%', textAlign:'center' }">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" *ngFor="let Team of getMatch().teams">
+        {{Team.name}}
+      </div>
+    </div>
+  </div>
+
+
+  <table class="table">
+    <tbody>
+    <tr>
+      <th scope="col" *ngIf="getResult()[0] < getResult()[1]" style="background-color: red">{{getResult()[0]}}</th>
+      <th scope="col" *ngIf="getResult()[0] > getResult()[1]" style="background-color: mediumseagreen">{{getResult()[0]}}</th>
+      <th scope="col">:</th>
+      <th scope="col" *ngIf="getResult()[0] > getResult()[1]" style="background-color: red">{{getResult()[1]}}</th>
+      <th scope="col" *ngIf="getResult()[0] < getResult()[1]" style="background-color: mediumseagreen">{{getResult()[1]}}</th>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Team</th>
+      <th scope="col">First</th>
+      <th scope="col">Second</th>
+      <th scope="col" *ngIf="getMatch().stadistics_1.sets.length==3">Third</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">{{getMatch().teams[0].name}}</th>
+      <td *ngFor="let set of getMatch().stadistics_1.sets">{{set.games}}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{getMatch().teams[1].name}}</th>
+      <td *ngFor="let set of getMatch().stadistics_2.sets">{{set.games}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        Acurracy
+        <p-progressBar [value]="getMatch().stadistics_1.acurracy"></p-progressBar>
+      </div>
+      <div class="col-sm">
+        Acurracy
+        <p-progressBar [value]="getMatch().stadistics_2.acurracy"></p-progressBar>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        Efectiveness
+        <p-progressBar [value]="getMatch().stadistics_1.effectiveness"></p-progressBar>
+      </div>
+      <div class="col-sm">
+        Efectiveness
+        <p-progressBar [value]="getMatch().stadistics_2.effectiveness"></p-progressBar>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        Unforced Errors
+        <p-progressBar [value]="getMatch().stadistics_1.unforcedErrors"></p-progressBar>
+      </div>
+      <div class="col-sm">
+        Unforced Errors
+        <p-progressBar [value]="getMatch().stadistics_2.unforcedErrors"></p-progressBar>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        Games Win
+        <p-progressBar [value]="getMatch().stadistics_1.games_wins"></p-progressBar>
+      </div>
+      <div class="col-sm">
+        Games Win
+        <p-progressBar [value]="getMatch().stadistics_2.acurracy"></p-progressBar>
+      </div>
+    </div>
+
+  </div>
+
+</p-card>
+
+<p-card header="Loading" *ngIf="getMatch()==null" [style]="{width: '500px', textAlign:'center'}">
+  <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</p-card>
+
 <!--
 <mat-card class="example-card">
   <mat-card-content>
