@@ -27,7 +27,9 @@ import {TeamComponent} from './teams/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
-
+import {CardModule} from 'primeng/card';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {AuthenticationService} from './authentication.service';
 
 import {BasicAuthInterceptor} from './basic-auth.interceptor';
@@ -59,6 +61,8 @@ import { AppComponent } from './app.component';
     LogOutComponent
   ],
   imports: [
+    CardModule,
+    ProgressSpinnerModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
@@ -66,6 +70,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    ProgressBarModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
