@@ -1,47 +1,84 @@
-<!--
 
+<div id="notfound">
+  <div class="notfound">
+    <div class="notfound-404">
+      <form #userForm="ngForm">
+        <h1>Sign Up</h1>
+        <div [hidden]="!error" class="error">
+          <p style="color: red; text-align: center">ERROR USER ALREADY CREATED</p>
+        </div>
+        <div class="form-group">
+          <input placeholder="Username" type="text" [(ngModel)]="user.name" #userFormElement
+                 #userFormControl="ngModel"
+                 name="name"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Mail" type="email" [(ngModel)]="user.mail" #userFormElement
+                 #userFormControl="ngModel"
+                 name="mail"
+                 required>
+        </div>
+        <div class="form-group">
+            <input placeholder="Password" type="password" [(ngModel)]="user.passwordHash" #userFormElement
+                   #userFormControl="ngModel"
+                   name="password"
+                   required>
+        </div>
+      </form>
+      <div  layout="row" style="text-align: center" class="enterLoginBotton">
+        <button color="primary" class="button" (click)="save()"  [disabled]="userForm === undefined || (userForm && !userForm.valid)">
+          Registrar
+        </button>
+        <button mat-raised-button class="button" color="accent" (click)="cancel()">Log In</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--
 <div *ngIf="user">
-  <mat-card class="card" >
-    <mat-tab-group dynamicHeight>
-      <mat-tab label="Sign Up">
+  <p-card class="card" >
+    <div dynamicHeight>
+      <div label="Sign Up">
         <form #userForm="ngForm">
           <div [hidden]="!error">
             <p style="color: red; text-align: center">ERROR USER ALREADY CREATED</p>
           </div>
-          <mat-card class="card" style="text-align: center">
-            <mat-form-field class="example-full-width">
+          <p-card class="card" style="text-align: center">
+            <div class="example-full-width">
               <input matInput placeholder="Nombre" [(ngModel)]="user.name" #userFormElement
                      #userFormControl="ngModel"
                      name="name"
                      required>
-            </mat-form-field>
-          </mat-card>
-          <mat-card class="card" style="text-align: center">
-          <mat-form-field class="example-full-width">
+            </div>
+          </p-card>
+          <p-card class="card" style="text-align: center">
+          <div class="example-full-width">
             <input matInput placeholder="Mail" type="email" [(ngModel)]="user.mail" #userFormElement
                    #userFormControl="ngModel"
                    name="mail"
                    required>
-          </mat-form-field>
-          </mat-card>
-          <mat-card class="card" style="text-align: center">
-            <mat-form-field class="example-full-width">
+          </div>
+          </p-card>
+          <p-card class="card" style="text-align: center">
+            <div class="example-full-width">
               <input matInput placeholder="Password" type="password" [(ngModel)]="user.passwordHash" #userFormElement
                      #userFormControl="ngModel"
                      name="password"
                      required>
-            </mat-form-field>
-          </mat-card>
+            </div>
+          </p-card>
         </form>
         <div  layout="row" style="text-align: center" class="enterLoginBotton">
           <button mat-raised-button color="primary" class="button" (click)="save()"  [disabled]="userForm === undefined || (userForm && !userForm.valid)">
-            Registrar <mat-icon>assignment</mat-icon>
+            Registrar
           </button>
           <button mat-raised-button class="button" color="accent" (click)="cancel()">Cancelar</button>
         </div>
-      </mat-tab>
-    </mat-tab-group>
-  </mat-card>
+      </div>
+    </div>
+  </p-card>
 </div>
 
 -->

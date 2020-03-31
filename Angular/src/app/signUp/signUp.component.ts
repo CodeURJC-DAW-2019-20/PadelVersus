@@ -5,15 +5,15 @@ import {User} from '../Interfaces/user.model';
 @Component({
   templateUrl: './signUp.component.html',
   styleUrls: [
-    '../app.component.css'
+    './signUp.component.css'
   ]
 })
 
 export class SignUpComponent {
-
   newUser: boolean;
   user: User;
   error: boolean;
+
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: AuthenticationService) {
     this.user = { name: '', passwordHash: '', mail: '', roles: ['ROLE_USER'], player: null };
     this.newUser = true;
@@ -21,7 +21,8 @@ export class SignUpComponent {
   }
 
   cancel() {
-    window.history.back();
+    //window.history.back();
+    this.router.navigate(['/login'])
   }
 
   save() {

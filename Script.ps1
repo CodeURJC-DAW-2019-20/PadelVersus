@@ -1,6 +1,6 @@
 # Line to run from standard cmd like intellij idea one (only windows)
 # Execution without log
-# C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1
+# C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File D:\EntornoDesarrollo\DAW\PadelVersus\Script.ps1
 # Execution with log
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $true
 cd Backend

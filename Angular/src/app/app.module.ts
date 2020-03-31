@@ -6,6 +6,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
+import { PanelModule } from "primeng/panel";
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import {CardModule} from 'primeng/card';
 
 import {AdminComponent} from './admin/admin.component';
 import {PlayerComponent} from './player/player.component';
@@ -35,6 +39,7 @@ import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +71,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    PanelModule,
+    ButtonModule,
+    InputTextModule,
+    CardModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
