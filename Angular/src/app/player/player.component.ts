@@ -24,7 +24,7 @@ export class PlayerComponent implements OnInit {
   private id: number;
   private tournaments: Tournament[] = [];
   private teams: Team[] = [];
-;
+
 
   ngOnInit(): void {
     this.playerService.getPlayer(this.id).subscribe(
