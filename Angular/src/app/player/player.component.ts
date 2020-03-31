@@ -12,6 +12,9 @@ import {Team} from '../Interfaces/team.model';
   styleUrls: ['./player.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
+
+
 export class PlayerComponent implements OnInit {
 
 

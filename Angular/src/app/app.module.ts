@@ -34,6 +34,8 @@ import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
+import {CardModule} from 'primeng/card';
+import {ChartModule} from "primeng/chart";
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    CardModule,
+    ChartModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
