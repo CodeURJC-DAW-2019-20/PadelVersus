@@ -1,0 +1,11 @@
+<p-carousel [value]="getSlides()" [circular]=true  ><!--[autoplayInterval]="3000">-->
+  <ng-template let-slide pTemplate="item" class="carousel-item">
+    <div class="p-grid p-nogutter " style="background : url('/assets/carrouselImage.jpg'); height:100vh">
+      <div class="p-col-12 text-center" style="margin-top: 20%">
+        <span class="slider-text " >{{slide.text}}</span>
+        <br>
+        <span class="slider-date r">{{slide.date | date : 'yyyy-MM-dd'}}</span>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

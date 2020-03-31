@@ -30,14 +30,16 @@ import {AuthGuard} from './auth.guard';
 import {CardModule} from 'primeng/card';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CarouselModule} from 'primeng/carousel';
 import {AuthenticationService} from './authentication.service';
 
 import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "./header/header.component";
-import {FooterComponent} from "./footer/footer.component";
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import {FooterComponent} from "./footer/footer.component";
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
-    ProgressBarModule
+    ProgressBarModule,
+    CarouselModule,
+    ButtonModule,
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
