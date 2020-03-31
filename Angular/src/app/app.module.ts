@@ -37,9 +37,11 @@ import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @NgModule({
   declarations: [
+    FooterComponent,
     HeaderComponent,
     AppComponent,
     HomeComponent,
