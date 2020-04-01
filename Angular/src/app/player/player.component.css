@@ -1,6 +1,12 @@
-.color{
-  color: #fcfcfc;
-  font-family: Montserrat, sans-serif;
-  font-size: 10px;
-  text-transform: uppercase;
+.userName{
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase
 }
+
+.box{
+  margin: 30px 20px 29px 0;
+  font-size: 10px;
+}
+
+

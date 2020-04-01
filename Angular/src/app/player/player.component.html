@@ -1,31 +1,43 @@
 
 
 
-<div class = "container" >
-  <div class = "row">
-    <div class="col-sm">
-      <div *ngIf="getPlayer()">
-        <span class="  p-3 mb-2 bg-warning text-white    ">{{getPlayer().countryBirth}} </span><br><br>
-        <h3 class="font-weight-bold">{{getPlayer().user.name}}</h3>
+<div class = "container">
+  <div class = "row" style="padding-top:10%">
+    <div class = "row">
+      <ng-container *ngIf="getPlayer()">
+        <span class="  p-3 mb-2 bg-warning text-white text-uppercase box  ">
+          {{getPlayer().countryBirth}}
+        </span>
 
+        <span class="  userName " style="padding-top:30px" >
+          {{getPlayer().user.name}}
+        </span>
+      </ng-container>
+    </div>
+    <div class = "row">
+      <div class="col-sm " >
         <app-images [idPlayer]="getId()"></app-images>
+        <button type="button" class="btn btn-warning text-uppercase">Edit Image</button>
+
+      </div>
+      <div class="col-sm">
+        <p-card  *ngIf="getPlayer()!=null" [style]="{width: '800px',textAlign : 'left'}">
+
+          <h2 class="text-warning" style="font-size:30px">Age</h2>
+          <h6 class = "text-uppercase" style="font-size:15px">{{getPlayer().age}}</h6>
+          <h2 class="text-warning" style="font-size:30px">Teams</h2>
+          <ng-container *ngFor="let team of getTeamsByPlayer()">
+            <h6 class = "text-uppercase" style="font-size:15px"> {{team.name}}</h6>
+          </ng-container>
+          <h2 class="text-warning"style="font-size:30px">Tournaments</h2>
+          <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
+            <h6 class = "text-uppercase" style="font-size:15px" > {{tournament.name}}</h6>
+          </ng-container>
+        </p-card>
       </div>
     </div>
-    <div class="col-sm">
-      <p-card  *ngIf="getPlayer()!=null" [style]="{width: '800px',textAlign : 'left'}">
 
-        <h2 class="text-warning">Age</h2>
-        <h6>{{getPlayer().age}}</h6>
-        <h2 class="text-warning">Teams</h2>
-        <ng-container *ngFor="let team of getTeamsByPlayer()">
-          <h6> {{team.name}}</h6>
-        </ng-container>
-        <h2 class="text-warning">Tournaments</h2>
-        <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
-          <h6> {{tournament.name}}</h6>
-        </ng-container>
-      </p-card>
-    </div>
+
 
 
 
