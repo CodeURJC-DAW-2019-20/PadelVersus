@@ -6,6 +6,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
+import { PanelModule } from "primeng/panel";
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 import {AdminComponent} from './admin/admin.component';
 import {PlayerComponent} from './player/player.component';
@@ -76,6 +83,12 @@ import {TabViewModule} from 'primeng/tabview';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    PanelModule,
+    ButtonModule,
+    InputTextModule,
+    CardModule,
+    AccordionModule,
+    CheckboxModule,
     ProgressBarModule,
     CarouselModule,
     ButtonModule,

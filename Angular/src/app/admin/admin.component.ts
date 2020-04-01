@@ -9,6 +9,9 @@ import {Router} from '@angular/router';
 import {Set} from '../Interfaces/set.model';
 import {TeamMatch} from '../Interfaces/teamMatch.model';
 import {Tournament} from '../Interfaces/tournament.model';
+import {TeamStatistics} from "../Interfaces/teamStatistics.model";
+import {Player} from "../Interfaces/player.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-admin',
@@ -17,16 +20,18 @@ import {Tournament} from '../Interfaces/tournament.model';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private  adminService: AdminService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+              private  adminService: AdminService,
+              private router: Router) {
   }
 
   private tournamentList: Tournament[] = [];
   private matchList: Match[] = [];
   private selectedTournamentTeams: TeamMatch[] = [];
   selectedTournament: Tournament;
-  selectedTeam1: Team;
-  selectedTeam2: Team;
   selectedMatch: Match;
+
+  saveMatchForm: FormGroup;
   // Save Stats Match Team 1:
   acurracy1: number;
   effectiveness1: number;
@@ -53,7 +58,7 @@ export class AdminComponent implements OnInit {
   tournamentName: string;
 
 
-  submitted = false;
+  error: boolean;
 
   ngOnInit(): void {
     this.adminService.getTournaments().subscribe(
@@ -92,12 +97,21 @@ export class AdminComponent implements OnInit {
       setNumber: number;
     };
 
+    this.saveMatchForm = this.formBuilder.group({
+      selectedTeam1: ['', Validators.required],
+      selectedTeam2: ['', Validators.required],
+      selectedDate: ['', Validators.required]
+    });
+
+
     this.adminService.getMatchAdmin().subscribe(
       data => {
         this.matchList = data;
       },
       error => this.handleError(error)
     );
+    this.selectedTournament = null;
+    this.selectedTournamentTeams = null;
   }
 
   getTournaments() {
@@ -107,31 +121,29 @@ export class AdminComponent implements OnInit {
   getMatchs() {
     return this.matchList;
   }
-  getSelectedTournament() {
-    return this.selectedTournament;
-  }
 
-  getTeamsOfTournaments() {
-    this.selectedTournamentTeams = this.selectedTournament.teams;
-    return this.selectedTournamentTeams;
-  }
 
   private handleError(error: any) {
     console.error(error);
   }
-  onSubmit() {
-    this.submitted = true;
-    this.statsMatch2 = this.statsMatch1;
-    this.adminService.addStatsMatch(this.selectedMatch, this.statsMatch1, this.statsMatch2).subscribe(
-      data => {
-        console.log('Stats: ', data);
-      },
-      error => this.handleError(error)
-    );
-  }
 
-  logForm(value: any) {
-    console.log(value);
+  get f() { return this.saveMatchForm.controls; }
+
+  saveMatch(tournamentName: string) {
+    console.error(tournamentName);
+    console.error(this.f.selectedTeam1.value);
+    console.error(this.f.selectedTeam2.value);
+    console.error(this.f.selectedDate.value);
+    this.adminService.saveMatch(tournamentName, this.f.selectedTeam1.value, this.f.selectedTeam2.value,this.f.selectedDate.value).subscribe(
+      data => {
+        console.log('Match: ', data);
+        this.error = false;
+        location.assign('http://localhost:4200/admin');
+      },
+      (error: Error) => {
+        this.error = true;
+        console.error('Error creating new match: ' + error.message);
+      });
   }
 
   statsForm(match: Match) {
@@ -155,6 +167,7 @@ export class AdminComponent implements OnInit {
       this.statsMatch1.win = this.win1;
     }
     this.sets = [];
+
     // Stats team 2:
     this.statsMatch2.acurracy = this.acurracy2;
     this.statsMatch2.effectiveness = this.effectiveness2;
@@ -181,31 +194,31 @@ export class AdminComponent implements OnInit {
     this.adminService.addStatsMatch(match, this.statsMatch1, this.statsMatch2).subscribe(
       data => {
         console.error(data);
-        // location.assign('http://localhost:4200/admin');
+        this.error = false;
+        location.assign('http://localhost:4200/admin');
       },
-      (error: Error) => console.error('Error saving stat match: ' + error.message),
+      (error: Error) => {
+        this.error = true;
+        console.error('Error saving stat match: ' + error.message)
+      },
     );
-    // sets: Set = {{games,setNumber}};
-    // let stat1: MatchStatistics = {acurracy,effectiveness, unforcedErrors, sets};
-
   }
 
   saveTournament(tournamentName: string) {
+    if(tournamentName == null){
+      this.error = true;
+    }else {
       this.adminService.saveTournament(tournamentName).subscribe(
         data => {
           console.error(data);
-          // GO TO THE LAST PAGE
-
-         // location.assign('http://localhost:4200/admin');
-          // window.history.back();
+          location.assign('http://localhost:4200/admin');
         },
         (error: Error) => {
-          // location.reload(true),
+          this.error = true;
           console.error('Error creating new player: ' + error);
-          // this.error = true;
         }
-      // console.error('Error creating new user: ' + error),
-    );
+      );
+    }
   }
 
 
