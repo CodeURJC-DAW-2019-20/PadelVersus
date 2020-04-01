@@ -12,6 +12,9 @@ import {Team} from '../Interfaces/team.model';
   styleUrls: ['./player.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
+
+
 export class PlayerComponent implements OnInit {
 
 
@@ -24,7 +27,7 @@ export class PlayerComponent implements OnInit {
   private id: number;
   private tournaments: Tournament[] = [];
   private teams: Team[] = [];
-;
+
 
   ngOnInit(): void {
     this.playerService.getPlayer(this.id).subscribe(

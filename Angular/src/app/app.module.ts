@@ -42,6 +42,9 @@ import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
+import {ChartModule} from "primeng/chart";
+import { RadarComponent } from './radar/radar.component';
+
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
@@ -69,7 +72,8 @@ import {TabViewModule} from 'primeng/tabview';
     SignUpComponent,
     LoginComponent,
     SignUpPlayerComponent,
-    LogOutComponent
+    LogOutComponent,
+    RadarComponent
   ],
   imports: [
     CardModule,
@@ -81,6 +85,7 @@ import {TabViewModule} from 'primeng/tabview';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    ChartModule
     PanelModule,
     ButtonModule,
     InputTextModule,
