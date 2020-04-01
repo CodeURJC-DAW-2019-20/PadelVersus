@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'logout', component: LogOutComponent },
   { path: 'signupplayer/:id', component: SignUpPlayerComponent},
-  { path: 'home/match', component: MatchComponent},
+  { path: 'match', component: MatchComponent},
   { path: 'tournament/:id', component: TournamentRankingComponent},
   { path: 'player/:id', component: PlayerComponent},
   { path: 'teams/:id', component: TeamComponent},

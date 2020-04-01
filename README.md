@@ -529,3 +529,28 @@ To stop the application and remove containers and network (it does not remove th
 15. Request that match to see info
 16. Put request to update match statistics
 17. Get request to se tournament info
+
+
+# Fase 4
+## Description of the Fase
+
+## Top 5 Most Important Commits
+| Name | Github user | Most Important | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+
+
+## Files focused on
+| Name | Github user | 1 | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
+
+
+## Textual Description Of Work
+| Name | Github user | Description |
+|--------|--------|--------|
+
+
+## Prepare Develop Enviroment
+
+## Class/Templates Diagram
+
+## Link to youtube

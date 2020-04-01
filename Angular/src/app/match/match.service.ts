@@ -16,11 +16,7 @@ export class MatchService {
 
 
   constructor(private http: HttpClient) {
-
-
     this.matchUrl = '/api/match/';
-
-
   }
 
   getMatch(id:number) {

@@ -1,0 +1,137 @@
+
+<div id="notfound">
+  <div class="notfound">
+    <div class="notfound-404">
+      <h2 class="first">Admin Page</h2>
+      <div *ngIf="error" class="alert alert-danger">ERROR AL GUARDAR LOS DATOS</div>
+      <p-accordion>
+        <p-accordionTab header="Add New Matches">
+
+          <h4>Choose Tournament:</h4>
+          <ng-container *ngFor="let Tournament of getTournaments();">
+            <p-accordion>
+              <p-accordionTab class="colorTab" header="{{Tournament.name}}">
+                <form [formGroup]="saveMatchForm" (ngSubmit)="saveMatch(Tournament.name)">
+
+                  <div class="form-group">
+                    <h4>Choose Team 1:</h4>
+                    <select formControlName="selectedTeam1">
+                      <option *ngFor="let Team of Tournament.teams;" [ngValue]="Team.name">
+                        {{Team.name}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <h4>Choose Team 2:</h4>
+                    <select formControlName="selectedTeam2">
+                      <option *ngFor="let Team1 of Tournament.teams;" [ngValue]="Team1.name">
+                        {{Team1.name}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <h4>Choose Date (Format: 2020-03-06):</h4>
+                    <input type="text" name="date" formControlName="selectedDate">
+                  </div>
+                  <button class="btn btn-success" type="submit">Save</button>
+                </form>
+              </p-accordionTab>
+            </p-accordion>
+          </ng-container>
+        </p-accordionTab>
+        <p-accordionTab header="Add Matches Results">
+          <form #stadisticsForm="ngForm" (ngSubmit)="statsForm(selectedMatch)">
+            <h4>Choose Match:</h4>
+            <select [(ngModel)]="selectedMatch" name="selectedMatch">
+              <option *ngFor="let Match of getMatchs()" [value]="Match">
+                {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
+              </option>
+            </select>
+            <h4 for="team1Stats">Stadistics Team 1:</h4>
+            <div #team1 id="team1Stats1">
+              <div class="form-group">
+                <label>Accuracy:</label>
+                <input type="number" name="acurracy" [(ngModel)]="acurracy1">
+              </div>
+              <div class="form-group">
+                <label>Effectiveness:</label>
+                <input type="number" name="effectiveness" [(ngModel)]="effectiveness1"
+                       style="background: transparent; color: #ffa000">
+              </div>
+              <div class="form-group">
+                <label>UnforcedErrors:</label>
+                <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1">
+              </div>
+              <div class="form-group">
+                <label>Set 1:</label>
+                <input type="number" name="set1" [(ngModel)]="set1team1"
+                       style="background: transparent; color: #ffa000">
+              </div>
+              <div class="form-group">
+                <label>Set 2:</label>
+                <input type="number" name="set2" [(ngModel)]="set2team1">
+              </div>
+              <div class="form-group">
+                <label>Set 3:</label>
+                <input type="number" name="set3" [(ngModel)]="set3team1"
+                       style="background: transparent; color: #ffa000">
+              </div>
+              <div class="form-group">
+                <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
+                <label for="win1">Win the match</label>
+              </div>
+            </div>
+            <h4 for="team1Stats">Stadistics Team 2:</h4>
+            <div id="team2Stats1" #team2>
+              <div class="form-group">
+                <label>Accuracy:</label>
+                <input type="number" name="acurracy1" [(ngModel)]="acurracy2"
+                       style="background: transparent; color: #ffa000">
+              </div>
+              <div class="form-group">
+                <label>Effectiveness:</label>
+                <input type="number" name="effectiveness1" [(ngModel)]="effectiveness2">
+              </div>
+              <div class="form-group">
+                <label>UnforcedErrors:</label>
+                <input type="number" name="unforcedErrors1" [(ngModel)]="unforcedErrors2"
+                       style="background: transparent; color: #ffa000;">
+              </div>
+              <div class="form-group">
+                <label>Set 1:</label>
+                <input type="number" name="set11" [(ngModel)]="set1team2">
+              </div>
+              <div class="form-group">
+                <label>Set 2:</label>
+                <input type="number" name="set21" [(ngModel)]="set2team2"
+                       style="background: transparent; color: #ffa000">
+              </div>
+              <div class="form-group">
+                <label>Set 3:</label>
+                <input type="number" name="set31" [(ngModel)]="set3team2">
+              </div>
+              <div class="form-group">
+                <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
+                <label for="win2">Win the match</label>
+              </div>
+            </div>
+            <button class="btn btn-success" type="submit">Save</button>
+          </form>
+        </p-accordionTab>
+        <p-accordionTab header="Add New Tournament">
+          <form #tournamentForm="ngForm" (ngSubmit)="saveTournament(tournamentName)">
+            <h4>Tournament Name:</h4>
+            <div id="tournamentName">
+              <div class="form-group">
+                <label>Tournament:</label>
+                <input type="text" placeholder="Type Tournament Name" name="tournament" [(ngModel)]="tournamentName"
+                >
+              </div>
+            </div>
+            <button class="btn btn-success" type="submit">Save</button>
+          </form>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>

@@ -6,19 +6,18 @@ import {Player} from '../Interfaces/player.model';
 @Component({
   templateUrl: './signUpPlayer.component.html',
   styleUrls: [
-    '../app.component.css'
+    './signUpPlayer.component.css'
   ]
 })
 
 export class SignUpPlayerComponent {
   private idUser: number;
-
   player: Player;
-
+  error: boolean;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: AuthenticationService) {
     this.player = { age: 0, countryBirth: '', endurance: 0, height: 0, weight: 0, speed: 0, accuaracy: 0, strength: 0, aceleration: 0, pace: 0 };
-
+    this.error = false;
   }
   ngOnInit(): void {
     this.idUser = this.activatedRoute.snapshot.params.id;
@@ -37,7 +36,7 @@ export class SignUpPlayerComponent {
       data => {
         console.error(data);
         // GO TO THE LAST PAGE
-
+        this.error = false;
         location.assign('http://localhost:4200/');
         // window.history.back();
       },
@@ -45,6 +44,7 @@ export class SignUpPlayerComponent {
         // location.reload(true),
         console.error('Error creating new player: ' + error);
         // this.error = true;
+        this.error = true;
       },
       // console.error('Error creating new user: ' + error),
     );

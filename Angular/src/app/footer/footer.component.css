@@ -1,0 +1,33 @@
+
+.footer{
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background : url(src/assets/footer-bg.jpg) 50% 50% no-repeat;
+  background-size: cover;
+}
+
+.text {
+  color: aliceblue;
+}
+.wrap{
+  background-color: orange;
+  opacity: 80%;
+  border-radius: 25%;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+}
+.foot-logo{
+  marginLeft:'auto';
+  marginRight: 'auto';
+  margin: 0 auto
+}
+.col-md-4 col-sm-12{
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  marginLeft:'auto';
+  marginRight: 'auto';
+}

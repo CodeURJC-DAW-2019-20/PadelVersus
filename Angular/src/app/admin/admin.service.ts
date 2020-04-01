@@ -7,6 +7,7 @@ import {MatchStatistics} from "../Interfaces/matchStatistics.model";
 import {Tournament} from "../Interfaces/tournament.model";
 import {Match} from "../Interfaces/match.model";
 import {AuthenticationService} from "../authentication.service";
+import {Team} from "../Interfaces/team.model";
 
 
 @Injectable({
@@ -41,6 +42,21 @@ export class AdminService {
   private handleError(error: any) {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);
+  }
+  saveMatch(tournament: string, team1: string, team2: string, date: string){
+    console.error(tournament);
+    console.error(team1);
+    console.error(team2);
+    const body = '{ "t1": "'+team1+'","t2": "'+team2+'", "date": "'+date+'" }';
+    console.error(body);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post<Match>("/api/match/"+tournament, body, {headers}).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
   }
 
   /** POST: add a new stats match to the database */

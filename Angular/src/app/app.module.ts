@@ -6,6 +6,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
+import { PanelModule } from "primeng/panel";
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 import {AdminComponent} from './admin/admin.component';
 import {PlayerComponent} from './player/player.component';
@@ -27,19 +33,26 @@ import {TeamComponent} from './teams/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
-
+import {ProgressBarModule} from 'primeng/progressbar';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CarouselModule} from 'primeng/carousel';
 import {AuthenticationService} from './authentication.service';
 
 import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
-import {CardModule} from 'primeng/card';
 import {ChartModule} from "primeng/chart";
 import { RadarComponent } from './radar/radar.component';
 
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {ButtonModule} from 'primeng/button';
+import {TabViewModule} from 'primeng/tabview';
 @NgModule({
   declarations: [
+    FooterComponent,
+    HeaderComponent,
     AppComponent,
     HomeComponent,
     TournamentComponent,
@@ -63,6 +76,8 @@ import { RadarComponent } from './radar/radar.component';
     RadarComponent
   ],
   imports: [
+    CardModule,
+    ProgressSpinnerModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
@@ -70,8 +85,17 @@ import { RadarComponent } from './radar/radar.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
-    CardModule,
     ChartModule
+    PanelModule,
+    ButtonModule,
+    InputTextModule,
+    CardModule,
+    AccordionModule,
+    CheckboxModule,
+    ProgressBarModule,
+    CarouselModule,
+    ButtonModule,
+    TabViewModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
