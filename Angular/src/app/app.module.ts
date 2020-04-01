@@ -6,6 +6,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
+import { PanelModule } from "primeng/panel";
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 import {AdminComponent} from './admin/admin.component';
 import {PlayerComponent} from './player/player.component';
@@ -41,6 +48,7 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     FooterComponent,
@@ -76,9 +84,16 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
+    PanelModule,
+    ButtonModule,
+    InputTextModule,
+    CardModule,
+    AccordionModule,
+    CheckboxModule,
     ProgressBarModule,
     CarouselModule,
     ButtonModule,
+
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

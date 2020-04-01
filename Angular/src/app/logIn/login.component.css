@@ -3,6 +3,9 @@
   background: url("../../assets/404Background.jpg") no-repeat center;
   background-size: cover;
 }
+.text-center {
+  text-align: center;
+}
 input {
   width: 100%;
   padding: 12px 20px;
@@ -11,9 +14,6 @@ input {
   border: none;
   background-color: #ffa000;
   color: #000000;
-}
-.text-center {
-  text-align: center;
 }
 .error{
   font-size: 20px;

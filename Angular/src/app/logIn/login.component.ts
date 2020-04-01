@@ -4,7 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import {AuthenticationService} from '../authentication.service';
 
-@Component({templateUrl: 'login.component.html'})
+
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.css']
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -41,7 +45,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    console.error(this.f.username.value);
+    console.error(this.f.password.value);
     this.loading = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
@@ -63,5 +68,8 @@ export class LoginComponent implements OnInit {
           this.error = error;
           this.loading = false;
         });
+  }
+  signup(){
+    this.router.navigate(['/signup'])
   }
 }

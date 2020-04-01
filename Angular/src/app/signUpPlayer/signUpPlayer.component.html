@@ -1,0 +1,78 @@
+<div id="notfound">
+  <div class="notfound">
+    <div class="notfound-404">
+      <form #signPlayer="ngForm">
+        <h1>Sign Up Player</h1>
+        <div [hidden]="!error" class="error">
+          <p style="color: red; text-align: center">ERROR CREATING PLAYER</p>
+        </div>
+        <div class="form-group">
+          <input placeholder="Age" [(ngModel)]="player.age" #userFormElement
+                 #userFormControl="ngModel"
+                 name="age"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Country" type="text" [(ngModel)]="player.countryBirth" #userFormElement
+                 #userFormControl="ngModel"
+                 name="country"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Height" type="text" [(ngModel)]="player.height" #userFormElement
+                 #userFormControl="ngModel"
+                 name="height"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Weight" type="text" [(ngModel)]="player.weight" #userFormElement
+                 #userFormControl="ngModel"
+                 name="weight"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Strength" type="text" [(ngModel)]="player.strength" #userFormElement
+                 #userFormControl="ngModel"
+                 name="strength"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Speed" type="text" [(ngModel)]="player.speed" #userFormElement
+                 #userFormControl="ngModel"
+                 name="speed"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Endurance" type="text" [(ngModel)]="player.endurance" #userFormElement
+                 #userFormControl="ngModel"
+                 name="endurance"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Pace" type="text" [(ngModel)]="player.pace" #userFormElement
+                 #userFormControl="ngModel"
+                 name="pace"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Accuaracy" type="text" [(ngModel)]="player.accuaracy" #userFormElement
+                 #userFormControl="ngModel"
+                 name="accuaracy"
+                 required>
+        </div>
+        <div class="form-group">
+          <input placeholder="Aceleration" type="text" [(ngModel)]="player.aceleration" #userFormElement
+                 #userFormControl="ngModel"
+                 name="aceleration"
+                 required>
+        </div>
+      </form>
+      <div layout="row" style="text-align: center" class="enterLoginBotton">
+        <button color="primary" class="button" (click)="save()"  [disabled]="signPlayer === undefined || (signPlayer && !signPlayer.valid)">
+          Sign Up
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
