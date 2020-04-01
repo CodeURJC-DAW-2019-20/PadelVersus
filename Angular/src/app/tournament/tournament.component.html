@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md">
-      <p-tabView>
-        <ng-container *ngFor="let tournament of getTournaments(); let i = index">
-          <p-tabPanel header="{{tournament.name}}">
-            Content 1
+      <p-tabView [activeIndex]="0">
+        <ng-container *ngFor="let tournament of getTournaments(); let i = index" >
+          <p-tabPanel [selected] = "tournament.id == 1" header="{{tournament.name}}">
+            <app-tournament-ranking [idFromParent]="tournament.id"></app-tournament-ranking>
           </p-tabPanel>
         </ng-container>
       </p-tabView>
