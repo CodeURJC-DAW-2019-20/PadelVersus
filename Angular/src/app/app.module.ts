@@ -34,17 +34,25 @@ import {TeamComponent} from './teams/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
-
+import {CardModule} from 'primeng/card';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {CarouselModule} from 'primeng/carousel';
 import {AuthenticationService} from './authentication.service';
 
 import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {ButtonModule} from 'primeng/button';
 
 // @ts-ignore
 @NgModule({
   declarations: [
+    FooterComponent,
+    HeaderComponent,
     AppComponent,
     HomeComponent,
     TournamentComponent,
@@ -67,6 +75,8 @@ import { AppComponent } from './app.component';
     LogOutComponent
   ],
   imports: [
+    CardModule,
+    ProgressSpinnerModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
@@ -79,7 +89,11 @@ import { AppComponent } from './app.component';
     InputTextModule,
     CardModule,
     AccordionModule,
-    CheckboxModule
+    CheckboxModule,
+    ProgressBarModule,
+    CarouselModule,
+    ButtonModule,
+
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

@@ -1,4 +1,3 @@
-
 <div id="notfound">
   <div class="notfound">
     <div class="notfound-404">
@@ -36,49 +35,3 @@
     </div>
   </div>
 </div>
-<!--
-<div *ngIf="user">
-  <p-card class="card" >
-    <div dynamicHeight>
-      <div label="Sign Up">
-        <form #userForm="ngForm">
-          <div [hidden]="!error">
-            <p style="color: red; text-align: center">ERROR USER ALREADY CREATED</p>
-          </div>
-          <p-card class="card" style="text-align: center">
-            <div class="example-full-width">
-              <input matInput placeholder="Nombre" [(ngModel)]="user.name" #userFormElement
-                     #userFormControl="ngModel"
-                     name="name"
-                     required>
-            </div>
-          </p-card>
-          <p-card class="card" style="text-align: center">
-          <div class="example-full-width">
-            <input matInput placeholder="Mail" type="email" [(ngModel)]="user.mail" #userFormElement
-                   #userFormControl="ngModel"
-                   name="mail"
-                   required>
-          </div>
-          </p-card>
-          <p-card class="card" style="text-align: center">
-            <div class="example-full-width">
-              <input matInput placeholder="Password" type="password" [(ngModel)]="user.passwordHash" #userFormElement
-                     #userFormControl="ngModel"
-                     name="password"
-                     required>
-            </div>
-          </p-card>
-        </form>
-        <div  layout="row" style="text-align: center" class="enterLoginBotton">
-          <button mat-raised-button color="primary" class="button" (click)="save()"  [disabled]="userForm === undefined || (userForm && !userForm.valid)">
-            Registrar
-          </button>
-          <button mat-raised-button class="button" color="accent" (click)="cancel()">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </p-card>
-</div>
-
--->

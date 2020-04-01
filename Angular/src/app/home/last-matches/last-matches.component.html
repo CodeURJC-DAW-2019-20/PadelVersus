@@ -1,38 +1,30 @@
-<!--
-<ng-container *ngIf="getlastMatches()"><mat-card class="card" id="last-matches-card">
-  <mat-card-header style="justify-content: center">
-    <mat-card-title>Last Matches</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <ng-container *ngFor="let LastMatch of getlastMatches(); let i = index">
-      <ng-container *ngIf="i <= 3">
-        <table style="animation:flipInX .5s ease-in;" class="flipInX">
-          <tr>
-            <td class="center-text tournament" colspan="6">{{LastMatch.tournammentName}}</td>
-          </tr>
-          <tr>
-            <td class="center-text first-col-space"></td>
-            <td [class.yellow-background]=LastMatch.stadistics_1.win class="center-text team-name"
-                colspan="2">{{LastMatch.teams[0].name}}</td>
-            <td class="center-text col-space"></td>
-            <td class="score">{{LastMatch.stadistics_1.sets[0].games}}</td>
-            <td class="score">{{LastMatch.stadistics_1.sets[1].games}}</td>
-            <td class="score">{{LastMatch.stadistics_1.sets[2].games}}</td>
-          </tr>
-          <tr>
-            <td class="center-text first-col-space"></td>
-            <td [class.yellow-background]=LastMatch.stadistics_2.win class="center-text team-name"
-                colspan="2">{{LastMatch.teams[1].name}}</td>
-            <td class="center-text col-space"></td>
-            <td class="score">{{LastMatch.stadistics_2.sets[0].games}}</td>
-            <td class="score">{{LastMatch.stadistics_2.sets[1].games}}</td>
-            <td class="score">{{LastMatch.stadistics_2.sets[2].games}}</td>
-          </tr>
-        </table>
 
-      </ng-container>
-    </ng-container>
-  </mat-card-content>
-</mat-card>
+<ng-container *ngFor="let LastMatch of getlastMatches(); let i = index">
+  <ng-container *ngIf="i <= 3">
+    <table style="animation:flipInX .5s ease-in;" class="flipInX">
+      <tr>
+        <td class="center-text tournament" colspan="6">{{LastMatch.tournammentName}}</td>
+      </tr>
+      <tr>
+        <td class="center-text first-col-space"></td>
+        <td [class.yellow-background]=LastMatch.stadistics_1.win class="center-text team-name"
+            colspan="2">{{LastMatch.teams[0].name}}</td>
+        <td class="center-text col-space"></td>
+        <td class="score">{{LastMatch.stadistics_1.sets[0].games}}</td>
+        <td class="score">{{LastMatch.stadistics_1.sets[1].games}}</td>
+        <td class="score">{{LastMatch.stadistics_1.sets[2].games}}</td>
+      </tr>
+      <tr>
+        <td class="center-text first-col-space"></td>
+        <td [class.yellow-background]=LastMatch.stadistics_2.win class="center-text team-name"
+            colspan="2">{{LastMatch.teams[1].name}}</td>
+        <td class="center-text col-space"></td>
+        <td class="score">{{LastMatch.stadistics_2.sets[0].games}}</td>
+        <td class="score">{{LastMatch.stadistics_2.sets[1].games}}</td>
+        <td class="score">{{LastMatch.stadistics_2.sets[2].games}}</td>
+      </tr>
+      <tr style="padding-bottom:0.5em"><br></tr>
+    </table>
+
+  </ng-container>
 </ng-container>
--->
