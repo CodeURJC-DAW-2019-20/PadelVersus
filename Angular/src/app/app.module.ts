@@ -40,7 +40,7 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
-
+import {TabViewModule} from 'primeng/tabview';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -79,6 +79,7 @@ import {ButtonModule} from 'primeng/button';
     ProgressBarModule,
     CarouselModule,
     ButtonModule,
+    TabViewModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

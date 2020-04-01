@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <p-tabView>
+        <ng-container *ngFor="let tournament of getTournaments(); let i = index">
+          <p-tabPanel header="{{tournament.name}}">
+            Content 1
+          </p-tabPanel>
+        </ng-container>
+      </p-tabView>
+    </div>
+  </div>
+</div>
