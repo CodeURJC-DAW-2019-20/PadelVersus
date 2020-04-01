@@ -6,7 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
-import { PanelModule } from "primeng/panel";
+import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
@@ -42,7 +42,7 @@ import {BasicAuthInterceptor} from './basic-auth.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
 
 import { AppComponent } from './app.component';
-import {ChartModule} from "primeng/chart";
+import {ChartModule} from 'primeng/chart';
 import { RadarComponent } from './radar/radar.component';
 
 import {HeaderComponent} from './header/header.component';
@@ -85,7 +85,7 @@ import {TabViewModule} from 'primeng/tabview';
     FormsModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
-    ChartModule
+    ChartModule,
     PanelModule,
     ButtonModule,
     InputTextModule,
