@@ -7,7 +7,6 @@ import {HttpClientJsonpModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import { PanelModule } from "primeng/panel";
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
@@ -34,7 +33,6 @@ import {TeamComponent} from './teams/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
-import {CardModule} from 'primeng/card';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CarouselModule} from 'primeng/carousel';
