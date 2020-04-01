@@ -9,7 +9,10 @@ import {AppRoutingModule} from './app-routing.module';
 import { PanelModule } from "primeng/panel";
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 import {AdminComponent} from './admin/admin.component';
 import {PlayerComponent} from './player/player.component';
@@ -74,7 +77,9 @@ import { AppComponent } from './app.component';
     PanelModule,
     ButtonModule,
     InputTextModule,
-    CardModule
+    CardModule,
+    AccordionModule,
+    CheckboxModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
