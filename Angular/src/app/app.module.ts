@@ -36,6 +36,7 @@ import {ErrorInterceptor} from './error.interceptor';
 import { AppComponent } from './app.component';
 import {CardModule} from 'primeng/card';
 import {ChartModule} from "primeng/chart";
+import { RadarComponent } from './radar/radar.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {ChartModule} from "primeng/chart";
     SignUpComponent,
     LoginComponent,
     SignUpPlayerComponent,
-    LogOutComponent
+    LogOutComponent,
+    RadarComponent
   ],
   imports: [
     BrowserAnimationsModule,

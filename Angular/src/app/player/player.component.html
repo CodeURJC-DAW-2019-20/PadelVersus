@@ -21,7 +21,7 @@
 
       </div>
       <div class="col-sm">
-        <p-card  *ngIf="getPlayer()!=null" [style]="{width: '800px',textAlign : 'left'}">
+        <p-card  *ngIf="getPlayer()!=null" [style]="{width: '800px',padding:'2em 1.2em'}">
 
           <h2 class="text-warning" style="font-size:30px">Age</h2>
           <h6 class = "text-uppercase" style="font-size:15px">{{getPlayer().age}}</h6>
@@ -33,19 +33,17 @@
           <ng-container *ngFor="let tournament of getTournamentsByPlayer()">
             <h6 class = "text-uppercase" style="font-size:15px" > {{tournament.name}}</h6>
           </ng-container>
+          <div class = "canvasPlayer" >
+            <app-radar [idPlayer]="getId()" > </app-radar>
+          </div>
+
         </p-card>
       </div>
     </div>
-
-
-
-
-
-
   </div>
-
-
 </div>
+
+
 
 
 
