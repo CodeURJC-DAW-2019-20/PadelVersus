@@ -1,10 +1,14 @@
-<div class="container">
+<div class="container" style="padding: 10% 0">
   <div class="row">
-    <div class="col-md" style="transform: translate(-50%, 50%);">
-      <app-last-matches [lastMatches]="getlastMatches()"></app-last-matches>
+    <div class="col-md-6">
+      <div class="mr-4">
+        <app-last-matches [lastMatches]="getlastMatches()"></app-last-matches>
+      </div>
     </div>
-    <div class="col-md" style="transform: translate(25%, 50%);">
-      <app-next-matches-date></app-next-matches-date>
+    <div class="col-md-6">
+      <div class="ml-4">
+        <app-next-matches-date></app-next-matches-date>
+      </div>
     </div>
   </div>
 </div>
