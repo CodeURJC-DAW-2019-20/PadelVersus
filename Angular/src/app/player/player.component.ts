@@ -21,6 +21,7 @@ export class PlayerComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
     this.id = activatedRoute.snapshot.params.id;
+
   }
 
   private player: Player;
@@ -29,12 +30,13 @@ export class PlayerComponent implements OnInit {
   private teams: Team[] = [];
 
 
+
+
   ngOnInit(): void {
     this.playerService.getPlayer(this.id).subscribe(
       data => {
         this.player = data;
         console.log('Player info: ', data);
-        // this.setChartOptions();
       },
       error => this.handleError(error)
     );
@@ -52,6 +54,10 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+
+
+
+
 
   }
 
@@ -75,6 +81,19 @@ export class PlayerComponent implements OnInit {
   private handleError(error: any) {
     console.error(error);
   }
+
+  public showMailAndButton() {
+    if ( localStorage.getItem('currentUser') === null) {
+      return false;
+    }
+    let nameStored = localStorage.getItem('currentUser').split(',')[1].split(':')[1];
+    nameStored = nameStored.substr(1, nameStored.length - 2);
+    return  nameStored === this.player.user.name;
+  }
+
+
+
+
 
 
 
