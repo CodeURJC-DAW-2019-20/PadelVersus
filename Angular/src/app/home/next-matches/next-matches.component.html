@@ -1,5 +1,5 @@
 
-<table>
+<table [class.home] = home>
   <ng-container *ngFor="let NextMatch of getNextMatches(); let i = index">
     <ng-container *ngIf="i <= 3">
       <tbody *ngIf="flipInX" style="animation:flipInX .5s ease-in;" class="flipInX" >

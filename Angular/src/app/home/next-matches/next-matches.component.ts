@@ -20,6 +20,9 @@ export class NextMatchesComponent implements OnInit {
   @Input()
   public fadeInUp: boolean;
 
+  @Input()
+  public home: boolean;
+
   constructor() {
   }
 
