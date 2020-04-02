@@ -7,6 +7,7 @@
   color: #141414;
   font-family: Montserrat, sans-serif;
   text-transform: uppercase;
+  padding-bottom: .5em !important;
 }
 .ui-tabview-nav > li{
   border: none !important;
@@ -19,6 +20,7 @@
 
 .ui-tabview-panels{
   border:  none !important;
+  padding: 0 !important;
 }
 .ui-tabview-selected > a > span{
   font-size: 14px !important;
@@ -26,4 +28,13 @@
   font-family: Montserrat, sans-serif !important;
   text-transform: uppercase !important;
   border-bottom: 5px solid rgb(255, 160, 0);
+}
+.button-pdf {
+  background: none;
+  color: rgb(255, 160, 0);
+  padding: 0.5em 0 0 2em;
+  border: none;
+}
+.button-pdf:focus{
+  outline: none !important;
 }

@@ -2,4 +2,5 @@
 body {
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: rgb(236, 240, 241) !important;
 }
