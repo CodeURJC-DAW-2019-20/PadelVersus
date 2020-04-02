@@ -1,27 +1,26 @@
-
-<table>
+<table [class.home]=home>
   <ng-container *ngFor="let NextMatch of getNextMatches(); let i = index">
     <ng-container *ngIf="i <= 3">
-      <tbody *ngIf="flipInX" style="animation:flipInX .5s ease-in;" class="flipInX" >
+      <tbody *ngIf="flipInX" style="animation:flipInX .5s ease-in;" class="flipInX" [class.background] = !home>
       <tr>
         <td class="center-text tournament" colspan="3">{{NextMatch.tournammentName}}</td>
       </tr>
       <tr>
         <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
-        <td class="center-text vs-text">VS</td>
+        <td class="center-text "><span class="vs-text">VS</span></td>
         <td class="center-text team-name">{{NextMatch.teams[1].name}}</td>
       </tr>
       <tr>
         <td class="center-text date" colspan="3">{{NextMatch.date | date : 'yyyy-MM-dd'}}</td>
       </tr>
       </tbody>
-      <tbody *ngIf="fadeInUp" class="animated animatedFadeInUp fadeInUp">
+      <tbody *ngIf="fadeInUp" class="animated animatedFadeInUp fadeInUp background">
       <tr>
         <td class="center-text tournament" colspan="3">{{NextMatch.tournammentName}}</td>
       </tr>
       <tr>
         <td class="center-text team-name">{{NextMatch.teams[0].name}}</td>
-        <td class="center-text vs-text">VS</td>
+        <td class="center-text "><span class="vs-text">VS</span></td>
         <td class="center-text team-name">{{NextMatch.teams[1].name}}</td>
       </tr>
       <tr>

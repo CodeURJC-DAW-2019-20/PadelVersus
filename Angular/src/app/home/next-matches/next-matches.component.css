@@ -1,6 +1,8 @@
 table {
   margin: 0 auto;
   width: 100%;
+}
+table.home{
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -13,6 +15,10 @@ table, th, td, caption {
 
 td.center-text {
   text-align: center;
+}
+
+tbody.background{
+  background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
 }
 
 .team-name {
@@ -32,6 +38,7 @@ td.center-text {
   text-transform: uppercase;
   background: #141414;
   border-radius: 9px;
+  padding: 6px 25px 4px 25px;
 }
 
 .date {
