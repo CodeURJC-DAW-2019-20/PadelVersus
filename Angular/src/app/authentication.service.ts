@@ -127,6 +127,7 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this._isLogged = false;
     this._isAdmin = false;
+    this._user = null;
   }
   private handleError(error: any) {
     console.error(error);
