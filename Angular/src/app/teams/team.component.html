@@ -44,17 +44,19 @@
 
   <div class = "row" style="padding-top:10%">
     <div class = "row">
-      <ng-container *ngIf="getTeam()">
-        <div class="badge bg-warning text-white">
-          <span class="title">Info</span>
-        </div>
-        <span class="sectionTitle">
+      <div class="badge bg-warning text-white">
+        <span class="title">Info</span>
+      </div>
+      <span class="sectionTitle">
           TEAM STATISTICS
         </span>
-      </ng-container>
     </div>
   </div>
 
-  <div class
+  <div class = "row" style="padding-top:10%" *ngIf="getTeam()!=null">
+    <div class="p-col-6 center ">
+      <app-linechart [idTeam]="getTeam().id"></app-linechart>
+    </div>
+  </div>
 </div>
 
