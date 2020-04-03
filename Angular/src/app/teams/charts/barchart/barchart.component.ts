@@ -26,17 +26,22 @@ export class BarchartComponent implements OnInit {
           let avgStats = this.parseStats();
 
           this.data = {
-            labels: ["Uno", "Dos", "Tres"],
+            labels: ["Accuracy", "Eficciency", "Unforced errors"],
             datasets: [
               {
-                label:'%',
                 data: avgStats,
                 fill: false,
-                borderColor: '#ffc107'
+                backgroundColor: '#ffc107'
 
               }
             ]
           };
+
+          this.options = {
+            legend: {
+              display:false
+            }
+          }
         }
       );
 

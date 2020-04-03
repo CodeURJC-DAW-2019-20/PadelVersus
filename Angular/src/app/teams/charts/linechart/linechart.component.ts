@@ -37,7 +37,7 @@ export class LinechartComponent implements OnInit {
             labels: yaxis,
             datasets: [
               {
-                label:'Games per match',
+                label:'Games won',
                 data: games,
                 fill: false,
                 borderColor: '#ffc107'
@@ -47,6 +47,10 @@ export class LinechartComponent implements OnInit {
 
           };
           this.options ={
+            legend: {
+              display:false
+            },
+
             scales: {
               yAxes: [{
                 ticks: {
