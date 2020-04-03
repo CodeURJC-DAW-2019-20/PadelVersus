@@ -1,7 +1,7 @@
 
 .footer{
   overflow: hidden;
-  position: fixed;
+  /*position: fixed*/;
   bottom: 0;
   width: 100%;
   background : url(src/assets/footer-bg.jpg) 50% 50% no-repeat;
