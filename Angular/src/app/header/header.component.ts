@@ -42,4 +42,22 @@ export class HeaderComponent implements OnInit {
     console.error(error);
   }
 
+  public islogged() {
+    if ( localStorage.getItem('currentUser') !== null) {
+      console.log(localStorage.getItem('currentUser'));
+      return true;
+    }
+    return  false;
+  }
+
+  public isAdmin() {
+    if ( localStorage.getItem('currentUser') !== null) {
+      let nameStored = localStorage.getItem('currentUser').split(',')[1].split(':')[1];
+      nameStored = nameStored.substr(1, nameStored.length - 2);
+      if (nameStored === 'admin'){
+        return true;
+      }
+    }
+    return false;
+  }
 }
