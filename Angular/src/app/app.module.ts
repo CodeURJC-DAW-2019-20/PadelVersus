@@ -44,7 +44,8 @@ import {ErrorInterceptor} from './error.interceptor';
 import {AppComponent} from './app.component';
 import {ChartModule} from 'primeng/chart';
 import {RadarComponent} from './radar/radar.component';
-import {LinechartComponent} from "./teams/charts/linechart.component";
+import {LinechartComponent} from "./teams/charts/linechart/linechart.component";
+import {BarchartComponent} from "./teams/charts/barchart/barchart.component";
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
@@ -74,7 +75,8 @@ import {TabViewModule} from 'primeng/tabview';
     SignUpPlayerComponent,
     LogOutComponent,
     RadarComponent,
-    LinechartComponent
+    LinechartComponent,
+    BarchartComponent
   ],
   imports: [
     CardModule,
