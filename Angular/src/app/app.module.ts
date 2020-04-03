@@ -52,7 +52,7 @@ import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {DonutchartComponent} from './teams/charts/donutchart/donutchart.component';
 import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
-
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -103,7 +103,8 @@ import { TournamentRegistrationComponent } from './tournament/tournament-registr
     ProgressBarModule,
     CarouselModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    DropdownModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

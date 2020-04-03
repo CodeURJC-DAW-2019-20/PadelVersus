@@ -1,1 +1,11 @@
-<p>tournament-registration works!</p>
+<div class="container" *ngIf="getTournaments() != undefined">
+  <form [formGroup]="createTeamForm" (ngSubmit)="saveTeam()">
+    <label>Select Tournament: </label>
+    <select formControlName="SelectedTournament" >
+        <option *ngFor="let tournament of getTournaments()" [ngValue]="tournament.name">{{tournament.name}}</option>
+    </select>
+    <label>Choose Team Name</label>
+    <input type="text" name="teamName" formControlName="TeamName">
+    <button class="btn btn-success" type="submit">Save</button>
+  </form>
+</div>
