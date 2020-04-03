@@ -2,7 +2,8 @@ table {
   margin: 0 auto;
   width: 100%;
 }
-table.home{
+
+table.home {
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -12,13 +13,18 @@ table.home{
 table, th, td, caption {
   padding: 10px;
 }
+td{
+  width: 33%;
+}
 
 td.center-text {
   text-align: center;
 }
 
-tbody.background{
+tbody {
   background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
+  display: table;
+  width: 100%;
 }
 
 .team-name {
@@ -97,25 +103,26 @@ tbody.background{
   -webkit-animation-name: flipInX;
   animation-name: flipInX;
 }
+
 /*Fade Up animation*/
 @keyframes fadeInUp {
   from {
-    transform: translate3d(0,40px,0)
+    transform: translate3d(0, 40px, 0)
   }
 
   to {
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     opacity: 1
   }
 }
 
 @-webkit-keyframes fadeInUp {
   from {
-    transform: translate3d(0,40px,0)
+    transform: translate3d(0, 40px, 0)
   }
 
   to {
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     opacity: 1
   }
 }
