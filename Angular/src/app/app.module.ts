@@ -43,14 +43,15 @@ import {ErrorInterceptor} from './error.interceptor';
 
 import {AppComponent} from './app.component';
 import {ChartModule} from 'primeng/chart';
-import {RadarComponent} from './radar/radar.component';
-import {LinechartComponent} from "./teams/charts/linechart/linechart.component";
-import {BarchartComponent} from "./teams/charts/barchart/barchart.component";
+import {RadarComponent} from './player/radar/radar.component';
+import {LinechartComponent} from './teams/charts/linechart/linechart.component';
+import {BarchartComponent} from './teams/charts/barchart/barchart.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
-import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.component";
+import {DonutchartComponent} from './teams/charts/donutchart/donutchart.component';
+import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.componen
     RadarComponent,
     LinechartComponent,
     BarchartComponent,
-    DonutchartComponent
+    DonutchartComponent,
+    TournamentRegistrationComponent
   ],
   imports: [
     CardModule,
