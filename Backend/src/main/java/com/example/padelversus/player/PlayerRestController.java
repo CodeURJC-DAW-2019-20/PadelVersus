@@ -1,33 +1,27 @@
 package com.example.padelversus.player;
 
-import com.example.padelversus.ImageService;
 import com.example.padelversus.user.User;
-import com.example.padelversus.user.UserService;
 import com.example.padelversus.user.UserComponent;
+import com.example.padelversus.user.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.management.ValueExp;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.http.MediaType.IMAGE_JPEG;
 
 @RestController
 @RequestMapping("/api")
 public class PlayerRestController {
     interface BasicPlayerUser extends Player.Basic, Player.UserPlayer, User.Name, User.Email {
     }
-    public static class PlayerApi{
+
+    public static class PlayerApi {
 
         private int age;
 
@@ -51,9 +45,10 @@ public class PlayerRestController {
 
         private Long idUser;
 
-        public PlayerApi(){
+        public PlayerApi() {
 
         }
+
         public PlayerApi(int age, double height, double weight, double speed, double strength, double endurance, double pace, double accuaracy, double aceleration, String countryBirth, Long id) {
             this.age = age;
             this.height = height;
@@ -155,10 +150,12 @@ public class PlayerRestController {
         public void setIdUser(Long idUser) {
             this.idUser = idUser;
         }
-        public Player getPlayer(){
-            return new Player(age,height,weight,speed,strength,endurance,pace,accuaracy,aceleration,countryBirth);
+
+        public Player getPlayer() {
+            return new Player(age, height, weight, speed, strength, endurance, pace, accuaracy, aceleration, countryBirth);
         }
     }
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -172,6 +169,12 @@ public class PlayerRestController {
     public ResponseEntity<Player> getPlayerById(@PathVariable Long id) {
         Optional<Player> playerOptional = playerService.findPlayerById(id);
         return playerOptional.map(player -> new ResponseEntity<>(player, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @JsonView(BasicPlayerUser.class)
+    @GetMapping("/players")
+    public ResponseEntity<List<Player>> getPlayers() {
+        return new ResponseEntity<>(playerService.findAllPlayer(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/player/{id}/image", produces = MediaType.IMAGE_JPEG_VALUE)
@@ -188,22 +191,22 @@ public class PlayerRestController {
         Optional<Player> playerOptional = playerService.findPlayerById(id);
         if (!playerOptional.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         Player player = playerOptional.get();
-        if(userOnline.isLoggedUser() && userOnline.getLoggedUser().getPlayer().getId() == id) {
+        if (userOnline.isLoggedUser() && userOnline.getLoggedUser().getPlayer().getId() == id) {
             player.setImage(image.getBytes());
             playerService.savePlayer(player);
             return new ResponseEntity<>(player.getImage(), HttpStatus.OK);
-        }else{
+        } else {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
 
-    @PostMapping(path = "/player",consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path = "/player", consumes = {MediaType.APPLICATION_JSON_VALUE})
     @JsonView(BasicPlayerUser.class)
-    public ResponseEntity<Player> savePlayer (@RequestBody PlayerApi player) {
+    public ResponseEntity<Player> savePlayer(@RequestBody PlayerApi player) {
         Player playerPojo = player.getPlayer();
         Optional<User> user = userService.findUserById(player.getIdUser());
-        if(user.isPresent()){
-            if(!user.get().getId().equals(userOnline.getLoggedUser().getId())){
+        if (user.isPresent()) {
+            if (!user.get().getId().equals(userOnline.getLoggedUser().getId())) {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
             playerPojo.setUser(user.get());
@@ -213,7 +216,7 @@ public class PlayerRestController {
             userService.saveUser(user.get());
             return new ResponseEntity<>(playerPojo, HttpStatus.CREATED);
 
-        }else{
+        } else {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }

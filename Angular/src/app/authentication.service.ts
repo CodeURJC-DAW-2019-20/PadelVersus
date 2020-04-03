@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {User} from './Interfaces/user.model';
 import {Observable, throwError} from 'rxjs';
 import {Player} from './Interfaces/player.model';
@@ -28,10 +28,15 @@ export class AuthenticationService {
     this._isAdmin = value;
   }
 
+  getUser(): User {
+    return this._user;
+  }
+
   getUserName(): string {
     console.error(this._user.name);
     return this._user.name;
   }
+
   getUserPassword(): string {
     return this._user.passwordHash;
   }
@@ -64,14 +69,14 @@ export class AuthenticationService {
       'X-Requested-With': 'XMLHttpRequest',
     });
     console.log(headers);
-    return this.http.get<User>('/api/logIn', { headers }).pipe(map(
+    return this.http.get<User>('/api/logIn', {headers}).pipe(map(
       user => {
         console.log(user);
         if (user) {
           this.setCurrentUser(user);
           user.authdata = auth;
           localStorage.setItem('currentUser', JSON.stringify(user));
-      }
+        }
         return user;
       }
     ));
@@ -101,6 +106,7 @@ export class AuthenticationService {
       // catchError(err => this.handleError(err))
     );
   }
+
   savePlayer(player: Player): Observable<Player> {
     console.log('player:' + player.aceleration);
     console.log('userID:' + player.idUser);
@@ -116,6 +122,7 @@ export class AuthenticationService {
       // catchError(err => this.handleError(err))
     );
   }
+
   private setCurrentUser(user: User) {
     this._isLogged = true;
     console.log('USEEEEEEEEER: ' + user.name);
@@ -129,6 +136,7 @@ export class AuthenticationService {
     this._isAdmin = false;
     this._user = null;
   }
+
   private handleError(error: any) {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);

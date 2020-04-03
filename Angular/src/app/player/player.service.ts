@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-import {Match} from '../Interfaces/match.model';
 import {Player} from '../Interfaces/player.model';
 import {Tournament} from '../Interfaces/tournament.model';
 import {Team} from '../Interfaces/team.model';
+import {UserService} from '../user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class PlayerService {
   private teamsPlayerUrls: string;
   private imagePlayerUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private userService: UserService) {
     this.playerUrls = '/api/player/';
     this.tournamentsPlayerUrls = '/api/tournaments/?playerId=';
     this.teamsPlayerUrls = '/api/teams/?playerId=';
@@ -49,6 +50,18 @@ export class PlayerService {
     return this.http.get(this.imagePlayerUrl + id + '/image', {responseType: 'blob'}).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
+    );
+  }
+
+  getAllPlayersNames() {
+    return this.http.get<Player[]>('api/players').pipe(
+      map(response => {
+        const playerNames: string[] = [];
+        for (const player of response) {
+          playerNames.push(player.user.name);
+        }
+        return playerNames;
+      })
     );
   }
 
