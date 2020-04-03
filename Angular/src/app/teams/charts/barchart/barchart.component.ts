@@ -60,11 +60,4 @@ export class BarchartComponent implements OnInit {
 
     return avgStats;
   }
-
-  parseWL() {
-    const parsed: number[] = [];
-    parsed.push(this.team.teamStatistics.totalWins);
-    parsed.push(this.team.teamStatistics.totalDefeats);
-    return parsed;
-  }
 }

@@ -50,6 +50,8 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
+import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.component";
+
 @NgModule({
   declarations: [
     FooterComponent,
@@ -76,7 +78,8 @@ import {TabViewModule} from 'primeng/tabview';
     LogOutComponent,
     RadarComponent,
     LinechartComponent,
-    BarchartComponent
+    BarchartComponent,
+    DonutchartComponent
   ],
   imports: [
     CardModule,
