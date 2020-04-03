@@ -1,1 +1,83 @@
+<div class = "container">
+  <div class = "row" style="padding-top:10%">
+    <div class = "row">
+      <ng-container *ngIf="getTeam()">
+        <div class="badge bg-warning text-white">
+          <span class="title">Name</span>
+        </div>
+        <span class="sectionTitle">
+          {{getTeam().name}}
+        </span>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row center" *ngIf="getTeam()">
+    <ng-container *ngFor="let player of getTeam().players, let i=index">
+      <div class="p-col-4 center">
+        <div class="badge bg-warning text-white">
+          <span>Member {{i+1}}</span>
+          <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}">
+            <app-images [idPlayer]="player.id"></app-images>
+          </p-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class = "row" style="padding-top:10%">
+    <div class = "row">
+      <ng-container *ngIf="getTeam()">
+        <div class="badge bg-warning text-white">
+          <span class="title">Recent</span>
+        </div>
+        <span class="sectionTitle">
+          Last Matches
+        </span>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row center" *ngIf="getLastMatches()">
+      <app-last-matches [lastMatches]="getLastMatches()"></app-last-matches>
+  </div>
+
+  <div class = "row" style="padding-top:10%">
+    <div class = "row">
+      <div class="badge bg-warning text-white">
+        <span class="title">Info</span>
+      </div>
+      <span class="sectionTitle">
+          TEAM STATISTICS
+        </span>
+    </div>
+  </div>
+
+  <div class = "row" *ngIf="getTeam()!=null">
+    <div class="p-col-6 center ">
+      <div class="badge bg-warning text-white">
+        <span class="title">Games Per Match</span>
+      </div>
+      <app-linechart [idTeam]="getTeam().id"></app-linechart>
+    </div>
+
+    <div class="p-col-6 center ">
+      <div class="badge bg-warning text-white">
+        <span class="title">% Statistics</span>
+      </div>
+      <app-barchart [idTeam]="getTeam().id"></app-barchart>
+    </div>
+  </div>
+
+
+  <div class="row center" *ngIf="getTeam()!=null">
+    <div class="p-col-6">
+      <div class="badge bg-warning text-white">
+        <span class="title">WINS/LOSES</span>
+      </div>
+      <app-donutchart [idTeam]="getTeam().id"></app-donutchart>
+    </div>
+  </div>
+
+</div>
 

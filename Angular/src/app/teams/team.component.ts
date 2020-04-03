@@ -61,42 +61,4 @@ export class TeamComponent implements OnInit {
   getLastMatches() {
     return this.lastMatches;
   }
-
-  parseGames() {
-    const gamesParsed: number[] = [];
-    const games: Game[] = this.team.teamStatistics.gamesPerMatch;
-    for (const i in games) {
-      gamesParsed.push(games[i].games);
-    }
-    console.log('Games: ', gamesParsed);
-    return gamesParsed;
-  }
-
-  parseStats() {
-    const avgStats: number[] = [];
-    const totalGames = this.team.teamStatistics.totalGames;
-    const avgAcc = this.team.teamStatistics.totalAcurracy / totalGames;
-    const avgEff = this.team.teamStatistics.totalEffectiveness / totalGames;
-    const avgForced = this.team.teamStatistics.totalUnforcedErrors / totalGames;
-
-    avgStats.push(avgAcc);
-    avgStats.push(avgEff);
-    avgStats.push(avgForced);
-
-    return avgStats;
-  }
-
-
-
-
-  parseWL() {
-    const parsed: number[] = [];
-    parsed.push(this.team.teamStatistics.totalWins);
-    parsed.push(this.team.teamStatistics.totalDefeats);
-    return parsed;
-  }
-
-
-
-
 }
