@@ -53,15 +53,9 @@ export class PlayerService {
     );
   }
 
-  getAllPlayersNames() {
+  getAllPlayers() {
     return this.http.get<Player[]>('api/players').pipe(
-      map(response => {
-        const playerNames: string[] = [];
-        for (const player of response) {
-          playerNames.push(player.user.name);
-        }
-        return playerNames;
-      })
+      map(response => response)
     );
   }
 

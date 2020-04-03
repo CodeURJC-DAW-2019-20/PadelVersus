@@ -4,6 +4,7 @@ import {Tournament} from '../../Interfaces/tournament.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../authentication.service';
 import {PlayerService} from '../../player/player.service';
+import {Player} from '../../Interfaces/player.model';
 
 @Component({
   selector: 'app-tournament-registration',
@@ -15,6 +16,7 @@ export class TournamentRegistrationComponent implements OnInit {
   private tournaments: Tournament[] = [];
   public createTeamForm: FormGroup;
   public playerNames: string[] = [];
+  public players: Player[] = [];
 
   constructor(private tournamentService: TournamentService,
               private formBuilder: FormBuilder,
@@ -37,8 +39,11 @@ export class TournamentRegistrationComponent implements OnInit {
       },
       error => this.handleError(error)
     );
-    this.playerService.getAllPlayersNames().subscribe(data => {
-        this.playerNames = data;
+    this.playerService.getAllPlayers().subscribe(data => {
+        this.players = data;
+        for (const player of data) {
+          this.playerNames.push(player.user.name);
+        }
         const index = this.playerNames.indexOf(this.getLoggedUser().name, 0);
         if (index > -1) {
           this.playerNames.splice(index, 1);
@@ -71,7 +76,28 @@ export class TournamentRegistrationComponent implements OnInit {
     console.log('Nombre del equipo: ' + this.f.TeamName.value);
     console.log('Id del usuario registrado: ' + this.getLoggedUser().id);
     console.log('Nombre del player registrado: ' + this.getLoggedUserPlayer().age);
-    console.log('Nombre del otro player' + this.f.SelectedPlayer.value);
+    console.log('Nombre del otro player: ' + this.f.SelectedPlayer.value);
+
+    const nameSelectedTournament = this.f.SelectedTournament.value;
+    let idTournament;
+    for (const tournament of this.tournaments) {
+      if (tournament.name === nameSelectedTournament) {
+        idTournament = tournament.id;
+      }
+    }
+    console.log('Id del torneo selecionado: ' + idTournament);
+
+    const nameSelectedPlayer = this.f.SelectedPlayer.value;
+    let idPlayer;
+    for (const player of this.players) {
+      if (player.user.name === nameSelectedPlayer) {
+        idPlayer = player.id;
+      }
+    }
+    console.log('Id del player seleccionado: ' + idPlayer);
+    this.tournamentService.saveTeam(idTournament, idPlayer, this.f.TeamName.value).subscribe(
+      result => console.log(result)
+    );
   }
 
   public getLoggedUser() {
