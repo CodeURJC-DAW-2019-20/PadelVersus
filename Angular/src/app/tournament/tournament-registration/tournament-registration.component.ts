@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../authentication.service';
 import {PlayerService} from '../../player/player.service';
 import {Player} from '../../Interfaces/player.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tournament-registration',
@@ -18,10 +19,16 @@ export class TournamentRegistrationComponent implements OnInit {
   public playerNames: string[] = [];
   public players: Player[] = [];
 
+  public errorTeam: boolean;
+  public errorUnexpected: boolean;
+
   constructor(private tournamentService: TournamentService,
               private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
-              private playerService: PlayerService) {
+              private playerService: PlayerService,
+              private router: Router) {
+    this.errorTeam = false;
+    this.errorUnexpected = false;
   }
 
   ngOnInit(): void {
@@ -95,8 +102,15 @@ export class TournamentRegistrationComponent implements OnInit {
       }
     }
     console.log('Id del player seleccionado: ' + idPlayer);
+    if (nameSelectedPlayer == null) {
+      this.errorTeam = true;
+    }
     this.tournamentService.saveTeam(idTournament, idPlayer, this.f.TeamName.value).subscribe(
-      result => console.log(result)
+      result => {
+        console.log(result);
+        this.router.navigate(['/tournament']);
+      },
+      (error: Error) => this.errorUnexpected = true
     );
   }
 

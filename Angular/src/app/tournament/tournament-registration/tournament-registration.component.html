@@ -1,4 +1,10 @@
 <div class="container my-5" *ngIf="getTournaments() != undefined ">
+  <div *ngIf="errorTeam"  class="animated animatedFadeInUp fadeInUp alert alert-warning" role="alert">
+    Team name can not be empty!
+  </div>
+  <div *ngIf="errorUnexpected" class="animated animatedFadeInUp fadeInUp alert alert-danger" role="alert">
+    Unexpected error occurs maybe the team name is already if not try it again later
+  </div>
   <form [formGroup]="createTeamForm" (ngSubmit)="saveTeam()">
     <div class="form-group">
       <label>Select Tournament: </label>
