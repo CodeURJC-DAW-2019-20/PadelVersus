@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
 
   public islogged() {
     if ( localStorage.getItem('currentUser') !== null) {
+      console.log(localStorage.getItem('currentUser'));
       return true;
     }
     return  false;
