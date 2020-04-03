@@ -67,12 +67,15 @@
       </div>
       <app-barchart [idTeam]="getTeam().id"></app-barchart>
     </div>
+  </div>
 
-    <div class="row center">
+
+  <div class="row center" *ngIf="getTeam()!=null">
+    <div class="p-col-6">
       <div class="badge bg-warning text-white">
         <span class="title">WINS/LOSES</span>
-        <app-donutchart [idTeam]="getTeam().id"></app-donutchart>
       </div>
+      <app-donutchart [idTeam]="getTeam().id"></app-donutchart>
     </div>
   </div>
 

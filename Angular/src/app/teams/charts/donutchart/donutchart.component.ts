@@ -25,23 +25,16 @@ export class DonutchartComponent implements OnInit {
           this.team = data;
 
           let wl = this.parseWL();
-
           this.data = {
+            labels: ['Wins','Loses'],
             datasets: [
               {
-                label:'Games won',
-                data: [1],
-                fill: false,
-                borderColor: '#ffc107'
-
-              }
-            ]
-
-          };
-          this.options ={
-            legend: {
-              display:false
-            }
+                data: wl,
+                backgroundColor: [
+                  "#ffc107",
+                  "#FFCE56"
+                ],
+              }]
           };
         }
       );
