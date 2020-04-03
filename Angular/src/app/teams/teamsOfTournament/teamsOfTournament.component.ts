@@ -12,15 +12,14 @@ export class TeamsOfTournamentComponent implements OnInit {
 
   @Input()
   private id: number;
+
   private ranking: TeamTournament[];
 
 
-  constructor(private tournamentRankingService: TournamentRankingService,
-              private activatedRoute: ActivatedRoute) {
+  constructor(private tournamentRankingService: TournamentRankingService) {
   }
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params.id;
 
     this.tournamentRankingService.getTournamentRanking(this.id).subscribe(
       data => {

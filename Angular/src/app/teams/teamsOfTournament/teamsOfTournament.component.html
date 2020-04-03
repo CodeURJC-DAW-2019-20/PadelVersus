@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="p-grid" *ngIf="getRanking()">
+  <ng-container *ngFor="let team of getRanking()">
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="box">{{team.name}}</div>
+    </div>
+  </ng-container>
+</div>

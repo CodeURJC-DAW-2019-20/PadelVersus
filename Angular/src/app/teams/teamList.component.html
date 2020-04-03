@@ -1,8 +1,8 @@
 <div class="container" style="padding-top: 10%">
-  <div class="row">
+  <div class="row" style="padding-bottom: 10%">
     <div class="col-md">
       <p-tabView [activeIndex]="0">
-        <ng-container *ngFor="let tournament of getTournament(); let i = index" >
+        <ng-container *ngFor="let tournament of getTournaments(); let i = index" >
           <p-tabPanel [selected] = "tournament.id == 1" header="{{tournament.name}}">
             <app-teamsOfTournament [id]="tournament.id"></app-teamsOfTournament>
           </p-tabPanel>

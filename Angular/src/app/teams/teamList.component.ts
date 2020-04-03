@@ -30,7 +30,7 @@ export class TeamListComponent implements OnInit {
     console.error(error);
   }
 
-  public getTournament(){
+  public getTournaments(){
     return this.tournaments
   }
 }
