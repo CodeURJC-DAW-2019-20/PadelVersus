@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 
-import {Team} from '../Interfaces/team.model';
-import {TeamService} from '../teams/team.service';
+import {Team} from '../../Interfaces/team.model';
+import {TeamService} from './team.service';
 import {ActivatedRoute} from '@angular/router';
-import {Match} from '../Interfaces/match.model';
-import {MatchesService} from '../matches/matches.service';
+import {Match} from '../../Interfaces/match.model';
+import {MatchesService} from '../../matches/matches.service';
 
-import {Game} from '../Interfaces/game.model';
+import {Game} from '../../Interfaces/game.model';
 
 
 @Component({

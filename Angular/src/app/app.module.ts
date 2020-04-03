@@ -29,7 +29,7 @@ import {CarouselComponent} from './home/carousel/carousel.component';
 import {MatchesComponent} from './matches/matches.component';
 import {NextMatchesDateComponent} from './matches/next-matches-date/next-matches-date.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {TeamComponent} from './teams/team.component';
+import {TeamComponent} from './teams/teamPage/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
@@ -51,6 +51,7 @@ import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.component";
+import {TeamListComponent} from "./teams/teamList.component";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.componen
     ForbiddenComponent,
     PlayerComponent,
     TeamComponent,
+    TeamListComponent,
     ImagesComponent,
     AdminComponent,
     SignUpComponent,

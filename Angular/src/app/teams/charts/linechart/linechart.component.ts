@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Team} from "../../../Interfaces/team.model";
-import {TeamService} from "../../team.service";
+import {TeamService} from "../../teamPage/team.service";
 import {Game} from "../../../Interfaces/game.model";
 
 @Component({
