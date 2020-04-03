@@ -11,6 +11,7 @@ import {Game} from "../../Interfaces/game.model";
 })
 export class LinechartComponent implements OnInit {
   data: any;
+  options: any;
   @Input() private idTeam: number;
   private team: Team;
 
@@ -37,11 +38,24 @@ export class LinechartComponent implements OnInit {
             datasets: [
               {
                 label:'Games per match',
-                data: games
+                data: games,
+                fill: false,
+                borderColor: '#ffc107'
+
               }
             ]
+
           };
-          console.log('Player info: ', data);
+          this.options ={
+            scales: {
+              yAxes: [{
+                ticks: {
+                  stepSize: 2,
+                  beginAtZero: true
+                }
+              }]
+            }
+          };
         }
       );
 
