@@ -37,7 +37,8 @@ export class SignUpPlayerComponent {
         console.error(data);
         // GO TO THE LAST PAGE
         this.error = false;
-        location.assign('http://localhost:4200/');
+        this.router.navigate(['']);
+        // location.assign('http://localhost:4200/');
         // window.history.back();
       },
       (error: Error) => {

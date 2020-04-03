@@ -29,7 +29,7 @@ export class LogOutComponent implements OnInit {
     this.authenticationService.logOut().subscribe(
       data => {
         console.error(data.toString());
-        location.assign('');
+        this.router.navigate(['']);
       }
       );
   }

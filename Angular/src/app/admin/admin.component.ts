@@ -138,7 +138,7 @@ export class AdminComponent implements OnInit {
       data => {
         console.log('Match: ', data);
         this.error = false;
-        location.assign('http://localhost:4200/admin');
+        this.router.navigate(['/admin']);
       },
       (error: Error) => {
         this.error = true;
@@ -195,7 +195,7 @@ export class AdminComponent implements OnInit {
       data => {
         console.error(data);
         this.error = false;
-        location.assign('http://localhost:4200/admin');
+        this.router.navigate(['/admin']);
       },
       (error: Error) => {
         this.error = true;
@@ -211,7 +211,7 @@ export class AdminComponent implements OnInit {
       this.adminService.saveTournament(tournamentName).subscribe(
         data => {
           console.error(data);
-          location.assign('http://localhost:4200/admin');
+          this.router.navigate(['/admin']);
         },
         (error: Error) => {
           this.error = true;
