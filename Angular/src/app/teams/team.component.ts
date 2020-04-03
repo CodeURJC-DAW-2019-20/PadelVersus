@@ -86,9 +86,6 @@ export class TeamComponent implements OnInit {
     return avgStats;
   }
 
-
-
-
   parseWL() {
     const parsed: number[] = [];
     parsed.push(this.team.teamStatistics.totalWins);

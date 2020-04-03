@@ -12,7 +12,7 @@ export class TeamService {
   private teamxUrl: string;
 
   constructor(private http: HttpClient) {
-    this.teamxUrl = 'https://localhost:8443/api/teamx/';
+    this.teamxUrl = '/api/teamx/';
   }
 
   getTeam(id: number) {

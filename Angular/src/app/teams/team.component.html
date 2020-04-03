@@ -1,1 +1,16 @@
+<div class = "container">
+  <div class = "row" style="padding-top:10%">
+    <div class = "row">
+      <ng-container *ngIf="getTeam()">
+        <span class="  p-3 mb-2 bg-warning text-white text-uppercase box  ">
+          Team
+        </span>
+
+        <span class="  userName " style="padding-top:30px" >
+          {{getTeam().name}}
+        </span>
+      </ng-container>
+    </div>
+  </div>
+</div>
 
