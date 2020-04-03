@@ -20,13 +20,16 @@
         <a class="nav-link item" href="#">Registration Tournament</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link item" href="/login">Log In</a>
+        <a class="nav-link item" *ngIf="!islogged()" href="/login">Log In</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link item" href="/signup">Sign Up</a>
+        <a class="nav-link item" *ngIf="!islogged()" href="/signup">Sign Up</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link item" href="/logout">Log Out</a>
+        <a class="nav-link item" *ngIf="islogged()" href="/logout">Log Out</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link item" *ngIf="isAdmin()" href="/admin">Log Out</a>
       </li>
     </ul>
   </div>
