@@ -4,7 +4,7 @@
       <p-tabView [activeIndex]="0">
         <ng-container *ngFor="let tournament of getTournament(); let i = index" >
           <p-tabPanel [selected] = "tournament.id == 1" header="{{tournament.name}}">
-            <app-tournament-ranking [idFromParent]="tournament.id"></app-tournament-ranking>
+            <app-teamsOfTournament [id]="tournament.id"></app-teamsOfTournament>
           </p-tabPanel>
         </ng-container>
       </p-tabView>

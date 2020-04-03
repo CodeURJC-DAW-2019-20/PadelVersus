@@ -52,6 +52,7 @@ import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.component";
 import {TeamListComponent} from "./teams/teamList.component";
+import {TeamsOfTournamentComponent} from "./teams/teamsOfTournament/teamsOfTournament.component";
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import {TeamListComponent} from "./teams/teamList.component";
     PlayerComponent,
     TeamComponent,
     TeamListComponent,
+    TeamsOfTournamentComponent,
     ImagesComponent,
     AdminComponent,
     SignUpComponent,
