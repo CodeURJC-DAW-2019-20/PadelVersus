@@ -1,5 +1,4 @@
-
-<table>
+<table *ngIf="getRanking()">
   <tr>
     <th>Teams</th>
     <th>Games played</th>
@@ -19,7 +18,8 @@
       <td class="center-text last-col">{{team.gamesLost}}</td>
       <td class="center-text">
         <ng-container *ngIf="team.hasLastMatches">
-          <span *ngFor="let result of team.lastMatches; let i = index" [class.lose]="result == 'l'" [class.win]="result == 'w'"
+          <span *ngFor="let result of team.lastMatches; let i = index" [class.lose]="result == 'l'"
+                [class.win]="result == 'w'"
                 class="result">
             {{result}}
           </span>
@@ -31,3 +31,6 @@
     </tr>
   </ng-container>
 </table>
+<div class="container-fluid spiner-wrapper" *ngIf="!getRanking()">
+    <p-progressSpinner [style]="" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>

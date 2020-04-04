@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TeamTournament} from '../../Interfaces/teamTournament.model';
 import {TournamentRankingService} from './tournament-ranking.service';
@@ -6,7 +6,8 @@ import {TournamentRankingService} from './tournament-ranking.service';
 @Component({
   selector: 'app-tournament-ranking',
   templateUrl: './tournament-ranking.component.html',
-  styleUrls: ['./tournament-ranking.component.css']
+  styleUrls: ['./tournament-ranking.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TournamentRankingComponent implements OnInit {
 
@@ -29,15 +30,16 @@ export class TournamentRankingComponent implements OnInit {
     }
 
     this.tournamentRankingService.getTournamentRanking(this.id).subscribe(
-      data => {
-        this.ranking = data;
-        console.log('ranking (' + this.id + '): ', data);
-      },
-      error => this.handleError(error)
+        data => {
+          this.ranking = data;
+          console.log('ranking (' + this.id + '): ', data);
+        },
+        error => this.handleError(error)
     );
   }
 
   getRanking(): TeamTournament[] {
+    return undefined;
     return this.ranking;
   }
 
