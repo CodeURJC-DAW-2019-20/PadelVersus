@@ -38,8 +38,12 @@
     </div>
   </div>
 
-  <div class="row center" *ngIf="getLastMatches()">
+  <div class="row" *ngIf="getLastMatches()">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
       <app-last-matches [lastMatches]="getLastMatches()"></app-last-matches>
+    </div>
+    <div class="col-md-3"></div>
   </div>
 
   <div class = "row" style="padding-top:10%">
