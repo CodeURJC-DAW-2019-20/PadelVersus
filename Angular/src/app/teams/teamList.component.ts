@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Tournament} from '../Interfaces/tournament.model';
 import {TournamentService} from "../tournament/tournament.service";
+import {TeamOfPage} from "../Interfaces/teamOfPage.model";
+import {TeamService} from "./teamPage/team.service";
 
 
 @Component({
@@ -12,11 +14,22 @@ import {TournamentService} from "../tournament/tournament.service";
 export class TeamListComponent implements OnInit {
 
   private tournaments: Tournament[] = [];
+  private pageNumber: number;
+  private teamsPage: TeamOfPage[] = [];
 
-  constructor(private tournamentService: TournamentService) {
+  constructor(private tournamentService: TournamentService, private teamService: TeamService) {
   }
 
   ngOnInit(): void {
+    this.pageNumber = 0;
+    this.teamService.getPageTeam(this.pageNumber).subscribe(
+      data => {
+        this.teamsPage = data;
+        console.log('Page: ', data)
+      },
+      error => this.handleError(error)
+    );
+
     this.tournamentService.getTournaments().subscribe(
       data => {
         this.tournaments = data;

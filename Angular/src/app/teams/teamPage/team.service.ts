@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Team} from '../../Interfaces/team.model';
 import {throwError} from 'rxjs';
+import {TeamOfPage} from "../../Interfaces/teamOfPage.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,22 @@ import {throwError} from 'rxjs';
 export class TeamService {
 
   private teamxUrl: string;
+  private teamListUrl:string;
 
   constructor(private http: HttpClient) {
     this.teamxUrl = '/api/teamx/';
+    this.teamListUrl = 'api/teamsList/?size=4&page='
   }
 
   getTeam(id: number) {
     return this.http.get<Team>(this.teamxUrl + id).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+  getPageTeam(page: number){
+    return this.http.get<TeamOfPage[]>(this.teamListUrl + page).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
