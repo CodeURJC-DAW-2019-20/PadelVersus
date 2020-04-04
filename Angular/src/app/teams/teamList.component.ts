@@ -24,7 +24,7 @@ export class TeamListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageNumber = 0;
-    this.teamService.getPageTeam(this.pageNumber).subscribe(
+    this.teamService.getPageTeam().subscribe(
       data => {
         this.teamsPage = data;
         console.log('Page: ', data)
@@ -51,16 +51,5 @@ export class TeamListComponent implements OnInit {
 
   public getTeamsPage(){
     return this.teamsPage
-  }
-
-  handleClickPrev(){
-    if(this.pageNumber > 0){
-      this.pageNumber -= 1;
-    }
-  }
-
-  handleClickNext(){
-    this.pageNumber += 1;
-    console.log(this.pageNumber)
   }
 }
