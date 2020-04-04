@@ -13,10 +13,11 @@ export class AdminAuthGuard implements CanActivate {
       let nameStored = localStorage.getItem('currentUser').split(',')[1].split(':')[1];
       nameStored = nameStored.substr(1, nameStored.length - 2);
       if (nameStored === 'admin') {
+        // logged in as admin so return true
         return true;
       }
-      // logged in as admin so return true
-      return true;
+      this.router.navigate(['403'])
+      return false;
     }
 
     // not logged in so redirect to login page with the return url
