@@ -43,7 +43,7 @@ import {ErrorInterceptor} from './error.interceptor';
 
 import {AppComponent} from './app.component';
 import {ChartModule} from 'primeng/chart';
-import {RadarComponent} from './radar/radar.component';
+import {RadarComponent} from './player/radar/radar.component';
 import {LinechartComponent} from "./teams/charts/linechart/linechart.component";
 import {BarchartComponent} from "./teams/charts/barchart/barchart.component";
 import {HeaderComponent} from './header/header.component';

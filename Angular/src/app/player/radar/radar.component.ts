@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {PlayerComponent} from "../player/player.component";
+import {PlayerComponent} from "../player.component";
 import {ActivatedRoute} from '@angular/router';
-import {Player} from "../Interfaces/player.model";
-import {PlayerService} from "../player/player.service";
+import {Player} from "../../Interfaces/player.model";
+import {PlayerService} from "../player.service";
 
 @Component({
   selector: 'app-radar',
