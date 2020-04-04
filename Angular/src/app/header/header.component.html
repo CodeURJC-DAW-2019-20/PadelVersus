@@ -16,19 +16,22 @@
       <li class="nav-item">
         <a class="nav-link item" [routerLink]="['/tournamen']">Ranking</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link item" [routerLink]="['/tournament/register']">Registration Tournament</a>
+      <li class="nav-item " *ngIf="!isAdmin()">
+        <a class="nav-link item"  [routerLink]="['/tournament/register']">Registration Tournament</a>
       </li>
-      <li class="nav-item" *ngIf="islogged() == false">
+      <li class="nav-item" *ngIf="!islogged()">
         <a class="nav-link item" [routerLink]="['/login']">Log In</a>
       </li>
-      <li class="nav-item " *ngIf="islogged() == false">
+      <li class="nav-item " *ngIf="!islogged()">
         <a class="nav-link item"  [routerLink]="['/signup']">Sign Up</a>
       </li>
-      <li class="nav-item " *ngIf="isAdmin() == true">
+      <li class="nav-item " *ngIf="isAdmin()">
         <a class="nav-link item" [routerLink]="['/admin']">Admin Page</a>
       </li>
-      <li class="nav-item " *ngIf="islogged() == true">
+      <li class="nav-item " *ngIf="islogged() && !isAdmin()">
+        <a class="nav-link item" [routerLink]="['/player', getLogggedPlayerId()]">Mi profile</a>
+      </li>
+      <li class="nav-item " *ngIf="islogged()">
         <a class="nav-link item" [routerLink]="['/logout']">Log Out</a>
       </li>
     </ul>
