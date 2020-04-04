@@ -1,0 +1,66 @@
+.ui-tabview-nav{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  color: #141414;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  padding-bottom: .5em !important;
+}
+.ui-tabview-nav > li{
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+.ui-tabview-nav > li:focus{
+  outline: none !important;
+}
+
+.ui-tabview-panels{
+  border:  none !important;
+  padding: 0 !important;
+}
+
+.ui-tabview-selected > a > span{
+  font-size: 14px !important;
+  color: #141414 !important;
+  font-family: Montserrat, sans-serif !important;
+  text-transform: uppercase !important;
+  border-bottom: 5px solid rgb(255, 160, 0);
+}
+
+.box{
+  background-color: #ffcc00;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 4px;
+}
+
+.badge{
+  margin-top: 7px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.img {
+  height: 110px;
+  width: 110px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.center{
+  text-align: center;
+}

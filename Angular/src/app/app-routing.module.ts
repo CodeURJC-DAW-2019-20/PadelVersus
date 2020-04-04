@@ -15,9 +15,10 @@ import {SignUpComponent} from './signUp/signUp.component';
 import {SignUpPlayerComponent} from './signUpPlayer/signUpPlayer.component';
 import {TournamentRankingComponent} from './tournament/tournament-ranking/tournament-ranking.component';
 import {PlayerComponent} from './player/player.component';
-import {TeamComponent} from './teams/team.component';
+import {TeamComponent} from './teams/teamPage/team.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {LogOutComponent} from './logOut/logOut.component';
+import {TeamListComponent} from "./teams/teamList.component";
 import {TournamentRegistrationComponent} from './tournament/tournament-registration/tournament-registration.component';
 import {AdminAuthGuard} from './adminauth.guard';
 
@@ -36,11 +37,11 @@ const routes: Routes = [
   { path: 'tournament/:id', component: TournamentRankingComponent},
   { path: 'player/:id', component: PlayerComponent},
   { path: 'teams/:id', component: TeamComponent},
+  { path: 'teams', component: TeamListComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '404', component: NotFoundComponent},
   { path: '403', component: ForbiddenComponent},
   { path: '**', redirectTo: '/404'},
-
 ];
 
 @NgModule({

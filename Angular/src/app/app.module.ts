@@ -29,7 +29,7 @@ import {CarouselComponent} from './home/carousel/carousel.component';
 import {MatchesComponent} from './matches/matches.component';
 import {NextMatchesDateComponent} from './matches/next-matches-date/next-matches-date.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {TeamComponent} from './teams/team.component';
+import {TeamComponent} from './teams/teamPage/team.component';
 import {ImagesComponent} from './images/images.component';
 import {LogOutComponent} from './logOut/logOut.component';
 import {AuthGuard} from './auth.guard';
@@ -51,6 +51,8 @@ import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {DonutchartComponent} from './teams/charts/donutchart/donutchart.component';
+import {TeamListComponent} from './teams/teamList.component';
+import {TeamsOfTournamentComponent} from './teams/teamsOfTournament/teamsOfTournament.component';
 import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { AfterIfDirective } from './tournament/after-if.directive';
@@ -72,6 +74,8 @@ import { AfterIfDirective } from './tournament/after-if.directive';
     ForbiddenComponent,
     PlayerComponent,
     TeamComponent,
+    TeamListComponent,
+    TeamsOfTournamentComponent,
     ImagesComponent,
     AdminComponent,
     SignUpComponent,
