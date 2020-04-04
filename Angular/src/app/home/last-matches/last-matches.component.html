@@ -1,7 +1,7 @@
 
 <ng-container *ngFor="let LastMatch of getlastMatches(); let i = index">
   <ng-container *ngIf="i <= 3">
-    <table style="animation:flipInX .5s ease-in;" class="flipInX">
+    <table style="animation:flipInX .5s ease-in;" class="flipInX" (click)="goToMatch(LastMatch.id)" >
       <tr>
         <td class="center-text tournament" colspan="6">{{LastMatch.tournammentName}}</td>
       </tr>
