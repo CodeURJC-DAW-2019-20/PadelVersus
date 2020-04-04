@@ -56,6 +56,7 @@ import {TeamsOfTournamentComponent} from './teams/teamsOfTournament/teamsOfTourn
 import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { AfterIfDirective } from './tournament/after-if.directive';
+import {NgxPaginationModule} from "ngx-pagination";
 @NgModule({
   declarations: [
     FooterComponent,
@@ -110,7 +111,8 @@ import { AfterIfDirective } from './tournament/after-if.directive';
     CarouselModule,
     ButtonModule,
     TabViewModule,
-    DropdownModule
+    DropdownModule,
+    NgxPaginationModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
