@@ -14,8 +14,8 @@ import {TeamService} from "./teamPage/team.service";
 export class TeamListComponent implements OnInit {
 
   private tournaments: Tournament[] = [];
-  private pageNumber: number;
-  private pageSize = 4;
+  public pageNumber: number;
+  public pageSize = 4;
 
   private teamsPage : TeamOfPage[] = [];
 
