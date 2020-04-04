@@ -20,6 +20,9 @@
           <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}">
             <app-images [idPlayer]="player.id"></app-images>
           </p-card>
+          <a href="/player/{{player.id}}">
+            <button pButton class="ui-button-secondary" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>
+          </a>
         </div>
       </div>
     </ng-container>
