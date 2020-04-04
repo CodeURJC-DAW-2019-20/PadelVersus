@@ -53,6 +53,7 @@ import {TabViewModule} from 'primeng/tabview';
 import {DonutchartComponent} from './teams/charts/donutchart/donutchart.component';
 import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { AfterIfDirective } from './tournament/after-if.directive';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -81,7 +82,8 @@ import {DropdownModule} from 'primeng/dropdown';
     LinechartComponent,
     BarchartComponent,
     DonutchartComponent,
-    TournamentRegistrationComponent
+    TournamentRegistrationComponent,
+    AfterIfDirective
   ],
   imports: [
     CardModule,

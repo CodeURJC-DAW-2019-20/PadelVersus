@@ -1,4 +1,4 @@
-<table *ngIf="getRanking()">
+<table *ngIf="getRanking()" (after-if)="showPdf()">
   <tr>
     <th>Teams</th>
     <th>Games played</th>

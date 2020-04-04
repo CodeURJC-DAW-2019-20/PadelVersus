@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TeamTournament} from '../../Interfaces/teamTournament.model';
 import {TournamentRankingService} from './tournament-ranking.service';
@@ -16,6 +16,8 @@ export class TournamentRankingComponent implements OnInit {
 
   @Input()
   private idFromParent: number;
+  @Output()
+  loaded = new EventEmitter<boolean>();
 
   constructor(private tournamentRankingService: TournamentRankingService,
               private activatedRoute: ActivatedRoute) {
@@ -38,12 +40,15 @@ export class TournamentRankingComponent implements OnInit {
     );
   }
 
-  getRanking(): TeamTournament[] {
-    return undefined;
+  getRanking() {
     return this.ranking;
   }
 
   private handleError(error: any) {
     console.error(error);
+  }
+
+  showPdf() {
+    this.loaded.emit(true);
   }
 }
