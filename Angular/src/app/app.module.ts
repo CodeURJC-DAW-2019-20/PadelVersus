@@ -44,16 +44,18 @@ import {ErrorInterceptor} from './error.interceptor';
 import {AppComponent} from './app.component';
 import {ChartModule} from 'primeng/chart';
 import {RadarComponent} from './player/radar/radar.component';
-import {LinechartComponent} from "./teams/charts/linechart/linechart.component";
-import {BarchartComponent} from "./teams/charts/barchart/barchart.component";
+import {LinechartComponent} from './teams/charts/linechart/linechart.component';
+import {BarchartComponent} from './teams/charts/barchart/barchart.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
-import {DonutchartComponent} from "./teams/charts/donutchart/donutchart.component";
-import {TeamListComponent} from "./teams/teamList.component";
-import {TeamsOfTournamentComponent} from "./teams/teamsOfTournament/teamsOfTournament.component";
-
+import {DonutchartComponent} from './teams/charts/donutchart/donutchart.component';
+import {TeamListComponent} from './teams/teamList.component';
+import {TeamsOfTournamentComponent} from './teams/teamsOfTournament/teamsOfTournament.component';
+import { TournamentRegistrationComponent } from './tournament/tournament-registration/tournament-registration.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { AfterIfDirective } from './tournament/after-if.directive';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -84,6 +86,8 @@ import {TeamsOfTournamentComponent} from "./teams/teamsOfTournament/teamsOfTourn
     LinechartComponent,
     BarchartComponent,
     DonutchartComponent,
+    TournamentRegistrationComponent,
+    AfterIfDirective
   ],
   imports: [
     CardModule,
@@ -105,7 +109,8 @@ import {TeamsOfTournamentComponent} from "./teams/teamsOfTournament/teamsOfTourn
     ProgressBarModule,
     CarouselModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    DropdownModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

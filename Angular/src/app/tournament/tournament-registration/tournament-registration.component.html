@@ -1,0 +1,37 @@
+<div class="container my-5" *ngIf="getTournaments() != undefined ">
+  <div *ngIf="errorTeam"  class="animated animatedFadeInUp fadeInUp alert alert-warning" role="alert">
+    Team name can not be empty!
+  </div>
+  <div *ngIf="errorUnexpected" class="animated animatedFadeInUp fadeInUp alert alert-danger" role="alert">
+    Unexpected error occurs maybe the team name is already if not try it again later
+  </div>
+  <form [formGroup]="createTeamForm" (ngSubmit)="saveTeam()">
+    <div class="form-group">
+      <label>Select Tournament: </label>
+      <select class="form-control" formControlName="SelectedTournament">
+        <option *ngFor="let tournament of getTournaments()" [ngValue]="tournament.name">{{tournament.name}}</option>
+      </select>
+      <label>Choose Team Name</label>
+      <input class="form-control" type="text" name="teamName" formControlName="TeamName">
+    </div>
+    <div class="form-row px-5">
+      <div class="form-group col-md-6">
+        <h3 class="text-center mb-5 mt-3  ">{{getLoggedUser().name}}</h3>
+        <div id="image-wrapper">
+          <app-images [idPlayer]="this.getLoggedUserPlayer().id"></app-images>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <h3 class="text-center mb-5 mt-3">Partner</h3>
+        <select class="form-control" formControlName="SelectedPlayer">
+          <option *ngFor="let player of getPlayerNames()" [ngValue]="player">{{player}}</option>
+        </select>
+      </div>
+      <div class="col text-center">
+        <button class="btn btn-warning my-3 px-4 py-3 register-button"
+                type="submit">Register
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

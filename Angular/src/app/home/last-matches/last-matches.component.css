@@ -1,10 +1,22 @@
 table {
   margin: 0 auto;
   width: 100%;
+  background: #fff;
+  border-collapse: separate !important;
+  border-bottom: 1px solid #f7f7f7 !important;
 }
 
-table, th, td, caption {
+table:hover{
+  border-bottom: 1px solid #fc0 !important;
+  transition: all .5s;
+}
+table, th, caption {
   padding: 10px;
+}
+tr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 td.center-text {
@@ -17,11 +29,12 @@ td.score {
   background: black;
   color: white;
   text-align: center;
-  width: 5%;
+  width: 10%;
+  margin: 0.25em .5em
 }
 
 td.team-name{
-  padding-left: 5%;
+  padding: 0.5em;
   width: 30%;
 }
 
@@ -34,7 +47,7 @@ td.first-col-space{
 }
 
 .yellow-background {
-  background: orange;
+  background: #fc0;
   border-radius: 12px;
 }
 

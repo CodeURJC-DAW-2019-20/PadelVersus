@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {TournamentService} from './tournament.service';
 import {Tournament} from '../Interfaces/tournament.model';
 
@@ -12,6 +12,7 @@ import {Tournament} from '../Interfaces/tournament.model';
 export class TournamentComponent implements OnInit {
 
   private tournaments: Tournament[] = [];
+  showPdf: boolean;
 
   constructor(private tournamentService: TournamentService) {
   }
@@ -60,5 +61,10 @@ export class TournamentComponent implements OnInit {
 
   private handleError(error: any) {
     console.error(error);
+  }
+
+  onLoaded($event: boolean) {
+    console.log('Me llega: ' + $event);
+    this.showPdf = $event;
   }
 }

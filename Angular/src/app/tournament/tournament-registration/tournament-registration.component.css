@@ -1,0 +1,58 @@
+h3 {
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+.register-button {
+  border-radius: 9px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif
+}
+
+#image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*Fade Up animation*/
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0,40px,0)
+  }
+
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    transform: translate3d(0,40px,0)
+  }
+
+  to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+  opacity: 0
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}

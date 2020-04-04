@@ -32,9 +32,11 @@
 .button-pdf {
   background: none;
   color: rgb(255, 160, 0);
-  padding: 0.5em 0 0 2em;
   border: none;
 }
 .button-pdf:focus{
   outline: none !important;
+}
+.button-pdf:hover{
+  color: black;
 }
