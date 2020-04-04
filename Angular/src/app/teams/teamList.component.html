@@ -2,8 +2,31 @@
   <div class="row" style="padding-bottom: 10%">
     <div class="col-md">
       <p-tabView [activeIndex]="0">
+
+        <ng-container *ngIf="getTeamsPage()">
+          <p-tabPanel [selected]="1==1" header="All">
+            <div class="p-grid" *ngIf="getTeamsPage()">
+              <ng-container *ngFor="let team of getTeamsPage()">
+                <div class="p-col-12 p-md-6 p-lg-3">
+                  <p-card class="center">
+                    <img src="././assets/team-logo2.png" class="img">
+                    <p-footer>
+                      <span class="badge bg-warning text-white">{{team[1]}}</span>
+                      <a href="/teams/{{team[0]}}">
+                        <button pButton class="ui-button-warning" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>
+                      </a>
+                    </p-footer>
+                  </p-card>
+                </div>
+              </ng-container>
+            </div>
+            <button pButton type="button" label="Prev" class="ui-button-rounded ui-button-warning" (click)="handleClickPrev()"></button>
+            <button pButton type="button" label="Next" class="ui-button-rounded ui-button-warning" (click)="handleClickNext()"></button>
+          </p-tabPanel>
+
+        </ng-container>
         <ng-container *ngFor="let tournament of getTournaments(); let i = index" >
-          <p-tabPanel [selected] = "tournament.id == 1" header="{{tournament.name}}">
+          <p-tabPanel header="{{tournament.name}}">
             <app-teamsOfTournament [id]="tournament.id"></app-teamsOfTournament>
           </p-tabPanel>
         </ng-container>

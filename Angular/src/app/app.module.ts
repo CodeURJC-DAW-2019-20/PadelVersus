@@ -83,7 +83,7 @@ import {TeamsOfTournamentComponent} from "./teams/teamsOfTournament/teamsOfTourn
     RadarComponent,
     LinechartComponent,
     BarchartComponent,
-    DonutchartComponent
+    DonutchartComponent,
   ],
   imports: [
     CardModule,

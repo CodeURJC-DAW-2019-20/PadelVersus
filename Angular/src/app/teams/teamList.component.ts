@@ -15,7 +15,9 @@ export class TeamListComponent implements OnInit {
 
   private tournaments: Tournament[] = [];
   private pageNumber: number;
-  private teamsPage: TeamOfPage[] = [];
+  private pageSize = 4;
+
+  private teamsPage : TeamOfPage[] = [];
 
   constructor(private tournamentService: TournamentService, private teamService: TeamService) {
   }
@@ -45,5 +47,20 @@ export class TeamListComponent implements OnInit {
 
   public getTournaments(){
     return this.tournaments
+  }
+
+  public getTeamsPage(){
+    return this.teamsPage
+  }
+
+  handleClickPrev(){
+    if(this.pageNumber > 0){
+      this.pageNumber -= 1;
+    }
+  }
+
+  handleClickNext(){
+    this.pageNumber += 1;
+    console.log(this.pageNumber)
   }
 }

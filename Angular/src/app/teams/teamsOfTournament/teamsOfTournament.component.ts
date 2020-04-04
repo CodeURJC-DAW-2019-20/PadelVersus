@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {TeamTournament} from '../../Interfaces/teamTournament.model';
 import {TournamentRankingService} from "../../tournament/tournament-ranking/tournament-ranking.service";
 
