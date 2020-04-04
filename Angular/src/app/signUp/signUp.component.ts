@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Component} from '@angular/core';
+import {AuthenticationService} from '../authentication.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../Interfaces/user.model';
+
 @Component({
   templateUrl: './signUp.component.html',
   styleUrls: [
@@ -15,14 +16,14 @@ export class SignUpComponent {
   error: boolean;
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: AuthenticationService) {
-    this.user = { name: '', passwordHash: '', mail: '', roles: ['ROLE_USER'], player: null };
+    this.user = {name: '', passwordHash: '', mail: '', roles: ['ROLE_USER'], player: null};
     this.newUser = true;
     // this.error = false;
   }
 
   cancel() {
     //window.history.back();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
   save() {
@@ -36,10 +37,10 @@ export class SignUpComponent {
         this.error = false;
         this.service.login(this.user.name, this.user.passwordHash).subscribe(
           () => {
-            location.assign('http://localhost:4200/signupplayer/' + data.id);
+            this.router.navigate(['/signupplayer/' + data.id]);
           }
-      );
-       // window.history.back();
+        );
+        // window.history.back();
       },
       (error: Error) => {
         // location.reload(true),

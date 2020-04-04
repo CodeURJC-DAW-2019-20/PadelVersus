@@ -1,5 +1,4 @@
-
-<table>
+<table *ngIf="getRanking()" (after-if)="showPdf()">
   <tr>
     <th>Teams</th>
     <th>Games played</th>
@@ -9,13 +8,18 @@
   </tr>
   <ng-container *ngFor="let team of getRanking()">
     <tr>
-      <td class="text-center">{{team.name}}</td>
+      <td class="text-center">
+        <a [routerLink]="['/teams', team.id]" style="color: black;text-decoration: none;">
+          {{team.name}}
+        </a>
+      </td>
       <td class="center-text">{{team.gamesPlayed}}</td>
       <td class="center-text">{{team.gamesWon}}</td>
       <td class="center-text last-col">{{team.gamesLost}}</td>
       <td class="center-text">
         <ng-container *ngIf="team.hasLastMatches">
-          <span *ngFor="let result of team.lastMatches; let i = index" [class.lose]="result == 'l'" [class.win]="result == 'w'"
+          <span *ngFor="let result of team.lastMatches; let i = index" [class.lose]="result == 'l'"
+                [class.win]="result == 'w'"
                 class="result">
             {{result}}
           </span>
@@ -27,3 +31,6 @@
     </tr>
   </ng-container>
 </table>
+<div class="container-fluid spiner-wrapper" *ngIf="!getRanking()">
+    <p-progressSpinner [style]="" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>

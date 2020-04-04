@@ -78,3 +78,14 @@ span.no-games {
   font-size: 12px;
   font-family: "Open Sans", sans-serif;
 }
+
+.spiner-wrapper {
+  background-color: rgb(236, 240, 241) !important;
+  text-align: center;
+  margin: 10% auto 0;
+  height: 50vh;
+}
+.ui-progress-spinner-svg{
+  display: block;
+  margin: 0 auto;
+}

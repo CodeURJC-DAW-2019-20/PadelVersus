@@ -1,4 +1,6 @@
-.background-col{
-  background: linear-gradient(rgb(60, 59, 22), rgb(137, 132, 48));
-  margin:0.5em
+.background-col {
+  margin: 0.5em 0 1.5em;
+  padding: 0 !important
 }
+
+

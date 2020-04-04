@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Match} from '../../Interfaces/match.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-last-matches',
@@ -11,7 +12,7 @@ export class LastMatchesComponent implements OnInit {
   @Input()
   private lastMatches: Match[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -21,4 +22,7 @@ export class LastMatchesComponent implements OnInit {
     return this.lastMatches;
   }
 
+  goToMatch(id: number) {
+    this.router.navigate(['/match/' + id]);
+  }
 }

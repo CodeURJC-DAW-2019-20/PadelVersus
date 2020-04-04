@@ -1,35 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-dark " style="padding: 1em 25%; background:rgb(20, 20, 20)">
-  <a class="navbar-brand" href="/home">
+  <a class="navbar-brand"  [routerLink]="['']">
     <img src="./assets/coming-logo.png" width="60" height="60" class="d-inline-block align-top" alt="">
   </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link item" href="/home">Home</a>
+        <a class="nav-link item"  [routerLink]="['']">Home</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link item" href="/matches">Matches</a>
+        <a class="nav-link item" [routerLink]="['/matches']">Matches</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link item" href="/teams">Teams</a>
+        <a class="nav-link item" [routerLink]="['/teams']">Teams</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link item" href="/tournament">Ranking</a>
+        <a class="nav-link item" [routerLink]="['/tournament']">Ranking</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link item" href="/tournament/register">Registration Tournament</a>
+      <li class="nav-item " *ngIf="!isAdmin()">
+        <a class="nav-link item"  [routerLink]="['/tournament/register']">Registration Tournament</a>
       </li>
-      <li class="nav-item" *ngIf="islogged() == false">
-        <a class="nav-link item"  href="/login">Log In</a>
+      <li class="nav-item" *ngIf="!islogged()">
+        <a class="nav-link item" [routerLink]="['/login']">Log In</a>
       </li>
-      <li class="nav-item " *ngIf="islogged() == false">
-        <a class="nav-link item"  href="/signup">Sign Up</a>
+      <li class="nav-item " *ngIf="!islogged()">
+        <a class="nav-link item"  [routerLink]="['/signup']">Sign Up</a>
       </li>
-      <li class="nav-item " *ngIf="isAdmin() == true">
-        <a class="nav-link item"  href="/admin">Admin Page</a>
+      <li class="nav-item " *ngIf="isAdmin()">
+        <a class="nav-link item" [routerLink]="['/admin']">Admin Page</a>
       </li>
-      <li class="nav-item " *ngIf="islogged() == true">
-        <a class="nav-link item"  href="/logout">Log Out</a>
+      <li class="nav-item " *ngIf="islogged() && !isAdmin()">
+        <a class="nav-link item" [routerLink]="['/player', getLogggedPlayerId()]">Mi profile</a>
+      </li>
+      <li class="nav-item " *ngIf="islogged()">
+        <a class="nav-link item" [routerLink]="['/logout']">Log Out</a>
       </li>
     </ul>
   </div>
