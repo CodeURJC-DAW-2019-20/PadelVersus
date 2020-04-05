@@ -6,6 +6,10 @@ import {ActivatedRoute} from '@angular/router';
 import {Tournament} from '../Interfaces/tournament.model';
 import {Team} from '../Interfaces/team.model';
 
+class Image {
+  constructor(public src: string, public file: File) {}
+}
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -28,6 +32,7 @@ export class PlayerComponent implements OnInit {
   private id: number;
   private tournaments: Tournament[] = [];
   private teams: Team[] = [];
+  public newImagePlayer:Image;
 
 
 
@@ -54,10 +59,6 @@ export class PlayerComponent implements OnInit {
       },
       error => this.handleError(error)
     );
-
-
-
-
 
   }
 
@@ -89,6 +90,26 @@ export class PlayerComponent implements OnInit {
     let nameStored = localStorage.getItem('currentUser').split(',')[1].split(':')[1];
     nameStored = nameStored.substr(1, nameStored.length - 2);
     return  nameStored === this.player.user.name;
+  }
+
+  changeImage(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (event: any) => {
+      this.newImagePlayer = new Image(event.target.result, file);
+      this.playerService.uploadNewImage(this.player.id, this.newImagePlayer.file).subscribe(
+        _ => {
+          this.ngOnInit();
+        },
+        (error: Error) => console.error('Error : ' + error),
+      );
+    });
+    reader.readAsDataURL(file);
+
+  }
+
+  getNewImagePlayer(){
+    return this.newImagePlayer;
   }
 
 

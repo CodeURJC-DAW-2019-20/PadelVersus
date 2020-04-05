@@ -16,7 +16,9 @@
       <div class="col-sm " >
         <app-images [idPlayer]="getId()"></app-images>
         <ng-container *ngIf="getPlayer()" >
-          <button *ngIf="showMailAndButton()" type="button" class="btn btn-warning text-uppercase">Edit Image</button>
+          <button *ngIf="showMailAndButton()"  (click)="fileInput.click()" type="button" class="btn btn-warning text-uppercase">Edit Image
+          <input #fileInput type="file" [(ngModel)]="newImagePlayer" class="inputFileButton" (change)="changeImage(fileInput)">
+          </button>
         </ng-container>
 
 

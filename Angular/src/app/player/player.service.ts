@@ -59,6 +59,18 @@ export class PlayerService {
     );
   }
 
+  uploadNewImage(id: number, file: any) {
+    const formData = new FormData();
+    console.log(formData);
+    formData.append('file', file);
+    return this.http.post(this.imagePlayerUrl + id + '/image', formData).pipe(
+      map(response => response),
+      catchError(err => this.handleError(err))
+    );
+  }
+
+
+
   private handleError(error: any) {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);
