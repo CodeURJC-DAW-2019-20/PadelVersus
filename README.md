@@ -537,13 +537,13 @@ To stop the application and remove containers and network (it does not remove th
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-|Daniel Carmona Pedrajas | Dacarpe03 | [TeamPageRemake](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/4453a96f9e6942683eb4057a6e377e81f44a5cde) | [TeamsPagination](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/d7c3b8f52d776c70e6916fca621158974fa694eb) | [ListTeamsPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/f5108275e040066a3e2ca7bd3d44215f0863cc9e) | [TeamService](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/bee62d4e7db0bae526a7d94fd204f97c2dbee2d5) | [PhotosCard](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/af569a7ccc2e63b1d538f63870fc3d35fcf2831e) |
+| Daniel Carmona Pedrajas | Dacarpe03 | [TeamPageRemake](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/4453a96f9e6942683eb4057a6e377e81f44a5cde) | [TeamsPagination](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/d7c3b8f52d776c70e6916fca621158974fa694eb) | [ListTeamsPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/f5108275e040066a3e2ca7bd3d44215f0863cc9e) | [TeamService](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/bee62d4e7db0bae526a7d94fd204f97c2dbee2d5) | [PhotosCard](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/af569a7ccc2e63b1d538f63870fc3d35fcf2831e) |
 
 
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
-
+| Daniel Carmona Pedrajas | Dacarpe03 | team.component.ts | team.service.ts | teamsOfTournament.component.ts | linechart.component.ts | donutchart.component.ts |
 
 ## Textual Description Of Work
 | Name | Github user | Description |
