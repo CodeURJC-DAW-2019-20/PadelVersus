@@ -59,6 +59,17 @@ export class PlayerService {
     );
   }
 
+  public uploadImage(image: File, id:number): Observable<Object> {
+    const formData = new FormData();
+
+    formData.append('image', image);
+
+    return this.http.post('/api/player/'+id+'/image', formData);
+  }
+
+
+
+
   private handleError(error: any) {
     console.error(error);
     return throwError('Server error (' + error.status + '): ' + error);

@@ -13,6 +13,7 @@ export class ImagesComponent implements OnInit {
   @Input() private idPlayer: number;
   private imagePlayer: any;
 
+
   constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
     this.idPlayer = activatedRoute.snapshot.params.id;
   }
@@ -43,5 +44,8 @@ export class ImagesComponent implements OnInit {
   getImageByPlayer() {
     return this.imagePlayer;
   }
+
+
+
 
 }

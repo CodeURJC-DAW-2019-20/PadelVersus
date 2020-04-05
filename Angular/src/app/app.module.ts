@@ -11,6 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
 import {CheckboxModule} from 'primeng/checkbox';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 import {AdminComponent} from './admin/admin.component';
@@ -112,7 +113,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     ButtonModule,
     TabViewModule,
     DropdownModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FileUploadModule
   ],
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

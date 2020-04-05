@@ -1,10 +1,15 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 import {PlayerService} from './player.service';
 import {Player} from '../Interfaces/player.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Tournament} from '../Interfaces/tournament.model';
 import {Team} from '../Interfaces/team.model';
+
+class Image {
+  constructor(public src: string, public file: File) {
+  }
+}
 
 @Component({
   selector: 'app-player',
@@ -14,12 +19,11 @@ import {Team} from '../Interfaces/team.model';
 })
 
 
-
 export class PlayerComponent implements OnInit {
+  public fileInputShown = false;
 
 
-
-  constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
+  constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService, private router: Router) {
     this.id = activatedRoute.snapshot.params.id;
 
   }
@@ -28,36 +32,32 @@ export class PlayerComponent implements OnInit {
   private id: number;
   private tournaments: Tournament[] = [];
   private teams: Team[] = [];
-
-
+  public newImagePlayer: Image;
+  public uploadButton = false;
 
 
   ngOnInit(): void {
     this.playerService.getPlayer(this.id).subscribe(
-      data => {
-        this.player = data;
-        console.log('Player info: ', data);
-      },
-      error => this.handleError(error)
+        data => {
+          this.player = data;
+          console.log('Player info: ', data);
+        },
+        error => this.handleError(error)
     );
     this.playerService.getTournamentsByPlayer(this.id).subscribe(
-      data => {
-        this.tournaments = data;
-        console.log('Tournaments info: ', data);
-      },
-      error => this.handleError(error)
+        data => {
+          this.tournaments = data;
+          console.log('Tournaments info: ', data);
+        },
+        error => this.handleError(error)
     );
     this.playerService.getTeamsByPlayer(this.id).subscribe(
-      data => {
-        this.teams = data;
-        console.log('Teams info: ', data);
-      },
-      error => this.handleError(error)
+        data => {
+          this.teams = data;
+          console.log('Teams info: ', data);
+        },
+        error => this.handleError(error)
     );
-
-
-
-
 
   }
 
@@ -83,18 +83,49 @@ export class PlayerComponent implements OnInit {
   }
 
   public showMailAndButton() {
-    if ( localStorage.getItem('currentUser') === null) {
+    if (localStorage.getItem('currentUser') === null) {
       return false;
     }
     let nameStored = localStorage.getItem('currentUser').split(',')[1].split(':')[1];
     nameStored = nameStored.substr(1, nameStored.length - 2);
-    return  nameStored === this.player.user.name;
+    return nameStored === this.player.user.name;
+  }
+
+  processFile(imageInput: any) {
+
+
+    console.error('upload');
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (eventListener: any) => {
+
+          this.newImagePlayer = new Image(eventListener.target.result, file);
+
+          this.playerService.uploadImage(this.newImagePlayer.file, this.id).subscribe(
+              (res) => {
+
+              },
+              (err) => {
+
+              });
+        }
+    );
+
+    reader.readAsDataURL(file);
+    this.uploadButton = true;
+  }
+
+  getNewImagePlayer() {
+    return this.newImagePlayer;
   }
 
 
+  showFileInput() {
+    this.fileInputShown = !this.fileInputShown;
+  }
 
-
-
-
-
+  reload() {
+    window.location.reload();
+  }
 }
