@@ -548,7 +548,7 @@ To stop the application and remove containers and network (it does not remove th
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
-
+| Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component. Also helped in changing the image of a player |
 
 ## Prepare Develop Enviroment
 
