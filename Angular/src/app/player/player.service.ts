@@ -59,15 +59,14 @@ export class PlayerService {
     );
   }
 
-  uploadNewImage(id: number, file: any) {
+  public uploadImage(image: File, id:number): Observable<Object> {
     const formData = new FormData();
-    console.log(formData);
-    formData.append('file', file);
-    return this.http.post(this.imagePlayerUrl + id + '/image', formData).pipe(
-      map(response => response),
-      catchError(err => this.handleError(err))
-    );
+
+    formData.append('image', image);
+
+    return this.http.post('/api/player/'+id+'/image', formData);
   }
+
 
 
 

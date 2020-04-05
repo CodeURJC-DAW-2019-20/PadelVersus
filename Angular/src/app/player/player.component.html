@@ -15,10 +15,15 @@
     <div class = "row">
       <div class="col-sm " >
         <app-images [idPlayer]="getId()"></app-images>
-        <ng-container *ngIf="getPlayer()" >
-          <button *ngIf="showMailAndButton()"  (click)="fileInput.click()" type="button" class="btn btn-warning text-uppercase">Edit Image
-          <input #fileInput type="file" [(ngModel)]="newImagePlayer" class="inputFileButton" (change)="changeImage(fileInput)">
-          </button>
+        <ng-container *ngIf="getPlayer() && showMailAndButton()"  >
+          <label class="image-upload-container btn btn-bwm">
+            <span>Select Image</span>
+            <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile(imageInput)">
+          </label>
+
         </ng-container>
 
 

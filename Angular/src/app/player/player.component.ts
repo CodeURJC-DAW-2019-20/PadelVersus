@@ -92,20 +92,24 @@ export class PlayerComponent implements OnInit {
     return  nameStored === this.player.user.name;
   }
 
-  changeImage(imageInput: any) {
+  processFile(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
-    reader.addEventListener('load', (event: any) => {
-      this.newImagePlayer = new Image(event.target.result, file);
-      this.playerService.uploadNewImage(this.player.id, this.newImagePlayer.file).subscribe(
-        _ => {
-          this.ngOnInit();
-        },
-        (error: Error) => console.error('Error : ' + error),
-      );
-    });
-    reader.readAsDataURL(file);
 
+    reader.addEventListener('load', (event: any) => {
+
+      this.newImagePlayer = new Image(event.target.result, file);
+
+      this.playerService.uploadImage(this.newImagePlayer.file, this.id).subscribe(
+        (res) => {
+
+        },
+        (err) => {
+
+        })
+    });
+
+    reader.readAsDataURL(file);
   }
 
   getNewImagePlayer(){
