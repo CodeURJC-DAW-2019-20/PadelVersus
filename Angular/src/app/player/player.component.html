@@ -1,6 +1,6 @@
 
-<div class = "container">
-  <div class = "row" style="padding-top:10%">
+<div class = "container pb-5">
+
     <div class = "row">
       <ng-container *ngIf="getPlayer()">
         <span class="  p-3 mb-2 bg-warning text-white text-uppercase box  ">
@@ -16,13 +16,7 @@
       <div class="col-sm " >
         <app-images [idPlayer]="getId()"></app-images>
         <ng-container *ngIf="getPlayer() && showMailAndButton()"  >
-          <label class="image-upload-container btn btn-bwm">
-            <span>Select Image</span>
-            <input #imageInput
-                   type="file"
-                   accept="image/*"
-                   (change)="processFile(imageInput)">
-          </label>
+
 
         </ng-container>
 
@@ -50,5 +44,10 @@
         </p-card>
       </div>
     </div>
-  </div>
+    <div class = "row">
+      <button *ngIf="showMailAndButton()"  (click)="fileInput.click()" type="button" class="btn btn-warning text-uppercase">Edit Image
+        <input #fileInput type="file"  (change)="processFile(fileInput)">
+      </button>
+    </div>
+
 </div>
