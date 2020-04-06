@@ -38,25 +38,25 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerService.getPlayer(this.id).subscribe(
-        data => {
-          this.player = data;
-          console.log('Player info: ', data);
-        },
-        error => this.handleError(error)
+      data => {
+        this.player = data;
+        console.log('Player info: ', data);
+      },
+      error => this.handleError(error)
     );
     this.playerService.getTournamentsByPlayer(this.id).subscribe(
-        data => {
-          this.tournaments = data;
-          console.log('Tournaments info: ', data);
-        },
-        error => this.handleError(error)
+      data => {
+        this.tournaments = data;
+        console.log('Tournaments info: ', data);
+      },
+      error => this.handleError(error)
     );
     this.playerService.getTeamsByPlayer(this.id).subscribe(
-        data => {
-          this.teams = data;
-          console.log('Teams info: ', data);
-        },
-        error => this.handleError(error)
+      data => {
+        this.teams = data;
+        console.log('Teams info: ', data);
+      },
+      error => this.handleError(error)
     );
 
   }
@@ -100,16 +100,16 @@ export class PlayerComponent implements OnInit {
 
     reader.addEventListener('load', (eventListener: any) => {
 
-          this.newImagePlayer = new Image(eventListener.target.result, file);
+        this.newImagePlayer = new Image(eventListener.target.result, file);
 
-          this.playerService.uploadImage(this.newImagePlayer.file, this.id).subscribe(
-              (res) => {
+        this.playerService.uploadImage(this.newImagePlayer.file, this.id).subscribe(
+          (res) => {
 
-              },
-              (err) => {
+          },
+          (err) => {
 
-              });
-        }
+          });
+      }
     );
 
     reader.readAsDataURL(file);
@@ -126,6 +126,6 @@ export class PlayerComponent implements OnInit {
   }
 
   reload() {
-    window.location.reload();
+    this.router.navigate(['']).then(() => this.router.navigate(['/player'], {queryParams: {id: this.id}}));
   }
 }

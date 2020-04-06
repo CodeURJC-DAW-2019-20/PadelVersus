@@ -11,10 +11,10 @@
               currentPage: pageNumber,
               totalItems: getTeamsPage().length }">
                 <p-card class="center">
-                  <img src="././assets/team-logo2.png" class="img">
+                  <img src="assets/team-logo2.png" class="img">
                   <p-footer>
                     <span class="badge bg-warning text-white">{{e[1]}}</span>
-                    <a href="/teams/{{e[0]}}">
+                    <a [routerLink]="['/teams', e[0]]">
                       <button pButton class="ui-button-warning" icon="pi pi-chart-line" style="margin-top: 5%"></button>
                     </a>
                   </p-footer>

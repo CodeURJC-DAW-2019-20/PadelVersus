@@ -1,2 +1,4 @@
 # Target folder
 /target
+# new folder
+/src/main/resources/static/new

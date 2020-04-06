@@ -38,4 +38,4 @@ pdf_temp/*
 Docker/DemoImages
 Docker/PadelVersus.jar
 
-# Maven target
+/Backend/src/main/resources/static/new/

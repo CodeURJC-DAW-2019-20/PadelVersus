@@ -2,10 +2,10 @@
   <ng-container *ngFor="let team of getRanking()">
     <div class="p-col-12 p-md-6 p-lg-3">
       <p-card class="center">
-        <img src="././assets/team-logo2.png" class="img">
+        <img src="assets/team-logo2.png" class="img">
         <p-footer>
           <span class="badge bg-warning text-white">{{team.name}}</span>
-          <a href="/teams/{{team.id}}">
+          <a [routerLink]="['/teams', team.id]">
             <button pButton class="ui-button-warning" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>
           </a>
         </p-footer>

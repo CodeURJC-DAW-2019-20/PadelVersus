@@ -9,9 +9,9 @@ import {Router} from '@angular/router';
 import {Set} from '../Interfaces/set.model';
 import {TeamMatch} from '../Interfaces/teamMatch.model';
 import {Tournament} from '../Interfaces/tournament.model';
-import {TeamStatistics} from "../Interfaces/teamStatistics.model";
-import {Player} from "../Interfaces/player.model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {TeamStatistics} from '../Interfaces/teamStatistics.model';
+import {Player} from '../Interfaces/player.model';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -134,11 +134,12 @@ export class AdminComponent implements OnInit {
     console.error(this.f.selectedTeam1.value);
     console.error(this.f.selectedTeam2.value);
     console.error(this.f.selectedDate.value);
-    this.adminService.saveMatch(tournamentName, this.f.selectedTeam1.value, this.f.selectedTeam2.value,this.f.selectedDate.value).subscribe(
+    this.adminService.saveMatch(tournamentName, this.f.selectedTeam1.value, this.f.selectedTeam2.value, this.f.selectedDate.value).subscribe(
       data => {
         console.log('Match: ', data);
         this.error = false;
-        this.router.navigate(['/admin']);
+        this.router.navigate(['']).then(() => this.router.navigate['/admin']);
+        // window.location.reload();
       },
       (error: Error) => {
         this.error = true;
@@ -149,6 +150,7 @@ export class AdminComponent implements OnInit {
   statsForm(match: Match) {
     // Stats team 1:
     this.statsMatch1.acurracy = this.acurracy1;
+
     this.statsMatch1.effectiveness = this.effectiveness1;
     this.statsMatch1.unforcedErrors = this.unforcedErrors1;
     this.set.games = this.set1team1;
@@ -195,23 +197,23 @@ export class AdminComponent implements OnInit {
       data => {
         console.error(data);
         this.error = false;
-        this.router.navigate(['/admin']);
+        this.router.navigate(['']).then(() => this.router.navigate['/admin']);
       },
       (error: Error) => {
         this.error = true;
-        console.error('Error saving stat match: ' + error.message)
+        console.error('Error saving stat match: ' + error.message);
       },
     );
   }
 
   saveTournament(tournamentName: string) {
-    if(tournamentName == null){
+    if (tournamentName == null) {
       this.error = true;
-    }else {
+    } else {
       this.adminService.saveTournament(tournamentName).subscribe(
         data => {
           console.error(data);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['']).then(() => this.router.navigate['/admin']);
         },
         (error: Error) => {
           this.error = true;
