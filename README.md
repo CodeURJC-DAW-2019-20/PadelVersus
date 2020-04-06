@@ -551,6 +551,7 @@ With al this steps done, you have an angular application connected with an api, 
 
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
+|--------|--------|--------|--------|--------|--------|--------|
 | Lucas Gómez Torres | LucasGomezTorres | player.component.ts | player.service.ts | radar.component.ts | images.component.ts | player.component.html | 
 | Ivan Martin Sanz | i100van | match.component.ts | match.service.ts | header.component.ts | header.service.ts | footer.component.ts |
 | Daniel Carmona Pedrajas | Dacarpe03 | team.component.ts | team.service.ts | teamsOfTournament.component.ts | linechart.component.ts | donutchart.component.ts |
