@@ -138,9 +138,7 @@ export class AdminComponent implements OnInit {
       data => {
         console.log('Match: ', data);
         this.error = false;
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate(['/admin']);
+        this.router.navigate(['']).then(() => this.router.navigate['/admin']);
         // window.location.reload();
       },
       (error: Error) => {
@@ -199,7 +197,7 @@ export class AdminComponent implements OnInit {
       data => {
         console.error(data);
         this.error = false;
-        window.location.reload();
+        this.router.navigate(['']).then(() => this.router.navigate['/admin']);
       },
       (error: Error) => {
         this.error = true;
@@ -215,7 +213,7 @@ export class AdminComponent implements OnInit {
       this.adminService.saveTournament(tournamentName).subscribe(
         data => {
           console.error(data);
-          window.location.reload();
+          this.router.navigate(['']).then(() => this.router.navigate['/admin']);
         },
         (error: Error) => {
           this.error = true;

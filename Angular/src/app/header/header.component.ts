@@ -84,4 +84,8 @@ export class HeaderComponent implements OnInit {
     }
     return id;
   }
+
+  getPlayers() {
+    return this.players;
+  }
 }

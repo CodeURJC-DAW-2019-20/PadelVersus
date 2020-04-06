@@ -1,4 +1,3 @@
-
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
@@ -19,35 +18,38 @@ import {PlayerComponent} from './player/player.component';
 import {TeamComponent} from './teams/teamPage/team.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {LogOutComponent} from './logOut/logOut.component';
-import {TeamListComponent} from "./teams/teamList.component";
+import {TeamListComponent} from './teams/teamList.component';
 import {TournamentRegistrationComponent} from './tournament/tournament-registration/tournament-registration.component';
 import {AdminAuthGuard} from './adminauth.guard';
 
 const routes: Routes = [
-  { path: 'match/:id', component: MatchComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'tournament', component: TournamentComponent},
-  { path: 'tournament/register', component: TournamentRegistrationComponent, canActivate: [AuthGuard]},
-  { path: 'matches', component: MatchesComponent},
-  { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard]  },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'logout', component: LogOutComponent },
-  { path: 'signupplayer/:id', component: SignUpPlayerComponent},
-  { path: 'signupplayerimage/:id', component: SignUpPlayerImageComponent},
-  { path: 'match', component: MatchComponent},
-  { path: 'tournament/:id', component: TournamentRankingComponent},
-  { path: 'player/:id', component: PlayerComponent},
-  { path: 'teams/:id', component: TeamComponent},
-  { path: 'teams', component: TeamListComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: '404', component: NotFoundComponent},
-  { path: '403', component: ForbiddenComponent},
-  { path: '**', redirectTo: '/404'},
+  {path: 'match/:id', component: MatchComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'tournament', component: TournamentComponent},
+  {path: 'tournament/register', component: TournamentRegistrationComponent, canActivate: [AuthGuard]},
+  {path: 'matches', component: MatchesComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignUpComponent},
+  {path: 'logout', component: LogOutComponent},
+  {path: 'signupplayer/:id', component: SignUpPlayerComponent},
+  {path: 'signupplayerimage/:id', component: SignUpPlayerImageComponent},
+  {path: 'match', component: MatchComponent},
+  {path: 'tournament/:id', component: TournamentRankingComponent},
+  {path: 'player/:id', component: PlayerComponent},
+  {path: 'teams/:id', component: TeamComponent},
+  {path: 'teams', component: TeamListComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '404', component: NotFoundComponent},
+  {path: '403', component: ForbiddenComponent},
+  {path: '**', redirectTo: '/404'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,  { onSameUrlNavigation: 'reload' })],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload',
+    enableTracing: false
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
