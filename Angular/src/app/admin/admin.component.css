@@ -34,6 +34,7 @@ select {
   border: none !important;
 }
 #ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
+  border: none;
   background: #c6a900;
   font-family: Poppins-Regular, sans-serif;
   padding: 20px !important;
@@ -93,4 +94,47 @@ label[for^=win] {
 input[type="checkbox"] {
   width: auto;
   margin-right: 1.5em;
+}
+.squares-1{
+  margin-top: -20px;
+  margin-bottom: -5px;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-left : 50%;
+}
+.squares-2{
+  margin-top: -20px;
+  margin-bottom: -5px;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-left: calc(50% - 12.5px);
+}
+.orange-square{
+  border: 1px solid grey;
+  width:25px;
+  height: 30px;
+  display: inline-block;
+  background: #c6a900;
+}
+.first-orange-square{
+  border: 1px solid grey;
+  border-right: none;
+  width:25px;
+  height: 30px;
+  display: inline-block;
+  background: #c6a900;
+}
+.last-orange-square{
+  border: 1px solid grey;
+  border-left: none;
+  width:25px;
+  height: 30px;
+  display: inline-block;
+  background: #c6a900;
 }
