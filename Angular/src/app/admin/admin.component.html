@@ -1,10 +1,10 @@
-
-<div id="notfound">
-  <div class="notfound">
-    <div class="notfound-404">
-      <h2 class="first">Admin Page</h2>
-      <div *ngIf="error" class="alert alert-danger">ERROR AL GUARDAR LOS DATOS</div>
-      <p-accordion>
+<div id="fluid-container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h2 class="first my-5 text-center">Admin Page</h2>
+      <div *ngIf="error" class="alert alert-danger">Fail to save data</div>
+      <p-accordion collapseIcon="pi pi-minus" expandIcon="pi pi-plus">
         <p-accordionTab header="Add New Matches">
 
           <h4>Choose Tournament:</h4>
@@ -47,72 +47,73 @@
                 {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
               </option>
             </select>
-            <h4 for="team1Stats">Stadistics Team 1:</h4>
-            <div #team1 id="team1Stats1">
-              <div class="form-group">
-                <label>Accuracy:</label>
-                <input type="number" name="acurracy" [(ngModel)]="acurracy1">
+            <div class="form-row">
+              <div #team1 id="team1Stats1" class="col">
+                <h4 for="team1Stats">Stadistics Team 1:</h4>
+                <div class="form-group">
+                  <label>Accuracy:</label>
+                  <input type="number" name="acurracy" [(ngModel)]="acurracy1">
+                </div>
+                <div class="form-group">
+                  <label>Effectiveness:</label>
+                  <input type="number" name="effectiveness" [(ngModel)]="effectiveness1"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>UnforcedErrors:</label>
+                  <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1">
+                </div>
+                <div class="form-group">
+                  <label>Set 1:</label>
+                  <input type="number" name="set1" [(ngModel)]="set1team1"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Set 2:</label>
+                  <input type="number" name="set2" [(ngModel)]="set2team1">
+                </div>
+                <div class="form-group">
+                  <label>Set 3:</label>
+                  <input type="number" name="set3" [(ngModel)]="set3team1"
+                  >
+                </div>
+                <div class="form-group">
+                  <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
+                  <label for="win1">Win the match</label>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Effectiveness:</label>
-                <input type="number" name="effectiveness" [(ngModel)]="effectiveness1"
-                       style="background: transparent; color: #ffa000">
-              </div>
-              <div class="form-group">
-                <label>UnforcedErrors:</label>
-                <input type="number" name="unforcedErrors" [(ngModel)]="unforcedErrors1">
-              </div>
-              <div class="form-group">
-                <label>Set 1:</label>
-                <input type="number" name="set1" [(ngModel)]="set1team1"
-                       style="background: transparent; color: #ffa000">
-              </div>
-              <div class="form-group">
-                <label>Set 2:</label>
-                <input type="number" name="set2" [(ngModel)]="set2team1">
-              </div>
-              <div class="form-group">
-                <label>Set 3:</label>
-                <input type="number" name="set3" [(ngModel)]="set3team1"
-                       style="background: transparent; color: #ffa000">
-              </div>
-              <div class="form-group">
-                <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
-                <label for="win1">Win the match</label>
-              </div>
-            </div>
-            <h4 for="team1Stats">Stadistics Team 2:</h4>
-            <div id="team2Stats1" #team2>
-              <div class="form-group">
-                <label>Accuracy:</label>
-                <input type="number" name="acurracy1" [(ngModel)]="acurracy2"
-                       style="background: transparent; color: #ffa000">
-              </div>
-              <div class="form-group">
-                <label>Effectiveness:</label>
-                <input type="number" name="effectiveness1" [(ngModel)]="effectiveness2">
-              </div>
-              <div class="form-group">
-                <label>UnforcedErrors:</label>
-                <input type="number" name="unforcedErrors1" [(ngModel)]="unforcedErrors2"
-                       style="background: transparent; color: #ffa000;">
-              </div>
-              <div class="form-group">
-                <label>Set 1:</label>
-                <input type="number" name="set11" [(ngModel)]="set1team2">
-              </div>
-              <div class="form-group">
-                <label>Set 2:</label>
-                <input type="number" name="set21" [(ngModel)]="set2team2"
-                       style="background: transparent; color: #ffa000">
-              </div>
-              <div class="form-group">
-                <label>Set 3:</label>
-                <input type="number" name="set31" [(ngModel)]="set3team2">
-              </div>
-              <div class="form-group">
-                <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
-                <label for="win2">Win the match</label>
+              <div id="team2Stats1" class="col" #team2>
+                <h4 for="team1Stats">Stadistics Team 2:</h4>
+                <div class="form-group">
+                  <label>Accuracy:</label>
+                  <input type="number" name="acurracy1" [(ngModel)]="acurracy2"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Effectiveness:</label>
+                  <input type="number" name="effectiveness1" [(ngModel)]="effectiveness2">
+                </div>
+                <div class="form-group">
+                  <label>UnforcedErrors:</label>
+                  <input type="number" name="unforcedErrors1" [(ngModel)]="unforcedErrors2">
+                </div>
+                <div class="form-group">
+                  <label>Set 1:</label>
+                  <input type="number" name="set11" [(ngModel)]="set1team2">
+                </div>
+                <div class="form-group">
+                  <label>Set 2:</label>
+                  <input type="number" name="set21" [(ngModel)]="set2team2"
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Set 3:</label>
+                  <input type="number" name="set31" [(ngModel)]="set3team2">
+                </div>
+                <div class="form-group">
+                  <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
+                  <label for="win2">Win the match</label>
+                </div>
               </div>
             </div>
             <button class="btn btn-success" type="submit">Save</button>
@@ -133,5 +134,6 @@
         </p-accordionTab>
       </p-accordion>
     </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
