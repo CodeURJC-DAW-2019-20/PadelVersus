@@ -534,6 +534,13 @@ To stop the application and remove containers and network (it does not remove th
 # Fase 4
 ## Description of the Fase
 
+In this phase, we have to create an angular application connected with the api rest created in the phase 3.
+The first step is installing ```node.js, npm and angular cli```. With all this correctly installed, we can create a new angular proyect in the IDE you are working on.
+The next step is creating all the configuration necessary to create each module. Each part is in a folder with a component.ts where is all the logic connected with a componen.html, also a component.css with the style for this html and service.ts where you make the get, post, put or delete request to the API.
+Finally, you can modify the html template making it more beautiful using ng-material, Bootstrap or primeng.
+The last step, if you want to upload to Docker. You have to add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build. 
+With al this steps done, you have an angular application connected with an api, and Working all of this in Docker, with an springboot backend and an independent front with mustache.
+
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
@@ -544,8 +551,7 @@ To stop the application and remove containers and network (it does not remove th
 
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
-|Lucas Gómez Torres|LucasGomezTorres|player.component.ts|player.service.ts|radar.component.ts|images.component.ts|
-|player.component.html| 
+| Lucas Gómez Torres | LucasGomezTorres | player.component.ts | player.service.ts | radar.component.ts | images.component.ts | player.component.html | 
 | Ivan Martin Sanz | i100van | match.component.ts | match.service.ts | header.component.ts | header.service.ts | footer.component.ts |
 | Daniel Carmona Pedrajas | Dacarpe03 | team.component.ts | team.service.ts | teamsOfTournament.component.ts | linechart.component.ts | donutchart.component.ts |
 | Alejandro Checa Folguera | AlexCh98 | signUp.component.ts | signUpPlayer.service.ts | admin.component.ts | admin.service.ts | authentication.service.ts |
@@ -553,7 +559,7 @@ To stop the application and remove containers and network (it does not remove th
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
-|Lucas Gómez Torres|LucasGomezTorres|All the funcionalities of the player component and their templates. Also all the funcionalities of the images of the page, uploads images and change images|
+| Lucas Gómez Torres | LucasGomezTorres | All the funcionalities of the player component and their templates. Also all the funcionalities of the images of the page, uploads images and change images |
 | Ivan Martin Sanz | i100van | Mainly tasks related to matches, and how to show them. Also header and footer with logic related to the kind of user, in all cases services to the templates of each component |
 | Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component. Also helped in changing the image of a player |
 | Alejandro Checa Folguera | AlexCh98 | Mainly all the login, log out, sign up, sign up player tasks. Also all the authentication service logic and all the admin page for adding new match, new stats match... |
