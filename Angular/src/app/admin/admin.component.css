@@ -25,10 +25,15 @@ select {
 .ui-accordion-header {
   display: block;
   margin-bottom: 20px !important;
-  color: black !important;
+  color: black;
 }
-
-#ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5{
+.ui-state-active > a >span{
+  color: white !important;
+}
+.ui-state-active > a {
+  border: none !important;
+}
+#ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
   background: #c6a900;
   font-family: Poppins-Regular, sans-serif;
   padding: 20px !important;
@@ -37,7 +42,7 @@ select {
   line-height: 41px;
 }
 
-#ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5{
+#ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
   line-height: unset !important;
   padding: unset !important;
 }
@@ -56,19 +61,21 @@ select {
 }
 
 .ui-accordion-header-text {
-  color: black !important;
+  color: black ;
 }
 
-.ui-accordion-content{
+.ui-accordion-content {
   margin-top: -20px;
   margin-bottom: 20px;
   border: none !important;
-  background:rgb(236, 240, 241) !important;
+  background: rgb(236, 240, 241) !important;
 }
+
 h4 {
-  margin-top:0.5em !important;
+  margin-top: 0.5em !important;
   font-family: "Open Sans", sans-serif;
 }
+
 input {
   width: 100%;
   padding: 12px 20px;
@@ -77,4 +84,13 @@ input {
   border: none;
   background-color: #ffa000;
   color: #000000;
+}
+
+label[for^=win] {
+  margin-right: 1em;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 1.5em;
 }

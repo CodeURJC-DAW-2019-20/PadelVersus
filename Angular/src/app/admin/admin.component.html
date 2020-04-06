@@ -33,7 +33,7 @@
                     <h4>Choose Date (Format: 2020-03-06):</h4>
                     <input type="text" name="date" formControlName="selectedDate">
                   </div>
-                  <button class="btn btn-success" type="submit">Save</button>
+                  <button class="btn btn-warning" type="submit">Save</button>
                 </form>
               </p-accordionTab>
             </p-accordion>
@@ -77,10 +77,6 @@
                   <input type="number" name="set3" [(ngModel)]="set3team1"
                   >
                 </div>
-                <div class="form-group">
-                  <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
-                  <label for="win1">Win the match</label>
-                </div>
               </div>
               <div id="team2Stats1" class="col" #team2>
                 <h4 for="team1Stats">Stadistics Team 2:</h4>
@@ -110,13 +106,16 @@
                   <label>Set 3:</label>
                   <input type="number" name="set31" [(ngModel)]="set3team2">
                 </div>
-                <div class="form-group">
-                  <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
-                  <label for="win2">Win the match</label>
-                </div>
               </div>
             </div>
-            <button class="btn btn-success" type="submit">Save</button>
+            <h4 >Win:</h4>
+            <div class="form-group">
+              <label for="win1">Team 1</label>
+              <input id="win1" name="win" [(ngModel)]="win1" type="checkbox">
+              <label for="win2">Team 2</label>
+              <input id="win2" name="win1" [(ngModel)]="win2" type="checkbox">
+            </div>
+            <button class="btn btn-warning" type="submit">Save</button>
           </form>
         </p-accordionTab>
         <p-accordionTab header="Add New Tournament">
@@ -124,12 +123,11 @@
             <h4>Tournament Name:</h4>
             <div id="tournamentName">
               <div class="form-group">
-                <label>Tournament:</label>
                 <input type="text" placeholder="Type Tournament Name" name="tournament" [(ngModel)]="tournamentName"
                 >
               </div>
             </div>
-            <button class="btn btn-success" type="submit">Save</button>
+            <button class="btn btn-warning" type="submit">Save</button>
           </form>
         </p-accordionTab>
       </p-accordion>
