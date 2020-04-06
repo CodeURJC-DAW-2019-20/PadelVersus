@@ -20,6 +20,7 @@ import {SignUpComponent} from './signUp/signUp.component';
 import {LoginComponent} from './logIn/login.component';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
 import {SignUpPlayerComponent} from './signUpPlayer/signUpPlayer.component';
+import {SignUpPlayerImageComponent} from './signUpPlayer/signUpPlayerImage.component';
 import {HomeComponent} from './home/home.component';
 import {TournamentComponent} from './tournament/tournament.component';
 import {TournamentRankingComponent} from './tournament/tournament-ranking/tournament-ranking.component';
@@ -83,6 +84,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     SignUpComponent,
     LoginComponent,
     SignUpPlayerComponent,
+    SignUpPlayerImageComponent,
     LogOutComponent,
     RadarComponent,
     LinechartComponent,
