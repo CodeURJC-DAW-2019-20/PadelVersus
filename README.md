@@ -537,13 +537,15 @@ To stop the application and remove containers and network (it does not remove th
 ## Top 5 Most Important Commits
 | Name | Github user | Most Important | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
+|Lucas Gómez Torres|LucasGomezTorres|[FuncionalitiesPlayerPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/eeb0eb1bf52b426e6d32ade7543a721db257cfe8)|[DesignPlayerPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/30b0ba29e4c5a0afbcf68842b84353713add21d7)|[Upload Images Working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/4a5f0d003a8268190dceb782320c76319cd77dbf)|[Changes Images Working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/59576e85b3f59a65f6cce199fff44b396f3247b0)|[showEmailIfPlayerIsLogged](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/84104db78f6557e688c85691786b20dec2b2f33e)|
 | Ivan Martin Sanz | i100van | [FinishedMatchPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/aba78e9643dd8fdab6bedf5e339a11761d9a3925) | [NavBar](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/286c7bd50f79992a7af3ad95f3b0b354df30f69e) | [Footer](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a73746dd590fc752d0bdb2c4b1152953a181b515) | [AllMatches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/55974b44a83a1aacd0728efcdcd8f58543435402) | [LogicButtons](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/cf6f4b93be3ced213991889bcd22effda18962c2)|
 | Daniel Carmona Pedrajas | Dacarpe03 | [TeamPageRemake](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/4453a96f9e6942683eb4057a6e377e81f44a5cde) | [TeamsPagination](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/d7c3b8f52d776c70e6916fca621158974fa694eb) | [ListTeamsPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/f5108275e040066a3e2ca7bd3d44215f0863cc9e) | [TeamService](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/bee62d4e7db0bae526a7d94fd204f97c2dbee2d5) | [PhotosCard](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/af569a7ccc2e63b1d538f63870fc3d35fcf2831e) |
 | Alejandro Checa Folguera | AlexCh98 | [log in, sign up, sign up player working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/da2cd42fa72890b707bc34b37bde710f54d3adab) | [Admin Page working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/9140434c395acfef40bcdb816271c94b6199e762) | [Sign up player working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/3fd3c282f165d102bd685acd3e5da7c47dc11938) | [Sign Up User working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/619f09fe3d8fa1e0708d83a18ffacb0cf93360b3) | [Log In working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/21df56ff0d38d9ecabb1a509bcb824ad9f7f7576) |
 
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
-|--------|--------|--------|--------|--------|--------|--------|
+|Lucas Gómez Torres|LucasGomezTorres|player.component.ts|player.service.ts|radar.component.ts|images.component.ts|
+|player.component.html| 
 | Ivan Martin Sanz | i100van | match.component.ts | match.service.ts | header.component.ts | header.service.ts | footer.component.ts |
 | Daniel Carmona Pedrajas | Dacarpe03 | team.component.ts | team.service.ts | teamsOfTournament.component.ts | linechart.component.ts | donutchart.component.ts |
 | Alejandro Checa Folguera | AlexCh98 | signUp.component.ts | signUpPlayer.service.ts | admin.component.ts | admin.service.ts | authentication.service.ts |
@@ -551,6 +553,7 @@ To stop the application and remove containers and network (it does not remove th
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
+|Lucas Gómez Torres|LucasGomezTorres|All the funcionalities of the player component and their templates. Also all the funcionalities of the images of the page, uploads images and change images|
 | Ivan Martin Sanz | i100van | Mainly tasks related to matches, and how to show them. Also header and footer with logic related to the kind of user, in all cases services to the templates of each component |
 | Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component. Also helped in changing the image of a player |
 | Alejandro Checa Folguera | AlexCh98 | Mainly all the login, log out, sign up, sign up player tasks. Also all the authentication service logic and all the admin page for adding new match, new stats match... |
