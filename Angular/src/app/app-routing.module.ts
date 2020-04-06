@@ -13,6 +13,7 @@ import {AdminComponent} from './admin/admin.component';
 import {LoginComponent} from './logIn/login.component';
 import {SignUpComponent} from './signUp/signUp.component';
 import {SignUpPlayerComponent} from './signUpPlayer/signUpPlayer.component';
+import {SignUpPlayerImageComponent} from './signUpPlayer/signUpPlayerImage.component';
 import {TournamentRankingComponent} from './tournament/tournament-ranking/tournament-ranking.component';
 import {PlayerComponent} from './player/player.component';
 import {TeamComponent} from './teams/teamPage/team.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'logout', component: LogOutComponent },
   { path: 'signupplayer/:id', component: SignUpPlayerComponent},
+  { path: 'signupplayerimage/:id', component: SignUpPlayerImageComponent},
   { path: 'match', component: MatchComponent},
   { path: 'tournament/:id', component: TournamentRankingComponent},
   { path: 'player/:id', component: PlayerComponent},
