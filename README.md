@@ -548,7 +548,7 @@ With al this steps done, you have an angular application connected with an api, 
 | Ivan Martin Sanz | i100van | [FinishedMatchPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/aba78e9643dd8fdab6bedf5e339a11761d9a3925) | [NavBar](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/286c7bd50f79992a7af3ad95f3b0b354df30f69e) | [Footer](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/a73746dd590fc752d0bdb2c4b1152953a181b515) | [AllMatches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/55974b44a83a1aacd0728efcdcd8f58543435402) | [LogicButtons](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/cf6f4b93be3ced213991889bcd22effda18962c2)|
 | Daniel Carmona Pedrajas | Dacarpe03 | [TeamPageRemake](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/4453a96f9e6942683eb4057a6e377e81f44a5cde) | [TeamsPagination](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/d7c3b8f52d776c70e6916fca621158974fa694eb) | [ListTeamsPage](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/f5108275e040066a3e2ca7bd3d44215f0863cc9e) | [TeamService](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/bee62d4e7db0bae526a7d94fd204f97c2dbee2d5) | [PhotosCard](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/af569a7ccc2e63b1d538f63870fc3d35fcf2831e) |
 | Alejandro Checa Folguera | AlexCh98 | [log in, sign up, sign up player working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/da2cd42fa72890b707bc34b37bde710f54d3adab) | [Admin Page working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/9140434c395acfef40bcdb816271c94b6199e762) | [Sign up player working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/3fd3c282f165d102bd685acd3e5da7c47dc11938) | [Sign Up User working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/619f09fe3d8fa1e0708d83a18ffacb0cf93360b3) | [Log In working](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/21df56ff0d38d9ecabb1a509bcb824ad9f7f7576) |
-
+| José Luis Lavado Sánchez | lujoselu98 | [Tournament ranking](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/deaf21b04a3c16a3d1c38202e61884073c1a002d) | [Home](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/76c1e26af1d5319a0025b8d5645076ff36ba4bc3) | [Matches](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/210615084df7f99172bf2f5980223983dc37fb7d) | [Navigation](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/f1aef5d94ccde278c672461163706e9118f628b7) | [Error Pages](https://github.com/CodeURJC-DAW-2019-20/PadelVersus/commit/1f9105df7d72134eb4103b3e6dee4c0e1fc44948) |
 ## Files focused on
 | Name | Github user | 1 | 2 | 3 | 4 | 5 |
 |--------|--------|--------|--------|--------|--------|--------|
@@ -556,7 +556,7 @@ With al this steps done, you have an angular application connected with an api, 
 | Ivan Martin Sanz | i100van | match.component.ts | match.service.ts | header.component.ts | header.service.ts | footer.component.ts |
 | Daniel Carmona Pedrajas | Dacarpe03 | team.component.ts | team.service.ts | teamsOfTournament.component.ts | linechart.component.ts | donutchart.component.ts |
 | Alejandro Checa Folguera | AlexCh98 | signUp.component.ts | signUpPlayer.service.ts | admin.component.ts | admin.service.ts | authentication.service.ts |
-
+| José Luis Lavado Sánchez | lujoselu98 | tournament.service.ts | tournament-registration.component.ts | tournament-ranking.component.ts | home.component.ts | next-matches-date.component.ts |
 ## Textual Description Of Work
 | Name | Github user | Description |
 |--------|--------|--------|
@@ -564,6 +564,7 @@ With al this steps done, you have an angular application connected with an api, 
 | Ivan Martin Sanz | i100van | Mainly tasks related to matches, and how to show them. Also header and footer with logic related to the kind of user, in all cases services to the templates of each component |
 | Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component. Also helped in changing the image of a player |
 | Alejandro Checa Folguera | AlexCh98 | Mainly all the login, log out, sign up, sign up player tasks. Also all the authentication service logic and all the admin page for adding new match, new stats match... |
+| José Luis Lavado Sánchez | lujoselu98 |Mainly all home, matches and tournament ranking and registration pages. Also make navigation and error pages (404, 403) and help with style apperance|
 
 ## Prepare Develop Enviroment
 
