@@ -553,5 +553,6 @@ To stop the application and remove containers and network (it does not remove th
 ## Prepare Develop Enviroment
 
 ## Class/Templates Diagram
-
+Here we can see the SPA diagram os the angular application.
+![Fase4_Diagram](WebImages/SPADiagram.png)
 ## Link to youtube
