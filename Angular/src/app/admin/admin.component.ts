@@ -138,7 +138,10 @@ export class AdminComponent implements OnInit {
       data => {
         console.log('Match: ', data);
         this.error = false;
-        window.location.reload();
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(['/admin']);
+        // window.location.reload();
       },
       (error: Error) => {
         this.error = true;
@@ -149,6 +152,7 @@ export class AdminComponent implements OnInit {
   statsForm(match: Match) {
     // Stats team 1:
     this.statsMatch1.acurracy = this.acurracy1;
+
     this.statsMatch1.effectiveness = this.effectiveness1;
     this.statsMatch1.unforcedErrors = this.unforcedErrors1;
     this.set.games = this.set1team1;
