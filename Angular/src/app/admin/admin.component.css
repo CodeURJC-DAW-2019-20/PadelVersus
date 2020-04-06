@@ -1,28 +1,3 @@
-.text-center {
-  text-align: center;
-}
-.colorTab{
-  background-color: #d39e00;
-}
-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: #ffa000;
-  color: #000000;
-}
-p-accordionTab {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: #ffa000;
-  color: #000000;
-}
-
 select {
   width: 100%;
   padding: 12px 20px;
@@ -33,202 +8,133 @@ select {
   color: #000000;
   font-family: 'Montserrat', sans-serif;
 }
-.error{
+
+.first {
+  font-size: 40px;
+  text-shadow: 4px 4px 5px #c6a900;
+  text-transform: uppercase;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.error {
   font-size: 20px;
 }
-.login-logo {
-  height: 100%;
-  width: 100%;
+
+.ui-accordion-header {
+  display: block;
+  margin-bottom: 20px !important;
+  color: black;
 }
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.ui-state-active > a >span{
+  color: white !important;
+}
+.ui-state-active > a {
+  border: none !important;
+}
+#ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
+  border: none;
+  background: #c6a900;
+  font-family: Poppins-Regular, sans-serif;
+  padding: 20px !important;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 41px;
 }
 
-body {
-  padding: 0;
-  margin: 0;
+#ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
+  line-height: unset !important;
+  padding: unset !important;
 }
 
-#notfound {
-  position: relative;
-  height: 100vh;
- /* background: url("../../assets/404Background.jpg") no-repeat center;
-  background-size: cover;*/
-  background-color: white;
+#ui-accordiontab-0:focus, #ui-accordiontab-1:focus, #ui-accordiontab-2:focus, #ui-accordiontab-3:focus, #ui-accordiontab-4:focus, #ui-accordiontab-5:focus {
+  outline: none;
 }
 
-#notfound .notfound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+#ui-accordiontab-0:hover, #ui-accordiontab-1:hover, #ui-accordiontab-2:hover, #ui-accordiontab-3:hover, #ui-accordiontab-4:hover, #ui-accordiontab-5:hover {
+  background: #e99f00;
 }
 
-.notfound {
-  max-width: 767px;
-  width: 100%;
-  line-height: 1.4;
-  text-align: center;
+.ui-accordion-toggle-icon {
+  float: right;
+  color: black !important;
 }
 
-.notfound .notfound-404 {
-  position: relative;
-  height: 180px;
+.ui-accordion-header-text {
+  color: black ;
+}
+
+.ui-accordion-content {
+  margin-top: -20px;
   margin-bottom: 20px;
-  z-index: -1;
+  border: none !important;
+  background: rgb(236, 240, 241) !important;
 }
 
-.notfound .notfound-404 h1 {
-  font-family: 'Montserrat', sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50% , -50%);
-  -ms-transform: translate(-50% , -50%);
-  transform: translate(-50% , -50%);
-  font-size: 50px;
-  font-weight: 200;
-  margin-top: -150px;
-  margin-bottom: 0px;
-  margin-left: -12px;
-  color: rgb(255, 160, 0);
-  text-transform: uppercase;
-  text-shadow: -2px -2px 0px #ffcc00, 2px 2px 0px #ffa000;
-  letter-spacing: 10px;
+h4 {
+  margin-top: 0.5em !important;
+  font-family: "Open Sans", sans-serif;
 }
 
-
-.notfound .notfound-404 h2 {
-  font-family: 'Montserrat', sans-serif;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 110px;
-  font-size: 42px;
-  font-weight: 700;
-  margin-top: -200px;
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #ffa000;
   color: #000000;
-  text-transform: uppercase;
-  text-shadow: 0px 3px 0px #ffa000;
-  letter-spacing: 13px;
-
 }
 
-.notfound a {
-  font-family: 'Montserrat', sans-serif;
+label[for^=win] {
+  margin-right: 1em;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 1.5em;
+}
+.squares-1{
+  margin-top: -20px;
+  margin-bottom: -5px;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-left : 50%;
+}
+.squares-2{
+  margin-top: -20px;
+  margin-bottom: -5px;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-left: calc(50% - 12.5px);
+}
+.orange-square{
+  border: 1px solid grey;
+  width:25px;
+  height: 30px;
   display: inline-block;
-  text-transform: uppercase;
-  color: #ffa000;
-  text-decoration: none;
-  border: 2px solid;
-  background: transparent;
-  padding: 10px 40px;
-  font-size: 14px;
-  font-weight: 700;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
+  background: #c6a900;
 }
-.notfound button {
-  font-family: 'Montserrat', sans-serif;
+.first-orange-square{
+  border: 1px solid grey;
+  border-right: none;
+  width:25px;
+  height: 30px;
   display: inline-block;
-  text-transform: uppercase;
-  color: #ffa000;
-  text-decoration: none;
-  border: 2px solid;
-  background: transparent;
-  padding: 10px 40px;
-  font-size: 14px;
-  font-weight: 700;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
+  background: #c6a900;
 }
-
-.notfound a:hover {
-  color: #8400ff;
-}
-
-@media only screen and (max-width: 767px) {
-  .notfound .notfound-404 h2 {
-    font-size: 24px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .notfound .notfound-404 h1 {
-    font-size: 182px;
-  }
-}
-
-
-/* CHECK BOX STYLE */
-p {
-  font-family: Lato;
-}
-/* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.last-orange-square{
+  border: 1px solid grey;
+  border-left: none;
+  width:25px;
+  height: 30px;
+  display: inline-block;
+  background: #c6a900;
 }
