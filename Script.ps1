@@ -53,7 +53,6 @@ docker rmi teampina/padelversus
 docker image build -t teampina/padelversus -f Backend.Dockerfile .
 
 # We push the images to docker hub
-push teampina/padelversus
-push teampina/node-js
+docker push teampina/padelversus
 # We reutrned to the started directory
 cd ..
