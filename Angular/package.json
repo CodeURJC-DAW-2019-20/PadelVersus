@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod --baseHref=/new/ --verbose=true",
+    "build": "npm install && ng build --prod --baseHref=/new/ --verbose=true --progress=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
