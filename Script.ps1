@@ -23,7 +23,7 @@ if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
 }
 
 if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
-    echo "Angular compilation fail"
+    echo "Move folder fails"
     exit
 }
 
