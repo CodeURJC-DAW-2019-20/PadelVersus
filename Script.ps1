@@ -3,14 +3,17 @@
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File D:\EntornoDesarrollo\DAW\PadelVersus\Script.ps1
 # Execution with log41
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $true
-cd Docker
-docker rmi teampina/node-js
-docker image build -t teampina/node-js -f Frontend.Dockerfile .
-cd ..
+
 
 cd Angular
-docker run  -v "$(pwd):/usr/src/app" teampina/node-js
+docker run --rm -it -v "$(pwd):/usr/src/app" -w "/usr/src/app"  node:12.16.2-alpine npm run build
 cd ..
+
+
+if (!(Test-Path ./Angular/dist/angular -PathType Any)){
+    echo "Angular compilation fail"
+    exit
+}
 
 if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
     Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
@@ -18,7 +21,11 @@ if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
     Remove-Item -Recurse -Force ./Backend/src/main/resources/static/new
     Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
 }
-Remove-Item -Recurse -Force ./Angular/dist
+
+if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+    echo "Angular compilation fail"
+    exit
+}
 
 cd Backend
 # Clean and packge using local .m2 repository to do not download already gotten libraries

@@ -19,6 +19,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -28,7 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class PadelversusApplication implements ApplicationRunner {
+public class PadelversusApplication implements ApplicationRunner  {
+
+
 
     private static final Path DEMO_FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "DemoImages");
 

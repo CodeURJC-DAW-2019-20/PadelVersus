@@ -59,6 +59,7 @@ import { TournamentRegistrationComponent } from './tournament/tournament-registr
 import {DropdownModule} from 'primeng/dropdown';
 import { AfterIfDirective } from './tournament/after-if.directive';
 import {NgxPaginationModule} from "ngx-pagination";
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 @NgModule({
   declarations: [
     FooterComponent,
@@ -121,6 +122,7 @@ import {NgxPaginationModule} from "ngx-pagination";
   providers: [AuthenticationService, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

@@ -54,7 +54,7 @@ export class PlayerService {
   }
 
   getAllPlayers() {
-    return this.http.get<Player[]>('api/players').pipe(
+    return this.http.get<Player[]>('/api/players').pipe(
       map(response => response)
     );
   }
