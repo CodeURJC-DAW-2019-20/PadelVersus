@@ -1,10 +1,10 @@
-.sectionTitle{
+.sectionTitle {
   font-size: 24px;
   font-weight: 900;
   text-transform: uppercase
 }
 
-.badge{
+.badge {
   margin-top: 7px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -17,14 +17,25 @@
   text-transform: uppercase;
 }
 
-.center{
-  justify-content:center;
+.center {
+  justify-content: center;
   align-items: center;
   align-content: center;
   text-align: center
 }
 
-.black-border{
+.black-border {
   border: black solid 1px !important;
 }
+.player-card{
+  width: 75%;
+}
+.player-card:hover {
+  box-shadow: 0 0 17px -6px #000 !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
 
