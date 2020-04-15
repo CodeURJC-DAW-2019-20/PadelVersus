@@ -562,7 +562,7 @@ With al this steps done, you have an angular application connected with an api, 
 |--------|--------|--------|
 | Lucas Gómez Torres | LucasGomezTorres | All the funcionalities of the player component and their templates. Also all the funcionalities of the images of the page, uploads images and change images |
 | Ivan Martin Sanz | i100van | Mainly tasks related to matches, and how to show them. Also header and footer with logic related to the kind of user, in all cases services to the templates of each component |
-| Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component. Also helped in changing the image of a player |
+| Daniel Carmona Pedrajas | Dacarpe03 | Mainly tasks related to teams component, from the services to the templates of each component and pagination functionality. Also helped in changing the image of a player |
 | Alejandro Checa Folguera | AlexCh98 | Mainly all the login, log out, sign up, sign up player tasks. Also all the authentication service logic and all the admin page for adding new match, new stats match... |
 | José Luis Lavado Sánchez | lujoselu98 |Mainly all home, matches and tournament ranking and registration pages. Also make navigation and error pages (404, 403) and help with style apperance|
 
