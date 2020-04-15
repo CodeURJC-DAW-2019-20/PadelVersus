@@ -23,7 +23,7 @@ export class TeamListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageNumber = 1;
+    this.pageNumber = 0;
     this.teamService.getPageTeam(this.pageNumber).subscribe(
       data => {
         this.teamsPage = data;
@@ -57,8 +57,12 @@ export class TeamListComponent implements OnInit {
     this.pageNumber += 1;
     this.teamService.getPageTeam(this.pageNumber).subscribe(
       data => {
-        this.teamsPage.concat(data);
-        console.log('Page: ', this.teamsPage)
+        let more: TeamOfPage[] = data;
+
+        for (const t in more){
+          this.teamsPage.push(more[t]);
+        }
+        console.log('Page: ',this.pageNumber, ' ,Data:', more, 'TEAMPAGE:', this.teamsPage)
       },
       error => this.handleError(error)
     );
