@@ -13,6 +13,7 @@ import {TeamService} from "./teamPage/team.service";
 })
 export class TeamListComponent implements OnInit {
 
+  private showSpinner: boolean = true;
   private tournaments: Tournament[] = [];
   public pageNumber: number;
   public pageSize = 4;
@@ -31,7 +32,7 @@ export class TeamListComponent implements OnInit {
       },
       error => this.handleError(error)
     );
-
+    this.showSpinner = false;
     this.tournamentService.getTournaments().subscribe(
       data => {
         this.tournaments = data;
@@ -39,6 +40,7 @@ export class TeamListComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+    this.showSpinner = false;
   }
 
   private handleError(error: any) {
@@ -54,17 +56,22 @@ export class TeamListComponent implements OnInit {
   }
 
   public loadMore(){
+    this.showSpinner = true;
     this.pageNumber += 1;
     this.teamService.getPageTeam(this.pageNumber).subscribe(
       data => {
         let more: TeamOfPage[] = data;
-
         for (const t in more){
           this.teamsPage.push(more[t]);
         }
+        this.showSpinner = false;
         console.log('Page: ',this.pageNumber, ' ,Data:', more, 'TEAMPAGE:', this.teamsPage)
       },
       error => this.handleError(error)
     );
+  }
+
+  public getShowSpinner(){
+    return this.showSpinner;
   }
 }
