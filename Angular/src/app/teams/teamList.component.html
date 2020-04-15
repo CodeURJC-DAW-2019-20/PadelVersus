@@ -26,8 +26,8 @@
               <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
             </div>
           </p-tabPanel>
-
         </ng-container>
+
         <ng-container *ngFor="let tournament of getTournaments(); let i = index">
           <p-tabPanel header="{{tournament.name}}">
             <app-teamsOfTournament [id]="tournament.id"></app-teamsOfTournament>
