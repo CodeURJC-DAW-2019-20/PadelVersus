@@ -36,9 +36,10 @@ public class TeamsRestController {
     @GetMapping("/teamsList/")
     public List<String[]> returnAllTeams(Pageable page) {
         Page<Team> pages = teamService.getPages(page);
-        List<String[]> pageTeamNames = teamService.getPageTeamNames(pages);
-        return pageTeamNames;
+        return teamService.getPageTeamNames(pages);
     }
+
+
 
     @JsonView(BasicTeam.class)
     @GetMapping("/teams/")

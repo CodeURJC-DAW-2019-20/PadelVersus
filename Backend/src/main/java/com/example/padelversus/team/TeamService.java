@@ -76,7 +76,9 @@ public class TeamService {
             String[] info = {Long.toString(t.getId()), t.getName()};
             pageTeamNames.add(info);
         }
-
+        if(pages.isLast()){
+            pageTeamNames.add(new String[]{"Last"});
+        }
         return pageTeamNames;
     }
 
