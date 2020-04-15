@@ -54,8 +54,12 @@ export class AdminComponent implements OnInit {
   statsMatch1: MatchStatistics;
   statsMatch2: MatchStatistics;
   sets: Set[] = [];
-  set: Set;
-
+  set1: Set;
+  set2: Set;
+  set3: Set;
+  set11: Set;
+  set22: Set;
+  set33: Set;
   tournamentName: string;
 
 
@@ -92,11 +96,37 @@ export class AdminComponent implements OnInit {
       unforcedErrors: number;
       win: boolean;
     };
-    this.set = new class implements Set {
+    this.set1 = new class implements Set {
       games: number;
       id: number;
       setNumber: number;
     };
+    this.set2 = new class implements Set {
+      games: number;
+      id: number;
+      setNumber: number;
+    };
+    this.set3 = new class implements Set {
+      games: number;
+      id: number;
+      setNumber: number;
+    };
+    this.set11 = new class implements Set {
+      games: number;
+      id: number;
+      setNumber: number;
+    };
+    this.set22 = new class implements Set {
+      games: number;
+      id: number;
+      setNumber: number;
+    };
+    this.set33 = new class implements Set {
+      games: number;
+      id: number;
+      setNumber: number;
+    };
+    this.sets = [];
 
     this.saveMatchForm = this.formBuilder.group({
       selectedTeam1: ['', Validators.required],
@@ -154,45 +184,54 @@ export class AdminComponent implements OnInit {
 
     this.statsMatch1.effectiveness = this.effectiveness1;
     this.statsMatch1.unforcedErrors = this.unforcedErrors1;
-    this.set.games = this.set1team1;
-    this.set.setNumber = 1;
-    this.sets.concat(this.set);
-    this.set.games = this.set2team1;
-    this.set.setNumber = 2;
-    this.sets.concat(this.set);
-    this.set.games = this.set3team1;
-    this.set.setNumber = 3;
-    this.sets.concat(this.set);
+    this.set1.games = this.set1team1;
+    this.set1.setNumber = 1;
+    this.sets.push(this.set1);
+    console.log(this.set1);
+    this.set2.games = this.set2team1;
+    this.set2.setNumber = 2;
+    this.sets.push(this.set2);
+    console.log(this.set2);
+    this.set3.games = this.set3team1;
+    this.set3.setNumber = 3;
+    this.sets.push(this.set3);
+    console.log(this.set3);
     this.statsMatch1.sets = this.sets;
     if (this.win1 != true) {
       this.statsMatch1.win = false;
     } else {
       this.statsMatch1.win = this.win1;
     }
+    console.log(this.statsMatch1.sets);
     this.sets = [];
 
     // Stats team 2:
     this.statsMatch2.acurracy = this.acurracy2;
     this.statsMatch2.effectiveness = this.effectiveness2;
     this.statsMatch2.unforcedErrors = this.unforcedErrors2;
-    this.set.games = this.set1team2;
-    this.set.setNumber = 1;
-    this.sets.concat(this.set);
-    this.set.games = this.set2team2;
-    this.set.setNumber = 2;
-    this.sets.concat(this.set);
-    this.set.games = this.set3team2;
-    this.set.setNumber = 3;
-    this.sets.concat(this.set);
+    this.set11.games = this.set1team2;
+    this.set11.setNumber = 1;
+    this.sets.push(this.set11);
+    console.log(this.set11);
+    this.set22.games = this.set2team2;
+    this.set22.setNumber = 2;
+    this.sets.push(this.set22);
+    console.log(this.set22);
+    this.set33.games = this.set3team2;
+    this.set33.setNumber = 3;
+    this.sets.push(this.set33);
+    console.log(this.set33);
     this.statsMatch2.sets = this.sets;
     if (this.win2 != true) {
       this.statsMatch2.win = false;
     } else {
       this.statsMatch2.win = this.win2;
     }
-    console.log(match);
+    console.log(match.id);
     console.log(this.statsMatch1);
     console.log(this.statsMatch2);
+    console.log(this.statsMatch1.sets.toString());
+    console.log(this.statsMatch2.sets.toString());
 
     this.adminService.addStatsMatch(match, this.statsMatch1, this.statsMatch2).subscribe(
       data => {

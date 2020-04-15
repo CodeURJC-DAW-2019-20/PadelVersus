@@ -3,7 +3,7 @@
   <app-carousel [slides]="getSlides()" [nextMatches]="getNextMatches()"></app-carousel>
 </div>
 
-<div class="container"  >
+<div class="container">
   <div class="row">
     <div class="col-md-5 background-col">
       <app-next-matches [nextMatches]="getNextMatches()" [showTitle]=true [flipInX]=true [fadeInUp]=false [home]="true"></app-next-matches>
@@ -11,6 +11,19 @@
     <div class="col-md-1"></div>
     <div class="col-md-5 background-col">
       <app-last-matches [lastMatches]="getlastMatches()"></app-last-matches>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <a class="twitter-timeline" href="https://twitter.com/TeamPia2/timelines/1231985752470413314?ref_src=twsrc%5Etfw">Padel Versus - Curated tweets by TeamPia2</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <div>
+        <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet"
+           data-size="large">
+          Tweet</a>
+      </div>
     </div>
   </div>
 </div>

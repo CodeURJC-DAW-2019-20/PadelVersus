@@ -50,7 +50,7 @@
           <form #stadisticsForm="ngForm" (ngSubmit)="statsForm(selectedMatch)">
             <h4>Choose Match:</h4>
             <select [(ngModel)]="selectedMatch" name="selectedMatch">
-              <option *ngFor="let Match of getMatchs()" [value]="Match">
+              <option *ngFor="let Match of getMatchs()" [ngValue]="Match">
                 {{Match.teams[0].name + ", " + Match.teams[1].name + ", " + Match.date}}
               </option>
             </select>

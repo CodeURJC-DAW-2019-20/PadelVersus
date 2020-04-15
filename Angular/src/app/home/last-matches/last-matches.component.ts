@@ -19,7 +19,7 @@ export class LastMatchesComponent implements OnInit {
   }
 
   getlastMatches() {
-    return this.lastMatches;
+    return this.lastMatches.reverse();
   }
 
   goToMatch(id: number) {
