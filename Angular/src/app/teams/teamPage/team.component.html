@@ -19,9 +19,11 @@
         <!--<span>Member {{i+1}}</span>-->
 
         <a [routerLink]="['/player', player.id]">
-          <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}" styleClass="player-card">
-            <div id="border"></div>
-            <app-images [idPlayer]="player.id" [teamPage]="true" ></app-images>
+          <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}"
+                  styleClass="player-card">
+            <div id="player-image">
+              <app-images [idPlayer]="player.id" ></app-images>
+            </div>
           </p-card>
           <!--<button pButton class="ui-button-secondary" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>-->
         </a>

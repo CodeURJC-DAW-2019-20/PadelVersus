@@ -13,7 +13,7 @@
   </div>
   <div class="row">
     <div class="col-sm-3">
-      <app-images [idPlayer]="getId()" [teamPage]="false" ></app-images>
+      <app-images [idPlayer]="getId()"  ></app-images>
       <div class="file-upload-wrapper" *ngIf="getPlayer() && showMailAndButton() && fileInputShown">
         <input #fileInput accept="image/jpeg" (change)="processFile(fileInput)" type="file"
                class="form-control-file input-file" id="file">

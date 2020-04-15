@@ -38,4 +38,32 @@ a:hover{
   text-decoration: none !important;
 }
 
+#player-image{
+  position: relative;
+  overflow: hidden;
+}
 
+#player-image:hover{
+  position: relative;
+  overflow: hidden;
+}
+#player-image:hover:after {
+  left: -70%;
+  background: #fc0;
+}
+#player-image:after {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -80%;
+  z-index: 100;
+  background: #f2f2f2;
+  transform-origin: bottom left;
+  -ms-transform: skew(-10deg, 0deg);
+  -webkit-transform: skew(-10deg, 0deg);
+  transform: skew(-10deg, 0deg);
+  transition: all .4s;
+}

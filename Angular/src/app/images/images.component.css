@@ -1,7 +1,0 @@
-.skew-border:hover {
-  position: relative;
-  transform: skew(15deg);
-  -webkit-transform: skew(15deg) ;
-  -moz-transform: skew(15deg);
-  overflow: hidden
-}
