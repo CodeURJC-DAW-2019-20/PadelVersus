@@ -6,10 +6,7 @@
         <ng-container *ngIf="getTeamsPage()">
           <p-tabPanel [selected]="1==1" header="All">
             <div class="row">
-              <div class="p-col-12 p-md-6 p-lg-3" *ngFor="let e of getTeamsPage() | paginate: {
-              itemsPerPage: pageSize,
-              currentPage: pageNumber,
-              totalItems: getTeamsPage().length }">
+              <div class="p-col-12 p-md-6 p-lg-3" *ngFor="let e of getTeamsPage()">
                 <p-card class="center">
                   <img src="assets/team-logo2.png" class="img">
                   <p-footer>
@@ -20,10 +17,6 @@
                   </p-footer>
                 </p-card>
               </div>
-            </div>
-            <!--Including the pagination control.-->
-            <div class="text-center">
-              <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
             </div>
           </p-tabPanel>
         </ng-container>

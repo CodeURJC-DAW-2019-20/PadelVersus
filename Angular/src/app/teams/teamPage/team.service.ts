@@ -15,7 +15,7 @@ export class TeamService {
 
   constructor(private http: HttpClient) {
     this.teamxUrl = '/api/teamx/';
-    this.teamListUrl = '/api/teamsList/';
+    this.teamListUrl = '/api/teamsList/?size=4&page=';
   }
 
   getTeam(id: number) {
@@ -25,8 +25,8 @@ export class TeamService {
     );
   }
 
-  getPageTeam() {
-    return this.http.get<TeamOfPage[]>(this.teamListUrl).pipe(
+  getPageTeam(pageNumber: number) {
+    return this.http.get<TeamOfPage[]>(this.teamListUrl+pageNumber).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );
