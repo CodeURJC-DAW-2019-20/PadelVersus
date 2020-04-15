@@ -4,29 +4,31 @@
 # Execution with log41
 # C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File C:/Users/jllav/IdeaProjects/PadelVersus/Script.ps1 $true
 
+if($args[0] -eq "frontend"){
+    echo "Frontend"
+    cd Angular
+    docker run --rm -it -v "$(pwd):/usr/src/app" -w "/usr/src/app"  node:12.16.2-alpine npm run build
+    cd ..
 
-cd Angular
-docker run --rm -it -v "$(pwd):/usr/src/app" -w "/usr/src/app"  node:12.16.2-alpine npm run build
-cd ..
 
+    if (!(Test-Path ./Angular/dist/angular -PathType Any)){
+        echo "Angular compilation fail"
+        exit
+    }
 
-if (!(Test-Path ./Angular/dist/angular -PathType Any)){
-    echo "Angular compilation fail"
-    exit
+    if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+        Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
+    }else{
+        Remove-Item -Recurse -Force ./Backend/src/main/resources/static/new
+        Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
+    }
+
+    if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+        echo "Move folder fails"
+        exit
+    }
+
 }
-
-if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
-    Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
-}else{
-    Remove-Item -Recurse -Force ./Backend/src/main/resources/static/new
-    Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
-}
-
-if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
-    echo "Move folder fails"
-    exit
-}
-
 cd Backend
 # Clean and packge using local .m2 repository to do not download already gotten libraries
 docker run -it --rm -v "$(pwd):/usr/src/project" `
