@@ -1,11 +1,12 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Tournament} from '../Interfaces/tournament.model';
-import {TournamentService} from "../tournament/tournament.service";
-import {TeamOfPage} from "../Interfaces/teamOfPage.model";
-import {TeamService} from "./teamPage/team.service";
+import {TournamentService} from '../tournament/tournament.service';
+import {TeamOfPage} from '../Interfaces/teamOfPage.model';
+import {TeamService} from './teamPage/team.service';
 
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-teamList',
   templateUrl: './teamList.component.html',
   styleUrls: ['./teamList.component.css'],
@@ -13,12 +14,12 @@ import {TeamService} from "./teamPage/team.service";
 })
 export class TeamListComponent implements OnInit {
 
-  private showSpinner: boolean = true;
+  private showSpinner = true;
   private tournaments: Tournament[] = [];
   public pageNumber: number;
   public pageSize = 4;
 
-  private teamsPage : TeamOfPage[] = [];
+  private teamsPage: TeamOfPage[] = [];
 
   constructor(private tournamentService: TournamentService, private teamService: TeamService) {
   }
@@ -28,7 +29,7 @@ export class TeamListComponent implements OnInit {
     this.teamService.getPageTeam(this.pageNumber).subscribe(
       data => {
         this.teamsPage = data;
-        console.log('Page: ', data)
+        console.log('Page: ', data);
       },
       error => this.handleError(error)
     );
@@ -47,31 +48,31 @@ export class TeamListComponent implements OnInit {
     console.error(error);
   }
 
-  public getTournaments(){
-    return this.tournaments
+  public getTournaments() {
+    return this.tournaments;
   }
 
-  public getTeamsPage(){
-    return this.teamsPage
+  public getTeamsPage() {
+    return this.teamsPage;
   }
 
-  public loadMore(){
+  public loadMore() {
     this.showSpinner = true;
     this.pageNumber += 1;
     this.teamService.getPageTeam(this.pageNumber).subscribe(
       data => {
-        let more: TeamOfPage[] = data;
-        for (const t in more){
+        const more: TeamOfPage[] = data;
+        for (const t in more) {
           this.teamsPage.push(more[t]);
         }
         this.showSpinner = false;
-        console.log('Page: ',this.pageNumber, ' ,Data:', more, 'TEAMPAGE:', this.teamsPage)
+        console.log('Page: ', this.pageNumber, ' ,Data:', more, 'TEAMPAGE:', this.teamsPage);
       },
       error => this.handleError(error)
     );
   }
 
-  public getShowSpinner(){
+  public getShowSpinner() {
     return this.showSpinner;
   }
 }
