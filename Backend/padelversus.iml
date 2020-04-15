@@ -8,6 +8,7 @@
         <datasource-mapping>
           <factory-entry name="Entities" />
           <factory-entry name="entityManagerFactory" />
+          <factory-entry name="padelversus" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
