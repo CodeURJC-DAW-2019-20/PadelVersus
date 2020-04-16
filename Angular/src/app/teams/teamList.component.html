@@ -30,6 +30,11 @@
               <div class="row justify-content-center" *ngIf="!getShowSpinner()">
                 <button class="btn btn-warning text-uppercase my-4" (click)="loadMore()">Load more</button>
               </div>
+            </div><p-card header="Loading" *ngIf= "getShowSpinner()" [style]="{width: '500px', textAlign:'center',marginLeft:'auto',marginRight: 'auto'}">
+              <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+            </p-card>
+            <div class="row" *ngIf="!getShowSpinner() && getLoadMore()">
+              <button pButton class="ui-button-warning" (click)="loadMore()">Load more</button>
             </div>
           </p-tabPanel>
         </ng-container>

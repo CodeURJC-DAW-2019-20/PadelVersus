@@ -18,6 +18,7 @@ export class TeamListComponent implements OnInit {
   private tournaments: Tournament[] = [];
   public pageNumber: number;
   public pageSize = 4;
+  public showLoadMore = true;
 
   private teamsPage: TeamOfPage[] = [];
 
@@ -70,9 +71,21 @@ export class TeamListComponent implements OnInit {
       },
       error => this.handleError(error)
     );
+    this.teamService.getPageTeam(this.pageNumber+1).subscribe(
+      data => {
+        if (data.length == 0){
+          this.showLoadMore = false;
+        }
+      },
+      error => this.handleError(error)
+    );
   }
 
   public getShowSpinner() {
     return this.showSpinner;
+  }
+
+  public getLoadMore(){
+    return this.showLoadMore;
   }
 }
