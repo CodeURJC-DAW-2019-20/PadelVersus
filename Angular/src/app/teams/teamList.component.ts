@@ -64,18 +64,14 @@ export class TeamListComponent implements OnInit {
       data => {
         const more: TeamOfPage[] = data;
         for (const t in more) {
+          if (more[t][0] === 'Last') {
+            this.showLoadMore = false;
+            break;
+          }
           this.teamsPage.push(more[t]);
         }
         this.showSpinner = false;
         console.log('Page: ', this.pageNumber, ' ,Data:', more, 'TEAMPAGE:', this.teamsPage);
-      },
-      error => this.handleError(error)
-    );
-    this.teamService.getPageTeam(this.pageNumber+1).subscribe(
-      data => {
-        if (data.length == 0){
-          this.showLoadMore = false;
-        }
       },
       error => this.handleError(error)
     );
@@ -85,7 +81,7 @@ export class TeamListComponent implements OnInit {
     return this.showSpinner;
   }
 
-  public getLoadMore(){
+  public getLoadMore() {
     return this.showLoadMore;
   }
 }

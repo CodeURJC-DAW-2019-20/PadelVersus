@@ -15,18 +15,20 @@ if($args[0] -eq "frontend"){
         echo "Angular compilation fail"
         exit
     }
+    while(!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+        if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+            Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
+        }else{
+            Remove-Item -Recurse -Force ./Backend/src/main/resources/static/new
+            Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
+        }
 
-    if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
-        Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
-    }else{
-        Remove-Item -Recurse -Force ./Backend/src/main/resources/static/new
-        Copy-Item -Path ./Angular/dist/angular -Destination ./Backend/src/main/resources/static/new -Recurse
+        if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
+            echo "Move folder fails"
+            echo "Retrying..."
+        }
     }
 
-    if (!(Test-Path ./Backend/src/main/resources/static/new -PathType Any)){
-        echo "Move folder fails"
-        exit
-    }
 
 }
 cd Backend
@@ -59,7 +61,7 @@ cd Docker
 docker rmi teampina/padelversus
 
 # We build the backend image
-docker image build -t teampina/padelversus -f Backend.Dockerfile .
+docker image build -t teampina/padelversus -f .Dockerfile .
 
 # We push the images to docker hub
 docker push teampina/padelversus
