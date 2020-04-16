@@ -4,10 +4,11 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { AuthenticationService } from './authentication.service';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService, private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(err => {
@@ -16,7 +17,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         this.authenticationService.logOut();
         location.reload(true);
       }
-
+      if (err.status === 404) {
+        this.router.navigateByUrl('/noLoEncontraras', {replaceUrl: true});
+      }
       const error = err.error.message || err.statusText;
       return throwError(error);
     }));

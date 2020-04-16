@@ -19,10 +19,9 @@ export class MatchService {
     this.matchUrl = '/api/match/';
   }
 
-  getMatch(id:number) {
-    this.matchUrl= this.matchUrl+id;
-    console.log("Voy a la URL:",this.matchUrl)
-    return this.http.get<Match>(this.matchUrl).pipe(
+  getMatch(id: number) {
+    console.log('Voy a la URL:', this.matchUrl);
+    return this.http.get<Match>(this.matchUrl + id).pipe(
       map(response => response),
       catchError(err => this.handleError(err))
     );

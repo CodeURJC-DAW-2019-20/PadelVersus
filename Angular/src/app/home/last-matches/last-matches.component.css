@@ -36,6 +36,7 @@ td.score {
 td.team-name{
   padding: 0.5em;
   width: 30%;
+  color: black;
 }
 
 td.col-space{
@@ -97,4 +98,7 @@ td.first-col-space{
   backface-visibility: visible !important;
   -webkit-animation-name: flipInX;
   animation-name: flipInX;
+}
+a:hover{
+  text-decoration: none !important;
 }
