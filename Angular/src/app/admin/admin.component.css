@@ -33,7 +33,7 @@ select {
 .ui-state-active > a {
   border: none !important;
 }
-#ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
+/*#ui-accordiontab-0, #ui-accordiontab-1, #ui-accordiontab-2, #ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
   border: none;
   background: #c6a900;
   font-family: Poppins-Regular, sans-serif;
@@ -41,19 +41,37 @@ select {
   font-size: 24px;
   font-weight: 300;
   line-height: 41px;
+}*/
+
+a[id^='ui-accordiontab']{
+  border: none;
+  background: #c6a900 !important;
+  font-family: Poppins-Regular, sans-serif;
+  padding: 20px !important;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 41px;
 }
 
-#ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5 {
+#ui-accordiontab-3, #ui-accordiontab-4, #ui-accordiontab-5, #ui-accordiontab-6, #ui-accordiontab-7, #ui-accordiontab-8 {
   line-height: unset !important;
   padding: unset !important;
 }
 
-#ui-accordiontab-0:focus, #ui-accordiontab-1:focus, #ui-accordiontab-2:focus, #ui-accordiontab-3:focus, #ui-accordiontab-4:focus, #ui-accordiontab-5:focus {
+/*#ui-accordiontab-0:focus, #ui-accordiontab-1:focus, #ui-accordiontab-2:focus, #ui-accordiontab-3:focus, #ui-accordiontab-4:focus, #ui-accordiontab-5:focus {
+  outline: none;
+}*/
+a[id^='ui-accordiontab']:focus{
   outline: none;
 }
 
-#ui-accordiontab-0:hover, #ui-accordiontab-1:hover, #ui-accordiontab-2:hover, #ui-accordiontab-3:hover, #ui-accordiontab-4:hover, #ui-accordiontab-5:hover {
+
+/*#ui-accordiontab-0:hover, #ui-accordiontab-1:hover, #ui-accordiontab-2:hover, #ui-accordiontab-3:hover, #ui-accordiontab-4:hover, #ui-accordiontab-5:hover {
   background: #e99f00;
+}*/
+
+a[id^='ui-accordiontab']:hover{
+  background: #e99f00 !important;
 }
 
 .ui-accordion-toggle-icon {
