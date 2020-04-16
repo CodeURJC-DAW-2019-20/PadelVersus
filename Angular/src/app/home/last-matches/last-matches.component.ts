@@ -23,6 +23,6 @@ export class LastMatchesComponent implements OnInit {
   }
 
   goToMatch(id: number) {
-    this.router.navigate(['/match/' + id]);
+    this.router.navigate(['/match' + id]);
   }
 }
