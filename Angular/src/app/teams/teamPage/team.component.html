@@ -1,8 +1,8 @@
-<div class = "container">
-  <div class = "row" style="padding-top:10%">
-    <div class = "row">
+<div class="container">
+  <div class="row" style="padding-top:10%">
+    <div class="row">
       <ng-container *ngIf="getTeam()">
-        <div class="badge bg-warning text-white">
+        <div class="skew-badge text-white">
           <span class="title">Name</span>
         </div>
         <span class="sectionTitle">
@@ -15,23 +15,27 @@
   <div class="row center" *ngIf="getTeam()">
     <ng-container *ngFor="let player of getTeam().players, let i=index">
       <div class="p-col-4 center">
-        <div class="badge bg-warning text-white">
-          <span>Member {{i+1}}</span>
-          <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}">
-            <app-images [idPlayer]="player.id"></app-images>
+        <!--<div class="badge bg-warning text-white">-->
+        <!--<span>Member {{i+1}}</span>-->
+
+        <a [routerLink]="['/player', player.id]">
+          <p-card header="{{player.user.name}}" subheader="{{player.countryBirth}}, {{player.age}}"
+                  styleClass="player-card">
+            <div id="player-image">
+              <app-images [idPlayer]="player.id" ></app-images>
+            </div>
           </p-card>
-          <a [routerLink]="['/player', player.id]">
-            <button pButton class="ui-button-secondary" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>
-          </a>
-        </div>
+          <!--<button pButton class="ui-button-secondary" icon="pi pi-chart-line" style = "margin-top: 5%" ></button>-->
+        </a>
       </div>
+      <!--</div>-->
     </ng-container>
   </div>
 
-  <div class = "row" style="padding-top:10%">
-    <div class = "row">
+  <div class="row" style="padding-top:10%">
+    <div class="row">
       <ng-container *ngIf="getTeam()">
-        <div class="badge bg-warning text-white">
+        <div class="skew-badge text-white">
           <span class="title">Recent</span>
         </div>
         <span class="sectionTitle">
@@ -49,9 +53,9 @@
     <div class="col-md-3"></div>
   </div>
 
-  <div class = "row" style="padding-top:10%">
-    <div class = "row">
-      <div class="badge bg-warning text-white">
+  <div class="row" style="padding-top:10%">
+    <div class="row">
+      <div class="skew-badge text-white">
         <span class="title">Info</span>
       </div>
       <span class="sectionTitle">
@@ -60,7 +64,7 @@
     </div>
   </div>
 
-  <div class = "row" *ngIf="getTeam()!=null">
+  <div class="row" *ngIf="getTeam()!=null">
     <div class="p-col-6 center ">
       <div class="badge bg-warning text-white">
         <span class="title">Games Per Match</span>

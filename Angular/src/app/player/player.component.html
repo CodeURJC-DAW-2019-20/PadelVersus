@@ -1,19 +1,20 @@
 <div class="container pb-5">
 
-  <div class="row">
+  <div class="row my-3">
     <ng-container *ngIf="getPlayer()">
-        <span class="  p-3 mb-2 bg-warning text-white text-uppercase box  ">
+      <div class="skew-badge">
+        <span class="">
           {{getPlayer().countryBirth}}
         </span>
-
-      <span class="  userName " style="padding-top:30px">
+      </div>
+      <span class="  userName ">
           {{getPlayer().user.name}}
         </span>
     </ng-container>
   </div>
   <div class="row">
     <div class="col-sm-3">
-      <app-images [idPlayer]="getId()"></app-images>
+      <app-images [idPlayer]="getId()"  ></app-images>
       <div class="file-upload-wrapper" *ngIf="getPlayer() && showMailAndButton() && fileInputShown">
         <input #fileInput accept="image/jpeg" (change)="processFile(fileInput)" type="file"
                class="form-control-file input-file" id="file">

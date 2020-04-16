@@ -11,6 +11,7 @@ import {PlayerService} from '../player/player.service';
 export class ImagesComponent implements OnInit {
 
   @Input() private idPlayer: number;
+  @Input() teamPage: boolean;
   private imagePlayer: any;
 
 

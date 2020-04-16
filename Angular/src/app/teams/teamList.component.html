@@ -5,17 +5,30 @@
 
         <ng-container *ngIf="getTeamsPage()">
           <p-tabPanel [selected]="1==1" header="All">
-            <div class="row">
-              <div class="p-col-12 p-md-6 p-lg-3" *ngFor="let e of getTeamsPage()">
-                <p-card class="center">
-                  <img src="assets/team-logo2.png" class="img">
-                  <p-footer>
-                    <span class="badge bg-warning text-white">{{e[1]}}</span>
-                    <a [routerLink]="['/teams', e[0]]">
-                      <button pButton class="ui-button-warning" icon="pi pi-chart-line" style="margin-top: 5%"></button>
-                    </a>
-                  </p-footer>
-                </p-card>
+            <div class="container">
+              <div class="row" >
+                <div class="col-md-3 mb-3"  *ngFor="let e of getTeamsPage()">
+                  <a [routerLink]="['/teams', e[0]]">
+                    <p-card class="center" styleClass="team-card">
+                      <img src="assets/team-logo2.png" class="img">
+                      <p-footer>
+                        <span class="team-name text-white">{{e[1]}}</span>
+
+                        <!--<button pButton class="ui-button-warning" icon="pi pi-chart-line"
+                                style="margin-top: 5%"></button>-->
+
+                      </p-footer>
+                    </p-card>
+                  </a>
+                </div>
+              </div>
+              <p-card header="Loading" *ngIf="getShowSpinner()"
+                      [style]="{width: '500px', textAlign:'center',marginLeft:'auto',marginRight: 'auto'}">
+                <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE"
+                                   animationDuration=".5s"></p-progressSpinner>
+              </p-card>
+              <div class="row justify-content-center" *ngIf="!getShowSpinner()">
+                <button class="btn btn-warning text-uppercase my-4" (click)="loadMore()">Load more</button>
               </div>
             </div><p-card header="Loading" *ngIf= "getShowSpinner()" [style]="{width: '500px', textAlign:'center',marginLeft:'auto',marginRight: 'auto'}">
               <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>

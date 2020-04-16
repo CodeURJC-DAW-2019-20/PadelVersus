@@ -1,10 +1,10 @@
-.sectionTitle{
+.sectionTitle {
   font-size: 24px;
   font-weight: 900;
   text-transform: uppercase
 }
 
-.badge{
+.badge {
   margin-top: 7px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -17,14 +17,78 @@
   text-transform: uppercase;
 }
 
-.center{
-  justify-content:center;
+.center {
+  justify-content: center;
   align-items: center;
   align-content: center;
   text-align: center
 }
 
-.black-border{
+.black-border {
   border: black solid 1px !important;
 }
+.player-card{
+  width: 75%;
+}
+.player-card:hover {
+  box-shadow: 0 0 17px -6px #000 !important;
+}
 
+a:hover{
+  text-decoration: none !important;
+}
+
+#player-image{
+  position: relative;
+  overflow: hidden;
+}
+
+#player-image:hover{
+  position: relative;
+  overflow: hidden;
+}
+#player-image:hover:after {
+  left: -70%;
+  background: #fc0;
+}
+#player-image:after {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -80%;
+  z-index: 100;
+  background: #f2f2f2;
+  transform-origin: bottom left;
+  -ms-transform: skew(-10deg, 0deg);
+  -webkit-transform: skew(-10deg, 0deg);
+  transform: skew(-10deg, 0deg);
+  transition: all .4s;
+}
+.skew-badge{
+  position: relative;
+  width: 120px;
+  padding: 10px 20px 10px 10px;
+  overflow: hidden;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  font-family: Montserrat, sans-serif;
+}
+.skew-badge:after{
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  z-index: -1;
+  background: rgb(255, 193, 7);
+  transform-origin: bottom left;
+  -ms-transform: skew(-30deg, 0deg);
+  -webkit-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
+}
