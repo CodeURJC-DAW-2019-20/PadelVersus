@@ -126,6 +126,6 @@ export class PlayerComponent implements OnInit {
   }
 
   reload() {
-    this.router.navigate(['']).then(() => this.router.navigate(['/player'], {queryParams: {id: this.id}}));
+    this.router.navigate(['']).then(() => this.router.navigate(['/player', this.id]));
   }
 }

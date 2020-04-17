@@ -48,7 +48,7 @@ export class SignUpPlayerComponent {
         // GO TO THE LAST PAGE
         this.playerId = data.id;
         this.error = false;
-        this.router.navigate(['/signupplayerimage/' + data.id]);
+        this.router.navigate(['']);
 
 
         //this.router.navigate(['']);

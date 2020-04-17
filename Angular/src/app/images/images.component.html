@@ -1,3 +1,9 @@
-<img [src]="getImageByPlayer()" alt="{{getImageByPlayer()}}">
+<ng-container *ngIf="!errorImage">
+  <img src="assets/avatar.png" height="260" width="220" alt="Avatar">
+</ng-container>
+<ng-container *ngIf="errorImage">
+  <img [src]="getImageByPlayer()" alt="Not Image Already">
+</ng-container>
+
 
 

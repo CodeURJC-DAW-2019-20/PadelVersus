@@ -15,6 +15,7 @@ public class UserService {
     private NotificationService notificationService;
 
     public void saveUser(User user){
+        //notificationService.sendNotification(user);
         userRepository.save(user);
     }
 

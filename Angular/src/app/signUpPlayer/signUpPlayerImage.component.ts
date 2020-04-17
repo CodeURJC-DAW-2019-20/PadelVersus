@@ -22,6 +22,7 @@ export class SignUpPlayerImageComponent {
   private playerId: number;
   error: boolean;
   public newImagePlayer: Image;
+  public uploadButton = false;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: AuthenticationService, private playerService: PlayerService) {
 
@@ -58,6 +59,9 @@ export class SignUpPlayerImageComponent {
     );
 
     reader.readAsDataURL(file);
+    this.uploadButton = true;
+  }
+  reload() {
     this.router.navigate(['']);
   }
 }

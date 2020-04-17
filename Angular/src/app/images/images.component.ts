@@ -13,6 +13,7 @@ export class ImagesComponent implements OnInit {
   @Input() private idPlayer: number;
   @Input() teamPage: boolean;
   private imagePlayer: any;
+  public errorImage = false;
 
 
   constructor(private activatedRoute: ActivatedRoute, private playerService: PlayerService) {
@@ -23,7 +24,11 @@ export class ImagesComponent implements OnInit {
 
     this.playerService.getImageByPlayer(this.idPlayer)
       .subscribe(data => {
-          this.createImageFromBlob(data);
+          if (data.size !== 0) {
+            this.createImageFromBlob(data);
+            this.errorImage = true;
+          }
+
         }, error => {
           console.log(error);
         }
@@ -39,14 +44,13 @@ export class ImagesComponent implements OnInit {
 
     if (image) {
       reader.readAsDataURL(image);
+
     }
   }
 
   getImageByPlayer() {
     return this.imagePlayer;
   }
-
-
 
 
 }

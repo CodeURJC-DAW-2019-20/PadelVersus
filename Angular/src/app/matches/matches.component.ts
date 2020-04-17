@@ -14,6 +14,7 @@ export class MatchesComponent implements OnInit {
   private nextMatchesDateComponent: NextMatchesDateComponent;
 
   private lastMatches: Match[];
+  public matchesByDateGlobal: MatchesOnDate [] = [];
 
   constructor(private matchesService: MatchesService) {
   }
@@ -40,9 +41,7 @@ export class MatchesComponent implements OnInit {
               console.log('Matches not played on ' + date + ': ', dataOnDate);
               console.log(obj);
               if (data.indexOf(date) === (data.length - 1)) {
-                console.log('Passing to child (lenght): ' + matchesByDate.length);
-                this.nextMatchesDateComponent.matchesByDate = matchesByDate;
-                this.nextMatchesDateComponent.toggleShow();
+                this.matchesByDateGlobal = matchesByDate;
               }
             },
             error => this.handleError(error)
@@ -60,6 +59,10 @@ export class MatchesComponent implements OnInit {
 
   private handleError(error: any) {
     console.error(error);
+  }
+
+  public getMatchesByDate() {
+    return this.matchesByDateGlobal;
   }
 
 }

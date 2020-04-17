@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {MatchesOnDate} from '../../Interfaces/matchesOnDate.model';
 import {Match} from '../../Interfaces/match.model';
 
@@ -9,6 +9,7 @@ import {Match} from '../../Interfaces/match.model';
 })
 export class NextMatchesDateComponent implements OnInit, AfterViewInit {
 
+  @Input()
   public matchesByDate: MatchesOnDate [] = [];
   private show = false;
 
@@ -55,14 +56,14 @@ export class NextMatchesDateComponent implements OnInit, AfterViewInit {
 
 
   toggleShow() {
-    this.show = !this.show;
+    this.show = true;
     if (this.show) {
       this.updateDates();
     }
   }
 
   getShow() {
-    return this.show;
+    return this.matchesByDate !== undefined;
   }
 
   private updateDates() {

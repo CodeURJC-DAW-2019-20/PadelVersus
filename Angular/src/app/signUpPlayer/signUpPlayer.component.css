@@ -1,6 +1,6 @@
 .login-panel{
   height: 100%;
-  background: url("/assets/404Background.jpg") no-repeat;
+  background: url("../../assets/404Background.jpg") no-repeat;
   background-size: cover;
 }
 input {
@@ -13,7 +13,7 @@ input {
   color: #000000;
 }
 .background{
-  background: url('/assets/404Background.jpg') no-repeat center !important;
+  background: url('../../assets/404Background.jpg') no-repeat center !important;
   background-size: cover !important;
 }
 .text-center {
@@ -92,4 +92,7 @@ button {
 
 footer{
   display: none !important;
+}
+label{
+  color: white;
 }
