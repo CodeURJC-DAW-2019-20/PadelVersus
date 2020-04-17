@@ -573,3 +573,4 @@ Here we can see the SPA diagram os the angular application.
 
 ![Fase4_Diagram](WebImages/SPADiagram_1.png)
 ## Link to youtube
+https://youtu.be/4jhL8U50lIA
