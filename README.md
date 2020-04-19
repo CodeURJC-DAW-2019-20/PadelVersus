@@ -132,7 +132,7 @@ A page where the team logo, the team name and its two members are shown. Below t
 ![SpecTeam](WebImages/SpecificTeam.PNG)
 #### Player/User
 This window will show you main features of the players of each team, the last five matches, the club history and the trophies. Moreover, it shows you the minutes played, one summary of the player, detailed player statistics (graphic)and his points per game (graphic).
-![UserView](WebImages/PlayerView.jpg)
+![UserView](WebImages/PlayerView.JPG)
 #### Registration Tournament
 You will can choose tournament, write your team name and upload team logo. Moreover, you will can write the first name (player1) and the second player will be found for join to first player.
 ![RegTournament](WebImages/RegistrationTournament.JPG)
