@@ -129,6 +129,7 @@ Contains a slider where you can navigate between tournaments to see which teams 
 ![Teams](WebImages/Teams.PNG)
 #### SpecificTeam
 A page where the team logo, the team name and its two members are shown. Below this information we find statistics about the team.
+
 ![SpecTeam](WebImages/SpecificTeam.PNG)
 #### Player/User
 This window will show you main features of the players of each team, the last five matches, the club history and the trophies. Moreover, it shows you the minutes played, one summary of the player, detailed player statistics (graphic)and his points per game (graphic).
@@ -138,6 +139,7 @@ You will can choose tournament, write your team name and upload team logo. Moreo
 ![RegTournament](WebImages/RegistrationTournament.JPG)
 #### Calendar
 Contains one calendar with the matches of each month.
+
 ![Calendar](WebImages/Calendar.JPG)
 ### Flow Diagram
 ![Diagram](WebImages/flowDiagram.JPG)
