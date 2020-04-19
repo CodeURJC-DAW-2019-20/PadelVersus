@@ -570,7 +570,12 @@ With al this steps done, you have an angular application connected with an api, 
 | José Luis Lavado Sánchez | lujoselu98 |Mainly all home, matches and tournament ranking and registration pages. Also make navigation and error pages (404, 403) and help with style apperance|
 
 ## Prepare Develop Enviroment
-
+    1. The first step is installing node.js, npm and angular cli. With all this correctly installed, we can create a new angular proyect in the IDE you are working on. 
+    2. The next step is creating all the configuration necessary to create each module.
+    3. Each part is in a folder with a component.ts where is all the logic connected with a componen.html, also a component.css with the style for this html and service.ts where you make the get, post, put or delete request to the API.
+    4. You can modify the html template making it more beautiful using ng-material, Bootstrap or primeng. The last step, if you want to upload to Docker.
+    5. ```DOCKER:``` add the node.js container to Docker-compose and in the dockerfile, add the configuration for doing ng-build.
+    6. Last step, there is an angular application connected with an api, and working all of this in Docker, with an springboot backend and an independent front with mustache.
 ## Class/Templates Diagram
 Here we can see the SPA diagram os the angular application.
 
